@@ -1,0 +1,137 @@
+<style>
+    td.for_uploaded_img {
+        text-align: center;
+    }
+
+    .uploaded_img {
+        width: 75px;
+        height: 75px;
+        display: block;
+        border: 5px solid #fff;
+        border-radius: 100%;
+    }
+
+    .uploaded_img img {
+        width: 100%;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+    .dashboard-select select {
+        border: 1px solid #dedede;
+        font-size: 15px;
+        color: #7f7f7f;
+        height: 30px;
+        padding: 0 5px;
+        width: 110px;
+        margin-left: 10px;
+    }
+    .dashboard-select select:focus{
+        outline: 0;
+    }
+</style>
+<div class="page-title">
+
+    <div class="title-env">
+        <h1 class="title">Welcome <?= session('name') ?></h1>
+
+        <p class="description"></p>
+    </div>
+
+    <div class="breadcrumb-env">
+
+        <ol class="breadcrumb bc-1">
+            <li>
+                <a href="<?= site_url('admin/dashboard') ?>"><i class="fa-home"></i>Dashboard</a>
+            </li>
+        </ol>
+
+    </div>
+
+</div>
+<!-- Admin Table-->
+<div class="row">
+    <label class="col-sm-4 control-label"><a style="background: #000; color: #fff; padding: 5px; border-radius: 3px; display: inline-block;" href="<?= site_url('admin/files/new_index') ?>"><?= $files ?> Total Files</a></label>
+    <label class="col-sm-2 control-label"><?= $active ?> Active</label>
+    <label class="col-sm-2 control-label"><?= $canceled ?> Canceled</label>
+    <label class="col-sm-2 control-label"><?= $hold ?> Hold</label>
+    <label class="col-sm-2 control-label"><?= $suspended ?> Suspended</label>
+</div>
+
+
+<br/>
+<!-- Admin Table-->
+<div class="panel panel-default">
+    <div class="panel-heading dashboard-select">
+        <h3 class="panel-title">Files re-evaluation
+            in <?//= form_dropdown('reevaluation', $periods, null, 'onClick="muhammad.update(\'reevaluation\', this.value)"') ?></h3>
+
+    </div>
+    <div class="panel-body">
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Re-Evaluation date</th>
+                    <th>Me Number</th>
+                    <th>Serial</th>
+                    <th>Facility</th>
+                    <th class="cert">Certificate</th>
+                </tr>
+            </thead>
+
+            <tbody class="middle-align" id="reevaluation">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading dashboard-select">
+        <h3 class="panel-title">Files expiring
+            in <?//= form_dropdown('expiring', $periods, null, 'onClick="muhammad.update(\'expiring\', this.value)"') ?></h3>
+    </div>
+    <div class="panel-body">
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Expiring date</th>
+                    <th>Me Number</th>
+                    <th>Serial</th>
+                    <th>Facility</th>
+                    <th class="excert">Certificate</th>
+                </tr>
+            </thead>
+
+            <tbody class="middle-align" id="expiring">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    var muhammad = {
+        update: function ($op, $val, orderby) {
+
+            $.get('<?= site_url('admin/dashboard/get_status/') ?>/' + $op + '/' + $val + '/' + orderby, function (data) {
+                $('#' + $op).html(data);
+            });
+        }
+    };
+    $(document).ready(function () {
+        muhammad.update('reevaluation', $('select[name=reevaluation]').val());
+        muhammad.update('expiring', $('select[name=expiring]').val());
+
+        $('.excert').click(function() {
+            muhammad.update('expiring', $('select[name=expiring]').val(), 'certificate');
+        });
+
+        $('.cert').click(function() {
+            muhammad.update('reevaluation', $('select[name=reevaluation]').val(), 'certificate');
+        });
+    });
+</script>

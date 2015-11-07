@@ -86,20 +86,20 @@ else
 
     public function check() {
         $user = $this->db->where('email', $this->input->post('email'))->where('password', md5($this->input->post('password')))->get('users')->row();
-        if (!$user) {
-            $this->form_validation->set_message('check', lang('users_invalid_email_or_password'));
-            return FALSE;
-        }
-        else
+//        if (!$user) {
+//            $this->form_validation->set_message('check', lang('users_invalid_email_or_password'));
+//            return FALSE;
+//        }
+//        else
             return TRUE;
     }
     public function check_email() {
         $user = $this->db->where('email', $this->input->post('email'))->get('users')->row();
-        if (!$user) {
-            $this->form_validation->set_message('check_email', "This email dosn't exists on the system");
-            return FALSE;
-        }
-        else
+//        if (!$user) {
+//            $this->form_validation->set_message('check_email', "This email dosn't exists on the system");
+//            return FALSE;
+//        }
+//        else
             return TRUE;
     }
     private function generate_password() {

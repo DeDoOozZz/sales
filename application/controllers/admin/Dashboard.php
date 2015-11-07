@@ -1,7 +1,7 @@
 <?php
 
 class Dashboard extends CI_Controller {
-    public $layout = 'full';
+    public $layout = 'default';
     public $module = 'dashboard';
 
     public function index() {

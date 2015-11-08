@@ -1,5 +1,12 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-
+/**
+ * ADMINISTRATION AREA
+ * DON't FORGET TO RENAME THE FOLDER (application/controllers/admin)
+ **/
+define('ADMIN', 'admin');
+/**
+ * DATABASE CONFIGURATIONS
+ */
 $active_group = 'default';
 $query_builder = TRUE;
 if ($_SERVER['HTTP_HOST'] == 'localhost' or strpos($_SERVER['HTTP_HOST'], '192.168.') !== false) {
@@ -18,7 +25,7 @@ if ($_SERVER['HTTP_HOST'] == 'localhost' or strpos($_SERVER['HTTP_HOST'], '192.1
     $db['default']['swap_pre'] = '';
     $db['default']['autoinit'] = TRUE;
     $db['default']['stricton'] = FALSE;
-}else if (strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false) {
+} else if (strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false) {
     $db['default']['hostname'] = '127.0.0.1';
     $db['default']['username'] = 'root';
     $db['default']['password'] = '';

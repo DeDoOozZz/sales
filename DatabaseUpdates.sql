@@ -48,7 +48,7 @@ ALTER TABLE `firms`
   CHANGE `id` `branch_id` INT(11) NOT NULL AUTO_INCREMENT,
   CHANGE `title` `name` VARCHAR(100) CHARSET utf8 COLLATE utf8_general_ci NULL;
 
-RENAME TABLE `firms` TO `sales`.`branches`;
+RENAME TABLE `firms` TO `branches`;
 
 
 ALTER TABLE `format`
@@ -59,7 +59,7 @@ ALTER TABLE `invoice_types`
   CHANGE `name` `name_ar` VARCHAR(100) CHARSET utf8 COLLATE utf8_general_ci NULL,
   ADD COLUMN `name_en` VARCHAR(100) NULL AFTER `name_ar`;
 
-UPDATE `sales`.`invoice_types` SET `name_en` = 'A4 Invoice' WHERE `invoice_type_id` = '1';
+UPDATE `invoice_types` SET `name_en` = 'A4 Invoice' WHERE `invoice_type_id` = '1';
 UPDATE `invoice_types` SET `name_en` = 'Dot Matrix' WHERE `invoice_type_id` = '3';
 UPDATE `invoice_types` SET `name_en` = 'User Defined' WHERE `invoice_type_id` = '4';
 UPDATE `invoice_types` SET `name_en` = 'Heat Invoices' WHERE `invoice_type_id` = '2';
@@ -102,7 +102,7 @@ ALTER TABLE `pending_products`
   DROP COLUMN `timestamp`,
   CHANGE `id` `ipending_order_product_d` INT(11) NOT NULL AUTO_INCREMENT;
 
-RENAME TABLE `pending_products` TO `sales`.`pending_order_products`;
+RENAME TABLE `pending_products` TO `pending_order_products`;
 
 CREATE TABLE `product_inventory`(
   `product_inventory_id` INT NOT NULL AUTO_INCREMENT,
@@ -129,3 +129,70 @@ ALTER TABLE `reports`
 ALTER TABLE `scratch_cards`
   CHANGE `date` `created_at` DATETIME NULL;
 
+ALTER TABLE `services`
+  CHANGE `id` `service_id` INT(11) NOT NULL AUTO_INCREMENT,
+  CHANGE `firm_id` `branch_id` INT(11) NOT NULL,
+  ADD COLUMN `created_at` DATETIME NULL AFTER `timestamp`;
+
+
+ALTER TABLE `services`
+  CHANGE `service_id` `service_order_id` INT(11) NOT NULL AUTO_INCREMENT;
+
+RENAME TABLE `services` TO `service_orders`;
+
+
+ALTER TABLE `service_stocks`
+  CHANGE `id` `service_id` INT(11) NOT NULL AUTO_INCREMENT;
+
+RENAME TABLE `service_stocks` TO `services`;
+
+create TABLE service_inventory (
+    service_inventory_id int(11) not null,
+    service_id int(11),
+    branch_id int(11),
+    operation enum('+', '-'),
+    qty int(11),
+    PRIMARY KEY (service_inventory_id)
+);
+
+
+ALTER TABLE `sim_types`
+  CHANGE `id` `sim_type_id` INT(11) NOT NULL AUTO_INCREMENT,
+  CHANGE `title` `name_ar` VARCHAR(100) CHARSET utf8 COLLATE utf8_general_ci NULL,
+  ADD COLUMN `name_en` VARCHAR(100) NULL AFTER `name_ar`;
+
+
+ALTER TABLE `sms_templates`
+  CHANGE `id` `sms_template_id` INT(11) NOT NULL AUTO_INCREMENT,
+  CHANGE `title` `name_ar` VARCHAR(100) CHARSET utf8 COLLATE utf8_general_ci NOT NULL,
+  ADD COLUMN `name_en` VARCHAR(100) NULL AFTER `name_ar`,
+  CHANGE `content` `content_ar` TEXT CHARSET utf8 COLLATE utf8_general_ci NOT NULL,
+  ADD COLUMN `content_en` TEXT NULL AFTER `content_ar`,
+  ADD COLUMN `created_at` DATETIME NULL AFTER `timestamp`;
+
+ALTER TABLE `sold_products`
+  CHANGE `id` `sale_product_id` INT(11) NOT NULL AUTO_INCREMENT,
+  CHANGE `firm_id` `branch_id` INT(11) NOT NULL,
+  ADD COLUMN `created_at` DATETIME NULL AFTER `timestamp`;
+
+RENAME TABLE `sold_products` TO `sale_products`;
+
+
+ALTER TABLE `prepaid_cards`
+  CHANGE `prepaid_card_id` `prepaid_card_type_id` INT(10) NOT NULL AUTO_INCREMENT;
+
+RENAME TABLE `prepaid_cards` TO `prepaid_card_types`;
+
+ALTER TABLE `scratch_cards`
+  CHANGE `scratch_card_id` `prepaid_card_id` INT(10) NOT NULL AUTO_INCREMENT,
+  CHANGE `prepaid_card_id` `prepaid_card_type_id` INT(10) NULL;
+
+RENAME TABLE `scratch_cards` TO `prepaid_cards`;
+
+DROP TABLE `admins`; 
+DROP TABLE `admin_usergroups`; 
+DROP TABLE `admin_usergroup_zones`;
+ 
+ 
+ALTER TABLE `transactions`
+  CHANGE `id` `transaction_id` INT(11) NOT NULL AUTO_INCREMENT;

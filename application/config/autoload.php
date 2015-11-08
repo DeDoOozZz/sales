@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database', 'style', 'std', 'configuration', 'session', 'twig');
+$autoload['libraries'] = array('database', 'style', 'std', 'configuration', 'session');
 
 
 /*
@@ -96,7 +96,7 @@ $autoload['config'] = array();
 |
 */
 
-$autoload['language'] = array('global');
+$autoload['language'] = array();
 
 
 /*

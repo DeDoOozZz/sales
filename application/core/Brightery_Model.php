@@ -4,7 +4,7 @@
  * @property string $custom_select Customized select query string
  * @property string $entity Table name
  * @property array $joins array(joined_table => joining_conddition)
- * @property array $_primary_keys array of master and joined table primary keys
+ * @property array $_primary_key  table primary key
  * @property array $columns array of affected table columns
  * @property integer $limit Limit query results
  * @property integer $offset the offset
@@ -17,7 +17,7 @@
 class Brightery_model extends CI_Model {
     public $custom_select = FALSE;
     public $_table;
-    public $_primary_keys = array();
+    public $_primary_key;
     public $joins = FALSE;
     public $limit = FALSE;
     public $offset = FALSE;
@@ -31,10 +31,6 @@ class Brightery_model extends CI_Model {
 
     public function __construct() {
         parent::__construct();
-//        if( ! $this->limit)
-//            $this->limit = $this->config->item('pagination_limit');
-//        if( ! $this->order_by && isset($this->_primary_keys[0]))
-//            $this->order_by = array($this->_primary_keys[0] => 'DESC');
     }
     public function get($count = false) {
         if($this->custom_select)
@@ -46,7 +42,7 @@ class Brightery_model extends CI_Model {
         if($this->columns)
         foreach($this->columns as $key => $value) {
             $this->db->where($key, $value);
-            if(in_array($key, $this->_primary_keys))
+            if($key == $this->_primary_key)
                 $row = TRUE;
         }
 
@@ -59,6 +55,7 @@ class Brightery_model extends CI_Model {
         foreach($this->joins as $key => $value) {
             $this->db->join($key, $value[0], $value[1]);
         }
+        if( ! $count)
         if($this->limit)
             $this->db->limit($this->limit, $this->offset);
 
@@ -77,7 +74,7 @@ class Brightery_model extends CI_Model {
         $update = FALSE;
         if($this->columns)
         foreach($this->columns as $key => $value) {
-            if(in_array($key, $this->_primary_keys)){
+            if($key == $this->_primary_key){
                 $update = TRUE;
                 $id = $value;
                 $this->db->where($key, $value);
@@ -87,7 +84,7 @@ class Brightery_model extends CI_Model {
         }
         if($update) {
             $this->db->update($this->_table);
-            return $this->columns[$this->_primary_keys[0]];
+            return $this->columns[$this->_primary_key];
         }
         else {
             $this->db->insert($this->_table);

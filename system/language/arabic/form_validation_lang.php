@@ -1,28 +1,28 @@
 <?php
 
 $lang['required']			= "حقل %s مطلوب.";
-$lang['isset']				= "The %s field must have a value.";
-$lang['valid_email']		= "The %s field must contain a valid email address.";
-$lang['valid_emails']		= "The %s field must contain all valid email addresses.";
-$lang['valid_url']			= "The %s field must contain a valid URL.";
-$lang['valid_ip']			= "The %s field must contain a valid IP.";
-$lang['min_length']			= "The %s field must be at least %s characters in length.";
-$lang['max_length']			= "The %s field can not exceed %s characters in length.";
-$lang['exact_length']		= "The %s field must be exactly %s characters in length.";
-$lang['alpha']				= "The %s field may only contain alphabetical characters.";
-$lang['alpha_numeric']		= "The %s field may only contain alpha-numeric characters.";
-$lang['alpha_dash']			= "The %s field may only contain alpha-numeric characters, underscores, and dashes.";
-$lang['numeric']			= "The %s field must contain only numbers.";
-$lang['is_numeric']			= "The %s field must contain only numeric characters.";
-$lang['integer']			= "The %s field must contain an integer.";
-$lang['regex_match']		= "The %s field is not in the correct format.";
-$lang['matches']			= "The %s field does not match the %s field.";
-$lang['is_unique'] 			= "The %s field must contain a unique value.";
-$lang['is_natural']			= "The %s field must contain only positive numbers.";
-$lang['is_natural_no_zero']	= "The %s field must contain a number greater than zero.";
-$lang['decimal']			= "The %s field must contain a decimal number.";
-$lang['less_than']			= "The %s field must contain a number less than %s.";
-$lang['greater_than']		= "The %s field must contain a number greater than %s.";
+$lang['isset']				= "الحقل %s يجب ان يكون قيمة.";
+$lang['valid_email']		= "الحقل %s يجب ان يكون بريد إلكتروني.";
+$lang['valid_emails']		= "الحقل %s يجب ان يحتوي علي بريد الكتروني صحيح.";
+$lang['valid_url']			= "الحقل %s يجب ان يكون رابط صحيح.";
+$lang['valid_ip']			= "الحقل %s يجب ان يكون IP صحيح.";
+$lang['min_length']			= "الحقل %s يجب ان يكون علي الاقل %s حرف.";
+$lang['max_length']			= "الحقل %s يجب ان لا يتعدي %sحرفا.";
+$lang['exact_length']		= "الحقل %s يجب ان يكون %s حرفا.";
+$lang['alpha']				= "الحقل %s يجب ان يكون حروفا فقط.";
+$lang['alpha_numeric']		= "الحقل %s يجب ان يكون حروف وارقام فقط.";
+$lang['alpha_dash']			= "الحقل %s يجب ان يكون حروف وارقام و _ و - فقط.";
+$lang['numeric']			= "الحقل %s يجب ان يكون ارقام فقط.";
+$lang['is_numeric']			= "الحقل %s يجب ان يكون ارقام فقط.";
+$lang['integer']			= "الحقل %s يجب ان يكون رقم صحيح فقط.";
+$lang['regex_match']		= "الحقل %s ليس بالشكل المطلوب.";
+$lang['matches']			= "الحقل %s يجب ان يكون مثل الحقل %s.";
+$lang['is_unique'] 			= "الحقل %s موجود من قبل.";
+$lang['is_natural']			= "الحقل %s يجب ان يكون رقم صحيح.";
+$lang['is_natural_no_zero']	= "الحقل %s يجب ان يكون رقم صحيح اكبر من الصفر.";
+$lang['decimal']			= "الحقل %s يجب ان يكون رقم عشري.";
+$lang['less_than']			= "الحقل %s يجب ان يحتوي علي رقم اقل من %s.";
+$lang['greater_than']		= "الحقل %s يجب ان يحتوي علي رفم اكبر من %s.";
 
 
 /* End of file form_validation_lang.php */

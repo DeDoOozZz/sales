@@ -1,118 +1,70 @@
 <?php
 
-class Branches extends Brightery_Controller {
+class Branches extends Crud
+{
+    public $_table = 'branches';
+    public $_primary_key = 'branch_id';
 
-    public $layout = 'full';
-    public $module = 'companies';
-    public $model = 'Branches_model';
-
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
-        $this->load->model($this->model);
-        $this->_primary_key = $this->{$this->model}->_primary_keys[0];
-        $this->permission($this->module . '_index');
+
     }
 
-    public function index($id = null) {
-        $this->{$this->model}->custom_select = 'branches.*, companies.company_id, countries.name';
-        $this->{$this->model}->joins = array(
-            'companies' => array('companies.company_id = branches.company_id', 'inner'),
-            'countries' => array('countries.country_id = branches.country_id', 'inner')
-        );
-        if ($id) {
-            $this->{$this->model}->{'companies.company_id'} = $id;
-        }
-        $this->{$this->model}->order_by['branches.branch_name'] = 'ASC';
-        $data['items'] = $this->{$this->model}->get();
-        $this->load->view($this->module . '/branches', $data);
+    public function indexFixes()
+    {
+        $this->{$this->model}->custom_select = 'branches.*';
+//        $this->{$this->model}->joins = array(
+//            'business_types' => array('business_types.business_type_id = companies.business_type_id', 'inner')
+//        );
+        $this->{$this->model}->order_by['branches.name'] = 'ASC';
     }
 
-    public function manage($id = null) {
-        $data = array();
-        if (!$id) {
-            show_404();
-        }
+    protected function onValidationEvent($op, $id = false)
+    {
 
-        if (strpos($id, 'c_') !== false) {
-            $company_id = str_replace('c_', '', $id);
-            $this->{$this->model}->company_id = $company_id;
-            $data['item'] = new Std();
-            $this->permission($this->module . '_add');
-            $op = 'add';
-        } else {
-            $this->{$this->model}->{$this->_primary_key} = $id;
-            $data['item'] = $this->{$this->model}->get();
-            if (!$data['item'])
-                show_404();
-            $company_id = $data['item']->company_id;
-            $this->permission($this->module . '_edit');
-            $op = 'edit';
-        }
-
-        $this->load->library("form_validation");
-        if ($op == 'add') {
-            $this->form_validation->set_rules('branch_name', 'branch Name', 'trim|required|is_unique[branches.branch_name]');
-        } else {
-            $this->form_validation->set_rules('branch_name', 'branch Name', 'trim|required');
-        }
-        $this->form_validation->set_rules('country_id', 'Country', 'trim|required');
-        $this->form_validation->set_rules('city', 'City', 'trim');
-        $this->form_validation->set_rules('state', 'State', "trim");
-        $this->form_validation->set_rules('phone', 'Phone', "trim");
-        $this->form_validation->set_rules('fax', 'Fax', "trim");
-        $this->form_validation->set_rules('email', 'Email', "trim|valid_email");
-        $this->form_validation->set_rules('address', 'Address', "trim");
-        $this->form_validation->set_rules('note', 'Note', "trim");
-        $this->form_validation->set_rules('person_in_charge', 'Person in Charge', "trim");
-        $this->form_validation->set_rules('person_in_charge_phone', 'Person in charge Phone', "trim");
-        $this->form_validation->set_rules('person_in_charge_email', 'Person in Charge email ', "trim");
-
-        if ($this->form_validation->run() == FALSE)
-            $this->load->view($this->module . '/manage_branches', $data);
-
-        else {
-            $this->{$this->model}->branch_name = $this->input->post('branch_name');
-            $this->{$this->model}->country_id = $this->input->post('country_id');
-            $this->{$this->model}->city = $this->input->post('city');
-            $this->{$this->model}->state = $this->input->post('state');
-            $this->{$this->model}->phone = $this->input->post('phone');
-            $this->{$this->model}->fax = $this->input->post('fax');
-            $this->{$this->model}->email = $this->input->post('email');
-            $this->{$this->model}->address = $this->input->post('address');
-            $this->{$this->model}->note = $this->input->post('note');
-            $this->{$this->model}->person_in_charge = $this->input->post('person_in_charge');
-            $this->{$this->model}->person_in_charge_phone = $this->input->post('person_in_charge_phone');
-            $this->{$this->model}->person_in_charge_email = $this->input->post('person_in_charge_email');
-
-            $this->{$this->model}->save();
-            redirect('admin/branches/index/' . $company_id);
-        }
-    }
-
-    public function delete($id = null) {
-        $this->permission($this->module . '_delete');
-        if (!$id)
-            show_404();
-        $this->{$this->model}->{$this->_primary_key} = $id;
-        $data['item'] = $this->{$this->model}->get();
-        if (!$data['item'])
-            show_404();
-
-        $this->{$this->model}->delete();
-        $company_id = $data['item']->company_id;
-        redirect('admin/branches/index/' . $company_id);
-    }
-
-    public function image($var, $id) {
-        $config['upload_path'] = './cdn/companies_logo/';
+        $config['upload_path'] = './cdn/' . $this->_table;
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $this->load->library('upload', $config);
-        if ($this->upload->do_upload('logo')) {
-            $data = $this->upload->data();
-            if ($data['file_name'])
-                $this->{$this->model}->logo = base_url() . '/cdn/companies_logo/' . $data['file_name'];
-        }
-        return true;
+
+        $this->form_validation->set_rules('branch_id', lang('branch_id'), "trim|required");
+        $this->form_validation->set_rules('name', lang('name'), "trim|required");
+        $this->form_validation->set_rules('place', lang('place'), "trim|required");
+        $this->form_validation->set_rules('notes', lang('notes'), "trim|required");
+        $this->form_validation->set_rules('phone', lang('phone'), "trim|required");
+        $this->form_validation->set_rules('sales_invoice_type_id', lang('sales_invoice_type_id'), "trim|required");
+        $this->form_validation->set_rules('format_invoice_type_id', lang('format_invoice_type_id'), "trim|required");
+        $this->form_validation->set_rules('services_invoice_type_id', lang('services_invoice_type_id'), "trim|required");
+        $this->form_validation->set_rules('transactions', lang('transactions'), "trim|required");
+        $this->form_validation->set_rules('logo', lang('logo'), "trim|callback_file[1]");
+        $this->form_validation->set_rules('header', lang('header'), "trim|required");
+        $this->form_validation->set_rules('footer', lang('footer'), "trim|required");
+
+    }
+
+    protected function onSuccessEvent($op, $id = false)
+    {
+
+        $vars = [
+            'branch_id' => $this->input->post('branch_id'),
+            'name' => $this->input->post('name'),
+            'place' => $this->input->post('place'),
+            'notes' => $this->input->post('notes'),
+            'phone' => $this->input->post('phone'),
+            'sales_invoice_type_id' => $this->input->post('sales_invoice_type_id'),
+            'format_invoice_type_id' => $this->input->post('format_invoice_type_id'),
+            'services_invoice_type_id' => $this->input->post('services_invoice_type_id'),
+            'transactions' => $this->input->post('transactions'),
+//            'logo' => $this->input->post('logo'),
+            'header' => $this->input->post('header'),
+            'footer' => $this->input->post('footer'),
+            'timestamp' => date('Y-m-d H:i:s'),
+        ];
+
+        foreach ($vars as $vark => $varv)
+            $this->{$this->model}->{$vark} = $varv;
+        $this->{$this->model}->save();
+
     }
 
 }

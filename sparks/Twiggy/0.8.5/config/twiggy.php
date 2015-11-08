@@ -229,7 +229,9 @@ $config['twiggy']['register_functions'] = array
     'form_open_multipart',
     'lang',
     'session',
-    'admin_url'
+    'admin_url',
+    'menu_lang',
+    'get_variable_attribute',
 );
 
 

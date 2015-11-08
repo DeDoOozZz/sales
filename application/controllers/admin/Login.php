@@ -3,7 +3,6 @@
 class Login extends CI_Controller {
 
     public function index() {
-        $this->lang->load('users');
         $this->layout = 'ajax';
         $this->load->library('form_validation');
         $this->form_validation->set_rules('email', 'lang:users_email', 'required|callback_check');
@@ -25,7 +24,6 @@ class Login extends CI_Controller {
     }
 
     public function forget_password() {
-        $this->lang->load('users');
         $this->layout = 'ajax';
         $this->load->library('form_validation');
         $this->form_validation->set_rules('email', 'lang:users_email', 'required|callback_check_email');
@@ -42,33 +40,33 @@ class Login extends CI_Controller {
 
             $message = $this->load->view('login/reset_password_email', $data, TRUE);
 
-require './mailer/PHPMailerAutoload.php';
-$mail = new PHPMailer;
-$mail->isSMTP();
-$mail->Debugoutput = 'html';
-$mail->SMTPAuth = true;
-//$mail->Host = "smtp.sparkpostmail.com";
-//$mail->Username = "SMTP_Injection";
-//$mail->Password = "6ad95f20f267fded8377b093f0e1c865fb3dd3c5";
-
-            $mail->Host = "mail.acerta-me.com";
-            $mail->Username = "database@acerta-me.com";
-            $mail->Password = "Egypt123$";
-            $mail->Port = 25;
-
-$mail->Port = 587;
-$mail->setFrom("info@acerta-me.com" , 'ACERTA');
-$mail->addAddress($data['user']->email);
-$mail->Subject = 'Acerta password resetting';
-$mail->msgHTML($message);
-//$mail->addReplyTo('info@acerta-me.com');
-if ($mail->send()) {
-//    echo "Message sent!";
-}
-else
-{
-//    echo "Error";
-}
+//require './mailer/PHPMailerAutoload.php';
+//$mail = new PHPMailer;
+//$mail->isSMTP();
+//$mail->Debugoutput = 'html';
+//$mail->SMTPAuth = true;
+////$mail->Host = "smtp.sparkpostmail.com";
+////$mail->Username = "SMTP_Injection";
+////$mail->Password = "6ad95f20f267fded8377b093f0e1c865fb3dd3c5";
+//
+//            $mail->Host = "mail.acerta-me.com";
+//            $mail->Username = "database@acerta-me.com";
+//            $mail->Password = "Egypt123$";
+//            $mail->Port = 25;
+//
+//$mail->Port = 587;
+//$mail->setFrom("info@acerta-me.com" , 'ACERTA');
+//$mail->addAddress($data['user']->email);
+//$mail->Subject = 'Acerta password resetting';
+//$mail->msgHTML($message);
+////$mail->addReplyTo('info@acerta-me.com');
+//if ($mail->send()) {
+////    echo "Message sent!";
+//}
+//else
+//{
+////    echo "Error";
+//}
 
 
 

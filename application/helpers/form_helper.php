@@ -27,7 +27,9 @@ if (!defined('BASEPATH'))
  * @link		http://codeigniter.com/user_guide/helpers/form_helper.html
  */
 // ------------------------------------------------------------------------
-
+function admin_url($var) {
+    return site_url(ADMIN . '/' . $var);
+}
 /**
  * Form Declaration
  *

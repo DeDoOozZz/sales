@@ -3,13 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-
-        <title><?= config('title') ?></title>
-
+        <title>{{ config('title')  }}</title>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
         <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/fonts/linecons/css/linecons.css">
         <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/fonts/fontawesome/css/font-awesome.min.css">
@@ -19,11 +16,11 @@
         <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/xenon-components.css">
         <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/xenon-skins.css">
         <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/custom.css">
-        <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/select2/select2.css">
-        <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/select2/select2-bootstrap.css">
+        {#<link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/select2/select2.css">#}
+        {#<link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/select2/select2-bootstrap.css">#}
+        {% if config('language') == 'arabic' %}
         <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/newstyle.css">
-
-
+        {% endif %}
         <script src="{{ constant("STYLE_JS") }}/jquery-1.11.1.min.js"></script>
         <script src="{{ constant("STYLE_JS") }}/select2/select2.min.js"></script>
         <script src="{{ constant("STYLE_JS") }}/datepicker/bootstrap-datepicker.js"></script>
@@ -67,7 +64,7 @@
 
                             <div class="user-image">
                                 <a href="extra-profile.html">
-                                    <img src="<?= STYLE_IMAGES ?>/user-2.png" class="img-responsive img-circle" />
+                                    <img src="{{ constant("STYLE_IMAGES") }}/user-2.png" class="img-responsive img-circle" />
                                     <!--<img src="<?= session(' base_url()/cdn/ $item->image') ?>" class="img-responsive img-circle" />-->
                                     <!--<img src="<?= base_url() ?>/cdn/<?php echo $item->image ?>">-->
                                 </a>
@@ -76,13 +73,13 @@
                             <div class="user-details">
 
                                 <h3>
-                                    <a href="#"><?= session('username') ?></a>
+                                    <a href="#">{{ session('username') }}</a>
 
                                     <!-- Available statuses: is-online, is-idle, is-busy and is-offline -->
                                     <span class="user-status is-online"></span>
                                 </h3>
 
-                                <p class="user-title">Administrator</p>
+                                <p class="user-title">Administrator {{ that.menu.menu() }}</p>
 
                                 <div class="user-links">
                                     <a href="<?= site_url('admin/users/manage/' . session('user_id')) ?>" class="btn btn-primary">Edit Profile</a>
@@ -108,8 +105,8 @@
                 <!-- Navbar Brand -->
                 <div class="navbar-brand">
                     <a href="dashboard-1.html" class="logo">
-                        <img src="assets/images/logo-white-bg@2x.png" width="80" alt="" class="hidden-xs" />
-                        <img src="assets/images/logo@2x.png" width="80" alt="" class="visible-xs" />
+                        <img src="{{ constant("STYLE_IMAGES") }}/logo.png" width="80" alt="" class="hidden-xs" />
+                        <img src="{{ constant("STYLE_IMAGES") }}/logo.png" width="80" alt="" class="visible-xs" />
                     </a>
                     <a href="#" data-toggle="settings-pane" data-animate="true">
                         <i class="linecons-cog"></i>
@@ -143,11 +140,10 @@
 
                 <div class="navbar-mobile-clear"></div>
 
-
-
                 <!-- main menu -->
 
                 <ul class="navbar-nav">
+                    {{ that.menu.generate('backend') }}
                     <li>
                         <a href="dashboard-1.html">
                             <i class="linecons-cog"></i>
@@ -740,7 +736,7 @@
 
                     <li class="dropdown user-profile">
                         <a href="#" data-toggle="dropdown">
-                            <img src="<?= STYLE_IMAGES ?>/user-1.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
+                            <img src="{{ constant("STYLE_IMAGES") }}/user-1.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
                             <span>
                                 Arlind Nushi
                                 <i class="fa-angle-down"></i>
@@ -773,9 +769,9 @@
                                 </a>
                             </li>
                             <li class="last">
-                                <a href="extra-lockscreen.html">
+                                <a href="{{ admin_url('logout') }}">
                                     <i class="fa-lock"></i>
-                                    Logout
+                                    {{ lang('global_logout') }}
                                 </a>
                             </li>
                         </ul>
@@ -820,9 +816,8 @@
 
                         <!-- Add your copyright text here -->
                         <div class="footer-text">
-                            &copy; 2014 
-                            <strong>Xenon</strong> 
-                            theme by <a href="http://laborator.co" target="_blank">Laborator</a> - <a href="http://themeforest.net/item/xenon-bootstrap-admin-theme/9059661?ref=Laborator" target="_blank">Purchase for only <strong>23$</strong></a>
+                            &copy; {{ "now"|date("Y")  }}
+                            <strong>X5J.NeT</strong>
                         </div>
 
 
@@ -861,22 +856,7 @@
         <link rel="stylesheet" href="{{ constant("STYLE_JS") }}/select2/select2-bootstrap.css">
         <link rel="stylesheet" href="{{ constant("STYLE_JS") }}/multiselect/css/multi-select.css">
         <script src="{{ constant("STYLE_JS") }}/select2/select2.min.js"></script>
-        <script src="{{ constant("STYLE_JS") }}/jquery.multi-select.js"></script>
-<!--        <script type = "text/javascript" >
-                    jQuery(document).ready(function ($)
-                    {
-                        $(".s2example-1").select2({
-                            placeholder: 'Select your country...',
-                            allowClear: true
-                        }).on('select2-open', function ()
-                        {
-                            // Adding Custom Scrollbar
-                            $(this).data('select2').results.addClass('overflow-hidden').perfectScrollbar();
-                        });
+        {#<script src="{{ constant("STYLE_JS") }}/jquery.multi-select.js"></script>#}
 
-                    });
-
-
-        </script>-->
     </body>
 </html>

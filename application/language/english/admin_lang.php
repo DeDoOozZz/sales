@@ -6,6 +6,28 @@ $lang['x-float'] = 'right';
 $lang['slang'] = 'en';
 $lang['global_select_from_menu'] = "Select ...";
 $lang['global_settings'] = 'Settings';
+$lang['global_dashboard'] = 'Dashboard';
+$lang['global_submit'] = 'Save';
+$lang['global_reset'] = 'Reset';
+$lang['global_operations'] = 'Operations';
+$lang['global_search'] = 'Search';
+$lang['global_add_new_record'] = 'Add New Record';
+$lang['global_administration'] = 'Administration';
+$lang['global_logout'] = 'Logout';
+$lang['global_you_dont_have_permission'] = 'You don\'t have permission to preform this action.';
+$lang['global_yes'] = 'Yes';
+$lang['global_no'] = 'No';
+
+
+$lang['menu_general_settings'] = "General Settings";
+$lang['menu_branches'] = "Branches";
+
+
+
+
+
+
+
 $lang['global_modules'] = 'Modules';
 $lang['global_forms'] = 'Forms';
 $lang['global_testimonials'] = 'Testimonials';
@@ -24,17 +46,11 @@ $lang['global_clients'] = 'Clients';
 $lang['global_messages'] = 'Messages';
 $lang['global_membership_types'] = 'Membership Types';
 $lang['global_faq'] = 'FAQ';
-$lang['global_submit'] = 'Save';
-$lang['global_reset'] = 'Reset';
-$lang['global_dashboard'] = 'Dashboard';
-$lang['global_operations'] = 'Operations';
-$lang['global_search'] = 'Search';
-$lang['global_add_new_record'] = 'Add New Record';
-$lang['global_administration'] = 'Administration';
-$lang['global_logout'] = 'Logout';
-$lang['global_you_dont_have_permission'] = 'You don\'t have permission to preform this action.';
-$lang['global_yes'] = 'Yes';
-$lang['global_no'] = 'No';
+
+
+
+
+
 $lang['global_blog'] = 'Blog';
 $lang['global_front_blocks'] = 'Front Blocks';
 // SETTINGS

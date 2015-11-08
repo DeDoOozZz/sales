@@ -10,13 +10,13 @@
 |
 */
 
-$hook['display_override'][] = array(
-    'class' => 'Layout',
-    'function' => 'render',
-    'filename' => 'Layout.php',
-    'filepath' => 'hooks',
-    'params' => array('layout')
-);
+//$hook['display_override'][] = array(
+//    'class' => 'Layout',
+//    'function' => 'render',
+//    'filename' => 'Layout.php',
+//    'filepath' => 'hooks',
+//    'params' => array('layout')
+//);
 
 
 /* End of file hooks.php */

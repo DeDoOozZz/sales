@@ -73,7 +73,7 @@ class Twiggy
 		
 		$this->_twig = new Twig_Environment($this->_twig_loader, $this->_config['environment']);
 		$this->_twig->setLexer(new Twig_Lexer($this->_twig, $this->_config['delimiters']));
-
+		$this->_twig->addGlobal('that', $this->CI);
 		// Initialize defaults
 		$this->theme($this->_config['default_theme'])
 			 ->layout($this->_config['default_layout'])
@@ -462,7 +462,7 @@ class Twiggy
 		//$this->_template_locations = array();
 
 		$this->_template_locations[] =  $this->_themes_base_dir . $theme;
-print_r($this->_template_locations);
+
 		// Reset the paths if needed.
 		if(is_object($this->_twig_loader))
 		{

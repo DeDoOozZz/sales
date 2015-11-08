@@ -1,19 +1,19 @@
-<?php  if(!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
  * Twiggy - Twig template engine implementation for CodeIgniter
  *
- * Twiggy is not just a simple implementation of Twig template engine 
+ * Twiggy is not just a simple implementation of Twig template engine
  * for CodeIgniter. It supports themes, layouts, templates for regular
  * apps and also for apps that use HMVC (module support).
- * 
- * @package   			CodeIgniter
- * @subpackage			Twiggy
- * @category  			Config
- * @author    			Edmundas Kondrašovas <as@edmundask.lt>
- * @license   			http://www.opensource.org/licenses/MIT
- * @version   			0.8.5
- * @copyright 			Copyright (c) 2012 Edmundas Kondrašovas <as@edmundask.lt>
+ *
+ * @package            CodeIgniter
+ * @subpackage            Twiggy
+ * @category            Config
+ * @author                Edmundas Kondrašovas <as@edmundask.lt>
+ * @license            http://www.opensource.org/licenses/MIT
+ * @version            0.8.5
+ * @copyright            Copyright (c) 2012 Edmundas Kondrašovas <as@edmundask.lt>
  */
 
 /*
@@ -56,9 +56,9 @@ $config['twiggy']['template_file_ext'] = '.twig';
 
 $config['twiggy']['delimiters'] = array
 (
-	'tag_comment' 	=> array('{#', '#}'),
-	'tag_block'   	=> array('{%', '%}'),
-	'tag_variable'	=> array('{{', '}}')
+    'tag_comment' => array('{#', '#}'),
+    'tag_block' => array('{%', '%}'),
+    'tag_variable' => array('{{', '}}')
 );
 
 
@@ -81,14 +81,14 @@ $config['twiggy']['delimiters'] = array
 |
 */
 
-$config['twiggy']['environment']['cache']              	= FALSE;
-$config['twiggy']['environment']['debug']              	= FALSE;
-$config['twiggy']['environment']['charset']            	= 'utf-8';
-$config['twiggy']['environment']['base_template_class']	= 'Twig_Template';
-$config['twiggy']['environment']['auto_reload']        	= NULL;
-$config['twiggy']['environment']['strict_variables']   	= FALSE;
-$config['twiggy']['environment']['autoescape']         	= FALSE;
-$config['twiggy']['environment']['optimizations']      	= -1;
+$config['twiggy']['environment']['cache'] = FALSE;
+$config['twiggy']['environment']['debug'] = FALSE;
+$config['twiggy']['environment']['charset'] = 'utf-8';
+$config['twiggy']['environment']['base_template_class'] = 'Twig_Template';
+$config['twiggy']['environment']['auto_reload'] = NULL;
+$config['twiggy']['environment']['strict_variables'] = FALSE;
+$config['twiggy']['environment']['autoescape'] = FALSE;
+$config['twiggy']['environment']['optimizations'] = -1;
 
 
 /*
@@ -200,7 +200,36 @@ $config['twiggy']['default_template'] = 'index';
 
 $config['twiggy']['register_functions'] = array
 (
-
+    'config',
+    'base_url',
+    'site_url',
+    'current_url',
+    'form_open',
+    'form_hidden',
+    'form_input',
+    'form_password',
+    'form_upload',
+    'form_textarea',
+    'form_dropdown',
+    'form_multiselect',
+    'form_fieldset',
+    'form_fieldset_close',
+    'form_checkbox',
+    'form_radio',
+    'form_submit',
+    'form_label',
+    'form_reset',
+    'form_button',
+    'form_close',
+    'form_prep',
+    'set_value',
+    'set_select',
+    'set_checkbox',
+    'set_radio',
+    'form_open_multipart',
+    'lang',
+    'session',
+    'admin_url'
 );
 
 
@@ -219,9 +248,7 @@ $config['twiggy']['register_functions'] = array
 */
 
 $config['twiggy']['register_filters'] = array
-(
-
-);
+();
 
 /*
 |--------------------------------------------------------------------------

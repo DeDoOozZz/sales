@@ -12,40 +12,39 @@ $lang['global_reset'] = 'Reset';
 $lang['global_operations'] = 'Operations';
 $lang['global_search'] = 'Search';
 $lang['global_add_new_record'] = 'Add New Record';
+$lang['global_edit'] = 'Edit';
+$lang['global_delete'] = 'Delete';
 $lang['global_administration'] = 'Administration';
 $lang['global_logout'] = 'Logout';
 $lang['global_you_dont_have_permission'] = 'You don\'t have permission to preform this action.';
 $lang['global_yes'] = 'Yes';
 $lang['global_no'] = 'No';
+$lang['global_cancel'] = 'Cancel';
+$lang['global_system_message'] = 'System Message';
+$lang['global_delete_confirmation_message'] = 'Are you sure need to delete this record ?';
 
-
+// MENU ITEMS
 $lang['menu_general_settings'] = "General Settings";
 $lang['menu_branches'] = "Branches";
 
+// MODULES LANGUAGES
+$lang['branches_name'] = "Name";
+$lang['branches_place'] = "Place";
+$lang['branches_notes'] = "Notes";
+$lang['branches_phone'] = "Phone";
+$lang['branches_sales_invoice_type_id'] = "Sales invoice type";
+$lang['branches_format_invoice_type_id'] = "Format invoice type";
+$lang['branches_services_invoice_type_id'] = "Services invoice type";
+$lang['branches_transactions'] = "Transactions";
+$lang['branches_logo'] = "Logo";
+$lang['branches_header'] = "Header";
+$lang['branches_footer'] = "Footer";
+$lang['branches_created_at'] = "Created at";
 
 
 
 
 
-
-$lang['global_modules'] = 'Modules';
-$lang['global_forms'] = 'Forms';
-$lang['global_testimonials'] = 'Testimonials';
-$lang['global_services'] = 'Services';
-$lang['global_pages'] = 'Pages';
-$lang['global_links'] = 'Links';
-$lang['global_items'] = 'Items';
-$lang['global_categories'] = 'Categories';
-$lang['global_users'] = 'Users';
-$lang['global_usergroups'] = 'Usergroups';
-$lang['global_themes'] = 'Themes';
-$lang['global_periods'] = 'Periods';
-$lang['global_payment_requests'] = 'Payment Requests';
-$lang['global_news'] = 'News';
-$lang['global_clients'] = 'Clients';
-$lang['global_messages'] = 'Messages';
-$lang['global_membership_types'] = 'Membership Types';
-$lang['global_faq'] = 'FAQ';
 
 
 
@@ -70,9 +69,6 @@ $lang['usergroups_usergroup_id'] = 'Usergroup';
 $lang['usergroups_name'] = 'Name';
 $lang['usergroups_zone_title'] = 'Permissions';
 $lang['usergroups_view'] = 'View';
-$lang['usergroups_add'] = 'Add';
-$lang['usergroups_edit'] = 'Edit';
-$lang['usergroups_delete'] = 'Delete';
 $lang['usergroups_print'] = 'Print';
 $lang['usergroups_desc'] = 'Description';
 

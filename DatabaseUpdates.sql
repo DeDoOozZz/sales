@@ -196,3 +196,7 @@ DROP TABLE `admin_usergroup_zones`;
  
 ALTER TABLE `transactions`
   CHANGE `id` `transaction_id` INT(11) NOT NULL AUTO_INCREMENT;
+
+
+ALTER TABLE `branches`
+  CHANGE `timestamp` `created_at` DATETIME NULL;

@@ -8,8 +8,6 @@
  */
 class Brightery_Controller extends CI_Controller
 {
-//    public $lang;
-//    public $language;
     public $language_id;
     protected $module;
     protected $action;
@@ -54,12 +52,12 @@ class Brightery_Controller extends CI_Controller
                 </script>");
 //            show_error("Permission Denied");
     }
-
 }
 
 class Crud extends Brightery_Controller
 {
     public $_table;
+    public $_index_fields = [];
     public $_primary_key;
     public $model = 'General_model';
 
@@ -89,8 +87,7 @@ class Crud extends Brightery_Controller
 
         $data['items'] = $this->{$this->model}->get();
         $this->twiggy->set($data)
-//                    ->layout('index_')
-                     ->template($this->_table . '/index')
+                     ->template('global_index')
                      ->display();
 
 //        $this->load->view($this->_table . '/index', $data);

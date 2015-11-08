@@ -4,11 +4,12 @@ class Branches extends Crud
 {
     public $_table = 'branches';
     public $_primary_key = 'branch_id';
-
+    public $_index_fields = [
+        'name'
+    ];
     public function __construct()
     {
         parent::__construct();
-
     }
 
     public function indexFixes()
@@ -22,24 +23,22 @@ class Branches extends Crud
 
     protected function onValidationEvent($op, $id = false)
     {
-
         $config['upload_path'] = './cdn/' . $this->_table;
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $this->load->library('upload', $config);
 
-        $this->form_validation->set_rules('branch_id', lang('branch_id'), "trim|required");
-        $this->form_validation->set_rules('name', lang('name'), "trim|required");
-        $this->form_validation->set_rules('place', lang('place'), "trim|required");
-        $this->form_validation->set_rules('notes', lang('notes'), "trim|required");
-        $this->form_validation->set_rules('phone', lang('phone'), "trim|required");
-        $this->form_validation->set_rules('sales_invoice_type_id', lang('sales_invoice_type_id'), "trim|required");
-        $this->form_validation->set_rules('format_invoice_type_id', lang('format_invoice_type_id'), "trim|required");
-        $this->form_validation->set_rules('services_invoice_type_id', lang('services_invoice_type_id'), "trim|required");
-        $this->form_validation->set_rules('transactions', lang('transactions'), "trim|required");
-        $this->form_validation->set_rules('logo', lang('logo'), "trim|callback_file[1]");
-        $this->form_validation->set_rules('header', lang('header'), "trim|required");
-        $this->form_validation->set_rules('footer', lang('footer'), "trim|required");
-
+        $this->form_validation->set_rules('name', lang('branches_name'), "trim|required");
+        $this->form_validation->set_rules('place', lang('branches_place'), "trim|required");
+        $this->form_validation->set_rules('notes', lang('branches_notes'), "trim|required");
+        $this->form_validation->set_rules('phone', lang('branches_phone'), "trim|required");
+        $this->form_validation->set_rules('sales_invoice_type_id', lang('branches_sales_invoice_type_id'), "trim|required");
+        $this->form_validation->set_rules('format_invoice_type_id', lang('branches_format_invoice_type_id'), "trim|required");
+        $this->form_validation->set_rules('services_invoice_type_id', lang('branches_services_invoice_type_id'), "trim|required");
+        $this->form_validation->set_rules('transactions', lang('branches_transactions'), "trim|required");
+        $this->form_validation->set_rules('logo', lang('branches_logo'), "trim|callback_file[1]");
+        $this->form_validation->set_rules('header', lang('branches_header'), "trim|required");
+        $this->form_validation->set_rules('footer', lang('branches_footer'), "trim|required");
+        $this->form_validation->set_rules('created_at', lang('branches_created_at'), "trim|required");
     }
 
     protected function onSuccessEvent($op, $id = false)
@@ -55,10 +54,9 @@ class Branches extends Crud
             'format_invoice_type_id' => $this->input->post('format_invoice_type_id'),
             'services_invoice_type_id' => $this->input->post('services_invoice_type_id'),
             'transactions' => $this->input->post('transactions'),
-//            'logo' => $this->input->post('logo'),
             'header' => $this->input->post('header'),
             'footer' => $this->input->post('footer'),
-            'timestamp' => date('Y-m-d H:i:s'),
+            'created_at' => date('Y-m-d H:i:s'),
         ];
 
         foreach ($vars as $vark => $varv)

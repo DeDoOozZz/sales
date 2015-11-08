@@ -27,6 +27,13 @@ if (!defined('BASEPATH'))
  * @link		http://codeigniter.com/user_guide/helpers/form_helper.html
  */
 // ------------------------------------------------------------------------
+
+function get_variable_attribute($obj, $attr) {
+    return $obj->$attr;
+}
+function menu_lang($var) {
+    return lang('menu_' . $var);
+}
 function admin_url($var) {
     return site_url(ADMIN . '/' . $var);
 }

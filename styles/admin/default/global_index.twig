@@ -1,0 +1,93 @@
+{% extends _layout %}
+{% block content %}
+
+    <div class="page-title">
+
+        <div class="title-env">
+            <h1 class="title">{{ lang('menu_' ~ that._table) }}</h1>
+            <p class="description"></p>
+        </div>
+
+        <div class="breadcrumb-env">
+
+            {#<ol class="breadcrumb bc-1" >#}
+                {#<li>#}
+                    {#<a href="<?= site_url('admin/dashboard') ?>"><i class="fa-home"></i>Dashboard</a>#}
+                {#</li>#}
+                {#<li class="active">#}
+                    {#<strong>Business Types</strong>#}
+                {#</li>#}
+            {#</ol>#}
+
+        </div>
+
+    </div>
+
+    <!-- Admin Table-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ lang('menu_' ~ that._table) }}</h3>
+            <div class="panel-options">
+                <a href="{{ admin_url(that._table ~ '/manage') }}" class="btn btn-secondary btn-sm" style="color:#fff">{{ lang('global_add_new_record') }}</a>
+            </div>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-bordered table-striped" id="datatable">
+                <thead>
+                <tr>
+                    {% for _index_field in that._index_fields %}
+                    <th>{{ lang(that._table ~ '_' ~ _index_field) }}</th>
+                    {% endfor %}
+                    <th>{{ lang('global_operations') }}</th>
+                </tr>
+                </thead>
+
+                <tbody class="middle-align">
+                {% for item in items %}
+                <tr>
+                    {% for _index_field in that._index_fields %}
+                        <th>{{ get_variable_attribute(item, _index_field) }}</th>
+                    {% endfor %}
+                    <td>
+                        <a href="{{ admin_url(that._table ~ '/manage/' ~ get_variable_attribute(item, that._primary_key)) }}" class="btn btn-orange btn-sm btn-icon icon-left">
+                            {{ lang('global_edit') }}
+                        </a>
+                        <a data-href="{{ admin_url(that._table ~ '/delete/' ~ get_variable_attribute(item, that._primary_key)) }}" class="btn btn-danger btn-sm btn-icon btn-delete"
+                           data-toggle="modal" data-target="#deleteMsg" style="color:#fff;">{{ lang('global_delete') }}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {{ pagination }}
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{ lang('global_system_message') }}</h4>
+                </div>
+                <div class="modal-body">
+                    <span style="color:#777;">{{ lang('global_delete_confirmation_message') }}</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-grey btn-icon" data-dismiss="modal" style="color: grey;">{{ lang('global_cancel') }}</button>
+                    <a class="btn btn-danger btn-icon modal_delete_btn" href="" >{{ lang('global_delete') }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('.btn-delete').click(function(){
+            $('.modal_delete_btn').attr('href', $(this).data('href'));
+
+//        return false;
+        });
+    </script>
+
+{% endblock %}

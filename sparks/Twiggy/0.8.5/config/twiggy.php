@@ -28,7 +28,7 @@
 |
 */
 
-$config['twiggy']['template_file_ext'] = '.html.twig';
+$config['twiggy']['template_file_ext'] = '.twig';
 
 
 /*
@@ -125,7 +125,7 @@ $config['twiggy']['twig_cache_dir'] = APPPATH . 'cache/twig/';
 |
 */
 
-$config['twiggy']['themes_base_dir'] = 'themes/';
+$config['twiggy']['themes_base_dir'] = 'styles/';
 
 
 /*
@@ -148,7 +148,7 @@ $config['twiggy']['themes_base_dir'] = 'themes/';
 |
 */
 
-$config['twiggy']['include_apppath'] = TRUE;
+$config['twiggy']['include_apppath'] = FALSE;
 
 
 /*
@@ -158,6 +158,14 @@ $config['twiggy']['include_apppath'] = TRUE;
 */
 
 $config['twiggy']['default_theme'] = 'default';
+
+/*
+|--------------------------------------------------------------------------
+| Default interface
+|--------------------------------------------------------------------------
+*/
+
+$config['twiggy']['default_interface'] = 'admin';
 
 
 /*

@@ -33,6 +33,7 @@ class Twiggy
 	private $_globals = array();
 	private $_themes_base_dir;
 	private $_theme;
+	private $_interface = 'admin';
 	private $_layout;
 	private $_template;
 	private $_twig;
@@ -54,10 +55,11 @@ class Twiggy
 		$this->_config = $this->CI->config->item('twiggy');
 
 		$this->_themes_base_dir = ($this->_config['include_apppath']) ? APPPATH . $this->_config['themes_base_dir'] : $this->_config['themes_base_dir'];
-		$this->_set_template_locations($this->_config['default_theme']);
+//		$this->_set_template_locations($this->_config['default_theme'], 'admin');
 
 		try
 		{
+			$this->_template_locations = ['styles/'. $this->_interface .'/'. $this->_config['default_theme']];
 			$this->_twig_loader = new Twig_Loader_Filesystem($this->_template_locations);
 		}
 		catch(Twig_Error_Loader $e)
@@ -311,6 +313,7 @@ class Twiggy
 
 	public function theme($theme)
 	{
+		$theme =  $this->_interface . '/' . $theme;
 		if(!is_dir(realpath($this->_themes_base_dir. $theme)))
 		{
 			log_message('error', 'Twiggy: requested theme '. $theme .' has not been loaded because it does not exist.');
@@ -457,31 +460,9 @@ class Twiggy
 	{
 		// Reset template locations array since we loaded a different theme
 		//$this->_template_locations = array();
-		
-		// Check if HMVC is installed.
-		// NOTE: there may be a simplier way to check it but this seems good enough.
-		if(method_exists($this->CI->router, 'fetch_module'))
-		{
-			$this->_module = $this->CI->router->fetch_module();
-
-			// Only if the current page is served from a module do we need to add extra template locations.
-			if(!empty($this->_module))
-			{
-				$module_locations = Modules::$locations;
-
-				foreach($module_locations as $loc => $offset)
-				{
-					/* Only add the template location if the same exists, otherwise
-					you'll need always a directory for your templates, even your module
-					won't use templates */
-					if ( is_dir($loc . $this->_module . '/' . $this->_config['themes_base_dir'] . $theme) )
-						$this->_template_locations[] = $loc . $this->_module . '/' . $this->_config['themes_base_dir'] . $theme;
-				}
-			}
-		}
 
 		$this->_template_locations[] =  $this->_themes_base_dir . $theme;
-
+print_r($this->_template_locations);
 		// Reset the paths if needed.
 		if(is_object($this->_twig_loader))
 		{

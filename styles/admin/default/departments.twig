@@ -1,0 +1,78 @@
+{% extends _layout %}
+{% block content %}
+
+    <div class="page-title">
+        <div class="title-env">
+            <h1 class="title">{{ lang('menu_' ~ that._table) }}</h1>
+            <p class="description"></p>
+        </div>
+        <div class="breadcrumb-env"></div>
+    </div>
+
+    <!-- Admin Table-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ lang('menu_' ~ that._table) }}</h3>
+        </div>
+        <div class="panel-body">
+            {% if (validation_errors()) %}
+            <div class="alert alert-danger">
+                {{ validation_errors() }}
+            </div>
+            {% endif %}
+            <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+
+                
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="department_id">{{ lang('departments_department_id') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('department_id', set_value('department_id', item.department_id), 'class="form-control" id="department_id"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="name_en">{{ lang('departments_name_en') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('name_en', set_value('name_en', item.name_en), 'class="form-control" id="name_en"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="name_ar">{{ lang('departments_name_ar') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('name_ar', set_value('name_ar', item.name_ar), 'class="form-control" id="name_ar"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="desc">{{ lang('departments_desc') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('desc', set_value('desc', item.desc), 'class="form-control" id="desc"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <input type="submit" class="btn btn-secondary " name="submit" value="{{ lang('global_submit') }}">
+                        <a href="{{ admin_url(that._table ~ '/index') }} "
+                           class="btn btn-danger">{{ lang('global_cancel') }}</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

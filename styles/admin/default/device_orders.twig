@@ -24,77 +24,87 @@
 
                 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="category_id">{{ lang('categories_category_id') }}</label>
+                    <label class="col-sm-2 control-label" for="device_order_id">{{ lang('device_orders_device_order_id') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('category_id', set_value('category_id', item.category_id), 'class="form-control" id="category_id"') }}
+                        {{ form_input('device_order_id', set_value('device_order_id', item.device_order_id), 'class="form-control" id="device_order_id"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
                 
 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="parent_id">{{ lang('categories_parent_id') }}</label>
+                    <label class="col-sm-2 control-label" for="serial">{{ lang('device_orders_serial') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('parent_id', set_value('parent_id', item.parent_id), 'class="form-control" id="parent_id"') }}
+                        {{ form_input('serial', set_value('serial', item.serial), 'class="form-control" id="serial"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
                 
 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="name_en">{{ lang('categories_name_en') }}</label>
+                    <label class="col-sm-2 control-label" for="barcode">{{ lang('device_orders_barcode') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('name_en', set_value('name_en', item.name_en), 'class="form-control" id="name_en"') }}
+                        {{ form_input('barcode', set_value('barcode', item.barcode), 'class="form-control" id="barcode"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
                 
 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="name_ar">{{ lang('categories_name_ar') }}</label>
+                    <label class="col-sm-2 control-label" for="mobile">{{ lang('device_orders_mobile') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('name_ar', set_value('name_ar', item.name_ar), 'class="form-control" id="name_ar"') }}
+                        {{ form_input('mobile', set_value('mobile', item.mobile), 'class="form-control" id="mobile"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
                 
 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="desc_en">{{ lang('categories_desc_en') }}</label>
+                    <label class="col-sm-2 control-label" for="social_id">{{ lang('device_orders_social_id') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('desc_en', set_value('desc_en', item.desc_en), 'class="form-control" id="desc_en"') }}
+                        {{ form_input('social_id', set_value('social_id', item.social_id), 'class="form-control" id="social_id"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
                 
 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="desc_ar">{{ lang('categories_desc_ar') }}</label>
+                    <label class="col-sm-2 control-label" for="invoice_id">{{ lang('device_orders_invoice_id') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('desc_ar', set_value('desc_ar', item.desc_ar), 'class="form-control" id="desc_ar"') }}
+                        {{ form_input('invoice_id', set_value('invoice_id', item.invoice_id), 'class="form-control" id="invoice_id"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
                 
 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="display_order">{{ lang('categories_display_order') }}</label>
+                    <label class="col-sm-2 control-label" for="client_id">{{ lang('device_orders_client_id') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('display_order', set_value('display_order', item.display_order), 'class="form-control" id="display_order"') }}
+                        {{ form_input('client_id', set_value('client_id', item.client_id), 'class="form-control" id="client_id"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
                 
 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="status">{{ lang('categories_status') }}</label>
+                    <label class="col-sm-2 control-label" for="branch_id">{{ lang('device_orders_branch_id') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('branch_id', set_value('branch_id', item.branch_id), 'class="form-control" id="branch_id"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="status">{{ lang('device_orders_status') }}</label>
 
                     <div class="col-sm-10">
                         {{ form_input('status', set_value('status', item.status), 'class="form-control" id="status"') }}
@@ -104,10 +114,10 @@
                 
 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="created_at">{{ lang('categories_created_at') }}</label>
+                    <label class="col-sm-2 control-label" for="timestamp">{{ lang('device_orders_timestamp') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('created_at', set_value('created_at', item.created_at), 'class="form-control" id="created_at"') }}
+                        {{ form_input('timestamp', set_value('timestamp', item.timestamp), 'class="form-control" id="timestamp"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>

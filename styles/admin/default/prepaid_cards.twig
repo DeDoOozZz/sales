@@ -24,90 +24,70 @@
 
                 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="category_id">{{ lang('categories_category_id') }}</label>
+                    <label class="col-sm-2 control-label" for="prepaid_card_id">{{ lang('prepaid_cards_prepaid_card_id') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('category_id', set_value('category_id', item.category_id), 'class="form-control" id="category_id"') }}
+                        {{ form_input('prepaid_card_id', set_value('prepaid_card_id', item.prepaid_card_id), 'class="form-control" id="prepaid_card_id"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
                 
 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="parent_id">{{ lang('categories_parent_id') }}</label>
+                    <label class="col-sm-2 control-label" for="prepaid_card_type_id">{{ lang('prepaid_cards_prepaid_card_type_id') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('parent_id', set_value('parent_id', item.parent_id), 'class="form-control" id="parent_id"') }}
+                        {{ form_input('prepaid_card_type_id', set_value('prepaid_card_type_id', item.prepaid_card_type_id), 'class="form-control" id="prepaid_card_type_id"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
                 
 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="name_en">{{ lang('categories_name_en') }}</label>
+                    <label class="col-sm-2 control-label" for="number">{{ lang('prepaid_cards_number') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('name_en', set_value('name_en', item.name_en), 'class="form-control" id="name_en"') }}
+                        {{ form_input('number', set_value('number', item.number), 'class="form-control" id="number"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
                 
 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="name_ar">{{ lang('categories_name_ar') }}</label>
+                    <label class="col-sm-2 control-label" for="serial">{{ lang('prepaid_cards_serial') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('name_ar', set_value('name_ar', item.name_ar), 'class="form-control" id="name_ar"') }}
+                        {{ form_input('serial', set_value('serial', item.serial), 'class="form-control" id="serial"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
                 
 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="desc_en">{{ lang('categories_desc_en') }}</label>
+                    <label class="col-sm-2 control-label" for="expire_date">{{ lang('prepaid_cards_expire_date') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('desc_en', set_value('desc_en', item.desc_en), 'class="form-control" id="desc_en"') }}
+                        {{ form_input('expire_date', set_value('expire_date', item.expire_date), 'class="form-control" id="expire_date"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
                 
 
                     <div class="form-group">
-                    <label class="col-sm-2 control-label" for="desc_ar">{{ lang('categories_desc_ar') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('desc_ar', set_value('desc_ar', item.desc_ar), 'class="form-control" id="desc_ar"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-                
-
-                    <div class="form-group">
-                    <label class="col-sm-2 control-label" for="display_order">{{ lang('categories_display_order') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('display_order', set_value('display_order', item.display_order), 'class="form-control" id="display_order"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-                
-
-                    <div class="form-group">
-                    <label class="col-sm-2 control-label" for="status">{{ lang('categories_status') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('status', set_value('status', item.status), 'class="form-control" id="status"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-                
-
-                    <div class="form-group">
-                    <label class="col-sm-2 control-label" for="created_at">{{ lang('categories_created_at') }}</label>
+                    <label class="col-sm-2 control-label" for="created_at">{{ lang('prepaid_cards_created_at') }}</label>
 
                     <div class="col-sm-10">
                         {{ form_input('created_at', set_value('created_at', item.created_at), 'class="form-control" id="created_at"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="prepaid_card_order_id">{{ lang('prepaid_cards_prepaid_card_order_id') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('prepaid_card_order_id', set_value('prepaid_card_order_id', item.prepaid_card_order_id), 'class="form-control" id="prepaid_card_order_id"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>

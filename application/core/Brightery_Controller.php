@@ -18,7 +18,7 @@ class Brightery_Controller extends CI_Controller
         parent::__construct();
 
         $this->load->spark('twiggy/0.8.5');
-
+        $this->lang->load('admin');
 //        if( ! $this->module)
 //            $this->module = get_class($this);
 //        $this->lang = $this->input->get('lang');
@@ -84,7 +84,6 @@ class Crud extends Brightery_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->lang->load('admin');
         $this->load->model($this->model);
         $this->{$this->model}->_table = $this->_table;
         $this->{$this->model}->_primary_key = $this->_primary_key;

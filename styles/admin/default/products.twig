@@ -1,0 +1,228 @@
+{% extends _layout %}
+{% block content %}
+
+    <div class="page-title">
+        <div class="title-env">
+            <h1 class="title">{{ lang('menu_' ~ that._table) }}</h1>
+            <p class="description"></p>
+        </div>
+        <div class="breadcrumb-env"></div>
+    </div>
+
+    <!-- Admin Table-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ lang('menu_' ~ that._table) }}</h3>
+        </div>
+        <div class="panel-body">
+            {% if (validation_errors()) %}
+            <div class="alert alert-danger">
+                {{ validation_errors() }}
+            </div>
+            {% endif %}
+            <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+
+                
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="product_id">{{ lang('products_product_id') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('product_id', set_value('product_id', item.product_id), 'class="form-control" id="product_id"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="barcode">{{ lang('products_barcode') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('barcode', set_value('barcode', item.barcode), 'class="form-control" id="barcode"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="name_ar">{{ lang('products_name_ar') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('name_ar', set_value('name_ar', item.name_ar), 'class="form-control" id="name_ar"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="name_en">{{ lang('products_name_en') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('name_en', set_value('name_en', item.name_en), 'class="form-control" id="name_en"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="category_id">{{ lang('products_category_id') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('category_id', set_value('category_id', item.category_id), 'class="form-control" id="category_id"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="mark_id">{{ lang('products_mark_id') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('mark_id', set_value('mark_id', item.mark_id), 'class="form-control" id="mark_id"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="commission">{{ lang('products_commission') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('commission', set_value('commission', item.commission), 'class="form-control" id="commission"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="cost">{{ lang('products_cost') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('cost', set_value('cost', item.cost), 'class="form-control" id="cost"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="profit">{{ lang('products_profit') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('profit', set_value('profit', item.profit), 'class="form-control" id="profit"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="discount">{{ lang('products_discount') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('discount', set_value('discount', item.discount), 'class="form-control" id="discount"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="featured">{{ lang('products_featured') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('featured', set_value('featured', item.featured), 'class="form-control" id="featured"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="image">{{ lang('products_image') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('image', set_value('image', item.image), 'class="form-control" id="image"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="amount">{{ lang('products_amount') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('amount', set_value('amount', item.amount), 'class="form-control" id="amount"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="desc_en">{{ lang('products_desc_en') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('desc_en', set_value('desc_en', item.desc_en), 'class="form-control" id="desc_en"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="desc_ar">{{ lang('products_desc_ar') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('desc_ar', set_value('desc_ar', item.desc_ar), 'class="form-control" id="desc_ar"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="points">{{ lang('products_points') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('points', set_value('points', item.points), 'class="form-control" id="points"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="timestamp">{{ lang('products_timestamp') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('timestamp', set_value('timestamp', item.timestamp), 'class="form-control" id="timestamp"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="stock_3">{{ lang('products_stock_3') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('stock_3', set_value('stock_3', item.stock_3), 'class="form-control" id="stock_3"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="stock_2">{{ lang('products_stock_2') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('stock_2', set_value('stock_2', item.stock_2), 'class="form-control" id="stock_2"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <input type="submit" class="btn btn-secondary " name="submit" value="{{ lang('global_submit') }}">
+                        <a href="{{ admin_url(that._table ~ '/index') }} "
+                           class="btn btn-danger">{{ lang('global_cancel') }}</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

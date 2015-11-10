@@ -1,0 +1,268 @@
+{% extends _layout %}
+{% block content %}
+
+    <div class="page-title">
+        <div class="title-env">
+            <h1 class="title">{{ lang('menu_' ~ that._table) }}</h1>
+            <p class="description"></p>
+        </div>
+        <div class="breadcrumb-env"></div>
+    </div>
+
+    <!-- Admin Table-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ lang('menu_' ~ that._table) }}</h3>
+        </div>
+        <div class="panel-body">
+            {% if (validation_errors()) %}
+            <div class="alert alert-danger">
+                {{ validation_errors() }}
+            </div>
+            {% endif %}
+            <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+
+                
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="id">{{ lang('users_id') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('id', set_value('id', item.id), 'class="form-control" id="id"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="firm_id">{{ lang('users_firm_id') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('firm_id', set_value('firm_id', item.firm_id), 'class="form-control" id="firm_id"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="usergroup_id">{{ lang('users_usergroup_id') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('usergroup_id', set_value('usergroup_id', item.usergroup_id), 'class="form-control" id="usergroup_id"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="language">{{ lang('users_language') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('language', set_value('language', item.language), 'class="form-control" id="language"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="name">{{ lang('users_name') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('name', set_value('name', item.name), 'class="form-control" id="name"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="full_name">{{ lang('users_full_name') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('full_name', set_value('full_name', item.full_name), 'class="form-control" id="full_name"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="email">{{ lang('users_email') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('email', set_value('email', item.email), 'class="form-control" id="email"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="phone">{{ lang('users_phone') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('phone', set_value('phone', item.phone), 'class="form-control" id="phone"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="mobile">{{ lang('users_mobile') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('mobile', set_value('mobile', item.mobile), 'class="form-control" id="mobile"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="password">{{ lang('users_password') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('password', set_value('password', item.password), 'class="form-control" id="password"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="address">{{ lang('users_address') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('address', set_value('address', item.address), 'class="form-control" id="address"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="notes">{{ lang('users_notes') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('notes', set_value('notes', item.notes), 'class="form-control" id="notes"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="salary">{{ lang('users_salary') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('salary', set_value('salary', item.salary), 'class="form-control" id="salary"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="commision">{{ lang('users_commision') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('commision', set_value('commision', item.commision), 'class="form-control" id="commision"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="id_no">{{ lang('users_id_no') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('id_no', set_value('id_no', item.id_no), 'class="form-control" id="id_no"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="id_expiredate">{{ lang('users_id_expiredate') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('id_expiredate', set_value('id_expiredate', item.id_expiredate), 'class="form-control" id="id_expiredate"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="passport_no">{{ lang('users_passport_no') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('passport_no', set_value('passport_no', item.passport_no), 'class="form-control" id="passport_no"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="passport_expiredate">{{ lang('users_passport_expiredate') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('passport_expiredate', set_value('passport_expiredate', item.passport_expiredate), 'class="form-control" id="passport_expiredate"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="ip">{{ lang('users_ip') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('ip', set_value('ip', item.ip), 'class="form-control" id="ip"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="status">{{ lang('users_status') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('status', set_value('status', item.status), 'class="form-control" id="status"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="ban_time">{{ lang('users_ban_time') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('ban_time', set_value('ban_time', item.ban_time), 'class="form-control" id="ban_time"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="image">{{ lang('users_image') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('image', set_value('image', item.image), 'class="form-control" id="image"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label" for="timestamp">{{ lang('users_timestamp') }}</label>
+
+                    <div class="col-sm-10">
+                        {{ form_input('timestamp', set_value('timestamp', item.timestamp), 'class="form-control" id="timestamp"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+                
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <input type="submit" class="btn btn-secondary " name="submit" value="{{ lang('global_submit') }}">
+                        <a href="{{ admin_url(that._table ~ '/index') }} "
+                           class="btn btn-danger">{{ lang('global_cancel') }}</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

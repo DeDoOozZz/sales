@@ -1,130 +1,99 @@
-<?php if (!defined('BASEPATH')) die('No direct script access allowed');
+<?php
 
-class Users extends Brightery_Controller
+class Users extends Crud
 {
-    public $layout = 'full';
-    public $module = 'users';
-    public $model = 'users_model';
+    public $_table = 'users';
+    public $_primary_key = 'id';
+    public $_index_fields = [
+        'name',
+    ];
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model($this->model);
-        $this->_primary_key = $this->{$this->model}->_primary_keys[0];
-        $this->permission($this->module . '_index');
+        $this->_index_fields[] = name();
     }
 
-    public function index()
+    public function indexFixes()
     {
-        $this->load->library('pagination');
-        $this->{$this->model}->order_by['users.name'] = 'ASC';
-        $config['total_rows'] = $this->{$this->model}->get(TRUE);
-        $config['suffix'] = '?' . http_build_query($_GET);
-        $config['base_url'] = site_url('admin/users/index');
-        $config['per_page'] = config('pagination_limit');
-        $this->pagination->initialize($config);
-        $data['pagination'] = $this->pagination->create_links();
+        $this->{$this->model}->custom_select = '*';
+//        $this->{$this->model}->joins = array(
+//            'business_types' => array('business_types.business_type_id = companies.business_type_id', 'inner')
+//        );
+        $this->{$this->model}->order_by[name()] = 'ASC';
 
-        if ($this->uri->segment(4))
-            $this->{$this->model}->offset = $this->uri->segment(4);
-
-        $data['total'] = $config['total_rows'];
-        $this->{$this->model}->limit = config('pagination_limit');
-        $data['items'] = $this->{$this->model}->get();
-        $this->load->view($this->module . '/index', $data);
     }
 
-    public function manage($id = NULL)
+    protected function onValidationEvent($op, $id = false)
     {
-        $data = array();
-        $data['permissions'] = array(
-            'users' => 'Users',
-            'service_providers' => 'Service Providers',
-            'options' => 'Options',
-            'users' => 'Users',
-            'grades' => 'Grades',
-            'files' => 'Files',
-            'consultants' => 'Consultants',
-            'companies' => 'Companies',
-            'certificates' => 'Certificates',
-            'certificate_categories' => 'Categories',
-            'business_types' => 'Business Types',
-            'branches' => "Branches",
-            'crops' => "Crops",
-            'status' => "Status",
-        );
-        $data['oprations'] = array(
-            'index' => 'Read',
-            'add' => 'Add',
-            'edit' => 'Edit',
-            'delete' => 'Delete'
-        );
-        $data['selected_permission'] = array();
+        $this->data['invoice_types'] = dd2menu('invoice_types', ['invoice_type_id' => name()]);
 
-        if ($id) {
-            $this->{$this->model}->{$this->_primary_key} = $id;
-            $data['item'] = $this->{$this->model}->get();
-            if (!$data['item'])
-                show_404();
+        $config['upload_path'] = './cdn/' . $this->_table;
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $this->load->library('upload', $config);
+        $required = ($op == 'add') ? '1' : '1';
 
-            if ($data['item']->permissions)
-                $data['selected_permission'] = array_keys(unserialize($data['item']->permissions));
-            $this->permission($this->module . '_edit');
-            $op = 'edit';
-        } else {
-            $data['item'] = new Std();
-            $this->permission($this->module . '_add');
-            $op = 'add';
-        }
+        $this->form_validation->set_rules('id', lang('users_id'), "trim|required");
+$this->form_validation->set_rules('firm_id', lang('users_firm_id'), "trim|required");
+$this->form_validation->set_rules('usergroup_id', lang('users_usergroup_id'), "trim|required");
+$this->form_validation->set_rules('language', lang('users_language'), "trim|required");
+$this->form_validation->set_rules('name', lang('users_name'), "trim|required");
+$this->form_validation->set_rules('full_name', lang('users_full_name'), "trim|required");
+$this->form_validation->set_rules('email', lang('users_email'), "trim|required");
+$this->form_validation->set_rules('phone', lang('users_phone'), "trim|required");
+$this->form_validation->set_rules('mobile', lang('users_mobile'), "trim|required");
+$this->form_validation->set_rules('password', lang('users_password'), "trim|required");
+$this->form_validation->set_rules('address', lang('users_address'), "trim|required");
+$this->form_validation->set_rules('notes', lang('users_notes'), "trim|required");
+$this->form_validation->set_rules('salary', lang('users_salary'), "trim|required");
+$this->form_validation->set_rules('commision', lang('users_commision'), "trim|required");
+$this->form_validation->set_rules('id_no', lang('users_id_no'), "trim|required");
+$this->form_validation->set_rules('id_expiredate', lang('users_id_expiredate'), "trim|required");
+$this->form_validation->set_rules('passport_no', lang('users_passport_no'), "trim|required");
+$this->form_validation->set_rules('passport_expiredate', lang('users_passport_expiredate'), "trim|required");
+$this->form_validation->set_rules('ip', lang('users_ip'), "trim|required");
+$this->form_validation->set_rules('status', lang('users_status'), "trim|required");
+$this->form_validation->set_rules('ban_time', lang('users_ban_time'), "trim|required");
+$this->form_validation->set_rules('image', lang('users_image'), "trim|required");
+$this->form_validation->set_rules('timestamp', lang('users_timestamp'), "trim|required");
 
-        $this->load->library("form_validation");
+        $this->form_validation->set_rules('logo', lang('branches_logo'), "callback_file[logo," . $required ."]");
 
-        $this->form_validation->set_rules('name', 'Name', 'trim|required');
-        $this->form_validation->set_rules('username', 'Username', 'trim|required');
-        if ($op == 'add') {
-            $this->form_validation->set_rules("email", 'Email', "trim|required|is_unique[users.email]");
-        } else {
-            $this->form_validation->set_rules("email", 'Email', "trim|required");
-        }
-        if ($id)
-            $this->form_validation->set_rules('password', 'Password', 'trim');
-        else
-            $this->form_validation->set_rules('password', 'Password', 'trim|required');
-        $this->form_validation->set_rules("phone", 'Phone', 'trim|required|numeric');
-
-        if ($this->form_validation->run() == FALSE)
-            $this->load->view($this->module . '/manage', $data);
-
-        else {
-            $this->users_model->name = $this->input->post('name');
-            $this->users_model->username = $this->input->post('username');
-            $this->users_model->phone = $this->input->post('phone');
-            $this->users_model->email = $this->input->post('email');
-            $this->users_model->alert = $this->input->post('alert') == 1 ? 1 : 0;
-            $this->users_model->permissions = serialize($this->input->post('permission'));
-
-            if (strlen($this->input->post('password')) > 0)
-                $this->{$this->model}->password = md5($this->input->post('password'));
-
-            $this->{$this->model}->save();
-            redirect('admin/' . $this->module);
-        }
     }
-
-    public function delete($id = null)
+    protected function onSuccessEvent($op, $id = false)
     {
-        $this->permission($this->module . '_delete');
-        if (!$id)
-            show_404();
-        $this->{$this->model}->{$this->_primary_key} = $id;
-        $data['item'] = $this->{$this->model}->get();
-        if (!$data['item'])
-            show_404();
-        $this->{$this->model}->delete();
-        redirect('admin/' . $this->module);
-    }
+        $vars = [
+            'id' => $this->input->post('id'),
+'firm_id' => $this->input->post('firm_id'),
+'usergroup_id' => $this->input->post('usergroup_id'),
+'language' => $this->input->post('language'),
+'name' => $this->input->post('name'),
+'full_name' => $this->input->post('full_name'),
+'email' => $this->input->post('email'),
+'phone' => $this->input->post('phone'),
+'mobile' => $this->input->post('mobile'),
+'password' => $this->input->post('password'),
+'address' => $this->input->post('address'),
+'notes' => $this->input->post('notes'),
+'salary' => $this->input->post('salary'),
+'commision' => $this->input->post('commision'),
+'id_no' => $this->input->post('id_no'),
+'id_expiredate' => $this->input->post('id_expiredate'),
+'passport_no' => $this->input->post('passport_no'),
+'passport_expiredate' => $this->input->post('passport_expiredate'),
+'ip' => $this->input->post('ip'),
+'status' => $this->input->post('status'),
+'ban_time' => $this->input->post('ban_time'),
+'image' => $this->input->post('image'),
+'timestamp' => $this->input->post('timestamp'),
 
+        ];
+        if($op == 'add')
+            $vars['created_at'] = now();
+
+        foreach ($vars as $vark => $varv)
+            $this->{$this->model}->{$vark} = $varv;
+        $this->{$this->model}->save();
+
+    }
 }
-
-/* End of file users.php */
-/* Location: ./application/controllers/admin/users.php */

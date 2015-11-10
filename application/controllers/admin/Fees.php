@@ -1,9 +1,9 @@
 <?php
 
-class Credit_card_types extends Crud
+class Fees extends Crud
 {
-    public $_table = 'credit_card_types';
-    public $_primary_key = 'credit_card_type_id';
+    public $_table = 'fees';
+    public $_primary_key = 'fee_id';
     public $_index_fields = [
         'name',
     ];
@@ -33,9 +33,13 @@ class Credit_card_types extends Crud
         $this->load->library('upload', $config);
         $required = ($op == 'add') ? '1' : '1';
 
-        $this->form_validation->set_rules('credit_card_type_id', lang('credit_card_types_credit_card_type_id'), "trim|required");
-$this->form_validation->set_rules('name_ar', lang('credit_card_types_name_ar'), "trim|required");
-$this->form_validation->set_rules('name_en', lang('credit_card_types_name_en'), "trim|required");
+        $this->form_validation->set_rules('fee_id', lang('fees_fee_id'), "trim|required");
+$this->form_validation->set_rules('branch_id', lang('fees_branch_id'), "trim|required");
+$this->form_validation->set_rules('fee_type_id', lang('fees_fee_type_id'), "trim|required");
+$this->form_validation->set_rules('amount', lang('fees_amount'), "trim|required");
+$this->form_validation->set_rules('month', lang('fees_month'), "trim|required");
+$this->form_validation->set_rules('year', lang('fees_year'), "trim|required");
+$this->form_validation->set_rules('timestamp', lang('fees_timestamp'), "trim|required");
 
         $this->form_validation->set_rules('logo', lang('branches_logo'), "callback_file[logo," . $required ."]");
 
@@ -43,9 +47,13 @@ $this->form_validation->set_rules('name_en', lang('credit_card_types_name_en'), 
     protected function onSuccessEvent($op, $id = false)
     {
         $vars = [
-            'credit_card_type_id' => $this->input->post('credit_card_type_id'),
-'name_ar' => $this->input->post('name_ar'),
-'name_en' => $this->input->post('name_en'),
+            'fee_id' => $this->input->post('fee_id'),
+'branch_id' => $this->input->post('branch_id'),
+'fee_type_id' => $this->input->post('fee_type_id'),
+'amount' => $this->input->post('amount'),
+'month' => $this->input->post('month'),
+'year' => $this->input->post('year'),
+'timestamp' => $this->input->post('timestamp'),
 
         ];
         if($op == 'add')

@@ -1,9 +1,9 @@
 <?php
 
-class Credit_card_types extends Crud
+class Pending_orders extends Crud
 {
-    public $_table = 'credit_card_types';
-    public $_primary_key = 'credit_card_type_id';
+    public $_table = 'pending_orders';
+    public $_primary_key = 'pending_order_id';
     public $_index_fields = [
         'name',
     ];
@@ -33,9 +33,13 @@ class Credit_card_types extends Crud
         $this->load->library('upload', $config);
         $required = ($op == 'add') ? '1' : '1';
 
-        $this->form_validation->set_rules('credit_card_type_id', lang('credit_card_types_credit_card_type_id'), "trim|required");
-$this->form_validation->set_rules('name_ar', lang('credit_card_types_name_ar'), "trim|required");
-$this->form_validation->set_rules('name_en', lang('credit_card_types_name_en'), "trim|required");
+        $this->form_validation->set_rules('pending_order_id', lang('pending_orders_pending_order_id'), "trim|required");
+$this->form_validation->set_rules('name', lang('pending_orders_name'), "trim|required");
+$this->form_validation->set_rules('user_id', lang('pending_orders_user_id'), "trim|required");
+$this->form_validation->set_rules('client_id', lang('pending_orders_client_id'), "trim|required");
+$this->form_validation->set_rules('branch_id', lang('pending_orders_branch_id'), "trim|required");
+$this->form_validation->set_rules('timestamp', lang('pending_orders_timestamp'), "trim|required");
+$this->form_validation->set_rules('mysql_timestamp', lang('pending_orders_mysql_timestamp'), "trim|required");
 
         $this->form_validation->set_rules('logo', lang('branches_logo'), "callback_file[logo," . $required ."]");
 
@@ -43,9 +47,13 @@ $this->form_validation->set_rules('name_en', lang('credit_card_types_name_en'), 
     protected function onSuccessEvent($op, $id = false)
     {
         $vars = [
-            'credit_card_type_id' => $this->input->post('credit_card_type_id'),
-'name_ar' => $this->input->post('name_ar'),
-'name_en' => $this->input->post('name_en'),
+            'pending_order_id' => $this->input->post('pending_order_id'),
+'name' => $this->input->post('name'),
+'user_id' => $this->input->post('user_id'),
+'client_id' => $this->input->post('client_id'),
+'branch_id' => $this->input->post('branch_id'),
+'timestamp' => $this->input->post('timestamp'),
+'mysql_timestamp' => $this->input->post('mysql_timestamp'),
 
         ];
         if($op == 'add')

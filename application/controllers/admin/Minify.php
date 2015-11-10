@@ -156,6 +156,11 @@ RRR;
         fclose($file);
 
 
+        $file = fopen('application/language/english/admin_lang.php', "a+");
+        fwrite($file, $language);
+        fclose($file);
+
+
 
 //        echo "Validation<br /> <textarea width='100%'>\n";
 //        echo $validation;

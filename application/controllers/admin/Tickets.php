@@ -1,9 +1,9 @@
 <?php
 
-class Credit_card_types extends Crud
+class Tickets extends Crud
 {
-    public $_table = 'credit_card_types';
-    public $_primary_key = 'credit_card_type_id';
+    public $_table = 'tickets';
+    public $_primary_key = 'ticket_id';
     public $_index_fields = [
         'name',
     ];
@@ -33,9 +33,13 @@ class Credit_card_types extends Crud
         $this->load->library('upload', $config);
         $required = ($op == 'add') ? '1' : '1';
 
-        $this->form_validation->set_rules('credit_card_type_id', lang('credit_card_types_credit_card_type_id'), "trim|required");
-$this->form_validation->set_rules('name_ar', lang('credit_card_types_name_ar'), "trim|required");
-$this->form_validation->set_rules('name_en', lang('credit_card_types_name_en'), "trim|required");
+        $this->form_validation->set_rules('ticket_id', lang('tickets_ticket_id'), "trim|required");
+$this->form_validation->set_rules('title', lang('tickets_title'), "trim|required");
+$this->form_validation->set_rules('department_id', lang('tickets_department_id'), "trim|required");
+$this->form_validation->set_rules('ticket_status_id', lang('tickets_ticket_status_id'), "trim|required");
+$this->form_validation->set_rules('client_id', lang('tickets_client_id'), "trim|required");
+$this->form_validation->set_rules('content', lang('tickets_content'), "trim|required");
+$this->form_validation->set_rules('datetime', lang('tickets_datetime'), "trim|required");
 
         $this->form_validation->set_rules('logo', lang('branches_logo'), "callback_file[logo," . $required ."]");
 
@@ -43,9 +47,13 @@ $this->form_validation->set_rules('name_en', lang('credit_card_types_name_en'), 
     protected function onSuccessEvent($op, $id = false)
     {
         $vars = [
-            'credit_card_type_id' => $this->input->post('credit_card_type_id'),
-'name_ar' => $this->input->post('name_ar'),
-'name_en' => $this->input->post('name_en'),
+            'ticket_id' => $this->input->post('ticket_id'),
+'title' => $this->input->post('title'),
+'department_id' => $this->input->post('department_id'),
+'ticket_status_id' => $this->input->post('ticket_status_id'),
+'client_id' => $this->input->post('client_id'),
+'content' => $this->input->post('content'),
+'datetime' => $this->input->post('datetime'),
 
         ];
         if($op == 'add')

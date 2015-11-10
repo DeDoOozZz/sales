@@ -1,6 +1,6 @@
 <?php
 
-class Dashboard extends CI_Controller {
+class Dashboard extends Brightery_Controller {
     public $layout = 'default';
     public $module = 'dashboard';
 
@@ -19,7 +19,8 @@ class Dashboard extends CI_Controller {
 //        $this->load->view($this->module, $data);
 
 
-        $this->twiggy->template('dashboard')->display();
+        $this->twiggy->template('dashboard')
+            ->display();
     }
 
     public function get_status($status = 'reevaluation', $period = 1, $orderby = null) {

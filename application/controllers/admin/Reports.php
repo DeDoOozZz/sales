@@ -1,9 +1,9 @@
 <?php
 
-class Credit_card_types extends Crud
+class Reports extends Crud
 {
-    public $_table = 'credit_card_types';
-    public $_primary_key = 'credit_card_type_id';
+    public $_table = 'reports';
+    public $_primary_key = 'report_id';
     public $_index_fields = [
         'name',
     ];
@@ -33,9 +33,13 @@ class Credit_card_types extends Crud
         $this->load->library('upload', $config);
         $required = ($op == 'add') ? '1' : '1';
 
-        $this->form_validation->set_rules('credit_card_type_id', lang('credit_card_types_credit_card_type_id'), "trim|required");
-$this->form_validation->set_rules('name_ar', lang('credit_card_types_name_ar'), "trim|required");
-$this->form_validation->set_rules('name_en', lang('credit_card_types_name_en'), "trim|required");
+        $this->form_validation->set_rules('report_id', lang('reports_report_id'), "trim|required");
+$this->form_validation->set_rules('user_id', lang('reports_user_id'), "trim|required");
+$this->form_validation->set_rules('membership', lang('reports_membership'), "trim|required");
+$this->form_validation->set_rules('mission', lang('reports_mission'), "trim|required");
+$this->form_validation->set_rules('branch_id', lang('reports_branch_id'), "trim|required");
+$this->form_validation->set_rules('ip', lang('reports_ip'), "trim|required");
+$this->form_validation->set_rules('timestamp', lang('reports_timestamp'), "trim|required");
 
         $this->form_validation->set_rules('logo', lang('branches_logo'), "callback_file[logo," . $required ."]");
 
@@ -43,9 +47,13 @@ $this->form_validation->set_rules('name_en', lang('credit_card_types_name_en'), 
     protected function onSuccessEvent($op, $id = false)
     {
         $vars = [
-            'credit_card_type_id' => $this->input->post('credit_card_type_id'),
-'name_ar' => $this->input->post('name_ar'),
-'name_en' => $this->input->post('name_en'),
+            'report_id' => $this->input->post('report_id'),
+'user_id' => $this->input->post('user_id'),
+'membership' => $this->input->post('membership'),
+'mission' => $this->input->post('mission'),
+'branch_id' => $this->input->post('branch_id'),
+'ip' => $this->input->post('ip'),
+'timestamp' => $this->input->post('timestamp'),
 
         ];
         if($op == 'add')

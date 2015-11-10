@@ -1,100 +1,63 @@
 <?php
 
-class Service_providers extends Brightery_Controller {
+class Service_providers extends Crud
+{
+    public $_table = 'service_providers';
+    public $_primary_key = 'service_provider_id';
+    public $_index_fields = [
+        'name',
+    ];
 
-    public $layout = 'full';
-    public $module = 'service_providers';
-    public $model = 'service_providers_model';
-
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
-        $this->load->model($this->model);
-        $this->_primary_key = $this->{$this->model}->_primary_keys[0];
-        $this->permission($this->module . '_index');
+        $this->_index_fields[] = name();
     }
 
-    public function index() {
+    public function indexFixes()
+    {
+        $this->{$this->model}->custom_select = '*';
+//        $this->{$this->model}->joins = array(
+//            'business_types' => array('business_types.business_type_id = companies.business_type_id', 'inner')
+//        );
+        $this->{$this->model}->order_by[name()] = 'ASC';
 
-        $this->{$this->model}->custom_select = 'service_providers.*, countries.name as country_name';
-        $this->{$this->model}->joins = array(
-            'countries' => array('countries.country_id = service_providers.country_id', 'inner')
-        );
-        $this->load->library('pagination');
-        $this->{$this->model}->order_by['service_providers.name'] = 'ASC';
-        $config['total_rows'] = $this->{$this->model}->get(TRUE);
-        $config['suffix'] = '?' . http_build_query($_GET);
-        $config['base_url'] = site_url('admin/service_providers/index');
-        $config['per_page'] = config('pagination_limit');
-        $this->pagination->initialize($config);
-        $data['pagination'] = $this->pagination->create_links();
-
-        if ($this->uri->segment(4))
-            $this->{$this->model}->offset = $this->uri->segment(4);
-
-        $data['total'] = $config['total_rows'];
-        $this->{$this->model}->limit = config('pagination_limit');
-        $data['items'] = $this->{$this->model}->get();
-        $this->load->view($this->module . '/index', $data);
     }
 
-    public function manage($id = null) {
-        $data = array();
+    protected function onValidationEvent($op, $id = false)
+    {
+        $this->data['invoice_types'] = dd2menu('invoice_types', ['invoice_type_id' => name()]);
 
-        if ($id) {
-            $this->{$this->model}->{$this->_primary_key} = $id;
-            $data['item'] = $this->{$this->model}->get();
-            if (!$data['item'])
-                show_404();
-            $this->permission($this->module . '_edit');
-            $op = 'edit';
-        } else {
-            $data['item'] = new Std();
-            $this->permission($this->module . '_add');
-            $op = 'add';
-        }
+        $config['upload_path'] = './cdn/' . $this->_table;
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $this->load->library('upload', $config);
+        $required = ($op == 'add') ? '1' : '1';
 
-        $this->load->library("form_validation");
-        if ($op == 'add') {
-            $this->form_validation->set_rules('name', 'Name', 'trim|required|is_unique[service_providers.name]');
-        } else {
-            $this->form_validation->set_rules('name', 'Name', 'trim|required');
-        }
-        $this->form_validation->set_rules('address', 'Address', 'trim');
-        $this->form_validation->set_rules('phone', 'Phone', 'trim');
-        $this->form_validation->set_rules('city', 'City', 'trim');
-        $this->form_validation->set_rules('state', 'State', 'trim');
-        $this->form_validation->set_rules('email', 'Email', 'trim|valid_email');
-        $this->form_validation->set_rules('country_id', 'Country', 'trim|required');
-        $this->form_validation->set_rules('note', 'Note', 'trim');
+        $this->form_validation->set_rules('service_provider_id', lang('service_providers_service_provider_id'), "trim|required");
+$this->form_validation->set_rules('name_ar', lang('service_providers_name_ar'), "trim|required");
+$this->form_validation->set_rules('name_en', lang('service_providers_name_en'), "trim|required");
+$this->form_validation->set_rules('logo', lang('service_providers_logo'), "trim|required");
+$this->form_validation->set_rules('country_id', lang('service_providers_country_id'), "trim|required");
 
-        if ($this->form_validation->run() == FALSE)
-            $this->load->view($this->module . '/manage', $data);
+        $this->form_validation->set_rules('logo', lang('branches_logo'), "callback_file[logo," . $required ."]");
 
-        else {
-            $this->{$this->model}->name = $this->input->post('name');
-            $this->{$this->model}->address = $this->input->post('address');
-            $this->{$this->model}->phone = $this->input->post('phone');
-            $this->{$this->model}->city = $this->input->post('city');
-            $this->{$this->model}->state = $this->input->post('state');
-            $this->{$this->model}->email = $this->input->post('email');
-            $this->{$this->model}->country_id = $this->input->post('country_id');
-            $this->{$this->model}->note = $this->input->post('note');
-
-            $this->{$this->model}->save();
-            redirect('admin/' . $this->module);
-        }
     }
+    protected function onSuccessEvent($op, $id = false)
+    {
+        $vars = [
+            'service_provider_id' => $this->input->post('service_provider_id'),
+'name_ar' => $this->input->post('name_ar'),
+'name_en' => $this->input->post('name_en'),
+'logo' => $this->input->post('logo'),
+'country_id' => $this->input->post('country_id'),
 
-    public function delete($id = null) {
-        $this->permission($this->module . '_delete');
-        if (!$id)
-            show_404();
-        $this->{$this->model}->{$this->_primary_key} = $id;
-        $data['item'] = $this->{$this->model}->get();
-        if (!$data['item'])
-            show_404();
-        $this->{$this->model}->delete();
-        redirect('admin/' . $this->module);
+        ];
+        if($op == 'add')
+            $vars['created_at'] = now();
+
+        foreach ($vars as $vark => $varv)
+            $this->{$this->model}->{$vark} = $varv;
+        $this->{$this->model}->save();
+
     }
-
 }

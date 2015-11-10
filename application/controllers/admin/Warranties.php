@@ -1,9 +1,9 @@
 <?php
 
-class Credit_card_types extends Crud
+class Warranties extends Crud
 {
-    public $_table = 'credit_card_types';
-    public $_primary_key = 'credit_card_type_id';
+    public $_table = 'warranties';
+    public $_primary_key = 'warranty_id';
     public $_index_fields = [
         'name',
     ];
@@ -33,9 +33,9 @@ class Credit_card_types extends Crud
         $this->load->library('upload', $config);
         $required = ($op == 'add') ? '1' : '1';
 
-        $this->form_validation->set_rules('credit_card_type_id', lang('credit_card_types_credit_card_type_id'), "trim|required");
-$this->form_validation->set_rules('name_ar', lang('credit_card_types_name_ar'), "trim|required");
-$this->form_validation->set_rules('name_en', lang('credit_card_types_name_en'), "trim|required");
+        $this->form_validation->set_rules('warranty_id', lang('warranties_warranty_id'), "trim|required");
+$this->form_validation->set_rules('name_ar', lang('warranties_name_ar'), "trim|required");
+$this->form_validation->set_rules('name_en', lang('warranties_name_en'), "trim|required");
 
         $this->form_validation->set_rules('logo', lang('branches_logo'), "callback_file[logo," . $required ."]");
 
@@ -43,7 +43,7 @@ $this->form_validation->set_rules('name_en', lang('credit_card_types_name_en'), 
     protected function onSuccessEvent($op, $id = false)
     {
         $vars = [
-            'credit_card_type_id' => $this->input->post('credit_card_type_id'),
+            'warranty_id' => $this->input->post('warranty_id'),
 'name_ar' => $this->input->post('name_ar'),
 'name_en' => $this->input->post('name_en'),
 

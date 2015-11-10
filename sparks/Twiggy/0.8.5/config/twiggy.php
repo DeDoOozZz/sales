@@ -232,6 +232,9 @@ $config['twiggy']['register_functions'] = array
     'admin_url',
     'menu_lang',
     'get_variable_attribute',
+    'validation_errors',
+    'name',
+    'ddboolean'
 );
 
 

@@ -8,19 +8,19 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
 
-    <title><?= config('title') ?> - Login</title>
+    <title>{{ config('title') }} - Login</title>
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
-    <link rel="stylesheet" href="<?= STYLE_CSS ?>/fonts/linecons/css/linecons.css">
-    <link rel="stylesheet" href="<?= STYLE_CSS ?>/fonts/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?= STYLE_CSS ?>/bootstrap.css">
-    <link rel="stylesheet" href="<?= STYLE_CSS ?>/xenon-core.css">
-    <link rel="stylesheet" href="<?= STYLE_CSS ?>/xenon-forms.css">
-    <link rel="stylesheet" href="<?= STYLE_CSS ?>/xenon-components.css">
-    <link rel="stylesheet" href="<?= STYLE_CSS ?>/xenon-skins.css">
-    <link rel="stylesheet" href="<?= STYLE_CSS ?>/custom.css">
+    <link rel="stylesheet" href="{{ constant('STYLE_CSS') }}/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="{{ constant('STYLE_CSS') }}/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ constant('STYLE_CSS') }}/bootstrap.css">
+    <link rel="stylesheet" href="{{ constant('STYLE_CSS') }}/xenon-core.css">
+    <link rel="stylesheet" href="{{ constant('STYLE_CSS') }}/xenon-forms.css">
+    <link rel="stylesheet" href="{{ constant('STYLE_CSS') }}/xenon-components.css">
+    <link rel="stylesheet" href="{{ constant('STYLE_CSS') }}/xenon-skins.css">
+    <link rel="stylesheet" href="{{ constant('STYLE_CSS') }}/custom.css">
 
-    <script src="<?= STYLE_JS ?>/jquery-1.11.1.min.js"></script>
+    <script src="{{ constant('STYLE_JS') }}/jquery-1.11.1.min.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -131,15 +131,14 @@
 
             </div>
             <!-- Add class "fade-in-effect" for login form effect -->
-            <? if (validation_errors()): ?>
-                <div class="alert alert-danger"><?= validation_errors() ?></div>
-            <? endif ?>
+            {% if validation_errors() %}
+                <div class="alert alert-danger">{{ validation_errors() }}</div>
+            {% endif %}
 
-            <?= form_open(false, 'class="login-form fade-in-effect"') ?>
+            {{ form_open(false, 'class="login-form fade-in-effect"') }}
             <div class="login-header">
                 <a href="dashboard-1.html" class="logo">
-                    <img src="<?= STYLE_IMAGES ?>/logo.png" alt="" width="80"/>
-                    <span>log in</span>
+                    <img src="{{ constant('STYLE_IMAGES') }}/logo.png" alt=""/>
                 </a>
 
                 <p>Dear user, log in to access the admin area!</p>
@@ -147,37 +146,37 @@
 
 
             <div class="form-group">
-                <label class="control-label"><?= lang('users_email') ?></label>
-                <input type="email" placeholder="test@example.com" name="email" value="<?= set_value('email') ?>"
+                <label class="control-label">{{ lang('users_email') }}</label>
+                <input type="email" placeholder="test@example.com" name="email" value="{{ set_value('email') }}"
                        class="form-control input-dark" autocomplete="off">
             </div>
 
             <div class="form-group">
-                <label class="control-label"><?= lang('users_password') ?></label>
-                <input type="password" id="inputPassword" name="password" placeholder="<?= lang('users_password') ?>"
+                <label class="control-label">{{ lang('users_password') }}</label>
+                <input type="password" id="inputPassword" name="password" placeholder="{{ lang('users_password') }}"
                        class="form-control input-dark" autocomplete="off">
 
             </div>
 
             <div class="form-group checkbox">
                 <label>
-                    <input type="checkbox"> <?= lang('users_keep') ?> </label>
+                    <input type="checkbox"> {{ lang('users_keep') }} </label>
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-dark  btn-block text-left" value="<?= lang('users_login') ?>">
+                <button type="submit" class="btn btn-dark  btn-block text-left" value="{{ lang('users_login') }}">
                     <i class="fa-lock"></i>
                     Log In
                 </button>
             </div>
             <div class="form-group">
-                <button type="button" onclick="window.location= '<?= site_url('admin/login/forget_password') ?>'" class="btn btn-dark  btn-block text-left" value="Forgot password">
+                <button type="button" onclick="window.location= '{{ site_url('admin/login/forget_password') }}'" class="btn btn-dark  btn-block text-left" value="Forgot password">
                     <i class="fa-lock"></i>
                     Forgot password
                 </button>
             </div>
 
-            <?= form_close() ?>
+            {{ form_close() }}
 
         </div>
 
@@ -187,18 +186,18 @@
 
 
 <!-- Bottom Scripts -->
-<script src="<?= STYLE_JS ?>/bootstrap.min.js"></script>
-<script src="<?= STYLE_JS ?>/TweenMax.min.js"></script>
-<script src="<?= STYLE_JS ?>/resizeable.js"></script>
-<script src="<?= STYLE_JS ?>/joinable.js"></script>
-<script src="<?= STYLE_JS ?>/xenon-api.js"></script>
-<script src="<?= STYLE_JS ?>/xenon-toggles.js"></script>
-<script src="<?= STYLE_JS ?>/jquery-validate/jquery.validate.min.js"></script>
-<script src="<?= STYLE_JS ?>/toastr/toastr.min.js"></script>
+<script src="{{ constant('STYLE_JS') }}/bootstrap.min.js"></script>
+<script src="{{ constant('STYLE_JS') }}/TweenMax.min.js"></script>
+<script src="{{ constant('STYLE_JS') }}/resizeable.js"></script>
+<script src="{{ constant('STYLE_JS') }}/joinable.js"></script>
+<script src="{{ constant('STYLE_JS') }}/xenon-api.js"></script>
+<script src="{{ constant('STYLE_JS') }}/xenon-toggles.js"></script>
+<script src="{{ constant('STYLE_JS') }}/jquery-validate/jquery.validate.min.js"></script>
+<script src="{{ constant('STYLE_JS') }}/toastr/toastr.min.js"></script>
 
 
 <!-- JavaScripts initializations and stuff -->
-<script src="<?= STYLE_JS ?>/xenon-custom.js"></script>
+<script src="{{ constant('STYLE_JS') }}/xenon-custom.js"></script>
 
 </body>
 </html>

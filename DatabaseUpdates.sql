@@ -200,3 +200,12 @@ ALTER TABLE `transactions`
 
 ALTER TABLE `branches`
   CHANGE `timestamp` `created_at` DATETIME NULL;
+
+ALTER TABLE `branches`
+  CHANGE `transactions` `accept_cc` BOOLEAN DEFAULT 0  NOT NULL;
+
+ALTER TABLE `categories`
+  CHANGE `timestamp` `created_at` DATETIME NOT NULL;
+
+
+

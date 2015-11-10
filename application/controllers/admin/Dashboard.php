@@ -16,7 +16,10 @@ class Dashboard extends CI_Controller {
 //            '2' => '60 days',
 //            '3' => '90 days'
 //        );
-        $this->load->view($this->module, $data);
+//        $this->load->view($this->module, $data);
+
+
+        $this->twiggy->template('dashboard')->display();
     }
 
     public function get_status($status = 'reevaluation', $period = 1, $orderby = null) {

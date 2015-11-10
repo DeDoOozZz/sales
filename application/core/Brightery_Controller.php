@@ -33,9 +33,28 @@ class Brightery_Controller extends CI_Controller
 
 //        $this->checkModuleStatus();
     }
+    public function file($var, $params)
+    {
+        @list($var, $required) = explode(',', $params);
+        if ($this->upload->do_upload($var)) {
+            $data = $this->upload->data();
+            if ($data['file_name'])
+                $this->{$this->model}->{$var} = $data['file_name'];
+            return true;
+        } else {
+            if ($required) {
+                $this->form_validation->set_message('file', strip_tags($this->upload->display_errors()));
+                return false;
+            }
+            else
+                return true;
+        }
+
+    }
 
     protected function permission($permission = null)
     {
+        return ;
         if (!session('user_id'))
             redirect('admin/login');
         if (!$permission)
@@ -60,6 +79,7 @@ class Crud extends Brightery_Controller
     public $_index_fields = [];
     public $_primary_key;
     public $model = 'General_model';
+    public $data;
 
     public function __construct()
     {
@@ -82,11 +102,11 @@ class Crud extends Brightery_Controller
         $config['per_page'] = config('pagination_limit');
 
         $this->load->library('pagination', $config);
-        $data['pagination'] = $this->pagination->create_links();
-        $data['total'] = $config['total_rows'];
+        $this->data['pagination'] = $this->pagination->create_links();
+        $this->data['total'] = $config['total_rows'];
 
-        $data['items'] = $this->{$this->model}->get();
-        $this->twiggy->set($data)
+        $this->data['items'] = $this->{$this->model}->get();
+        $this->twiggy->set($this->data)
                      ->template('global_index')
                      ->display();
 
@@ -94,16 +114,16 @@ class Crud extends Brightery_Controller
     }
 
     public function manage($id = null) {
-        $data = [];
+        $this->data = [];
 
         if ($id) {
             $this->{$this->model}->{$this->_primary_key} = $id;
-            $data['item'] = $this->{$this->model}->get();
-            if (!$data['item'])
+            $this->data['item'] = $this->{$this->model}->get();
+            if (!$this->data['item'])
                 show_404();
             $op = 'edit';
         } else {
-            $data['item'] = new Std();
+            $this->data['item'] = new Std();
             $op = 'add';
         }
 
@@ -112,7 +132,9 @@ class Crud extends Brightery_Controller
         $this->load->library("form_validation");
         $this->onValidationEvent($op, $id);
         if ($this->form_validation->run() == FALSE)
-            $this->load->view($this->_table . '/manage', $data);
+            $this->twiggy->set($this->data)
+                ->template($this->_table)
+                ->display();
         else {
             $this->onSuccessEvent($op, $id);
             redirect(ADMIN . '/' . $this->_table);
@@ -125,27 +147,16 @@ class Crud extends Brightery_Controller
             show_404();
 
         $this->{$this->model}->{$this->_primary_key} = $id;
-        $data['item'] = $this->{$this->model}->get();
+        $this->data['item'] = $this->{$this->model}->get();
 
-        if (!$data['item'])
+        if (!$this->data['item'])
             show_404();
 
         $this->{$this->model}->delete();
         redirect(ADMIN . '/' . $this->_table);
     }
 
-    public function file($var, $required = 0) {
-        if($required) {
-            if($_FILES[$var]['errors'] != '0')
-                $this->form_validation->set_message('file', lang('required'));
-        }
-        if ($this->upload->do_upload($var)) {
-            $data = $this->upload->data();
-            if ($data['file_name'])
-                $this->{$this->model}->{$var} = $data['file_name'];
-        }
-        return true;
-    }
+
 
     protected function indexFixes(){}
     protected function onValidationEvent($op, $id = false) {}

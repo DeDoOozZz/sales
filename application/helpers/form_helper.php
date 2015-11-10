@@ -27,7 +27,15 @@ if (!defined('BASEPATH'))
  * @link		http://codeigniter.com/user_guide/helpers/form_helper.html
  */
 // ------------------------------------------------------------------------
-
+function name() {
+    return config('language') == 'english' ? 'name_en' : 'name_ar';
+}
+function desc() {
+    return config('language') == 'english' ? 'desc_en' : 'desc_ar';
+}
+function now() {
+    return date('Y-m-d H:i:s');
+}
 function get_variable_attribute($obj, $attr) {
     return $obj->$attr;
 }

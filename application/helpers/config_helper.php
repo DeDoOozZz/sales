@@ -28,15 +28,7 @@ function permission($rule = FALSE) {
     return $Muh->permission->detect($rule);
 }
 
-if (!function_exists('name')) {
-    function name() {
-        $CI = &get_instance();
-        if ($CI->config->item('language') == 'arabic')
-            return "name_ar";
-        else
-            return "name_en";
-    }
-}
+
 
 function validation_rule($field = false, $datatype = false) {
     $rules = array('trim', 'required');

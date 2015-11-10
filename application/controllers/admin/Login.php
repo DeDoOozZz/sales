@@ -1,6 +1,6 @@
 <?php
 
-class Login extends CI_Controller {
+class Login extends Brightery_Controller {
 
     public function index() {
         $this->layout = 'ajax';
@@ -8,7 +8,8 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules('email', 'lang:users_email', 'required|callback_check');
         $this->form_validation->set_rules('password', 'lang:users_password', 'required');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('login/index');
+//            $this->load->view('login/index');
+            $this->twiggy->template('login/login')->display();
         } else {
             $user = $this->db->where('email', $this->input->post('email'))->where('password', md5($this->input->post('password')))->get('users')->row();
             $this->session->set_userdata(array(

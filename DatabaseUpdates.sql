@@ -209,3 +209,62 @@ ALTER TABLE `categories`
 
 
 
+/************************/
+ALTER TABLE `credit_cards`
+  CHANGE `timestamp` `created_at` DATETIME NULL;
+
+ALTER TABLE `device_orders`
+  CHANGE `timestamp` `created_at` DATETIME NULL;
+
+ALTER TABLE `fee_types`
+  DROP COLUMN `timestamp`;
+
+ALTER TABLE `fees`
+  CHANGE `month` `month` TINYINT(2) NOT NULL,
+  CHANGE `year` `year` YEAR NOT NULL,
+  CHANGE `timestamp` `created_at` DATETIME NOT NULL;
+
+ALTER TABLE `format`
+  CHANGE `firm_id` `branch_id` INT NULL,
+  CHANGE `timestamp` `created_at` DATETIME NOT NULL;
+
+RENAME TABLE `format` TO `format_orders`;
+
+ALTER TABLE `format_orders`
+  CHANGE `format_id` `format_order_id` INT(11) NOT NULL AUTO_INCREMENT;
+
+
+ALTER TABLE `invoices`
+  DROP COLUMN `timestamp`,
+  CHANGE `mysql_timestamp` `created_at` DATETIME NOT NULL;
+
+ALTER TABLE `marks`
+  DROP COLUMN `timestamp`;
+
+ALTER TABLE `messages`
+  CHANGE `datetime` `created_at` DATETIME NULL;
+
+ALTER TABLE `pending_orders`
+  DROP COLUMN `timestamp`,
+  CHANGE `mysql_timestamp` `created_at` DATETIME NOT NULL;
+
+ALTER TABLE `products`
+  DROP COLUMN `timestamp`,
+  DROP COLUMN `stock_3`,
+  DROP COLUMN `stock_2`;
+
+
+ALTER TABLE `reports`
+  DROP COLUMN `membership`,
+  CHANGE `timestamp` `created_at` DATETIME NULL;
+
+
+
+
+ALTER TABLE `sales`.`users`
+  CHANGE `id` `user_id` INT(11) NOT NULL AUTO_INCREMENT,
+  CHANGE `firm_id` `branch_id` INT(11) NOT NULL,
+  CHANGE `id_expiredate` `id_expire_date` INT(11) NOT NULL,
+  CHANGE `timestamp` `created_at` DATETIME NOT NULL;
+
+

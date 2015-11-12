@@ -4,9 +4,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>{{ config('title')  }}</title>
+        <meta name="description" content="{{ config('description') }}" />
+        <meta name="author" content="{{ config('title') }}" />
+        <title>{{ config('title') }}</title>
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
         <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/fonts/linecons/css/linecons.css">
         <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/fonts/fontawesome/css/font-awesome.min.css">
@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/xenon-components.css">
         <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/xenon-skins.css">
         <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/custom.css">
+        <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/beoro.css">
         {#<link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/select2/select2.css">#}
         {#<link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/select2/select2-bootstrap.css">#}
         {% if config('language') == 'arabic' %}
@@ -47,177 +48,6 @@
 
     </head>
     <body class="page-body">
-
-
-
-
-
-    {#<div class="navbar navbar-fixed-top">#}
-        {#<div class="navbar-inner">#}
-            {#<div class="container">#}
-                {#<div class="pull-left top-search">#}
-                    {#<form action="">#}
-                        {#<input type="text" name="q" id="q-main">#}
-                        {#<button class="btn"><i class="icon-search"></i></button>#}
-                    {#</form>#}
-                {#</div>#}
-                {#<div id="fade-menu" class="pull-right">#}
-                    {#<ul class="clearfix" id="mobile-nav">#}
-                        {#<li><a href="http://testingweb.org/admin/dashboard" title="لوحة التحكم" class="active"><span>لوحة التحكم</span></a></li>#}
-                        {#<li class=""><a href="http://testingweb.org/admin/firms" title="المنشآت" class="arrow_down"><span>المنشآت</span></a>#}
-                            {#<ul style="top: 34px; visibility: visible; left: 0px; width: 160px; display: none;">#}
-                                {#<li><a href="http://testingweb.org/admin/settings" title="الإعدادات العامة">الإعدادات العامة</a></li>                                <li><a href="http://testingweb.org/admin/firms/add" title="إضافة منشآة جديدة">إضافة منشآة جديدة</a></li>                                <li><a href="http://testingweb.org/admin/firms" title="قائمة المنشآت">قائمة المنشآت</a></li>                            </ul>#}
-                        {#</li>#}
-                        {#<li class=""><a href="javascript:void(0)" class="arrow_down">ثوابت</a>#}
-                            {#<ul style="top: 34px; visibility: visible; left: 0px; width: 160px; display: none;">#}
-
-
-
-                                {#<li><a href="http://testingweb.org/admin/sms_templates" title="قوالب الرسائل القصيرة"><span>قوالب الرسائل القصيرة</span></a></li>#}
-
-
-                                {#<li><a href="#" title="كروت الشحن" class="arrow_right"><span>كروت الشحن</span></a>#}
-                                    {#<ul style="top: 0px; display: none; visibility: visible;">#}
-                                        {#<li><a href="http://testingweb.org/admin/prepaid_cards" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/prepaid_cards/add" title="إضافة">إضافة</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-                                {#<li><a href="#" title="كروت الشحن" class="arrow_right"><span>مقدمين الخدمة</span></a>#}
-                                    {#<ul style="top: 0px; display: none; visibility: visible;">#}
-                                        {#<li><a href="http://testingweb.org/admin/service_providers" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/service_providers/add" title="إضافة">إضافة</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-                                {#<li><a href="#" title="الأجهزة" class="arrow_right"><span>الأجهزة</span></a>#}
-                                    {#<ul style="top: 0px; display: none; visibility: visible;">#}
-                                        {#<li><a href="http://testingweb.org/admin/devices" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/devices/add" title="إضافة">إضافة</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-                                {#<li><a href="#" title="انواع الضمان" class="arrow_right"><span>انواع الضمان</span></a>#}
-                                    {#<ul style="top: 0px; display: none; visibility: visible;">#}
-                                        {#<li><a href="http://testingweb.org/admin/warranties" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/warranties/add" title="إضافة">إضافة</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-
-                                {#<li><a href="#" title="انواع الكروت" class="arrow_right"><span>انواع الكروت</span></a>#}
-                                    {#<ul style="top: 0px; display: none; visibility: visible;">#}
-                                        {#<li><a href="http://testingweb.org/admin/card_types" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/card_types/add" title="إضافة">إضافة</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-                                {#<li><a href="#" title="انواع الاجهزة" class="arrow_right"><span>انواع الاجهزة</span></a>#}
-                                    {#<ul style="top: 0px; display: none; visibility: visible;">#}
-                                        {#<li><a href="http://testingweb.org/admin/device_types" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/device_types/add" title="إضافة">إضافة</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-
-
-                                {#<li><a href="http://testingweb.org/admin/fee_types" title="انواع المصاريف" class="arrow_right"><span>انواع المصاريف</span></a>#}
-                                    {#<ul style="top: 0px; display: none; visibility: visible;">#}
-                                        {#<li><a href="http://testingweb.org/admin/fee_types" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/fee_types/add" title="إضافة">إضافة</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-                                {#<li><a href="http://testingweb.org/admin/marks" title="ماركات" class="arrow_right"><span>ماركات</span></a>#}
-                                    {#<ul style="top: 0px; display: none; visibility: visible;">#}
-                                        {#<li><a href="http://testingweb.org/admin/marks" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/marks/add" title="إضافة">إضافة</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-                                {#<li><a href="http://testingweb.org/admin/clients" title="العملاء" class="arrow_right"><span>العملاء</span></a>#}
-                                    {#<ul style="top: 0px; display: none; visibility: visible;">#}
-                                        {#<li><a href="http://testingweb.org/admin/clients" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/clients/add" title="إضافة">إضافة</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/clients/search" title="بحث">بحث</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-                                {#<li><a href="http://testingweb.org/admin/categories" title="التصنيفات" class="arrow_right"><span>التصنيفات</span></a>#}
-                                    {#<ul style="top: 0px; display: none; visibility: visible;">#}
-                                        {#<li><a href="http://testingweb.org/admin/categories" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/categories/add" title="إضافة">إضافة</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-                                {#<li><a href="http://testingweb.org/admin/invoices" title="الفواتير"><span>الفواتير</span></a></li>#}
-                                {#<li><a href="http://testingweb.org/admin/products" title="المنتجات" class="arrow_right"><span>المنتجات</span></a>#}
-                                    {#<ul style="top: 0px; display: none; visibility: visible;">#}
-                                        {#<li><a href="http://testingweb.org/admin/products" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/products/add_bar" title="إضافة">إضافة</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/products/search" title="بحث">بحث</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-                            {#</ul>#}
-                        {#</li>#}
-
-                        {#<li class=""><a href="http://testingweb.org/admin/users" title="الموظفين" class="arrow_down"><span>الموظفين</span></a>#}
-                            {#<ul style="top: 34px; visibility: visible; left: 0px; width: 160px; display: none;">#}
-                                {#<li class=""><a href="http://testingweb.org/admin/users" title="الموظفين" class="arrow_right"><span>الموظفين</span></a>#}
-                                    {#<ul style="top: 0px; visibility: visible; left: 160px; width: 160px; display: none;">#}
-                                        {#<li><a href="http://testingweb.org/admin/users" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/users/add" title="إضافة">إضافة</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-                                {#<li class=""><a href="http://testingweb.org/admin/usergroups" title="مجموعات الموظفين" class="arrow_right"><span>مجموعات الموظفين</span></a>#}
-                                    {#<ul style="top: 0px; visibility: visible; left: 160px; width: 160px; display: none;">#}
-                                        {#<li><a href="http://testingweb.org/admin/usergroups" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/usergroups/add" title="إضافة">إضافة</a></li>#}
-                                    {#</ul></li>#}
-                                {#<li><a href="http://testingweb.org/admin/admins" title="الإدارة" class="arrow_right"><span>الإدارة</span></a>#}
-                                    {#<ul style="top: 0px; display: none; visibility: visible;">#}
-                                        {#<li><a href="http://testingweb.org/admin/admins" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/admins/add" title="إضافة">إضافة</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-                                {#<li><a href="http://testingweb.org/admin/admin_usergroups" title="صلاحيات الإداريين" class="arrow_right">صلاحيات الإداريين</a>#}
-                                    {#<ul style="top: 0px; display: none; visibility: visible;">#}
-                                        {#<li><a href="http://testingweb.org/admin/admin_usergroups" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                        {#<li><a href="http://testingweb.org/admin/admin_usergroups/add" title="إضافة">إضافة</a></li>#}
-                                    {#</ul>#}
-                                {#</li>#}
-                            {#</ul>#}
-                        {#</li>#}
-
-                        {#<li class=""><a href="http://testingweb.org/admin/service_stocks" title="الخدمات" class="arrow_down"><span>الخدمات</span></a>#}
-                            {#<ul style="top: 34px; visibility: visible; left: 0px; width: 160px; display: none;">#}
-                                {#<li><a href="http://testingweb.org/admin/service_stocks" title="قائمة السجلات">قائمة السجلات</a></li>#}
-                                {#<li><a href="http://testingweb.org/admin/service_stocks/add" title="إضافة">إضافة</a></li>#}
-                                {#<li><a href="http://testingweb.org/admin/services/listing" title="قائمة الإنتظار">قائمة الإنتظار</a></li>#}
-                                {#<li><a href="http://testingweb.org/admin/services/listing/1" title="الارشيف">الارشيف</a></li>#}
-                                {#<li><a href="http://testingweb.org/admin/services/listing/2" title="المعلقين">المعلقين</a></li>#}
-                                {#<li><a href="http://testingweb.org/admin/services/listing/3" title="المرفوضين">المرفوضين</a></li>#}
-                            {#</ul>#}
-                        {#</li>#}
-
-
-
-
-
-
-                        {#<li><a href="http://testingweb.org/admin/log" title="تقارير"><span>تقارير</span></a></li>#}
-
-
-                        {#<li><a href="http://testingweb.org/admin/admins/edit" title=""><img src="http://testingweb.org/static/ar/images/icons/topnav/settings.png" alt=""> <span>إعدادات</span></a></li>#}
-                        {#<li><a href="http://testingweb.org/admin/logout" title=""><img src="http://testingweb.org/static/ar/images/icons/topnav/logout.png" alt=""> <span>خروج</span></a></li>#}
-
-                    {#</ul><select class="selectnav" id="selectnav1"><option value="">- Navigation -</option><option value="http://testingweb.org/admin/dashboard" selected="">لوحة التحكم</option><option value="http://testingweb.org/admin/firms">المنشآت</option><option value="http://testingweb.org/admin/settings">- الإعدادات العامة</option><option value="http://testingweb.org/admin/firms/add">- إضافة منشآة جديدة</option><option value="http://testingweb.org/admin/firms">- قائمة المنشآت</option><option value="javascript:void(0)">ثوابت</option><option value="http://testingweb.org/admin/sms_templates">- قوالب الرسائل القصيرة</option><option value="http://testingweb.org/admin/dashboard#">- كروت الشحن</option><option value="http://testingweb.org/admin/prepaid_cards">-- قائمة السجلات</option><option value="http://testingweb.org/admin/prepaid_cards/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- مقدمين الخدمة</option><option value="http://testingweb.org/admin/service_providers">-- قائمة السجلات</option><option value="http://testingweb.org/admin/service_providers/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- الأجهزة</option><option value="http://testingweb.org/admin/devices">-- قائمة السجلات</option><option value="http://testingweb.org/admin/devices/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- انواع الضمان</option><option value="http://testingweb.org/admin/warranties">-- قائمة السجلات</option><option value="http://testingweb.org/admin/warranties/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- انواع الكروت</option><option value="http://testingweb.org/admin/card_types">-- قائمة السجلات</option><option value="http://testingweb.org/admin/card_types/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- انواع الاجهزة</option><option value="http://testingweb.org/admin/device_types">-- قائمة السجلات</option><option value="http://testingweb.org/admin/device_types/add">-- إضافة</option><option value="http://testingweb.org/admin/fee_types">- انواع المصاريف</option><option value="http://testingweb.org/admin/fee_types">-- قائمة السجلات</option><option value="http://testingweb.org/admin/fee_types/add">-- إضافة</option><option value="http://testingweb.org/admin/marks">- ماركات</option><option value="http://testingweb.org/admin/marks">-- قائمة السجلات</option><option value="http://testingweb.org/admin/marks/add">-- إضافة</option><option value="http://testingweb.org/admin/clients">- العملاء</option><option value="http://testingweb.org/admin/clients">-- قائمة السجلات</option><option value="http://testingweb.org/admin/clients/add">-- إضافة</option><option value="http://testingweb.org/admin/clients/search">-- بحث</option><option value="http://testingweb.org/admin/categories">- التصنيفات</option><option value="http://testingweb.org/admin/categories">-- قائمة السجلات</option><option value="http://testingweb.org/admin/categories/add">-- إضافة</option><option value="http://testingweb.org/admin/invoices">- الفواتير</option><option value="http://testingweb.org/admin/products">- المنتجات</option><option value="http://testingweb.org/admin/products">-- قائمة السجلات</option><option value="http://testingweb.org/admin/products/add_bar">-- إضافة</option><option value="http://testingweb.org/admin/products/search">-- بحث</option><option value="http://testingweb.org/admin/users">الموظفين</option><option value="http://testingweb.org/admin/users">- الموظفين</option><option value="http://testingweb.org/admin/users">-- قائمة السجلات</option><option value="http://testingweb.org/admin/users/add">-- إضافة</option><option value="http://testingweb.org/admin/usergroups">- مجموعات الموظفين</option><option value="http://testingweb.org/admin/usergroups">-- قائمة السجلات</option><option value="http://testingweb.org/admin/usergroups/add">-- إضافة</option><option value="http://testingweb.org/admin/admins">- الإدارة</option><option value="http://testingweb.org/admin/admins">-- قائمة السجلات</option><option value="http://testingweb.org/admin/admins/add">-- إضافة</option><option value="http://testingweb.org/admin/admin_usergroups">- صلاحيات الإداريين</option><option value="http://testingweb.org/admin/admin_usergroups">-- قائمة السجلات</option><option value="http://testingweb.org/admin/admin_usergroups/add">-- إضافة</option><option value="http://testingweb.org/admin/service_stocks">الخدمات</option><option value="http://testingweb.org/admin/service_stocks">- قائمة السجلات</option><option value="http://testingweb.org/admin/service_stocks/add">- إضافة</option><option value="http://testingweb.org/admin/services/listing">- قائمة الإنتظار</option><option value="http://testingweb.org/admin/services/listing/1">- الارشيف</option><option value="http://testingweb.org/admin/services/listing/2">- المعلقين</option><option value="http://testingweb.org/admin/services/listing/3">- المرفوضين</option><option value="http://testingweb.org/admin/log">تقارير</option><option value="http://testingweb.org/admin/admins/edit"> إعدادات</option><option value="http://testingweb.org/admin/logout"> خروج</option></select>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-    {#</div>#}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -260,8 +90,8 @@
                                 <p class="user-title">Administrator {{ that.menu.menu() }}</p>
 
                                 <div class="user-links">
-                                    <a href="<?= site_url('admin/users/manage/' . session('user_id')) ?>" class="btn btn-primary">Edit Profile</a>
-                                    <a href="<?= site_url('admin/logout') ?>" class="btn btn-success">Logout</a>
+                                    <a href="{{  admin_url('users/manage/' ~ session('user_id')) }}" class="btn btn-primary">Edit Profile</a>
+                                    <a href="{{  admin_url('logout') }}" class="btn btn-success">{{ lang('global_logout') }}</a>
                                 </div>
 
                             </div>
@@ -320,6 +150,38 @@
 
                 <!-- main menu -->
 
+
+
+
+
+
+
+
+
+
+                {#<div class="navbar navbar-fixed-top">#}
+                    {#<div class="navbar-inner">#}
+                        {#<div class="container">#}
+                            {#<div class="pull-left top-search">#}
+                                {#<form action="">#}
+                                    {#<input type="text" name="q" id="q-main">#}
+                                    {#<button class="btn"><i class="icon-search"></i></button>#}
+                                {#</form>#}
+                            {#</div>#}
+                            {#<div id="fade-menu" class="pull-right">#}
+                                {#<ul class="clearfix" id="mobile-nav">#}
+                                    {#{{ that.menu.generate('backend') }}#}
+
+
+                                {#</ul><select class="selectnav" id="selectnav1"><option value="">- Navigation -</option><option value="http://testingweb.org/admin/dashboard" selected="">لوحة التحكم</option><option value="http://testingweb.org/admin/firms">المنشآت</option><option value="http://testingweb.org/admin/settings">- الإعدادات العامة</option><option value="http://testingweb.org/admin/firms/add">- إضافة منشآة جديدة</option><option value="http://testingweb.org/admin/firms">- قائمة المنشآت</option><option value="javascript:void(0)">ثوابت</option><option value="http://testingweb.org/admin/sms_templates">- قوالب الرسائل القصيرة</option><option value="http://testingweb.org/admin/dashboard#">- كروت الشحن</option><option value="http://testingweb.org/admin/prepaid_cards">-- قائمة السجلات</option><option value="http://testingweb.org/admin/prepaid_cards/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- مقدمين الخدمة</option><option value="http://testingweb.org/admin/service_providers">-- قائمة السجلات</option><option value="http://testingweb.org/admin/service_providers/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- الأجهزة</option><option value="http://testingweb.org/admin/devices">-- قائمة السجلات</option><option value="http://testingweb.org/admin/devices/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- انواع الضمان</option><option value="http://testingweb.org/admin/warranties">-- قائمة السجلات</option><option value="http://testingweb.org/admin/warranties/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- انواع الكروت</option><option value="http://testingweb.org/admin/card_types">-- قائمة السجلات</option><option value="http://testingweb.org/admin/card_types/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- انواع الاجهزة</option><option value="http://testingweb.org/admin/device_types">-- قائمة السجلات</option><option value="http://testingweb.org/admin/device_types/add">-- إضافة</option><option value="http://testingweb.org/admin/fee_types">- انواع المصاريف</option><option value="http://testingweb.org/admin/fee_types">-- قائمة السجلات</option><option value="http://testingweb.org/admin/fee_types/add">-- إضافة</option><option value="http://testingweb.org/admin/marks">- ماركات</option><option value="http://testingweb.org/admin/marks">-- قائمة السجلات</option><option value="http://testingweb.org/admin/marks/add">-- إضافة</option><option value="http://testingweb.org/admin/clients">- العملاء</option><option value="http://testingweb.org/admin/clients">-- قائمة السجلات</option><option value="http://testingweb.org/admin/clients/add">-- إضافة</option><option value="http://testingweb.org/admin/clients/search">-- بحث</option><option value="http://testingweb.org/admin/categories">- التصنيفات</option><option value="http://testingweb.org/admin/categories">-- قائمة السجلات</option><option value="http://testingweb.org/admin/categories/add">-- إضافة</option><option value="http://testingweb.org/admin/invoices">- الفواتير</option><option value="http://testingweb.org/admin/products">- المنتجات</option><option value="http://testingweb.org/admin/products">-- قائمة السجلات</option><option value="http://testingweb.org/admin/products/add_bar">-- إضافة</option><option value="http://testingweb.org/admin/products/search">-- بحث</option><option value="http://testingweb.org/admin/users">الموظفين</option><option value="http://testingweb.org/admin/users">- الموظفين</option><option value="http://testingweb.org/admin/users">-- قائمة السجلات</option><option value="http://testingweb.org/admin/users/add">-- إضافة</option><option value="http://testingweb.org/admin/usergroups">- مجموعات الموظفين</option><option value="http://testingweb.org/admin/usergroups">-- قائمة السجلات</option><option value="http://testingweb.org/admin/usergroups/add">-- إضافة</option><option value="http://testingweb.org/admin/admins">- الإدارة</option><option value="http://testingweb.org/admin/admins">-- قائمة السجلات</option><option value="http://testingweb.org/admin/admins/add">-- إضافة</option><option value="http://testingweb.org/admin/admin_usergroups">- صلاحيات الإداريين</option><option value="http://testingweb.org/admin/admin_usergroups">-- قائمة السجلات</option><option value="http://testingweb.org/admin/admin_usergroups/add">-- إضافة</option><option value="http://testingweb.org/admin/service_stocks">الخدمات</option><option value="http://testingweb.org/admin/service_stocks">- قائمة السجلات</option><option value="http://testingweb.org/admin/service_stocks/add">- إضافة</option><option value="http://testingweb.org/admin/services/listing">- قائمة الإنتظار</option><option value="http://testingweb.org/admin/services/listing/1">- الارشيف</option><option value="http://testingweb.org/admin/services/listing/2">- المعلقين</option><option value="http://testingweb.org/admin/services/listing/3">- المرفوضين</option><option value="http://testingweb.org/admin/log">تقارير</option><option value="http://testingweb.org/admin/admins/edit"> إعدادات</option><option value="http://testingweb.org/admin/logout"> خروج</option></select>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+
+
+
+
                 <ul class="navbar-nav">
                     {{ that.menu.generate('backend') }}
 
@@ -330,18 +192,13 @@
                 <ul class="nav nav-userinfo navbar-right">
 
                     <li class="search-form"><!-- You can add "always-visible" to show make the search input visible -->
-
-                        <form method="get" action="extra-search.html">
-                            <input type="text" name="s" class="form-control search-field" placeholder="Type to search..." />
-
+                        <form method="get" action="{{ admin_url('search') }}">
+                            <input type="text" name="q" class="form-control search-field" placeholder="Type to search..." />
                             <button type="submit" class="btn btn-link">
                                 <i class="linecons-search"></i>
                             </button>
                         </form>
-
                     </li>
-
-
                     <li class="dropdown user-profile">
                         <a href="#" data-toggle="dropdown">
                             <img src="{{ constant("STYLE_IMAGES") }}/user-1.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
@@ -421,32 +278,23 @@
                 <footer class="main-footer sticky footer-type-1">
 
                     <div class="footer-inner">
-
                         <!-- Add your copyright text here -->
                         <div class="footer-text">
                             &copy; {{ "now"|date("Y")  }}
                             <strong>X5J.NeT</strong>
                         </div>
-
-
                         <!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
                         <div class="go-up">
-
                             <a href="#" rel="go-top">
                                 <i class="fa-angle-up"></i>
                             </a>
-
                         </div>
-
                     </div>
 
                 </footer>
             </div>
 
         </div>
-
-
-
 
 
         <!-- Bottom Scripts -->
@@ -456,7 +304,6 @@
         <script src="{{ constant("STYLE_JS") }}/joinable.js"></script>
         <script src="{{ constant("STYLE_JS") }}/xenon-api.js"></script>
         <script src="{{ constant("STYLE_JS") }}/xenon-toggles.js"></script>
-
 
         <!-- JavaScripts initializations and stuff -->
         <script src="{{ constant("STYLE_JS") }}/xenon-custom.js"></script>

@@ -52,7 +52,7 @@ class Brightery_Controller extends CI_Controller
 
     }
 
-    protected function permission($permission = null)
+    protected function permission($module = null, $action = null)
     {
         return ;
         if (!session('user_id'))
@@ -90,6 +90,7 @@ class Crud extends Brightery_Controller
     }
 
     public function index($offset = 0) {
+        $this->permission($this->_table, 'index');
         $this->indexFixes();
 
         $this->{$this->model}->limit = config('pagination_limit');
@@ -126,7 +127,7 @@ class Crud extends Brightery_Controller
             $op = 'add';
         }
 
-        $this->permission($this->_table . '_'. $op);
+        $this->permission($this->_table, $op);
 
         $this->load->library("form_validation");
         $this->onValidationEvent($op, $id);
@@ -141,7 +142,7 @@ class Crud extends Brightery_Controller
     }
 
     public function delete($id = null) {
-        $this->permission($this->_table . '_delete');
+        $this->permission($this->_table, 'delete');
         if (!$id)
             show_404();
 
@@ -154,8 +155,6 @@ class Crud extends Brightery_Controller
         $this->{$this->model}->delete();
         redirect(ADMIN . '/' . $this->_table);
     }
-
-
 
     protected function indexFixes(){}
     protected function onValidationEvent($op, $id = false) {}

@@ -4,6 +4,7 @@
     <div class="page-title">
         <div class="title-env">
             <h1 class="title">{{ lang('menu_' ~ that._table) }}</h1>
+
             <p class="description"></p>
         </div>
         <div class="breadcrumb-env"></div>
@@ -16,24 +17,14 @@
         </div>
         <div class="panel-body">
             {% if (validation_errors()) %}
-            <div class="alert alert-danger">
-                {{ validation_errors() }}
-            </div>
+                <div class="alert alert-danger">
+                    {{ validation_errors() }}
+                </div>
             {% endif %}
             <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
 
-                
-                    <div class="form-group">
-                    <label class="col-sm-2 control-label" for="format_id">{{ lang('format_format_id') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('format_id', set_value('format_id', item.format_id), 'class="form-control" id="format_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-                
-
-                    <div class="form-group">
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="save_data">{{ lang('format_save_data') }}</label>
 
                     <div class="col-sm-10">
@@ -41,19 +32,20 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
-                    <label class="col-sm-2 control-label" for="original_software">{{ lang('format_original_software') }}</label>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                           for="original_software">{{ lang('format_original_software') }}</label>
 
                     <div class="col-sm-10">
                         {{ form_input('original_software', set_value('original_software', item.original_software), 'class="form-control" id="original_software"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="mobile">{{ lang('format_mobile') }}</label>
 
                     <div class="col-sm-10">
@@ -61,9 +53,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="mark_id">{{ lang('format_mark_id') }}</label>
 
                     <div class="col-sm-10">
@@ -71,9 +63,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="password">{{ lang('format_password') }}</label>
 
                     <div class="col-sm-10">
@@ -81,9 +73,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="notes">{{ lang('format_notes') }}</label>
 
                     <div class="col-sm-10">
@@ -91,9 +83,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="status">{{ lang('format_status') }}</label>
 
                     <div class="col-sm-10">
@@ -101,9 +93,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="f_step">{{ lang('format_f_step') }}</label>
 
                     <div class="col-sm-10">
@@ -111,9 +103,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="s_step">{{ lang('format_s_step') }}</label>
 
                     <div class="col-sm-10">
@@ -121,9 +113,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="invoice_id">{{ lang('format_invoice_id') }}</label>
 
                     <div class="col-sm-10">
@@ -131,9 +123,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="format_price">{{ lang('format_format_price') }}</label>
 
                     <div class="col-sm-10">
@@ -141,54 +133,46 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
-                    <label class="col-sm-2 control-label" for="format_commission_first">{{ lang('format_format_commission_first') }}</label>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                           for="format_commission_first">{{ lang('format_format_commission_first') }}</label>
 
                     <div class="col-sm-10">
                         {{ form_input('format_commission_first', set_value('format_commission_first', item.format_commission_first), 'class="form-control" id="format_commission_first"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
-                    <label class="col-sm-2 control-label" for="format_commission_second">{{ lang('format_format_commission_second') }}</label>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                           for="format_commission_second">{{ lang('format_format_commission_second') }}</label>
 
                     <div class="col-sm-10">
                         {{ form_input('format_commission_second', set_value('format_commission_second', item.format_commission_second), 'class="form-control" id="format_commission_second"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
-                    <label class="col-sm-2 control-label" for="firm_id">{{ lang('format_firm_id') }}</label>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="branch_id">{{ lang('format_branch_id') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('firm_id', set_value('firm_id', item.firm_id), 'class="form-control" id="firm_id"') }}
+                        {{ form_input('branch_id', set_value('branch_id', item.branch_id), 'class="form-control" id="branch_id"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
-                    <label class="col-sm-2 control-label" for="timestamp">{{ lang('format_timestamp') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('timestamp', set_value('timestamp', item.timestamp), 'class="form-control" id="timestamp"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-                
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label"></label>
+
                     <div class="col-sm-10">
-                        <input type="submit" class="btn btn-secondary " name="submit" value="{{ lang('global_submit') }}">
-                        <a href="{{ admin_url(that._table ~ '/index') }} "
-                           class="btn btn-danger">{{ lang('global_cancel') }}</a>
+                        <input type="submit" class="btn btn-secondary" name="submit" value="{{ lang('global_submit') }}">
+                        <a href="{{ admin_url(that._table ~ '/index') }}" class="btn btn-danger">{{ lang('global_cancel') }}</a>
                     </div>
                 </div>
 

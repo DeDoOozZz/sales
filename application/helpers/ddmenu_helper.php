@@ -8,6 +8,8 @@ function dd2menu($table, $field = array(), $set_condition = FALSE, $direct = FAL
         $data['items'] = array(
             '' => lang('global_select_from_menu')
         );
+    elseif (is_array($direct))
+        $data['items'] =  $direct;
     elseif ($direct === TRUE)
     {}else
         $data['items'] = array(

@@ -29,12 +29,9 @@ class Fee_types extends Crud
     protected function onSuccessEvent($op, $id = false)
     {
         $vars = [
-            'fee_type_id' => $this->input->post('fee_type_id'),
             'name_en' => $this->input->post('name_en'),
             'name_ar' => $this->input->post('name_ar'),
         ];
-        if ($op == 'add')
-            $vars['created_at'] = now();
 
         foreach ($vars as $vark => $varv)
             $this->{$this->model}->{$vark} = $varv;

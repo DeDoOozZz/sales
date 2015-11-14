@@ -258,13 +258,34 @@ ALTER TABLE `reports`
   DROP COLUMN `membership`,
   CHANGE `timestamp` `created_at` DATETIME NULL;
 
-
-
-
-ALTER TABLE `sales`.`users`
+ALTER TABLE `users`
   CHANGE `id` `user_id` INT(11) NOT NULL AUTO_INCREMENT,
   CHANGE `firm_id` `branch_id` INT(11) NOT NULL,
   CHANGE `id_expiredate` `id_expire_date` INT(11) NOT NULL,
   CHANGE `timestamp` `created_at` DATETIME NOT NULL;
+
+
+ALTER TABLE `users`
+  CHANGE `name` `username` VARCHAR(120) NOT NULL;
+ALTER TABLE `usergroups`
+  CHANGE `id` `usergroup_id` INT(11) NOT NULL AUTO_INCREMENT;
+RENAME TABLE  `status` TO `sales`.`user_status`;
+
+/**************************************************************/
+/* NEW UPDATES */
+ALTER TABLE  `user_status`
+  CHANGE `status_id` `user_status_id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `users`
+  CHANGE `id_expire_date` `id_expire_date` DATE NOT NULL,
+  CHANGE `passport_expiredate` `passport_expiredate` DATE NOT NULL;
+
+
+ALTER TABLE `users`
+  CHANGE `id_expire_date` `id_expiredate` DATE NOT NULL;
+
+
+
+ALTER TABLE `sms_templates`
+  DROP COLUMN `timestamp`;
 
 

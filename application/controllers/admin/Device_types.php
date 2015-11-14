@@ -32,8 +32,6 @@ class Device_types extends Crud
             'name_ar' => $this->input->post('name_ar'),
             'name_en' => $this->input->post('name_en'),
         ];
-        if ($op == 'add')
-            $vars['created_at'] = now();
 
         foreach ($vars as $vark => $varv)
             $this->{$this->model}->{$vark} = $varv;

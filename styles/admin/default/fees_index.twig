@@ -1,0 +1,150 @@
+{% extends _layout %}
+{% block content %}
+
+    <div class="page-title">
+
+        <div class="title-env">
+            <h1 class="title">{{ lang('menu_' ~ that._table) }}</h1>
+
+            <p class="description"></p>
+        </div>
+
+        <div class="breadcrumb-env">
+
+            {#<ol class="breadcrumb bc-1" >#}
+            {#<li>#}
+            {#<a href="<?= site_url('admin/dashboard') ?>"><i class="fa-home"></i>Dashboard</a>#}
+            {#</li>#}
+            {#<li class="active">#}
+            {#<strong>Business Types</strong>#}
+            {#</li>#}
+            {#</ol>#}
+
+        </div>
+
+    </div>
+
+    <!-- Admin Table-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ lang('menu_' ~ that._table) }}</h3>
+
+            <div class="panel-options">
+                <a href="{{ admin_url(that._table ~ '/manage') }}" class="btn btn-secondary btn-sm"
+                   style="color:#fff">{{ lang('global_add_new_record') }}</a>
+                <a href="javascript:search()" class="btn  btn-sm btn-danger"
+                   style="color:#fff">{{ lang('global_search') }}</a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="search" style="{% if not that.input.get() %}display: none{% endif %}">
+                <form role="form" class="form-horizontal" role="form" method="get" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label" for="branch_id">{{ lang('fees_branch_id') }}</label>
+
+                        <div class="col-sm-2">
+                            {{ form_dropdown('branch_id', branches, set_value('branch_id', item.branch_id), 'class="form-control" id="branch_id"') }}
+                        </div>
+
+                        <label class="col-sm-1 control-label"
+                               for="fee_type_id">{{ lang('fees_fee_type_id') }}</label>
+
+                        <div class="col-sm-2">
+                            {{ form_dropdown('fee_type_id', fee_types, set_value('fee_type_id', item.fee_type_id), 'class="form-control" id="fee_type_id"') }}
+                        </div>
+
+                        <label class="col-sm-1 control-label" for="month">{{ lang('fees_month') }}</label>
+
+                        <div class="col-sm-2">
+                            {{ form_input('month', set_value('month'), 'class="form-control" id="month"') }}
+                        </div>
+
+                        <label class="col-sm-1 control-label" for="year">{{ lang('fees_year') }}</label>
+
+                        <div class="col-sm-2">
+                            {{ form_input('year', set_value('year'), 'class="form-control" id="year"') }}
+                        </div>
+                    </div>
+                    <div class="form-group-separator"></div>
+
+
+                    <div class="form-group">
+
+                        <label class="col-sm-11 control-label"></label>
+
+                        <div class="col-sm-1">
+                            <input type="submit" class="btn btn-warning " name="submit"
+                                   value="{{ lang('global_search') }}">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <table class="table table-bordered table-striped" id="datatable">
+                <thead>
+                <tr>
+                    {% for _index_field in that._index_fields %}
+                        <th>{{ lang(that._table ~ '_' ~ _index_field) }}</th>
+                    {% endfor %}
+                    <th>{{ lang('global_operations') }}</th>
+                </tr>
+                </thead>
+
+                <tbody class="middle-align">
+                {% for item in items %}
+                    <tr>
+                        {% for _index_field in that._index_fields %}
+                            <td>{{ get_variable_attribute(item, _index_field) }}</td>
+                        {% endfor %}
+                        <td>
+                            <a href="{{ admin_url(that._table ~ '/manage/' ~ get_variable_attribute(item, that._primary_key)) }}"
+                               class="btn btn-orange btn-sm btn-icon icon-left">
+                                {{ lang('global_edit') }}
+                            </a>
+                            <a data-href="{{ admin_url(that._table ~ '/delete/' ~ get_variable_attribute(item, that._primary_key)) }}"
+                               class="btn btn-danger btn-sm btn-icon btn-delete"
+                               data-toggle="modal" data-target="#deleteMsg"
+                               style="color:#fff;">{{ lang('global_delete') }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {{ pagination }}
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{ lang('global_system_message') }}</h4>
+                </div>
+                <div class="modal-body">
+                    <span style="color:#777;">{{ lang('global_delete_confirmation_message') }}</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-grey btn-icon" data-dismiss="modal"
+                            style="color: grey;">{{ lang('global_cancel') }}</button>
+                    <a class="btn btn-danger btn-icon modal_delete_btn" href="">{{ lang('global_delete') }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('.btn-delete').click(function () {
+            $('.modal_delete_btn').attr('href', $(this).data('href'));
+
+//        return false;
+        });
+        function search() {
+            $('.search').toggle();
+        }
+    </script>
+
+{% endblock %}

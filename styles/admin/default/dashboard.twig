@@ -1,77 +1,81 @@
 {% extends _layout %}
 {% block content %}
-<style>
-    td.for_uploaded_img {
-        text-align: center;
-    }
+    <style>
+        td.for_uploaded_img {
+            text-align: center;
+        }
 
-    .uploaded_img {
-        width: 75px;
-        height: 75px;
-        display: block;
-        border: 5px solid #fff;
-        border-radius: 100%;
-    }
+        .uploaded_img {
+            width: 75px;
+            height: 75px;
+            display: block;
+            border: 5px solid #fff;
+            border-radius: 100%;
+        }
 
-    .uploaded_img img {
-        width: 100%;
-        border-radius: 100%;
-        overflow: hidden;
-    }
-    .dashboard-select select {
-        border: 1px solid #dedede;
-        font-size: 15px;
-        color: #7f7f7f;
-        height: 30px;
-        padding: 0 5px;
-        width: 110px;
-        margin-left: 10px;
-    }
-    .dashboard-select select:focus{
-        outline: 0;
-    }
-</style>
-<div class="page-title">
+        .uploaded_img img {
+            width: 100%;
+            border-radius: 100%;
+            overflow: hidden;
+        }
 
-    <div class="title-env">
-        <h1 class="title">Welcome <?= session('name') ?></h1>
+        .dashboard-select select {
+            border: 1px solid #dedede;
+            font-size: 15px;
+            color: #7f7f7f;
+            height: 30px;
+            padding: 0 5px;
+            width: 110px;
+            margin-left: 10px;
+        }
 
-        <p class="description"></p>
-    </div>
+        .dashboard-select select:focus {
+            outline: 0;
+        }
+    </style>
+    <div class="page-title">
 
-    <div class="breadcrumb-env">
+        <div class="title-env">
+            <h1 class="title">Welcome <?= session('name') ?></h1>
 
-        <ol class="breadcrumb bc-1">
-            <li>
-                <a href="<?= site_url('admin/dashboard') ?>"><i class="fa-home"></i>Dashboard</a>
-            </li>
-        </ol>
+            <p class="description"></p>
+        </div>
 
-    </div>
+        <div class="breadcrumb-env">
 
-</div>
-<!-- Admin Table-->
-<div class="row">
-    <label class="col-sm-4 control-label"><a style="background: #000; color: #fff; padding: 5px; border-radius: 3px; display: inline-block;" href="<?= site_url('admin/files/new_index') ?>"><?= $files ?> Total Files</a></label>
-    <label class="col-sm-2 control-label"><?= $active ?> Active</label>
-    <label class="col-sm-2 control-label"><?= $canceled ?> Canceled</label>
-    <label class="col-sm-2 control-label"><?= $hold ?> Hold</label>
-    <label class="col-sm-2 control-label"><?= $suspended ?> Suspended</label>
-</div>
+            <ol class="breadcrumb bc-1">
+                <li>
+                    <a href="<?= site_url('admin/dashboard') ?>"><i class="fa-home"></i>Dashboard</a>
+                </li>
+            </ol>
 
-
-<br/>
-<!-- Admin Table-->
-<div class="panel panel-default">
-    <div class="panel-heading dashboard-select">
-        <h3 class="panel-title">Files re-evaluation
-            in <?//= form_dropdown('reevaluation', $periods, null, 'onClick="muhammad.update(\'reevaluation\', this.value)"') ?></h3>
+        </div>
 
     </div>
-    <div class="panel-body">
+    <!-- Admin Table-->
+    <div class="row">
+        <label class="col-sm-4 control-label"><a
+                    style="background: #000; color: #fff; padding: 5px; border-radius: 3px; display: inline-block;"
+                    href="<?= site_url('admin/files/new_index') ?>"><?= $files ?> Total Files</a></label>
+        <label class="col-sm-2 control-label"><?= $active ?> Active</label>
+        <label class="col-sm-2 control-label"><?= $canceled ?> Canceled</label>
+        <label class="col-sm-2 control-label"><?= $hold ?> Hold</label>
+        <label class="col-sm-2 control-label"><?= $suspended ?> Suspended</label>
+    </div>
 
-        <table class="table table-bordered table-striped">
-            <thead>
+
+    <br/>
+    <!-- Admin Table-->
+    <div class="panel panel-default">
+        <div class="panel-heading dashboard-select">
+            <h3 class="panel-title">Files re-evaluation
+                in <?//= form_dropdown('reevaluation', $periods, null, 'onClick="muhammad.update(\'reevaluation\', this.value)"') ?></h3>
+
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-bordered table-striped">
+                <thead>
                 <tr>
                     <th>#</th>
                     <th>Re-Evaluation date</th>
@@ -80,24 +84,24 @@
                     <th>Facility</th>
                     <th class="cert">Certificate</th>
                 </tr>
-            </thead>
+                </thead>
 
-            <tbody class="middle-align" id="reevaluation">
+                <tbody class="middle-align" id="reevaluation">
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 
-<div class="panel panel-default">
-    <div class="panel-heading dashboard-select">
-        <h3 class="panel-title">Files expiring
-            in <?//= form_dropdown('expiring', $periods, null, 'onClick="muhammad.update(\'expiring\', this.value)"') ?></h3>
-    </div>
-    <div class="panel-body">
+    <div class="panel panel-default">
+        <div class="panel-heading dashboard-select">
+            <h3 class="panel-title">Files expiring
+                in <?//= form_dropdown('expiring', $periods, null, 'onClick="muhammad.update(\'expiring\', this.value)"') ?></h3>
+        </div>
+        <div class="panel-body">
 
-        <table class="table table-bordered table-striped">
-            <thead>
+            <table class="table table-bordered table-striped">
+                <thead>
                 <tr>
                     <th>#</th>
                     <th>Expiring date</th>
@@ -106,35 +110,38 @@
                     <th>Facility</th>
                     <th class="excert">Certificate</th>
                 </tr>
-            </thead>
+                </thead>
 
-            <tbody class="middle-align" id="expiring">
+                <tbody class="middle-align" id="expiring">
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 
-<script>
-    var muhammad = {
-        update: function ($op, $val, orderby) {
+    <script>
+        var muhammad = {
+            update: function ($op, $val, orderby) {
 
-            $.get('<?= site_url('admin/dashboard/get_status/') ?>/' + $op + '/' + $val + '/' + orderby, function (data) {
-                $('#' + $op).html(data);
+                $.get('<?= site_url('
+                admin / dashboard / get_status / ') ?>/' + $op + '/' + $val + '/' + orderby, function (data) {
+                    $('#' + $op).html(data);
+                }
+                )
+                ;
+            }
+        };
+        $(document).ready(function () {
+            muhammad.update('reevaluation', $('select[name=reevaluation]').val());
+            muhammad.update('expiring', $('select[name=expiring]').val());
+
+            $('.excert').click(function () {
+                muhammad.update('expiring', $('select[name=expiring]').val(), 'certificate');
             });
-        }
-    };
-    $(document).ready(function () {
-        muhammad.update('reevaluation', $('select[name=reevaluation]').val());
-        muhammad.update('expiring', $('select[name=expiring]').val());
 
-        $('.excert').click(function() {
-            muhammad.update('expiring', $('select[name=expiring]').val(), 'certificate');
+            $('.cert').click(function () {
+                muhammad.update('reevaluation', $('select[name=reevaluation]').val(), 'certificate');
+            });
         });
-
-        $('.cert').click(function() {
-            muhammad.update('reevaluation', $('select[name=reevaluation]').val(), 'certificate');
-        });
-    });
-</script>
+    </script>
 {% endblock %}

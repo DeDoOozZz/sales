@@ -30,7 +30,7 @@ class Branches extends Crud
         $config['upload_path'] = './cdn/' . $this->_table;
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $this->load->library('upload', $config);
-        $required = ($op == 'add') ? '1' : '1';
+        $required = ($op == 'add') ? '1' : '0';
         $this->form_validation->set_rules('name', lang('branches_name'), "trim|required");
         $this->form_validation->set_rules('place', lang('branches_place'), "trim|required");
         $this->form_validation->set_rules('notes', lang('branches_notes'), "trim");

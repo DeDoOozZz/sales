@@ -1,0 +1,192 @@
+{% extends _layout %}
+{% block content %}
+
+    <div class="page-title">
+
+        <div class="title-env">
+            <h1 class="title">{{ lang('menu_' ~ that._table) }}</h1>
+
+            <p class="description"></p>
+        </div>
+
+        <div class="breadcrumb-env">
+
+            {#<ol class="breadcrumb bc-1" >#}
+            {#<li>#}
+            {#<a href="<?= site_url('admin/dashboard') ?>"><i class="fa-home"></i>Dashboard</a>#}
+            {#</li>#}
+            {#<li class="active">#}
+            {#<strong>Business Types</strong>#}
+            {#</li>#}
+            {#</ol>#}
+
+        </div>
+
+    </div>
+
+    <!-- Admin Table-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ lang('menu_' ~ that._table) }}</h3>
+
+            <div class="panel-options">
+                <a href="{{ admin_url(that._table ~ '/manage') }}" class="btn btn-secondary btn-sm"
+                   style="color:#fff">{{ lang('global_add_new_record') }}</a>
+                <a href="javascript:search()" class="btn  btn-sm btn-danger"
+                   style="color:#fff">{{ lang('global_search') }}</a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="search" style="{% if not that.input.get() %}display: none{% endif %}">
+                <form role="form" class="form-horizontal" role="form" method="get" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label" for="barcode">{{ lang('products_barcode') }}</label>
+
+                        <div class="col-sm-5">
+                            {{ form_input('barcode', set_value('barcode'), 'class="form-control" id="barcode"') }}
+                        </div>
+                        <div class="col-sm-1">
+                            <div class="barcode">
+                                {% if that.input.get('barcode') %}
+                                    <img src="{{ admin_url('devices/barcode/' ~ that.input.get('barcode')) }}" />
+                                {% endif %}
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="form-group-separator"></div>
+
+
+
+
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label" for="name_ar">{{ lang('products_name_ar') }}</label>
+
+                        <div class="col-sm-5">
+                            {{ form_input('name_ar', set_value('name_ar', item.name_ar), 'class="form-control" id="name_ar"') }}
+                        </div>
+
+                        <label class="col-sm-1 control-label" for="name_en">{{ lang('products_name_en') }}</label>
+
+                        <div class="col-sm-5">
+                            {{ form_input('name_en', set_value('name_en', item.name_en), 'class="form-control" id="name_en"') }}
+                        </div>
+                    </div>
+                    <div class="form-group-separator"></div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label" for="category_id">{{ lang('products_category_id') }}</label>
+
+                        <div class="col-sm-3">
+                            {{ form_dropdown('category_id', categories, set_value('category_id', item.category_id), 'class="form-control" id="category_id"') }}
+                        </div>
+
+                        <label class="col-sm-1 control-label" for="mark_id">{{ lang('products_mark_id') }}</label>
+
+                        <div class="col-sm-3">
+                            {{ form_dropdown('mark_id', marks, set_value('mark_id', item.mark_id), 'class="form-control" id="mark_id"') }}
+                        </div>
+
+
+                        <label class="col-sm-1 control-label" for="featured">{{ lang('products_featured') }}</label>
+
+                        <div class="col-sm-3">
+                            {{ form_dropdown('featured', ddboolean(), set_value('featured', item.featured), 'class="form-control" id="featured"') }}
+                        </div>
+                    </div>
+                    <div class="form-group-separator"></div>
+
+
+
+                    <div class="form-group">
+
+                        <label class="col-sm-11 control-label"></label>
+
+                        <div class="col-sm-1">
+                            <input type="submit" class="btn btn-warning " name="submit"
+                                   value="{{ lang('global_search') }}">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <table class="table table-bordered table-striped" id="datatable">
+                <thead>
+                <tr>
+                    {% for _index_field in that._index_fields %}
+                        <th>{{ lang(that._table ~ '_' ~ _index_field) }}</th>
+                    {% endfor %}
+                    <th>{{ lang('global_operations') }}</th>
+                </tr>
+                </thead>
+
+                <tbody class="middle-align">
+                {% for item in items %}
+                    <tr>
+                        {% for _index_field in that._index_fields %}
+                            <td>{{ get_variable_attribute(item, _index_field) }}</td>
+                        {% endfor %}
+                        <td>
+                            <a href="{{ admin_url(that._table ~ '/manage/' ~ get_variable_attribute(item, that._primary_key)) }}"
+                               class="btn btn-orange btn-sm btn-icon icon-left">
+                                {{ lang('global_edit') }}
+                            </a>
+                            <a data-href="{{ admin_url(that._table ~ '/delete/' ~ get_variable_attribute(item, that._primary_key)) }}"
+                               class="btn btn-danger btn-sm btn-icon btn-delete"
+                               data-toggle="modal" data-target="#deleteMsg"
+                               style="color:#fff;">{{ lang('global_delete') }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {{ pagination }}
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{ lang('global_system_message') }}</h4>
+                </div>
+                <div class="modal-body">
+                    <span style="color:#777;">{{ lang('global_delete_confirmation_message') }}</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-grey btn-icon" data-dismiss="modal"
+                            style="color: grey;">{{ lang('global_cancel') }}</button>
+                    <a class="btn btn-danger btn-icon modal_delete_btn" href="">{{ lang('global_delete') }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('.btn-delete').click(function () {
+            $('.modal_delete_btn').attr('href', $(this).data('href'));
+
+//        return false;
+        });
+        function search() {
+            $('.search').toggle();
+            $('#barcode').focus();
+        }
+
+        $('#barcode').attr('type', 'number');
+        $('#barcode').on('change', function(){
+            $('.barcode').fadeOut('slow', function(){
+                $('.barcode').html('<img src="{{ admin_url('devices/barcode') }}/' + $('#barcode').val() + '" />') ;
+                $('.barcode').fadeIn('slow');
+
+            });
+        });
+    </script>
+
+{% endblock %}

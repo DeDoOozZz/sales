@@ -29,9 +29,8 @@ class Invoice_types extends Crud
     protected function onSuccessEvent($op, $id = false)
     {
         $vars = [
-            'invoice_type_id' => $this->input->post('invoice_type_id'),
             'name_ar' => $this->input->post('name_ar'),
-            'name_en' => $this->input->post('name_en'),
+           'name_en' => $this->input->post('name_en'),
 
         ];
 

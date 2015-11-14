@@ -77,6 +77,7 @@ class Crud extends Brightery_Controller
 {
     public $_table;
     public $_index_fields = [];
+    public $_index_view = 'global_index';
     public $_primary_key;
     public $model = 'General_model';
     public $data;
@@ -107,7 +108,7 @@ class Crud extends Brightery_Controller
 
         $this->data['items'] = $this->{$this->model}->get();
         $this->twiggy->set($this->data)
-                     ->template('global_index')
+                     ->template($this->_index_view)
                      ->display();
 
 //        $this->load->view($this->_table . '/index', $data);

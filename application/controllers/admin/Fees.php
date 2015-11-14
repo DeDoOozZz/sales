@@ -17,6 +17,10 @@ class Fees extends Crud
 
     public function indexFixes()
     {
+        $this->data['branches'] = dd2menu('branches', ['branch_id' => 'name']);
+        $this->data['fee_types'] = dd2menu('fee_types', ['fee_type_id' => name()]);
+
+        $this->_index_view = 'fees_index';
         $this->{$this->model}->custom_select = 'fees.*, fee_types.'. name();
         $this->{$this->model}->joins = array(
             'fee_types' => array('fee_types.fee_type_id = fees.fee_type_id', 'inner')
@@ -30,8 +34,7 @@ class Fees extends Crud
 
     protected function onValidationEvent($op, $id = false)
     {
-        $this->data['invoice_types'] = dd2menu('invoice_types', ['invoice_type_id' => name()]);
-
+        $this->data['fee_types'] = dd2menu('fee_types', ['fee_type_id' => name()]);
         $this->form_validation->set_rules('branch_id', lang('fees_branch_id'), "trim|required");
         $this->form_validation->set_rules('fee_type_id', lang('fees_fee_type_id'), "trim|required");
         $this->form_validation->set_rules('amount', lang('fees_amount'), "trim|required");

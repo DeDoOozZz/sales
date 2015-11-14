@@ -1,0 +1,458 @@
+{% extends _layout %}
+{% block content %}
+    <div class="page-title">
+        <div class="title-env">
+            <h1 class="title">{{ lang('menu_general_settings') }}</h1>
+
+            <p class="description"></p>
+        </div>
+        <div class="breadcrumb-env"></div>
+    </div>
+
+
+
+    <form role="form" class="form-horizontal" role="form" method="post"
+          enctype="multipart/form-data">
+
+
+        <div class="col-md-12">
+
+            <div class="tabs-vertical-env">
+
+                <ul class="nav tabs-vertical">
+                    <li class="active"><a href="#general" data-toggle="tab">{{ lang('menu_general_settings') }}</a></li>
+                    <li><a href="#mail" data-toggle="tab">{{ lang('general_settings_mail_settings') }}</a></li>
+                    <li><a href="#service" data-toggle="tab">{{ lang('general_settings_service_settings') }}</a></li>
+                    <li><a href="#payment" data-toggle="tab">{{ lang('general_settings_payment_settings') }}</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="general">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{ lang('menu_general_settings') }}</h3>
+                            </div>
+                            <div class="panel-body">
+                                {% if (validation_errors()) %}
+                                    <div class="alert alert-danger">
+                                        {{ validation_errors() }}
+                                    </div>
+                                {% endif %}
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_title') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[title]', set_value('setting[title]', item.title), 'class="bg-focus form-control" data-required="true" id="title"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_webmaster_email') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[webmaster_email]', set_value('setting[webmaster_email]', item.webmaster_email), 'class="bg-focus form-control" data-required="true" id="webmaster_email"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_active') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_dropdown('setting[active]', ddboolean(), set_value('setting[active]', item.active), 'class="bg-focus form-control" data-required="true" id="active"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_closed_reason') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_textarea('setting[closed_reason]', set_value('setting[closed_reason]', item.closed_reason), 'class="bg-focus form-control" data-required="true" id="closed_reason"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_default_timezone') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[default_timezone]', set_value('setting[default_timezone]', item.default_timezone), 'class="bg-focus form-control" data-required="true" id="default_timezone"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_enable_profiler') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_dropdown('setting[enable_profiler]', ddboolean(), set_value('setting[enable_profiler]', item.enable_profiler), 'class="bg-focus form-control" data-required="true" id="enable_profiler"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_gzip_output') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_dropdown('setting[gzip_output]', ddboolean(), set_value('setting[gzip_output]', item.gzip_output), 'class="bg-focus form-control" data-required="true" id="gzip_output"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_language') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_dropdown('setting[language]', languages, set_value('setting[language]', item.language), 'class="bg-focus form-control" data-required="true" id="language"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_days_to_close_client_account') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[days_to_close_client_account]', set_value('setting[days_to_close_client_account]', item.days_to_close_client_account), 'class="bg-focus form-control" data-required="true" id="days_to_close_client_account"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_mark_clients_as_inactive_in') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[mark_clients_as_inactive_in]', set_value('setting[mark_clients_as_inactive_in]', item.mark_clients_as_inactive_in), 'class="bg-focus form-control" data-required="true" id="mark_clients_as_inactive_in"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_message_for_suspended_users') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_textarea('setting[message_for_suspended_users]', set_value('setting[message_for_suspended_users]', item.message_for_suspended_users), 'class="bg-focus form-control" data-required="true" id="message_for_suspended_users"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_per_page') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[per_page]', set_value('setting[per_page]', item.per_page), 'class="bg-focus form-control" data-required="true" id="per_page"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_salary_notifier') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_dropdown('setting[salary_notifier]', ddboolean(), set_value('setting[salary_notifier]', item.salary_notifier), 'class="bg-focus form-control" data-required="true" id="salary_notifier"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_upload_prefix') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[upload_prefix]', set_value('setting[upload_prefix]', item.upload_prefix), 'class="bg-focus form-control" data-required="true" id="upload_prefix"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-10 control-label"></label>
+
+                                    <div class="col-sm-2">
+                                        <input type="submit" class="btn btn-secondary " name="submit"
+                                               value="{{ lang('global_submit') }}">
+                                        <a href="{{ admin_url(that._table ~ '/index') }} "
+                                           class="btn btn-danger">{{ lang('global_cancel') }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="mail">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{ lang('general_settings_mail_settings') }}</h3>
+                            </div>
+                            <div class="panel-body">
+                                {% if (validation_errors()) %}
+                                    <div class="alert alert-danger">
+                                        {{ validation_errors() }}
+                                    </div>
+                                {% endif %}
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_sms_password') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[sms_password]', set_value('setting[sms_password]', item.sms_password), 'class="bg-focus form-control" data-required="true" id="sms_password"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_sms_username') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[sms_username]', set_value('setting[sms_username]', item.sms_username), 'class="bg-focus form-control" data-required="true" id="sms_username"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_email_protocol') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[email_protocol]', set_value('setting[email_protocol]', item.email_protocol), 'class="bg-focus form-control" data-required="true" id="email_protocol"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_mailpath') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[mailpath]', set_value('setting[mailpath]', item.mailpath), 'class="bg-focus form-control" data-required="true" id="mailpath"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_smtp_host') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[smtp_host]', set_value('setting[smtp_host]', item.smtp_host), 'class="bg-focus form-control" data-required="true" id="smtp_host"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_smtp_pass') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[smtp_pass]', set_value('setting[smtp_pass]', item.smtp_pass), 'class="bg-focus form-control" data-required="true" id="smtp_pass"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_smtp_port') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[smtp_port]', set_value('setting[smtp_port]', item.smtp_port), 'class="bg-focus form-control" data-required="true" id="smtp_port"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_smtp_user') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[smtp_user]', set_value('setting[smtp_user]', item.smtp_user), 'class="bg-focus form-control" data-required="true" id="smtp_user"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-10 control-label"></label>
+
+                                    <div class="col-sm-2">
+                                        <input type="submit" class="btn btn-secondary " name="submit"
+                                               value="{{ lang('global_submit') }}">
+                                        <a href="{{ admin_url(that._table ~ '/index') }} "
+                                           class="btn btn-danger">{{ lang('global_cancel') }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="service">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{ lang('general_settings_service_settings') }}</h3>
+                            </div>
+                            <div class="panel-body">
+                                {% if (validation_errors()) %}
+                                    <div class="alert alert-danger">
+                                        {{ validation_errors() }}
+                                    </div>
+                                {% endif %}
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_active_post_usb_price') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[active_post_usb_price]', set_value('setting[active_post_usb_price]', item.active_post_usb_price), 'class="bg-focus form-control" data-required="true" id="active_post_usb_price"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_active_pre_usb_price') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[active_pre_usb_price]', set_value('setting[active_pre_usb_price]', item.active_pre_usb_price), 'class="bg-focus form-control" data-required="true" id="active_pre_usb_price"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_active_pre_with_usb_price') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[active_pre_with_usb_price]', set_value('setting[active_pre_with_usb_price]', item.active_pre_with_usb_price), 'class="bg-focus form-control" data-required="true" id="active_pre_with_usb_price"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_barcode_init') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[barcode_init]', set_value('setting[barcode_init]', item.barcode_init), 'class="bg-focus form-control" data-required="true" id="barcode_init"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_format_commission_first') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[format_commission_first]', set_value('setting[format_commission_first]', item.format_commission_first), 'class="bg-focus form-control" data-required="true" id="format_commission_first"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_format_commission_second') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[format_commission_second]', set_value('setting[format_commission_second]', item.format_commission_second), 'class="bg-focus form-control" data-required="true" id="format_commission_second"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_format_price') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('setting[format_price]', set_value('setting[format_price]', item.format_price), 'class="bg-focus form-control" data-required="true" id="format_price"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-10 control-label"></label>
+
+                                    <div class="col-sm-2">
+                                        <input type="submit" class="btn btn-secondary " name="submit"
+                                               value="{{ lang('global_submit') }}">
+                                        <a href="{{ admin_url(that._table ~ '/index') }} "
+                                           class="btn btn-danger">{{ lang('global_cancel') }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="payment">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{ lang('general_settings_payment_settings') }}</h3>
+                            </div>
+                            <div class="panel-body">
+                                {% if (validation_errors()) %}
+                                    <div class="alert alert-danger">
+                                        {{ validation_errors() }}
+                                    </div>
+                                {% endif %}
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_payment_via_credit_card') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_dropdown('setting[payment_via_credit_card]', ddboolean(), set_value('setting[payment_via_credit_card]', item.payment_via_credit_card), 'class="bg-focus form-control" data-required="true" id="payment_via_credit_card"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">{{ lang('general_settings_payment_via_paypal') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_dropdown('setting[payment_via_paypal]', ddboolean(), set_value('setting[payment_via_paypal]', item.payment_via_paypal), 'class="bg-focus form-control" data-required="true" id="payment_via_paypal"') }}
+                                    </div>
+                                </div>
+                                <div class="form-group-separator"></div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-10 control-label"></label>
+
+                                    <div class="col-sm-2">
+                                        <input type="submit" class="btn btn-secondary " name="submit"
+                                               value="{{ lang('global_submit') }}">
+                                        <a href="{{ admin_url(that._table ~ '/index') }} "
+                                           class="btn btn-danger">{{ lang('global_cancel') }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+    <div style="clear: both"></div><br/>
+    {#<script src="<?= STYLE_JS ?>/ckeditor/ckeditor.js" type="text/javascript"></script>#}
+    {#<script>#}
+    {#$(document).ready(function () {#}
+    {#CKEDITOR.replace('editor1');#}
+    {#CKEDITOR.replace('editor2');#}
+    {#CKEDITOR.replace('editor3');#}
+    {#});#}
+    {#</script>#}
+
+{% endblock %}

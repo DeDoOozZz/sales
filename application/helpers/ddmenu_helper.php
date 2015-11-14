@@ -34,7 +34,9 @@ function dd2menu($table, $field = array(), $set_condition = FALSE, $direct = FAL
     return $data['items'];
 }
 
-
+function ddlanguages() {
+    return [''=> lang('global_select_from_menu'), 'arabic' => 'عربي', 'english' => 'English'];
+}
 function ddboolean($field = FALSE)
 {
     $data = array(

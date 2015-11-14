@@ -18,14 +18,27 @@ $config['backend'] = [
                 'permission' => 'branches',
             ],
             [
-                'title' => 'cash_types',
-                'url' => 'cash_types',
-                'permission' => 'cash_types',
-            ],
-            [
-                'title' => 'card_types',
-                'url' => 'card_types',
-                'permission' => 'card_types',
+                'title' => 'definitions',
+                'url' => '#',
+                'permission' => '',
+                'sub' => [
+                    [
+                        'title' => 'cash_types',
+                        'url' => 'cash_types',
+                        'permission' => 'cash_types',
+                    ],
+                    [
+                        'title' => 'card_types',
+                        'url' => 'card_types',
+                        'permission' => 'card_types',
+                    ],
+                    [
+                        'title' => 'credit_card_types',
+                        'url' => 'credit_card_types',
+                        'permission' => 'credit_card_types',
+                    ]
+                ]
+
             ],
             [
                 'title' => 'categories',
@@ -37,17 +50,12 @@ $config['backend'] = [
                 'url' => 'countries',
                 'permission' => 'countries',
             ],
-            [
-                'title' => 'credit_card_types',
-                'url' => 'credit_card_types',
-                'permission' => 'credit_card_types',
-            ],
+
             [
                 'title' => 'departments',
                 'url' => 'departments',
                 'permission' => 'departments',
             ],
-
 
 
             [
@@ -86,7 +94,6 @@ $config['backend'] = [
                     ],
                 ]
             ],
-
 
 
             [
@@ -129,27 +136,25 @@ $config['backend'] = [
                 'url' => '#',
                 'permission' => '',
                 'sub' =>
-                [
                     [
-                        'title' => 'services',
-                        'url' => 'services',
-                        'permission' => 'services',
-                    ],
-                    [
-                        'title' => 'service_providers',
-                        'url' => 'service_providers',
-                        'permission' => 'service_providers',
-                    ],
+                        [
+                            'title' => 'services',
+                            'url' => 'services',
+                            'permission' => 'services',
+                        ],
+                        [
+                            'title' => 'service_providers',
+                            'url' => 'service_providers',
+                            'permission' => 'service_providers',
+                        ],
 
-                    [
-                        'title' => 'sim_types',
-                        'url' => 'sim_types',
-                        'permission' => 'sim_types',
-                    ],
-                ]
+                        [
+                            'title' => 'sim_types',
+                            'url' => 'sim_types',
+                            'permission' => 'sim_types',
+                        ],
+                    ]
             ],
-
-
 
 
             [
@@ -207,9 +212,9 @@ $config['backend'] = [
                 'permission' => 'prepaid_card_orders',
             ],
             [
-                'title' => 'format',
-                'url' => 'format',
-                'permission' => 'format',
+                'title' => 'format_orders',
+                'url' => 'format_orders',
+                'permission' => 'format_orders',
             ],
             [
                 'title' => 'invoices',

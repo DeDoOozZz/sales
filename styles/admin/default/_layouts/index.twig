@@ -1,317 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="{{ config('description') }}" />
-        <meta name="author" content="{{ config('title') }}" />
-        <title>{{ config('title') }}</title>
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
-        <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/fonts/linecons/css/linecons.css">
-        <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/fonts/fontawesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/bootstrap.css">
-        <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/xenon-core.css">
-        <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/xenon-forms.css">
-        <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/xenon-components.css">
-        <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/xenon-skins.css">
-        <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/custom.css">
-        <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/beoro.css">
-        {#<link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/select2/select2.css">#}
-        {#<link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/select2/select2-bootstrap.css">#}
-        {% if config('language') == 'arabic' %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="{{ config('description') }}"/>
+    <meta name="author" content="{{ config('title') }}"/>
+    <title>{{ config('title') }}</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
+    <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/bootstrap.css">
+    <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/xenon-core.css">
+    <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/xenon-forms.css">
+    <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/xenon-components.css">
+    <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/xenon-skins.css">
+    <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/custom.css">
+    <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/beoro.css">
+    <link rel="search" type="application/opensearchdescription+xml" title="{{ config('title') }}" href="{{ site_url('search') }}">
+
+    {#<link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/select2/select2.css">#}
+    {#<link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/select2/select2-bootstrap.css">#}
+    {% if config('language') == 'arabic' %}
         <link rel="stylesheet" href="{{ constant("STYLE_CSS") }}/newstyle.css">
-        {% endif %}
-        <script src="{{ constant("STYLE_JS") }}/jquery-1.11.1.min.js"></script>
-        <script src="{{ constant("STYLE_JS") }}/select2/select2.min.js"></script>
-        <script src="{{ constant("STYLE_JS") }}/datepicker/bootstrap-datepicker.js"></script>
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-                <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-                <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-        <style>
-            span.input-required {
-                color: rgba(233,108,119,1);
-                font-weight: bold;
-                font-size: 16px;
-                display: inline-block;
-            }
-            .form-group h3 {
-                font-size: 13px;
-                font-weight: bold;
-            }
-            .user-permission{
-                font-size: 12px;
-            }
-        </style>
+    {% endif %}
+    <script src="{{ constant("STYLE_JS") }}/jquery-1.11.1.min.js"></script>
+    <script src="{{ constant("STYLE_JS") }}/select2/select2.min.js"></script>
+    <script src="{{ constant("STYLE_JS") }}/datepicker/bootstrap-datepicker.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        span.input-required {
+            color: rgba(233, 108, 119, 1);
+            font-weight: bold;
+            font-size: 16px;
+            display: inline-block;
+        }
 
-    </head>
-    <body class="page-body">
+        .form-group h3 {
+            font-size: 13px;
+            font-weight: bold;
+        }
 
+        .user-permission {
+            font-size: 12px;
+        }
+    </style>
 
-
-
+</head>
+<body class="page-body">
 
 
 
 
-        <div class="settings-pane">
 
-            <a href="#" data-toggle="settings-pane" data-animate="true">
-                &times;
-            </a>
 
-            <div class="settings-pane-inner">
 
-                <div class="row">
 
-                    <div class="col-md-4">
 
-                        <div class="user-info">
 
-                            <div class="user-image">
-                                <a href="extra-profile.html">
-                                    <img src="{{ constant("STYLE_IMAGES") }}/user-2.png" class="img-responsive img-circle" />
-                                    <!--<img src="<?= session(' base_url()/cdn/ $item->image') ?>" class="img-responsive img-circle" />-->
-                                    <!--<img src="<?= base_url() ?>/cdn/<?php echo $item->image ?>">-->
-                                </a>
-                            </div>
 
-                            <div class="user-details">
 
-                                <h3>
-                                    <a href="#">{{ session('username') }}</a>
 
-                                    <!-- Available statuses: is-online, is-idle, is-busy and is-offline -->
-                                    <span class="user-status is-online"></span>
-                                </h3>
 
-                                <p class="user-title">Administrator {{ that.menu.menu() }}</p>
-
-                                <div class="user-links">
-                                    <a href="{{  admin_url('users/manage/' ~ session('user_id')) }}" class="btn btn-primary">Edit Profile</a>
-                                    <a href="{{  admin_url('logout') }}" class="btn btn-success">{{ lang('global_logout') }}</a>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <div class="pull-right  top-search">
+                <form action="" >
+                    <input type="text" name="q" id="q-main">
+                    <button class="btn"><i class="icon-search"></i></button>
+                </form>
             </div>
+            <div id="fade-menu" class="pull-left">
+                <ul class="clearfix" id="mobile-nav">
 
-        </div>
-
-        <nav class="navbar horizontal-menu navbar-fixed-top navbar-minimal"><!-- set fixed position by adding class "navbar-fixed-top" -->
-
-            <div class="navbar-inner">
-
-                <!-- Navbar Brand -->
-                <div class="navbar-brand">
-                    <a href="dashboard-1.html" class="logo">
-                        <img src="{{ constant("STYLE_IMAGES") }}/logo.png" width="80" alt="" class="hidden-xs" />
-                        <img src="{{ constant("STYLE_IMAGES") }}/logo.png" width="80" alt="" class="visible-xs" />
-                    </a>
-                    <a href="#" data-toggle="settings-pane" data-animate="true">
-                        <i class="linecons-cog"></i>
-                    </a>
-                </div>
-
-                <!-- Mobile Toggles Links -->
-                <div class="nav navbar-mobile">
-
-                    <!-- This will toggle the mobile menu and will be visible only on mobile devices -->
-                    <div class="mobile-menu-toggle">
-                        <!-- This will open the popup with user profile settings, you can use for any purpose, just be creative -->
-                        <a href="#" data-toggle="settings-pane" data-animate="true">
-                            <i class="linecons-cog"></i>
-                        </a>
-
-                        <a href="#" data-toggle="user-info-menu-horizontal">
-                            <i class="fa-bell-o"></i>
-                            <span class="badge badge-success">7</span>
-                        </a>
-
-                        <!-- data-toggle="mobile-menu-horizontal" will show horizontal menu links only -->
-                        <!-- data-toggle="mobile-menu" will show sidebar menu links only -->
-                        <!-- data-toggle="mobile-menu-both" will show sidebar and horizontal menu links -->
-                        <a href="#" data-toggle="mobile-menu-horizontal">
-                            <i class="fa-bars"></i>
-                        </a>
-                    </div>
-
-                </div>
-
-                <div class="navbar-mobile-clear"></div>
-
-                <!-- main menu -->
-
-
-
-
-
-
-
-
-
-
-                {#<div class="navbar navbar-fixed-top">#}
-                    {#<div class="navbar-inner">#}
-                        {#<div class="container">#}
-                            {#<div class="pull-left top-search">#}
-                                {#<form action="">#}
-                                    {#<input type="text" name="q" id="q-main">#}
-                                    {#<button class="btn"><i class="icon-search"></i></button>#}
-                                {#</form>#}
-                            {#</div>#}
-                            {#<div id="fade-menu" class="pull-right">#}
-                                {#<ul class="clearfix" id="mobile-nav">#}
-                                    {#{{ that.menu.generate('backend') }}#}
-
-
-                                {#</ul><select class="selectnav" id="selectnav1"><option value="">- Navigation -</option><option value="http://testingweb.org/admin/dashboard" selected="">لوحة التحكم</option><option value="http://testingweb.org/admin/firms">المنشآت</option><option value="http://testingweb.org/admin/settings">- الإعدادات العامة</option><option value="http://testingweb.org/admin/firms/add">- إضافة منشآة جديدة</option><option value="http://testingweb.org/admin/firms">- قائمة المنشآت</option><option value="javascript:void(0)">ثوابت</option><option value="http://testingweb.org/admin/sms_templates">- قوالب الرسائل القصيرة</option><option value="http://testingweb.org/admin/dashboard#">- كروت الشحن</option><option value="http://testingweb.org/admin/prepaid_cards">-- قائمة السجلات</option><option value="http://testingweb.org/admin/prepaid_cards/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- مقدمين الخدمة</option><option value="http://testingweb.org/admin/service_providers">-- قائمة السجلات</option><option value="http://testingweb.org/admin/service_providers/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- الأجهزة</option><option value="http://testingweb.org/admin/devices">-- قائمة السجلات</option><option value="http://testingweb.org/admin/devices/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- انواع الضمان</option><option value="http://testingweb.org/admin/warranties">-- قائمة السجلات</option><option value="http://testingweb.org/admin/warranties/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- انواع الكروت</option><option value="http://testingweb.org/admin/card_types">-- قائمة السجلات</option><option value="http://testingweb.org/admin/card_types/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- انواع الاجهزة</option><option value="http://testingweb.org/admin/device_types">-- قائمة السجلات</option><option value="http://testingweb.org/admin/device_types/add">-- إضافة</option><option value="http://testingweb.org/admin/fee_types">- انواع المصاريف</option><option value="http://testingweb.org/admin/fee_types">-- قائمة السجلات</option><option value="http://testingweb.org/admin/fee_types/add">-- إضافة</option><option value="http://testingweb.org/admin/marks">- ماركات</option><option value="http://testingweb.org/admin/marks">-- قائمة السجلات</option><option value="http://testingweb.org/admin/marks/add">-- إضافة</option><option value="http://testingweb.org/admin/clients">- العملاء</option><option value="http://testingweb.org/admin/clients">-- قائمة السجلات</option><option value="http://testingweb.org/admin/clients/add">-- إضافة</option><option value="http://testingweb.org/admin/clients/search">-- بحث</option><option value="http://testingweb.org/admin/categories">- التصنيفات</option><option value="http://testingweb.org/admin/categories">-- قائمة السجلات</option><option value="http://testingweb.org/admin/categories/add">-- إضافة</option><option value="http://testingweb.org/admin/invoices">- الفواتير</option><option value="http://testingweb.org/admin/products">- المنتجات</option><option value="http://testingweb.org/admin/products">-- قائمة السجلات</option><option value="http://testingweb.org/admin/products/add_bar">-- إضافة</option><option value="http://testingweb.org/admin/products/search">-- بحث</option><option value="http://testingweb.org/admin/users">الموظفين</option><option value="http://testingweb.org/admin/users">- الموظفين</option><option value="http://testingweb.org/admin/users">-- قائمة السجلات</option><option value="http://testingweb.org/admin/users/add">-- إضافة</option><option value="http://testingweb.org/admin/usergroups">- مجموعات الموظفين</option><option value="http://testingweb.org/admin/usergroups">-- قائمة السجلات</option><option value="http://testingweb.org/admin/usergroups/add">-- إضافة</option><option value="http://testingweb.org/admin/admins">- الإدارة</option><option value="http://testingweb.org/admin/admins">-- قائمة السجلات</option><option value="http://testingweb.org/admin/admins/add">-- إضافة</option><option value="http://testingweb.org/admin/admin_usergroups">- صلاحيات الإداريين</option><option value="http://testingweb.org/admin/admin_usergroups">-- قائمة السجلات</option><option value="http://testingweb.org/admin/admin_usergroups/add">-- إضافة</option><option value="http://testingweb.org/admin/service_stocks">الخدمات</option><option value="http://testingweb.org/admin/service_stocks">- قائمة السجلات</option><option value="http://testingweb.org/admin/service_stocks/add">- إضافة</option><option value="http://testingweb.org/admin/services/listing">- قائمة الإنتظار</option><option value="http://testingweb.org/admin/services/listing/1">- الارشيف</option><option value="http://testingweb.org/admin/services/listing/2">- المعلقين</option><option value="http://testingweb.org/admin/services/listing/3">- المرفوضين</option><option value="http://testingweb.org/admin/log">تقارير</option><option value="http://testingweb.org/admin/admins/edit"> إعدادات</option><option value="http://testingweb.org/admin/logout"> خروج</option></select>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
-
-
-
-
-                <ul class="navbar-nav">
                     {{ that.menu.generate('backend') }}
 
+
+
+                    {#<? if (admin_permission('dashboard')): ?>#}
+                    {#<li><a href="#" title="#" class="active"><span>Dashboard</span></a></li>#}
+                    {#<? endif ?>#}
+                    {#<? if (admin_permission('firms') || admin_permission('settings')): ?>#}
+                    {#<li><a href="<?= site_url('admin/firms') ?>" title="<?= lang('global_firms') ?>"><span><?= lang('global_firms') ?></span></a>#}
+                        {#<ul>#}
+                            {#<? if (admin_permission('settings')): ?><li><a href="<?= site_url('admin/settings') ?>" title="<?= lang('global_general_settings') ?>"><?= lang('global_general_settings') ?></a></li><? endif ?>#}
+                            {#<? if (admin_permission('firms')): ?><li><a href="<?= site_url('admin/firms/add') ?>" title="<?= lang('global_firm_add') ?>"><?= lang('global_firm_add') ?></a></li><? endif ?>#}
+                            {#<? if (admin_permission('firms')): ?><li><a href="<?= site_url('admin/firms') ?>" title="<?= lang('global_firm_list') ?>"><?= lang('global_firm_list') ?></a></li><? endif ?>#}
+                        {#</ul>#}
+                    {#</li>#}
+                    {#<? endif ?>#}
+                    {#<li><a href="javascript:void(0)"><?= lang('global_lookups') ?></a>#}
+                        {#<ul>#}
+
+
+
+                            {#<? if (admin_permission('sms_templates')): ?>#}
+                            {#<li><a href="<?= site_url('admin/sms_templates') ?>" title="<?= lang('global_sms_templates') ?>"><span><?= lang('global_sms_templates') ?></span></a></li>#}
+                            {#<? endif ?>#}
+
+
+                            {#<? if (admin_permission('prepaid_cards')): ?>#}
+                            {#<li><a href="#" title="<?= lang('global_prepaid_cards') ?>"><span><?= lang('global_prepaid_cards') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/prepaid_cards/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/prepaid_cards/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+                            {#<? if (admin_permission('service_providers')): ?>#}
+                            {#<li><a href="#" title="<?= lang('global_prepaid_cards') ?>"><span><?= lang('global_service_providers') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/service_providers/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/service_providers/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+                            {#<? if (admin_permission('devices')): ?>#}
+                            {#<li><a href="#" title="<?= lang('global_devices') ?>"><span><?= lang('global_devices') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/devices/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/devices/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+                            {#<? if (admin_permission('warranties')): ?>#}
+                            {#<li><a href="#" title="<?= lang('global_warranties') ?>"><span><?= lang('global_warranties') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/warranties/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/warranties/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+
+                            {#<? if (admin_permission('card_types')): ?>#}
+                            {#<li><a href="#" title="<?= lang('global_card_types') ?>"><span><?= lang('global_card_types') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/card_types/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/card_types/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+                            {#<? if (admin_permission('device_types')): ?>#}
+                            {#<li><a href="#" title="<?= lang('global_device_types') ?>"><span><?= lang('global_device_types') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/device_types/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/device_types/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+
+
+                            {#<? if (admin_permission('fee_types')): ?>#}
+                            {#<li><a href="<?= site_url('admin/fee_types') ?>" title="<?= lang('global_fee_types') ?>"><span><?= lang('global_fee_types') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/fee_types/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/fee_types/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+                            {#<? if (admin_permission('countries')): ?>#}
+                            {#<li><a href="<?= site_url('admin/countries') ?>" title="<?= lang('global_countries') ?>"><span><?= lang('global_countries') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/countries/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/countries/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+                            {#<? if (admin_permission('marks')): ?>#}
+                            {#<li><a href="<?= site_url('admin/marks') ?>" title="<?= lang('global_marks') ?>"><span><?= lang('global_marks') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/marks/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/marks/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+                            {#<? if (admin_permission('clients')): ?>#}
+                            {#<li><a href="<?= site_url('admin/clients') ?>" title="<?= lang('global_clients') ?>"><span><?= lang('global_clients') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/clients/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/clients/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/clients/search') ?>" title="<?= lang('global_search') ?>"><?= lang('global_search') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+                            {#<? if (admin_permission('categories')): ?>#}
+                            {#<li><a href="<?= site_url('admin/categories') ?>" title="<?= lang('global_categories') ?>"><span><?= lang('global_categories') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/categories/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/categories/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+                            {#<? if (admin_permission('invoices')): ?>#}
+                            {#<li><a href="<?= site_url('admin/invoices') ?>" title="<?= lang('global_invoices') ?>"><span><?= lang('global_invoices') ?></span></a></li>#}
+                            {#<? endif ?>#}
+                            {#<? if (admin_permission('products')): ?>#}
+                            {#<li><a href="<?= site_url('admin/products') ?>" title="<?= lang('global_products') ?>"><span><?= lang('global_products') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/products/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/products/add_bar') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/products/search') ?>" title="<?= lang('global_search') ?>"><?= lang('global_search') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+                        {#</ul>#}
+                    {#</li>#}
+
+                    {#<li><a href="<?= site_url('admin/users') ?>" title="<?= lang('global_users') ?>"><span><?= lang('global_users') ?></span></a>#}
+                        {#<ul>#}
+                            {#<? if (admin_permission('users')): ?>#}
+                            {#<li><a href="<?= site_url('admin/users') ?>" title="<?= lang('global_users') ?>"><span><?= lang('global_users') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/users/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/users/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+                            {#<? if (admin_permission('usergroups')): ?>#}
+                            {#<li><a href="<?= site_url('admin/usergroups') ?>" title="<?= lang('global_usergroups') ?>"><span><?= lang('global_usergroups') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/usergroups/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/usergroups/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul></li>#}
+                            {#<? endif ?>#}
+                            {#<? if (admin_permission('admins')): ?>#}
+                            {#<li><a href="<?= site_url('admin/admins') ?>" title="<?= lang('global_administration') ?>"><span><?= lang('global_administration') ?></span></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/admins/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/admins/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+                            {#<? if (admin_permission('admin_usergroups')): ?>#}
+                            {#<li><a href="<?= site_url('admin/admin_usergroups') ?>" title="<?= lang('global_admin_usergroups') ?>"><?= lang('global_admin_usergroups') ?></a>#}
+                                {#<ul>#}
+                                    {#<li><a href="<?= site_url('admin/admin_usergroups/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                                    {#<li><a href="<?= site_url('admin/admin_usergroups/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                                {#</ul>#}
+                            {#</li>#}
+                            {#<? endif ?>#}
+                        {#</ul>#}
+                    {#</li>#}
+
+                    {#<? if (admin_permission('services')): ?>#}
+                    {#<li><a href="<?= site_url('admin/service_stocks') ?>" title="<?= lang('global_services') ?>"><span><?= lang('global_services') ?></span></a>#}
+                        {#<ul>#}
+                            {#<li><a href="<?= site_url('admin/service_stocks/') ?>" title="<?= lang('global_list') ?>"><?= lang('global_list') ?></a></li>#}
+                            {#<li><a href="<?= site_url('admin/service_stocks/add') ?>" title="<?= lang('global_add') ?>"><?= lang('global_add') ?></a></li>#}
+                            {#<li><a href="<?= site_url('admin/services/listing') ?>" title="<?= lang('global_awaiting_list') ?>"><?= lang('global_awaiting_list') ?></a></li>#}
+                            {#<li><a href="<?= site_url('admin/services/listing/1') ?>" title="<?= lang('global_archive_list') ?>"><?= lang('global_archive_list') ?></a></li>#}
+                            {#<li><a href="<?= site_url('admin/services/listing/2') ?>" title="<?= lang('global_pending_list') ?>"><?= lang('global_pending_list') ?></a></li>#}
+                            {#<li><a href="<?= site_url('admin/services/listing/3') ?>" title="<?= lang('global_canceled_list') ?>"><?= lang('global_canceled_list') ?></a></li>#}
+                        {#</ul>#}
+                    {#</li>#}
+                    {#<? endif ?>#}
+
+
+
+                    {#<li><a href="<?= site_url('admin/admins/edit') ?>" title=""><img src="<?= IMAGES ?>/icons/topnav/settings.png" alt="" /> <span><?= lang('global_settings') ?></span></a></li>#}
+                    {#<li><a href="<?= site_url('admin/logout') ?>" title=""><img src="<?= IMAGES ?>/icons/topnav/logout.png" alt="" /> <span><?= lang('global_logout') ?></span></a></li>#}
+
                 </ul>
-
-
-                <!-- notifications and other links -->
-                <ul class="nav nav-userinfo navbar-right">
-
-                    <li class="search-form"><!-- You can add "always-visible" to show make the search input visible -->
-                        <form method="get" action="{{ admin_url('search') }}">
-                            <input type="text" name="q" class="form-control search-field" placeholder="Type to search..." />
-                            <button type="submit" class="btn btn-link">
-                                <i class="linecons-search"></i>
-                            </button>
-                        </form>
-                    </li>
-                    <li class="dropdown user-profile">
-                        <a href="#" data-toggle="dropdown">
-                            <img src="{{ constant("STYLE_IMAGES") }}/user-1.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
-                            <span>
-                                Arlind Nushi
-                                <i class="fa-angle-down"></i>
-                            </span>
-                        </a>
-
-                        <ul class="dropdown-menu user-profile-menu list-unstyled">
-                            <li>
-                                <a href="#edit-profile">
-                                    <i class="fa-edit"></i>
-                                    New Post
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#settings">
-                                    <i class="fa-wrench"></i>
-                                    Settings
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#profile">
-                                    <i class="fa-user"></i>
-                                    Profile
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#help">
-                                    <i class="fa-info"></i>
-                                    Help
-                                </a>
-                            </li>
-                            <li class="last">
-                                <a href="{{ admin_url('logout') }}">
-                                    <i class="fa-lock"></i>
-                                    {{ lang('global_logout') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                </ul>
-
             </div>
-
-        </nav>
-
-        <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
-
-            <div class="main-content">
-
-                {% block content %}
-
-                {% endblock %}
+        </div>
+    </div>
+</div>
+<div style="height: 35px;"></div>
 
 
-                <script>
-                    jQuery(document).ready(function ($)
-                    {
-                        $('a[href="#layout-variants"]').on('click', function (ev)
-                        {
-                            ev.preventDefault();
+<script src="{{ constant("STYLE_JS") }}/jquery.fademenu.js"></script>
+<script src="{{ constant("STYLE_JS") }}/selectnav.min.js"></script>
+<script src="{{ constant("STYLE_JS") }}/beoro_common.js"></script>
 
-                            var win = {top: $(window).scrollTop(), toTop: $("#layout-variants").offset().top - 15};
 
-                            TweenLite.to(win, .3, {top: win.toTop, roundProps: ["top"], ease: Sine.easeInOut, onUpdate: function ()
-                                {
-                                    $(window).scrollTop(win.top);
-                                }
-                            });
-                        });
-                    });
-                </script>
 
-                <footer class="main-footer sticky footer-type-1">
 
-                    <div class="footer-inner">
-                        <!-- Add your copyright text here -->
-                        <div class="footer-text">
-                            &copy; {{ "now"|date("Y")  }}
-                            <strong>X5J.NeT</strong>
-                        </div>
-                        <!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
-                        <div class="go-up">
-                            <a href="#" rel="go-top">
-                                <i class="fa-angle-up"></i>
-                            </a>
-                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="settings-pane">
+
+    <a href="#" data-toggle="settings-pane" data-animate="true">
+        &times;
+    </a>
+
+    <div class="settings-pane-inner">
+
+        <div class="row">
+
+            <div class="col-md-4">
+
+                <div class="user-info">
+
+                    <div class="user-image">
+                        <a href="extra-profile.html">
+                            <img src="{{ constant("STYLE_IMAGES") }}/user-2.png" class="img-responsive img-circle"/>
+                            <!--<img src="<?= session(' base_url()/cdn/ $item->image') ?>" class="img-responsive img-circle" />-->
+                            <!--<img src="<?= base_url() ?>/cdn/<?php echo $item->image ?>">-->
+                        </a>
                     </div>
 
-                </footer>
+                    <div class="user-details">
+
+                        <h3>
+                            <a href="#">{{ session('username') }}</a>
+
+                            <!-- Available statuses: is-online, is-idle, is-busy and is-offline -->
+                            <span class="user-status is-online"></span>
+                        </h3>
+
+                        <p class="user-title">Administrator {{ that.menu.menu() }}</p>
+
+                        <div class="user-links">
+                            <a href="{{ admin_url('users/manage/' ~ session('user_id')) }}" class="btn btn-primary">Edit
+                                Profile</a>
+                            <a href="{{ admin_url('logout') }}" class="btn btn-success">{{ lang('global_logout') }}</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
 
+    </div>
 
-        <!-- Bottom Scripts -->
-        <script src="{{ constant("STYLE_JS") }}/bootstrap.min.js"></script>
-        <script src="{{ constant("STYLE_JS") }}/TweenMax.min.js"></script>
-        <script src="{{ constant("STYLE_JS") }}/resizeable.js"></script>
-        <script src="{{ constant("STYLE_JS") }}/joinable.js"></script>
-        <script src="{{ constant("STYLE_JS") }}/xenon-api.js"></script>
-        <script src="{{ constant("STYLE_JS") }}/xenon-toggles.js"></script>
+</div>
 
-        <!-- JavaScripts initializations and stuff -->
-        <script src="{{ constant("STYLE_JS") }}/xenon-custom.js"></script>
-        <link rel="stylesheet" href="{{ constant("STYLE_JS") }}/select2/select2.css">
-        <link rel="stylesheet" href="{{ constant("STYLE_JS") }}/select2/select2-bootstrap.css">
-        <link rel="stylesheet" href="{{ constant("STYLE_JS") }}/multiselect/css/multi-select.css">
-        <script src="{{ constant("STYLE_JS") }}/select2/select2.min.js"></script>
-        {#<script src="{{ constant("STYLE_JS") }}/jquery.multi-select.js"></script>#}
 
-    </body>
+
+
+{#<nav class="navbar horizontal-menu navbar-fixed-top navbar-minimal">#}
+    {#<!-- set fixed position by adding class "navbar-fixed-top" -->#}
+
+    {#<div class="navbar-inner">#}
+
+        {#<!-- Navbar Brand -->#}
+        {#<div class="navbar-brand">#}
+            {#<a href="{{ admin_url('dashboard') }}" class="logo">#}
+                {#<img src="{{ constant("STYLE_IMAGES") }}/logo.png" width="80" alt="" class="hidden-xs"/>#}
+                {#<img src="{{ constant("STYLE_IMAGES") }}/logo.png" width="80" alt="" class="visible-xs"/>#}
+            {#</a>#}
+            {#<a href="#" data-toggle="settings-pane" data-animate="true">#}
+                {#<i class="linecons-cog"></i>#}
+            {#</a>#}
+        {#</div>#}
+
+        {#<!-- Mobile Toggles Links -->#}
+        {#<div class="nav navbar-mobile">#}
+
+            {#<!-- This will toggle the mobile menu and will be visible only on mobile devices -->#}
+            {#<div class="mobile-menu-toggle">#}
+                {#<!-- This will open the popup with user profile settings, you can use for any purpose, just be creative -->#}
+                {#<a href="#" data-toggle="settings-pane" data-animate="true">#}
+                    {#<i class="linecons-cog"></i>#}
+                {#</a>#}
+
+                {#<a href="#" data-toggle="user-info-menu-horizontal">#}
+                    {#<i class="fa-bell-o"></i>#}
+                    {#<span class="badge badge-success">7</span>#}
+                {#</a>#}
+
+                {#<!-- data-toggle="mobile-menu-horizontal" will show horizontal menu links only -->#}
+                {#<!-- data-toggle="mobile-menu" will show sidebar menu links only -->#}
+                {#<!-- data-toggle="mobile-menu-both" will show sidebar and horizontal menu links -->#}
+                {#<a href="#" data-toggle="mobile-menu-horizontal">#}
+                    {#<i class="fa-bars"></i>#}
+                {#</a>#}
+            {#</div>#}
+
+        {#</div>#}
+
+        {#<div class="navbar-mobile-clear"></div>#}
+
+        {#<!-- main menu -->#}
+
+
+        {#&#123;&#35;<div class="navbar navbar-fixed-top">&#35;&#125;#}
+        {#&#123;&#35;<div class="navbar-inner">&#35;&#125;#}
+        {#&#123;&#35;<div class="container">&#35;&#125;#}
+        {#&#123;&#35;<div class="pull-left top-search">&#35;&#125;#}
+        {#&#123;&#35;<form action="">&#35;&#125;#}
+        {#&#123;&#35;<input type="text" name="q" id="q-main">&#35;&#125;#}
+        {#&#123;&#35;<button class="btn"><i class="icon-search"></i></button>&#35;&#125;#}
+        {#&#123;&#35;</form>&#35;&#125;#}
+        {#&#123;&#35;</div>&#35;&#125;#}
+        {#&#123;&#35;<div id="fade-menu" class="pull-right">&#35;&#125;#}
+        {#&#123;&#35;<ul class="clearfix" id="mobile-nav">&#35;&#125;#}
+        {#&#123;&#35;{{ that.menu.generate('backend') }}&#35;&#125;#}
+
+
+        {#&#123;&#35;</ul><select class="selectnav" id="selectnav1"><option value="">- Navigation -</option><option value="http://testingweb.org/admin/dashboard" selected="">لوحة التحكم</option><option value="http://testingweb.org/admin/firms">المنشآت</option><option value="http://testingweb.org/admin/settings">- الإعدادات العامة</option><option value="http://testingweb.org/admin/firms/add">- إضافة منشآة جديدة</option><option value="http://testingweb.org/admin/firms">- قائمة المنشآت</option><option value="javascript:void(0)">ثوابت</option><option value="http://testingweb.org/admin/sms_templates">- قوالب الرسائل القصيرة</option><option value="http://testingweb.org/admin/dashboard#">- كروت الشحن</option><option value="http://testingweb.org/admin/prepaid_cards">-- قائمة السجلات</option><option value="http://testingweb.org/admin/prepaid_cards/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- مقدمين الخدمة</option><option value="http://testingweb.org/admin/service_providers">-- قائمة السجلات</option><option value="http://testingweb.org/admin/service_providers/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- الأجهزة</option><option value="http://testingweb.org/admin/devices">-- قائمة السجلات</option><option value="http://testingweb.org/admin/devices/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- انواع الضمان</option><option value="http://testingweb.org/admin/warranties">-- قائمة السجلات</option><option value="http://testingweb.org/admin/warranties/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- انواع الكروت</option><option value="http://testingweb.org/admin/card_types">-- قائمة السجلات</option><option value="http://testingweb.org/admin/card_types/add">-- إضافة</option><option value="http://testingweb.org/admin/dashboard#">- انواع الاجهزة</option><option value="http://testingweb.org/admin/device_types">-- قائمة السجلات</option><option value="http://testingweb.org/admin/device_types/add">-- إضافة</option><option value="http://testingweb.org/admin/fee_types">- انواع المصاريف</option><option value="http://testingweb.org/admin/fee_types">-- قائمة السجلات</option><option value="http://testingweb.org/admin/fee_types/add">-- إضافة</option><option value="http://testingweb.org/admin/marks">- ماركات</option><option value="http://testingweb.org/admin/marks">-- قائمة السجلات</option><option value="http://testingweb.org/admin/marks/add">-- إضافة</option><option value="http://testingweb.org/admin/clients">- العملاء</option><option value="http://testingweb.org/admin/clients">-- قائمة السجلات</option><option value="http://testingweb.org/admin/clients/add">-- إضافة</option><option value="http://testingweb.org/admin/clients/search">-- بحث</option><option value="http://testingweb.org/admin/categories">- التصنيفات</option><option value="http://testingweb.org/admin/categories">-- قائمة السجلات</option><option value="http://testingweb.org/admin/categories/add">-- إضافة</option><option value="http://testingweb.org/admin/invoices">- الفواتير</option><option value="http://testingweb.org/admin/products">- المنتجات</option><option value="http://testingweb.org/admin/products">-- قائمة السجلات</option><option value="http://testingweb.org/admin/products/add_bar">-- إضافة</option><option value="http://testingweb.org/admin/products/search">-- بحث</option><option value="http://testingweb.org/admin/users">الموظفين</option><option value="http://testingweb.org/admin/users">- الموظفين</option><option value="http://testingweb.org/admin/users">-- قائمة السجلات</option><option value="http://testingweb.org/admin/users/add">-- إضافة</option><option value="http://testingweb.org/admin/usergroups">- مجموعات الموظفين</option><option value="http://testingweb.org/admin/usergroups">-- قائمة السجلات</option><option value="http://testingweb.org/admin/usergroups/add">-- إضافة</option><option value="http://testingweb.org/admin/admins">- الإدارة</option><option value="http://testingweb.org/admin/admins">-- قائمة السجلات</option><option value="http://testingweb.org/admin/admins/add">-- إضافة</option><option value="http://testingweb.org/admin/admin_usergroups">- صلاحيات الإداريين</option><option value="http://testingweb.org/admin/admin_usergroups">-- قائمة السجلات</option><option value="http://testingweb.org/admin/admin_usergroups/add">-- إضافة</option><option value="http://testingweb.org/admin/service_stocks">الخدمات</option><option value="http://testingweb.org/admin/service_stocks">- قائمة السجلات</option><option value="http://testingweb.org/admin/service_stocks/add">- إضافة</option><option value="http://testingweb.org/admin/services/listing">- قائمة الإنتظار</option><option value="http://testingweb.org/admin/services/listing/1">- الارشيف</option><option value="http://testingweb.org/admin/services/listing/2">- المعلقين</option><option value="http://testingweb.org/admin/services/listing/3">- المرفوضين</option><option value="http://testingweb.org/admin/log">تقارير</option><option value="http://testingweb.org/admin/admins/edit"> إعدادات</option><option value="http://testingweb.org/admin/logout"> خروج</option></select>&#35;&#125;#}
+        {#&#123;&#35;</div>&#35;&#125;#}
+        {#&#123;&#35;</div>&#35;&#125;#}
+        {#&#123;&#35;</div>&#35;&#125;#}
+        {#&#123;&#35;</div>&#35;&#125;#}
+
+
+        {#<ul class="navbar-nav">#}
+            {#{{ that.menu.generate('backend') }}#}
+
+        {#</ul>#}
+
+
+        {#<!-- notifications and other links -->#}
+        {#<ul class="nav nav-userinfo navbar-right">#}
+
+            {#<li class="search-form"><!-- You can add "always-visible" to show make the search input visible -->#}
+                {#<form method="get" action="{{ admin_url('search') }}">#}
+                    {#<input type="text" name="q" class="form-control search-field" placeholder="Type to search..."/>#}
+                    {#<button type="submit" class="btn btn-link">#}
+                        {#<i class="linecons-search"></i>#}
+                    {#</button>#}
+                {#</form>#}
+            {#</li>#}
+            {#<li class="dropdown user-profile">#}
+                {#<a href="#" data-toggle="dropdown">#}
+                    {#<img src="{{ constant("STYLE_IMAGES") }}/user-1.png" alt="user-image"#}
+                         {#class="img-circle img-inline userpic-32" width="28"/>#}
+                            {#<span>#}
+                                {#Arlind Nushi#}
+                                {#<i class="fa-angle-down"></i>#}
+                            {#</span>#}
+                {#</a>#}
+
+                {#<ul class="dropdown-menu user-profile-menu list-unstyled">#}
+                    {#<li>#}
+                        {#<a href="#edit-profile">#}
+                            {#<i class="fa-edit"></i>#}
+                            {#New Post#}
+                        {#</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="#settings">#}
+                            {#<i class="fa-wrench"></i>#}
+                            {#Settings#}
+                        {#</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="#profile">#}
+                            {#<i class="fa-user"></i>#}
+                            {#Profile#}
+                        {#</a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="#help">#}
+                            {#<i class="fa-info"></i>#}
+                            {#Help#}
+                        {#</a>#}
+                    {#</li>#}
+                    {#<li class="last">#}
+                        {#<a href="{{ admin_url('logout') }}">#}
+                            {#<i class="fa-lock"></i>#}
+                            {#{{ lang('global_logout') }}#}
+                        {#</a>#}
+                    {#</li>#}
+                {#</ul>#}
+            {#</li>#}
+
+        {#</ul>#}
+
+    {#</div>#}
+
+{#</nav>#}
+
+
+
+
+
+
+
+
+<div class="page-container">
+    <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+
+    <div class="main-content">
+
+        {% block content %}
+
+        {% endblock %}
+
+
+        <script>
+            jQuery(document).ready(function ($) {
+                $('a[href="#layout-variants"]').on('click', function (ev) {
+                    ev.preventDefault();
+
+                    var win = {top: $(window).scrollTop(), toTop: $("#layout-variants").offset().top - 15};
+
+                    TweenLite.to(win, .3, {
+                        top: win.toTop, roundProps: ["top"], ease: Sine.easeInOut, onUpdate: function () {
+                            $(window).scrollTop(win.top);
+                        }
+                    });
+                });
+            });
+        </script>
+
+        <footer class="main-footer sticky footer-type-1">
+
+            <div class="footer-inner">
+                <!-- Add your copyright text here -->
+                <div class="footer-text">
+                    &copy; {{ "now"|date("Y") }}
+                    <strong>X5J.NeT</strong>
+                </div>
+                <!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
+                <div class="go-up">
+                    <a href="#" rel="go-top">
+                        <i class="fa-angle-up"></i>
+                    </a>
+                </div>
+            </div>
+
+        </footer>
+    </div>
+
+</div>
+
+
+<!-- Bottom Scripts -->
+<script src="{{ constant("STYLE_JS") }}/bootstrap.min.js"></script>
+<script src="{{ constant("STYLE_JS") }}/TweenMax.min.js"></script>
+<script src="{{ constant("STYLE_JS") }}/resizeable.js"></script>
+<script src="{{ constant("STYLE_JS") }}/joinable.js"></script>
+<script src="{{ constant("STYLE_JS") }}/xenon-api.js"></script>
+<script src="{{ constant("STYLE_JS") }}/xenon-toggles.js"></script>
+
+<!-- JavaScripts initializations and stuff -->
+<script src="{{ constant("STYLE_JS") }}/xenon-custom.js"></script>
+<link rel="stylesheet" href="{{ constant("STYLE_JS") }}/select2/select2.css">
+<link rel="stylesheet" href="{{ constant("STYLE_JS") }}/select2/select2-bootstrap.css">
+<link rel="stylesheet" href="{{ constant("STYLE_JS") }}/multiselect/css/multi-select.css">
+<script src="{{ constant("STYLE_JS") }}/select2/select2.min.js"></script>
+
+<!-- Imported scripts on this page -->
+<script src="{{ constant("STYLE_JS") }}/toastr/toastr.min.js"></script>
+
+{#<script src="{{ constant("STYLE_JS") }}/jquery.multi-select.js"></script>#}
+<script>
+    var act_status = true;
+    var opts = {
+        "closeButton": true,
+        "debug": false,
+        "positionClass": "toast-bottom-left",
+        "onclick": null,
+        "showDuration": "9999999999",
+//        "hideDuration": "1000",
+//        "timeOut": "5000",
+//        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
+
+
+
+
+    setInterval(function() {
+        var jqxhr = $.get( "{{ admin_url('status') }}", function(data) {
+                    if(data){
+                        obj = JSON.parse(data);
+                        if(act_status == false && obj.status == 'success')
+                            $('.toast-close-button').click();
+                        act_status = true;
+                    }
+                    else
+                    {
+                        toastr.error("So me by marianne admitted speaking.", "{{ lang('global_error') }}", opts);
+
+//                        $.jGrowl('لايوجد استجابة من السرفر،  سوف يتم معاودة الإتصال بعد 30 ثانية.', { sticky: true, position:  'bottom-left' });
+                        act_status = false;
+                    }
+                    console.log(data);
+                })
+                .fail(function(data) {
+                    if(act_status == true)
+                        toastr.error("So me by marianne admitted speaking.", "This is a title", opts);
+
+//                        $.jGrowl('لايوجد استجابة من السرفر،  سوف يتم معاودة الإتصال بعد 30 ثانية.', { sticky: true, position: 'bottom-left' });
+                    act_status = false;
+                    console.log(data);
+                });
+    }, 10000);
+</script>
+</body>
 </html>

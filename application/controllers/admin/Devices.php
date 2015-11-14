@@ -5,7 +5,7 @@ class Devices extends Crud
     public $_table = 'devices';
     public $_primary_key = 'device_id';
     public $_index_fields = [
-        'name',
+//        'name',
     ];
 
     public function __construct()
@@ -26,12 +26,14 @@ class Devices extends Crud
 
     protected function onValidationEvent($op, $id = false)
     {
-        $this->data['invoice_types'] = dd2menu('invoice_types', ['invoice_type_id' => name()]);
+        $this->data['device_types'] = dd2menu('device_types', ['device_type_id' => name()]);
+        $this->data['device_status'] = dd2menu('device_status', ['device_status_id' => name()]);
+        $this->data['warranties'] = dd2menu('warranties', ['warranty_id' => name()]);
 
         $config['upload_path'] = './cdn/' . $this->_table;
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $this->load->library('upload', $config);
-        $required = ($op == 'add') ? '1' : '1';
+        $required = ($op == 'add') ? '1' : '0';
 
         $this->form_validation->set_rules('device_type_id', lang('devices_device_type_id'), "trim|required");
         $this->form_validation->set_rules('name_en', lang('devices_name_en'), "trim|required");
@@ -79,5 +81,9 @@ class Devices extends Crud
             $this->{$this->model}->{$vark} = $varv;
         $this->{$this->model}->save();
 
+    }
+    public function barcode($barcode) {
+        $this->load->helper('barcode');
+        echo barcode($barcode);
     }
 }

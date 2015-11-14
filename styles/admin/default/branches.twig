@@ -4,6 +4,7 @@
     <div class="page-title">
         <div class="title-env">
             <h1 class="title">{{ lang('menu_' ~ that._table) }}</h1>
+
             <p class="description"></p>
         </div>
         <div class="breadcrumb-env"></div>
@@ -16,23 +17,25 @@
         </div>
         <div class="panel-body">
             {% if (validation_errors()) %}
-            <div class="alert alert-danger">
-                {{ validation_errors() }}
-            </div>
+                <div class="alert alert-danger">
+                    {{ validation_errors() }}
+                </div>
             {% endif %}
             <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="name">{{ lang('branches_name') }}</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-1 control-label" for="name">{{ lang('branches_name') }}</label>
+
+                    <div class="col-sm-11">
                         {{ form_input('name', set_value('name', item.name), 'class="form-control" id="name"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="place">{{ lang('branches_place') }}</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-1 control-label" for="place">{{ lang('branches_place') }}</label>
+
+                    <div class="col-sm-11">
                         {{ form_input('place', set_value('place', item.place), 'class="form-control" id="place"') }}
                     </div>
                 </div>
@@ -40,78 +43,85 @@
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="phone">{{ lang('branches_phone') }}</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-1 control-label" for="phone">{{ lang('branches_phone') }}</label>
+
+                    <div class="col-sm-5">
                         {{ form_input('phone', set_value('phone', item.phone), 'class="form-control" id="phone"') }}
                     </div>
-                </div>
-                <div class="form-group-separator"></div>
 
+                    <label class="col-sm-1 control-label" for="accept_cc">{{ lang('branches_accept_cc') }}</label>
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="sales_invoice_type_id">{{ lang('branches_sales_invoice_type_id') }}</label>
-                    <div class="col-sm-10">
-                        {{ form_dropdown('sales_invoice_type_id', invoice_types, set_value('sales_invoice_type_id', item.sales_invoice_type_id), 'class="form-control" id="sales_invoice_type_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="format_invoice_type_id">{{ lang('branches_format_invoice_type_id') }}</label>
-                    <div class="col-sm-10">
-                        {{ form_dropdown('format_invoice_type_id', invoice_types, set_value('format_invoice_type_id', item.format_invoice_type_id), 'class="form-control" id="format_invoice_type_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="services_invoice_type_id">{{ lang('branches_services_invoice_type_id') }}</label>
-                    <div class="col-sm-10">
-                        {{ form_dropdown('services_invoice_type_id', invoice_types, set_value('services_invoice_type_id', item.services_invoice_type_id), 'class="form-control" id="services_invoice_type_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="accept_cc">{{ lang('branches_accept_cc') }}</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-5">
                         {{ form_dropdown('accept_cc', ddboolean(), set_value('accept_cc', item.accept_cc), 'class="form-control" id="accept_cc"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
 
+
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="logo">{{ lang('branches_logo') }}</label>
+                    <label class="col-sm-1 control-label"
+                           for="sales_invoice_type_id">{{ lang('branches_sales_invoice_type_id') }}</label>
+
+                    <div class="col-sm-3">
+                        {{ form_dropdown('sales_invoice_type_id', invoice_types, set_value('sales_invoice_type_id', item.sales_invoice_type_id), 'class="form-control" id="sales_invoice_type_id"') }}
+                    </div>
+
+                    <label class="col-sm-1 control-label"
+                           for="format_invoice_type_id">{{ lang('branches_format_invoice_type_id') }}</label>
+
+                    <div class="col-sm-3">
+                        {{ form_dropdown('format_invoice_type_id', invoice_types, set_value('format_invoice_type_id', item.format_invoice_type_id), 'class="form-control" id="format_invoice_type_id"') }}
+                    </div>
+
+                    <label class="col-sm-1 control-label"
+                           for="services_invoice_type_id">{{ lang('branches_services_invoice_type_id') }}</label>
+
+                    <div class="col-sm-3">
+                        {{ form_dropdown('services_invoice_type_id', invoice_types, set_value('services_invoice_type_id', item.services_invoice_type_id), 'class="form-control" id="services_invoice_type_id"') }}
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" for="logo">{{ lang('branches_logo') }}</label>
+
                     <div class="col-sm-10">
                         {{ form_upload('logo', 'class="form-control"') }}
-                        {% if set_value('logo', item.logo) %}
-
+                    </div>
+                    <div class="col-sm-1">
+                        {% if item.logo %}
+                            <div class="user-image hidden-xs hidden-sm">
+                                <img src="{{ that.cdn.image('branches', item.logo) }}" class="img-circle">
+                            </div>
                         {% endif %}
                     </div>
+
                 </div>
                 <div class="form-group-separator"></div>
 
+
+
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="header">{{ lang('branches_header') }}</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-1 control-label" for="header">{{ lang('branches_header') }}</label>
+
+                    <div class="col-sm-5">
                         {{ form_textarea('header', set_value('header', item.header), 'class="form-control" id="header"') }}
                     </div>
-                </div>
-                <div class="form-group-separator"></div>
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="footer">{{ lang('branches_footer') }}</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-1 control-label" for="footer">{{ lang('branches_footer') }}</label>
+
+                    <div class="col-sm-5">
                         {{ form_textarea('footer', set_value('footer', item.footer), 'class="form-control" id="footer"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
 
 
-
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="notes">{{ lang('branches_notes') }}</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-1 control-label" for="notes">{{ lang('branches_notes') }}</label>
+
+                    <div class="col-sm-11">
                         {{ form_textarea('notes', set_value('notes', item.notes), 'class="form-control" id="notes"') }}
                     </div>
                 </div>
@@ -119,8 +129,10 @@
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label"></label>
+
                     <div class="col-sm-10">
-                        <input type="submit" class="btn btn-secondary " name="submit" value="{{ lang('global_submit') }}">
+                        <input type="submit" class="btn btn-secondary " name="submit"
+                               value="{{ lang('global_submit') }}">
                         <a href="{{ admin_url(that._table ~ '/index') }} "
                            class="btn btn-danger">{{ lang('global_cancel') }}</a>
                     </div>

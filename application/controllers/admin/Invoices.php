@@ -5,7 +5,7 @@ class Invoices extends Crud
     public $_table = 'invoices';
     public $_primary_key = 'invoice_id';
     public $_index_fields = [
-        'name',
+        'invoice_id',
     ];
 
     public function __construct()
@@ -33,7 +33,6 @@ class Invoices extends Crud
         $this->load->library('upload', $config);
         $required = ($op == 'add') ? '1' : '1';
 
-        $this->form_validation->set_rules('invoice_id', lang('invoices_invoice_id'), "trim|required");
         $this->form_validation->set_rules('code', lang('invoices_code'), "trim|required");
         $this->form_validation->set_rules('user_id', lang('invoices_user_id'), "trim|required");
         $this->form_validation->set_rules('client_id', lang('invoices_client_id'), "trim|required");
@@ -44,7 +43,7 @@ class Invoices extends Crud
         $this->form_validation->set_rules('branch_id', lang('invoices_branch_id'), "trim|required");
         $this->form_validation->set_rules('timestamp', lang('invoices_timestamp'), "trim|required");
         $this->form_validation->set_rules('invoice_status_id', lang('invoices_invoice_status_id'), "trim|required");
-        $this->form_validation->set_rules('mysql_timestamp', lang('invoices_mysql_timestamp'), "trim|required");
+        $this->form_validation->set_rules('created_at', lang('invoices_mysql_timestamp'), "trim|required");
 
         $this->form_validation->set_rules('logo', lang('branches_logo'), "callback_file[logo," . $required . "]");
 
@@ -53,7 +52,6 @@ class Invoices extends Crud
     protected function onSuccessEvent($op, $id = false)
     {
         $vars = [
-            'invoice_id' => $this->input->post('invoice_id'),
             'code' => $this->input->post('code'),
             'user_id' => $this->input->post('user_id'),
             'client_id' => $this->input->post('client_id'),
@@ -64,8 +62,6 @@ class Invoices extends Crud
             'branch_id' => $this->input->post('branch_id'),
             'timestamp' => $this->input->post('timestamp'),
             'invoice_status_id' => $this->input->post('invoice_status_id'),
-            'mysql_timestamp' => $this->input->post('mysql_timestamp'),
-
         ];
         if ($op == 'add')
             $vars['created_at'] = now();

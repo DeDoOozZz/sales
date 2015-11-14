@@ -8,7 +8,7 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
 
-    <title>{{ config('title') }} - Login</title>
+    <title>{{ config('title') }}</title>
 
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
     <link rel="stylesheet" href="{{ constant('STYLE_CSS') }}/fonts/linecons/css/linecons.css">
@@ -147,7 +147,7 @@
 
             <div class="form-group">
                 <label class="control-label">{{ lang('users_email') }}</label>
-                <input type="email" placeholder="test@example.com" name="email" value="{{ set_value('email') }}"
+                <input type="text" placeholder="test@example.com" name="email" value="{{ set_value('email') }}"
                        class="form-control input-dark" autocomplete="off">
             </div>
 

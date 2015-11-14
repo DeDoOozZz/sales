@@ -33,30 +33,26 @@ class Reports extends Crud
         $this->load->library('upload', $config);
         $required = ($op == 'add') ? '1' : '1';
 
-        $this->form_validation->set_rules('report_id', lang('reports_report_id'), "trim|required");
-$this->form_validation->set_rules('user_id', lang('reports_user_id'), "trim|required");
-$this->form_validation->set_rules('membership', lang('reports_membership'), "trim|required");
-$this->form_validation->set_rules('mission', lang('reports_mission'), "trim|required");
-$this->form_validation->set_rules('branch_id', lang('reports_branch_id'), "trim|required");
-$this->form_validation->set_rules('ip', lang('reports_ip'), "trim|required");
-$this->form_validation->set_rules('timestamp', lang('reports_timestamp'), "trim|required");
+        $this->form_validation->set_rules('user_id', lang('reports_user_id'), "trim|required");
+        $this->form_validation->set_rules('membership', lang('reports_membership'), "trim|required");
+        $this->form_validation->set_rules('mission', lang('reports_mission'), "trim|required");
+        $this->form_validation->set_rules('branch_id', lang('reports_branch_id'), "trim|required");
+        $this->form_validation->set_rules('ip', lang('reports_ip'), "trim|required");
 
-        $this->form_validation->set_rules('logo', lang('branches_logo'), "callback_file[logo," . $required ."]");
+        $this->form_validation->set_rules('logo', lang('branches_logo'), "callback_file[logo," . $required . "]");
 
     }
+
     protected function onSuccessEvent($op, $id = false)
     {
         $vars = [
-            'report_id' => $this->input->post('report_id'),
-'user_id' => $this->input->post('user_id'),
-'membership' => $this->input->post('membership'),
-'mission' => $this->input->post('mission'),
-'branch_id' => $this->input->post('branch_id'),
-'ip' => $this->input->post('ip'),
-'timestamp' => $this->input->post('timestamp'),
-
+            'user_id' => $this->input->post('user_id'),
+            'membership' => $this->input->post('membership'),
+            'mission' => $this->input->post('mission'),
+            'branch_id' => $this->input->post('branch_id'),
+            'ip' => $this->input->post('ip'),
         ];
-        if($op == 'add')
+        if ($op == 'add')
             $vars['created_at'] = now();
 
         foreach ($vars as $vark => $varv)

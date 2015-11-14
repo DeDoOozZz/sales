@@ -23,6 +23,9 @@ class Brightery_model extends CI_Model {
     public $offset = FALSE;
     public $order_by = FALSE;
     public $columns = array();
+    public $_where = array();
+    public $_like = array();
+    public $_or_like = array();
 
     public function __set($name, $value)
     {
@@ -32,6 +35,7 @@ class Brightery_model extends CI_Model {
     public function __construct() {
         parent::__construct();
     }
+
     public function get($count = false) {
         if($this->custom_select)
             $this->db->select($this->custom_select);
@@ -44,6 +48,21 @@ class Brightery_model extends CI_Model {
             $this->db->where($key, $value);
             if($key == $this->_primary_key)
                 $row = TRUE;
+        }
+
+        if($this->_where)
+        foreach($this->_where as $key => $value) {
+            $this->db->where($key, $value);
+        }
+
+        if($this->_like)
+        foreach($this->_like as $key => $value) {
+            $this->db->like($key, $value, 'both');
+        }
+
+        if($this->_or_like)
+        foreach($this->_or_like as $key => $value) {
+            $this->db->or_like($key, $value, 'both');
         }
 
         if($this->order_by)
@@ -101,4 +120,13 @@ class Brightery_model extends CI_Model {
         return $this->db->affected_rows();
     }
 
+    public function where($key, $value) {
+        $this->_where[$key] = $value;
+    }
+    public function like($key, $value) {
+        $this->_like[$key] = $value;
+    }
+    public function or_like($key, $value) {
+        $this->_or_like[$key] = $value;
+    }
 }

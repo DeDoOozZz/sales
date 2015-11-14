@@ -4,6 +4,7 @@
     <div class="page-title">
         <div class="title-env">
             <h1 class="title">{{ lang('menu_' ~ that._table) }}</h1>
+
             <p class="description"></p>
         </div>
         <div class="breadcrumb-env"></div>
@@ -16,24 +17,25 @@
         </div>
         <div class="panel-body">
             {% if (validation_errors()) %}
-            <div class="alert alert-danger">
-                {{ validation_errors() }}
-            </div>
+                <div class="alert alert-danger">
+                    {{ validation_errors() }}
+                </div>
             {% endif %}
             <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
 
-                
-                    <div class="form-group">
-                    <label class="col-sm-2 control-label" for="transaction_id">{{ lang('transactions_transaction_id') }}</label>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                           for="transaction_id">{{ lang('transactions_transaction_id') }}</label>
 
                     <div class="col-sm-10">
                         {{ form_input('transaction_id', set_value('transaction_id', item.transaction_id), 'class="form-control" id="transaction_id"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="invoice_id">{{ lang('transactions_invoice_id') }}</label>
 
                     <div class="col-sm-10">
@@ -41,9 +43,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="status">{{ lang('transactions_status') }}</label>
 
                     <div class="col-sm-10">
@@ -51,9 +53,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="number">{{ lang('transactions_number') }}</label>
 
                     <div class="col-sm-10">
@@ -61,12 +63,14 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
+
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label"></label>
+
                     <div class="col-sm-10">
-                        <input type="submit" class="btn btn-secondary " name="submit" value="{{ lang('global_submit') }}">
+                        <input type="submit" class="btn btn-secondary " name="submit"
+                               value="{{ lang('global_submit') }}">
                         <a href="{{ admin_url(that._table ~ '/index') }} "
                            class="btn btn-danger">{{ lang('global_cancel') }}</a>
                     </div>

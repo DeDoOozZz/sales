@@ -4,6 +4,7 @@
     <div class="page-title">
         <div class="title-env">
             <h1 class="title">{{ lang('menu_' ~ that._table) }}</h1>
+
             <p class="description"></p>
         </div>
         <div class="breadcrumb-env"></div>
@@ -16,14 +17,14 @@
         </div>
         <div class="panel-body">
             {% if (validation_errors()) %}
-            <div class="alert alert-danger">
-                {{ validation_errors() }}
-            </div>
+                <div class="alert alert-danger">
+                    {{ validation_errors() }}
+                </div>
             {% endif %}
             <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
 
-                
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="report_id">{{ lang('reports_report_id') }}</label>
 
                     <div class="col-sm-10">
@@ -31,9 +32,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="user_id">{{ lang('reports_user_id') }}</label>
 
                     <div class="col-sm-10">
@@ -41,9 +42,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="membership">{{ lang('reports_membership') }}</label>
 
                     <div class="col-sm-10">
@@ -51,9 +52,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="mission">{{ lang('reports_mission') }}</label>
 
                     <div class="col-sm-10">
@@ -61,9 +62,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="branch_id">{{ lang('reports_branch_id') }}</label>
 
                     <div class="col-sm-10">
@@ -71,9 +72,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="ip">{{ lang('reports_ip') }}</label>
 
                     <div class="col-sm-10">
@@ -81,9 +82,9 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
 
-                    <div class="form-group">
+
+                <div class="form-group">
                     <label class="col-sm-2 control-label" for="timestamp">{{ lang('reports_timestamp') }}</label>
 
                     <div class="col-sm-10">
@@ -91,12 +92,14 @@
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-                
+
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label"></label>
+
                     <div class="col-sm-10">
-                        <input type="submit" class="btn btn-secondary " name="submit" value="{{ lang('global_submit') }}">
+                        <input type="submit" class="btn btn-secondary " name="submit"
+                               value="{{ lang('global_submit') }}">
                         <a href="{{ admin_url(that._table ~ '/index') }} "
                            class="btn btn-danger">{{ lang('global_cancel') }}</a>
                     </div>

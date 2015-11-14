@@ -1,43 +1,45 @@
 <?php
 
-class Login extends Brightery_Controller {
+class Login extends Brightery_Controller
+{
+    public $user;
 
-    public function index() {
+    public function index()
+    {
         $this->layout = 'ajax';
+        if (session('email'))
+            redirect(ADMIN . '/dashboard');
+
         $this->load->library('form_validation');
+        $this->form_validation->set_message('check', lang('users_invalid_email_or_password'));
         $this->form_validation->set_rules('email', 'lang:users_email', 'required|callback_check');
         $this->form_validation->set_rules('password', 'lang:users_password', 'required');
         if ($this->form_validation->run() == FALSE) {
-//            $this->load->view('login/index');
             $this->twiggy->template('login/login')->display();
         } else {
-            $user = $this->db->where('email', $this->input->post('email'))->where('password', md5($this->input->post('password')))->get('users')->row();
-            $this->session->set_userdata(array(
-                'email' => $user->email,
-                'image' => $user->image,
-                'user_id' => $user->user_id,
-                'usergroup_id' => $user->usergroup_id,
-                'name' => $user->name,
-                'username' => $user->username
-            ));
-            redirect('admin/dashboard');
+            session('email', $this->user->email);
+            session('password', md5($this->input->post('password')));
+            redirect(ADMIN . '/dashboard');
         }
     }
-
-    public function forget_password() {
+    // TODO: FOEGET MY PASSWORD AND TESTING
+    public function forget_password()
+    {
         $this->layout = 'ajax';
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('email', 'lang:users_email', 'required|callback_check_email');
+        $this->form_validation->set_message('check', lang('users_invalid_login'));
+        $this->form_validation->set_rules('email', 'lang:users_email', 'required|callback_check');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('login/forget_password');
+            $this->twiggy->template('login/forget_password')->display();
         } else {
+
             $data['pass'] = $this->generate_password();
-            $data['user'] = $this->db->where('email', $this->input->post('email'))->get('users')->row();
+            $data['user'] = $this->user;
 
             $this->db->where('email', $this->input->post('email'))
-                             ->update('users', array(
-                                 'password' => md5($data['pass'])
-                             ));
+                ->update('users', array(
+                    'password' => md5($data['pass'])
+                ));
 
             $message = $this->load->view('login/reset_password_email', $data, TRUE);
 
@@ -70,38 +72,37 @@ class Login extends Brightery_Controller {
 //}
 
 
-
 //            echo $message;
-//            $this->load->library('email');
+            $this->load->library('email');
 ////            $this->email->initialize($config);
-//            $this->email->from('info@acerta-me.com', 'Acerta');
-//            $this->email->to($data['user']->email);
-//            $this->email->subject('Acerta password resetting');
-//            $this->email->message($message);
-//            $this->email->send();
-            redirect('admin/login');
+            $this->email->from(config('webmaster_email'), config('title'));
+            $this->email->to($data['user']->email);
+            $this->email->subject('Acerta password resetting');
+            $this->email->message($message);
+            $this->email->send();
+            redirect(ADMIN. '/login');
         }
     }
 
-    public function check() {
-        $user = $this->db->where('email', $this->input->post('email'))->where('password', md5($this->input->post('password')))->get('users')->row();
-//        if (!$user) {
-//            $this->form_validation->set_message('check', lang('users_invalid_email_or_password'));
-//            return FALSE;
-//        }
-//        else
+    public function check()
+    {
+        $username = $this->input->post('email');
+        if ($this->input->post('password'))
+            $this->db->where('password', md5($this->input->post('password')));
+
+        $this->user = $this->db
+            ->where("(`username` = '$username' OR `email` = '$username')")
+            ->get('users')
+            ->row();
+
+        if (!$this->user) {
+            return FALSE;
+        } else
             return TRUE;
     }
-    public function check_email() {
-        $user = $this->db->where('email', $this->input->post('email'))->get('users')->row();
-//        if (!$user) {
-//            $this->form_validation->set_message('check_email', "This email dosn't exists on the system");
-//            return FALSE;
-//        }
-//        else
-            return TRUE;
-    }
-    private function generate_password() {
+
+    private function generate_password()
+    {
         return substr(md5(time()), 0, 6);
     }
 

@@ -1,142 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ad8ca96-893a-4164-94bd-c11a43954ce3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/font/Arial.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/users/avatar1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/users/avatar3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/users/avatar31.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/users/avatar32.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/users/avatar7.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/branches/default.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/products/default.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/users/default.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGArgumentException.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGBarcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGBarcode1D.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGColor.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/drawer/BCGDraw.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGDrawException.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/drawer/BCGDrawJPG.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/drawer/BCGDrawPNG.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGDrawing.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGFont.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGFontFile.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGFontPhp.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGLabel.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGParseException.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGcodabar.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGcode11.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGcode128.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGcode39.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGcode39extended.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGcode93.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGean13.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGean8.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGgs1128.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGi25.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGintelligentmail.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGisbn.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGmsi.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGothercode.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGpostnet.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGs25.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGupca.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGupce.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGupcext2.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/BCGupcext5.barcode.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/libraries/Cart.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/libraries/Cdn.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/admin/General_settings.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/JoinDraw.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/admin/Status.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/barcode_helper.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/admin/default/assets/js/beoro_common.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/admin/default/assets/css/bootstrap-responsive.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/class/ean13class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/admin/default/fees_index.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/admin/default/general_settings.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/products/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/admin/default/assets/js/jquery.fademenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/admin/default/products_index.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/admin/default/assets/js/selectnav.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/admin/default/users_index.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="DELETED" beforePath="C:\Muhammad\www\sales\application\controllers\admin\Settings.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Muhammad\www\sales\application\language\arabic\admin_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Muhammad\www\sales\application\language\english\__admin_lang.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Muhammad\www\sales\styles\admin\default\accounts\login.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Muhammad\www\sales\styles\admin\default\settings\manage.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Muhammad\www\sales\styles\admin\default\users\index.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Muhammad\www\sales\styles\admin\default\users\manage.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Muhammad\www\sales\styles\admin\default\users\search.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Branches.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Branches.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/core/Brightery_Controller.php" afterPath="$PROJECT_DIR$/application/core/Brightery_Controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/core/Brightery_Model.php" afterPath="$PROJECT_DIR$/application/core/Brightery_Model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Credit_card_types.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Credit_card_types.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database.sql" afterPath="$PROJECT_DIR$/Database.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseUpdates.sql" afterPath="$PROJECT_DIR$/DatabaseUpdates.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Departments.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Departments.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Device_types.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Device_types.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Devices.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Devices.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Fee_types.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Fee_types.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Fees.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Fees.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Invoice_types.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Invoice_types.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Invoices.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Invoices.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Login.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Marks.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Marks.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/libraries/Menu.php" afterPath="$PROJECT_DIR$/application/libraries/Menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Messages.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Messages.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Pending_orders.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Pending_orders.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Products.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Products.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Reports.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Reports.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Sms_templates.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Sms_templates.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Usergroups.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Usergroups.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Users.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Warranties.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Warranties.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/language/english/admin_lang.php" afterPath="$PROJECT_DIR$/application/language/english/admin_lang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/branches.twig" afterPath="$PROJECT_DIR$/styles/admin/default/branches.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/card_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/card_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/cash_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/cash_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/credit_card_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/credit_card_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/dashboard.twig" afterPath="$PROJECT_DIR$/styles/admin/default/dashboard.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/helpers/ddmenu_helper.php" afterPath="$PROJECT_DIR$/application/helpers/ddmenu_helper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/departments.twig" afterPath="$PROJECT_DIR$/styles/admin/default/departments.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/device_orders.twig" afterPath="$PROJECT_DIR$/styles/admin/default/device_orders.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/device_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/device_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/devices.twig" afterPath="$PROJECT_DIR$/styles/admin/default/devices.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/fee_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/fee_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/fees.twig" afterPath="$PROJECT_DIR$/styles/admin/default/fees.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/format_orders.twig" afterPath="$PROJECT_DIR$/styles/admin/default/format_orders.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/global_index.twig" afterPath="$PROJECT_DIR$/styles/admin/default/global_index.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/_layouts/index.twig" afterPath="$PROJECT_DIR$/styles/admin/default/_layouts/index.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/invoice_status.twig" afterPath="$PROJECT_DIR$/styles/admin/default/invoice_status.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/invoice_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/invoice_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/invoices.twig" afterPath="$PROJECT_DIR$/styles/admin/default/invoices.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/login/login.twig" afterPath="$PROJECT_DIR$/styles/admin/default/login/login.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/marks.twig" afterPath="$PROJECT_DIR$/styles/admin/default/marks.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/menu.php" afterPath="$PROJECT_DIR$/application/config/menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/messages.twig" afterPath="$PROJECT_DIR$/styles/admin/default/messages.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/pending_orders.twig" afterPath="$PROJECT_DIR$/styles/admin/default/pending_orders.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/prepaid_card_orders.twig" afterPath="$PROJECT_DIR$/styles/admin/default/prepaid_card_orders.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/prepaid_card_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/prepaid_card_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/prepaid_cards.twig" afterPath="$PROJECT_DIR$/styles/admin/default/prepaid_cards.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/products.twig" afterPath="$PROJECT_DIR$/styles/admin/default/products.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/reports.twig" afterPath="$PROJECT_DIR$/styles/admin/default/reports.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/service_orders.twig" afterPath="$PROJECT_DIR$/styles/admin/default/service_orders.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/service_providers.twig" afterPath="$PROJECT_DIR$/styles/admin/default/service_providers.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/services.twig" afterPath="$PROJECT_DIR$/styles/admin/default/services.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/sim_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/sim_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/sms_templates.twig" afterPath="$PROJECT_DIR$/styles/admin/default/sms_templates.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/tickets.twig" afterPath="$PROJECT_DIR$/styles/admin/default/tickets.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/transactions.twig" afterPath="$PROJECT_DIR$/styles/admin/default/transactions.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/usergroups.twig" afterPath="$PROJECT_DIR$/styles/admin/default/usergroups.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/users.twig" afterPath="$PROJECT_DIR$/styles/admin/default/users.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/warranties.twig" afterPath="$PROJECT_DIR$/styles/admin/default/warranties.twig" />
-    </list>
+    <list default="true" id="2ad8ca96-893a-4164-94bd-c11a43954ce3" name="Default" comment="" />
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -601,6 +466,13 @@
       <option name="number" value="Default" />
       <updated>1447427376214</updated>
     </task>
+    <task id="LOCAL-00001" summary="sales updates">
+      <created>1447545395560</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1447545395560</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -609,6 +481,7 @@
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27548006" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -638,6 +511,12 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="sales updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="sales updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

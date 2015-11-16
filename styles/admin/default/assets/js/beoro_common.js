@@ -42,15 +42,15 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    if (is_touch_device()) {
-        $('body').addClass('nav_touch');
-    }
+    //if (is_touch_device()) {
+    //    $('body').addClass('nav_touch');
+    //}
 
     //* background switch
-    beoro_bgSwitch.init();
+    //beoro_bgSwitch.init();
 
     //* scroll to top button
-    beoro_scrollToTop.init();
+    //beoro_scrollToTop.init();
 
     // change breadcrumb home ico on hover
     if ($('#breadcrumbs li:first a i.icon-home').length) {

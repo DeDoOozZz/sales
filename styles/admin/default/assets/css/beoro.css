@@ -123,7 +123,7 @@ small { font-size: 11px }
     #fade-menu { font-size: 11px; font-weight: normal; }
     #fade-menu ul { list-style-type: none; margin: 0; padding: 0; }
     #fade-menu > ul { border-left: 1px solid #353939; border-left: 1px solid rgba(0, 0, 0, 0.2); border-right: 1px solid #4d5354; border-right: 1px solid rgba(255, 255, 255, 0.06); }
-    #fade-menu ul li { position: relative; display: inline; float: right; }
+    #fade-menu ul li { position: relative; display: inline; float: left; }
     #fade-menu ul li a { color: #eee; display: block; text-decoration: none; padding: 0 10px; line-height: 34px; border-left: 1px solid #4d5354; border-left: 1px solid rgba(255, 255, 255, 0.06); border-right: 1px solid #353939; border-right: 1px solid rgba(0, 0, 0, 0.2); }
     #fade-menu ul li ul { position: absolute; right: 0; display: block; visibility: hidden; border-left: none; }
     #fade-menu ul li ul li { width: 160px; display: block; float: none; border-right: none; }

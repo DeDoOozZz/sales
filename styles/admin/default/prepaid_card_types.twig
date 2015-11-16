@@ -25,115 +25,87 @@
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="prepaid_card_type_id">{{ lang('prepaid_card_types_prepaid_card_type_id') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('prepaid_card_type_id', set_value('prepaid_card_type_id', item.prepaid_card_type_id), 'class="form-control" id="prepaid_card_type_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
+                    <label class="col-sm-1 control-label" for="name_en">{{ lang('prepaid_card_types_name_en') }}</label>
 
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="service_provider_id">{{ lang('prepaid_card_types_service_provider_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('service_provider_id', set_value('service_provider_id', item.service_provider_id), 'class="form-control" id="service_provider_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="country_id">{{ lang('prepaid_card_types_country_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('country_id', set_value('country_id', item.country_id), 'class="form-control" id="country_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="card_type_id">{{ lang('prepaid_card_types_card_type_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('card_type_id', set_value('card_type_id', item.card_type_id), 'class="form-control" id="card_type_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="image">{{ lang('prepaid_card_types_image') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('image', set_value('image', item.image), 'class="form-control" id="image"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="name_ar">{{ lang('prepaid_card_types_name_ar') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('name_ar', set_value('name_ar', item.name_ar), 'class="form-control" id="name_ar"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="name_en">{{ lang('prepaid_card_types_name_en') }}</label>
-
-                    <div class="col-sm-10">
+                    <div class="col-sm-5">
                         {{ form_input('name_en', set_value('name_en', item.name_en), 'class="form-control" id="name_en"') }}
                     </div>
+
+                    <label class="col-sm-1 control-label" for="name_ar">{{ lang('prepaid_card_types_name_ar') }}</label>
+
+                    <div class="col-sm-5">
+                        {{ form_input('name_ar', set_value('name_ar', item.name_ar), 'class="form-control" id="name_ar"') }}
+                    </div>
+
+
                 </div>
                 <div class="form-group-separator"></div>
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="cost">{{ lang('prepaid_card_types_cost') }}</label>
+                    <label class="col-sm-1 control-label"
+                           for="service_provider_id">{{ lang('prepaid_card_types_service_provider_id') }}</label>
 
-                    <div class="col-sm-10">
+                    <div class="col-sm-2">
+                        {{ form_dropdown('service_provider_id', service_providers, set_value('service_provider_id', item.service_provider_id), 'class="form-control" id="service_provider_id"') }}
+                    </div>
+
+
+                    <label class="col-sm-1 control-label"
+                           for="card_type_id">{{ lang('prepaid_card_types_card_type_id') }}</label>
+
+                    <div class="col-sm-2">
+                        {{ form_dropdown('card_type_id', card_types, set_value('card_type_id', item.card_type_id), 'class="form-control" id="card_type_id"') }}
+                    </div>
+
+                    <label class="col-sm-1 control-label" for="image">{{ lang('prepaid_card_types_image') }}</label>
+
+                    <div class="col-sm-3">
+                        {{ form_upload('image', set_value('image', item.image), 'class="form-control" id="image"') }}
+                    </div>
+
+                    <div class="col-sm-2">
+                        {% if item.image %}
+                            <div class="user-image hidden-xs hidden-sm">
+                                <img src="{{ that.cdn.image('prepaid_card_types', item.image) }}" class="img-circle" alt="">
+                            </div>
+                        {% endif %}
+                    </div>
+
+
+
+                </div>
+                <div class="form-group-separator"></div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" for="cost">{{ lang('prepaid_card_types_cost') }}</label>
+
+                    <div class="col-sm-2">
                         {{ form_input('cost', set_value('cost', item.cost), 'class="form-control" id="cost"') }}
                     </div>
-                </div>
-                <div class="form-group-separator"></div>
 
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="profit">{{ lang('prepaid_card_types_profit') }}</label>
+                    <label class="col-sm-1 control-label" for="profit">{{ lang('prepaid_card_types_profit') }}</label>
 
-                    <div class="col-sm-10">
+                    <div class="col-sm-2">
                         {{ form_input('profit', set_value('profit', item.profit), 'class="form-control" id="profit"') }}
                     </div>
-                </div>
-                <div class="form-group-separator"></div>
 
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
+                    <label class="col-sm-1 control-label"
                            for="discount">{{ lang('prepaid_card_types_discount') }}</label>
 
-                    <div class="col-sm-10">
+                    <div class="col-sm-2">
                         {{ form_input('discount', set_value('discount', item.discount), 'class="form-control" id="discount"') }}
                     </div>
-                </div>
-                <div class="form-group-separator"></div>
 
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
+                    <label class="col-sm-1 control-label"
                            for="employee_commission">{{ lang('prepaid_card_types_employee_commission') }}</label>
 
-                    <div class="col-sm-10">
+                    <div class="col-sm-2">
                         {{ form_input('employee_commission', set_value('employee_commission', item.employee_commission), 'class="form-control" id="employee_commission"') }}
                     </div>
                 </div>
@@ -141,39 +113,38 @@
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="desc_ar">{{ lang('prepaid_card_types_desc_ar') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('desc_ar', set_value('desc_ar', item.desc_ar), 'class="form-control" id="desc_ar"') }}
+                    <label class="col-sm-1 control-label" for="desc_en">{{ lang('prepaid_card_types_desc_en') }}</label>
+
+                    <div class="col-sm-5">
+                        {{ form_textarea('desc_en', set_value('desc_en', item.desc_en), 'class="form-control" id="desc_en"') }}
+                    </div>
+
+                    <label class="col-sm-1 control-label" for="desc_ar">{{ lang('prepaid_card_types_desc_ar') }}</label>
+
+                    <div class="col-sm-5">
+                        {{ form_textarea('desc_ar', set_value('desc_ar', item.desc_ar), 'class="form-control" id="desc_ar"') }}
+                    </div>
+
+
+                </div>
+                <div class="form-group-separator"></div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" for="notes">{{ lang('prepaid_card_types_notes') }}</label>
+
+                    <div class="col-sm-11">
+                        {{ form_textarea('notes', set_value('notes', item.notes), 'class="form-control" id="notes"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="desc_en">{{ lang('prepaid_card_types_desc_en') }}</label>
+                    <label class="col-sm-10 control-label"></label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('desc_en', set_value('desc_en', item.desc_en), 'class="form-control" id="desc_en"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="notes">{{ lang('prepaid_card_types_notes') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('notes', set_value('notes', item.notes), 'class="form-control" id="notes"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"></label>
-
-                    <div class="col-sm-10">
+                    <div class="col-sm-2">
                         <input type="submit" class="btn btn-secondary " name="submit"
                                value="{{ lang('global_submit') }}">
                         <a href="{{ admin_url(that._table ~ '/index') }} "

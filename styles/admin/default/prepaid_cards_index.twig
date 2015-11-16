@@ -1,0 +1,151 @@
+{% extends _layout %}
+{% block content %}
+
+    <div class="page-title">
+
+        <div class="title-env">
+            <h1 class="title">{{ lang('menu_' ~ that._table) }}</h1>
+
+            <p class="description"></p>
+        </div>
+
+        <div class="breadcrumb-env">
+
+            {#<ol class="breadcrumb bc-1" >#}
+            {#<li>#}
+            {#<a href="<?= site_url('admin/dashboard') ?>"><i class="fa-home"></i>Dashboard</a>#}
+            {#</li>#}
+            {#<li class="active">#}
+            {#<strong>Business Types</strong>#}
+            {#</li>#}
+            {#</ol>#}
+
+        </div>
+
+    </div>
+
+    <!-- Admin Table-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ lang('menu_' ~ that._table) }}</h3>
+
+            <div class="panel-options">
+                <a href="{{ admin_url(that._table ~ '/manage') }}" class="btn btn-secondary btn-sm"
+                   style="color:#fff">{{ lang('global_add_new_record') }}</a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="search">
+                <form role="form" class="form-horizontal" role="form" method="get" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="number">{{ lang('prepaid_cards_number') }}</label>
+
+                        <div class="col-sm-4">
+                            {{ form_input('number', set_value('number', item.number), 'class="form-control" id="number"') }}
+                        </div>
+
+                        <label class="col-sm-2 control-label" for="serial">{{ lang('prepaid_cards_serial') }}</label>
+
+                        <div class="col-sm-4">
+                            {{ form_input('serial', set_value('serial', item.serial), 'class="form-control" id="serial"') }}
+                        </div>
+
+                    </div>
+                    <div class="form-group-separator"></div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-11 control-label"></label>
+
+                        <div class="col-sm-1">
+                            <input type="submit" class="btn btn-warning " name="submit"
+                                   value="{{ lang('global_search') }}">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            {% if that.input.get() %}
+                <table class="table table-bordered table-striped" id="datatable">
+                    <thead>
+                    <tr>
+                        <th>{{ lang('prepaid_cards_prepaid_card_type_id') }}</th>
+                        <th>{{ lang('prepaid_card_types_cost') }}</th>
+                        <th>{{ lang('prepaid_cards_number') }}</th>
+                        <th>{{ lang('prepaid_cards_serial') }}</th>
+                        <th>{{ lang('prepaid_cards_expire_date') }}</th>
+                        <th>{{ lang('prepaid_cards_status') }}</th>
+                        <th>{{ lang('prepaid_cards_user_id') }}</th>
+                        <th>{{ lang('prepaid_cards_created_at') }}</th>
+                    </tr>
+                    </thead>
+
+                    <tbody class="middle-align">
+                    {% for item in items %}
+                        <tr>
+                            <td>{{ item.prepaid_card_type }}</td>
+                            <td>{{ item.cost }}</td>
+                            <td>xxxxxxxxxx{{ substr(item.number, 10) }}</td>
+                            <td>{{ item.serial }}</td>
+                            <td>{{ item.expire_date }}</td>
+                            <td>
+                                {% if item.prepaid_card_order_id %}
+                                    <a href="javascript:showAjaxModal('{{ admin_url('prepaid_cards/get_sold_card_details/' ~ item.prepaid_card_order_id) }}');"
+                                       class="btn btn-orange btn-sm btn-icon icon-left"
+                                       {#data-toggle="modal" data-target="#details"#}
+                                    >{{ lang('prepaid_cards_sold') }}</a>
+                                {% else %}
+                                    {{ lang('prepaid_cards_in_stack') }}
+                                {% endif %}
+                            </td>
+                            <td>{{ item.user }}</td>
+                            <td>{{ item.created_at }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {{ pagination }}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{ lang('prepaid_cards_details') }}</h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-grey btn-icon" data-dismiss="modal"
+                            style="color: grey;">{{ lang('global_close') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function showAjaxModal(url)
+        {
+            jQuery('#details').modal('show', {backdrop: 'static'});
+
+            setTimeout(function()
+            {
+                jQuery.ajax({
+                    url: url,
+                    success: function(response)
+                    {
+                        jQuery('#details .modal-body').html(response);
+                    }
+                });
+            }, 800); // just an example
+        }
+    </script>
+
+{% endblock %}

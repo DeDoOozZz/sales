@@ -4,7 +4,7 @@ $config['backend'] = [
     [
         'title' => 'general_settings',
         'url' => '#',
-        'icon' => 'linecons-cog',
+        'icon' => 'fa-cog',
         'permission' => 'general_settings,branches',
         'sub' => [
             [
@@ -18,49 +18,35 @@ $config['backend'] = [
                 'permission' => 'branches',
             ],
             [
-                'title' => 'definitions',
-                'url' => '#',
-                'permission' => '',
-                'sub' => [
-                    [
-                        'title' => 'cash_types',
-                        'url' => 'cash_types',
-                        'permission' => 'cash_types',
-                    ],
-                    [
-                        'title' => 'card_types',
-                        'url' => 'card_types',
-                        'permission' => 'card_types',
-                    ],
-                    [
-                        'title' => 'credit_card_types',
-                        'url' => 'credit_card_types',
-                        'permission' => 'credit_card_types',
-                    ]
-                ]
-
+                'title' => 'messages',
+                'url' => 'messages',
+                'permission' => 'messages',
             ],
-            [
-                'title' => 'categories',
-                'url' => 'categories',
-                'permission' => 'categories',
-            ],
-            [
-                'title' => 'countries',
-                'url' => 'countries',
-                'permission' => 'countries',
-            ],
-
             [
                 'title' => 'departments',
                 'url' => 'departments',
                 'permission' => 'departments',
             ],
-
-
+            [
+                'title' => 'sms_templates',
+                'url' => 'sms_templates',
+                'permission' => 'sms_templates',
+            ],
+            [
+                'title' => 'credit_card_types',
+                'url' => 'credit_card_types',
+                'permission' => 'credit_card_types',
+            ]
+        ]
+    ],
+    [
+        'title' => 'definitions',
+        'url' => '#',
+        'permission' => '',
+        'sub' => [
             [
                 'title' => 'devices',
-                'url' => '#',
+                'url' => 'devices',
                 'permission' => '',
                 'sub' => [
                     [
@@ -72,6 +58,12 @@ $config['backend'] = [
                         'title' => 'device_types',
                         'url' => 'device_types',
                         'permission' => 'device_types',
+                    ],
+
+                    [
+                        'title' => 'warranties',
+                        'url' => 'warranties',
+                        'permission' => 'warranties',
                     ],
                 ]
             ],
@@ -95,21 +87,9 @@ $config['backend'] = [
                 ]
             ],
 
-
-            [
-                'title' => 'marks',
-                'url' => 'marks',
-                'permission' => 'marks',
-            ],
-            [
-                'title' => 'messages',
-                'url' => 'messages',
-                'permission' => 'messages',
-            ],
-
             [
                 'title' => 'prepaid_cards',
-                'url' => '#',
+                'url' => 'prepaid_cards',
                 'permission' => '',
                 'sub' => [
                     [
@@ -122,6 +102,21 @@ $config['backend'] = [
                         'url' => 'prepaid_card_types',
                         'permission' => 'prepaid_card_types',
                     ],
+                    [
+                        'title' => 'countries',
+                        'url' => 'countries',
+                        'permission' => 'countries',
+                    ],
+                    [
+                        'title' => 'card_types',
+                        'url' => 'card_types',
+                        'permission' => 'card_types',
+                    ],
+                    [
+                        'title' => 'service_providers',
+                        'url' => 'service_providers',
+                        'permission' => 'service_providers',
+                    ],
                 ]
             ],
 
@@ -129,11 +124,29 @@ $config['backend'] = [
                 'title' => 'products',
                 'url' => 'products',
                 'permission' => 'products',
+                'sub' => [
+                    [
+                        'title' => 'products',
+                        'url' => 'products',
+                        'permission' => 'products',
+                    ],
+                    [
+                        'title' => 'categories',
+                        'url' => 'categories',
+                        'permission' => 'categories',
+                    ],
+                    [
+                        'title' => 'marks',
+                        'url' => 'marks',
+                        'permission' => 'marks',
+                    ],
+
+                ]
             ],
 
             [
                 'title' => 'services',
-                'url' => '#',
+                'url' => 'services',
                 'permission' => '',
                 'sub' =>
                     [
@@ -141,11 +154,6 @@ $config['backend'] = [
                             'title' => 'services',
                             'url' => 'services',
                             'permission' => 'services',
-                        ],
-                        [
-                            'title' => 'service_providers',
-                            'url' => 'service_providers',
-                            'permission' => 'service_providers',
                         ],
 
                         [
@@ -155,27 +163,15 @@ $config['backend'] = [
                         ],
                     ]
             ],
-
-
-            [
-                'title' => 'sms_templates',
-                'url' => 'sms_templates',
-                'permission' => 'sms_templates',
-            ],
-            [
-                'title' => 'tickets',
-                'url' => 'tickets',
-                'permission' => 'tickets',
-            ],
-
-            [
-                'title' => 'warranties',
-                'url' => 'warranties',
-                'permission' => 'warranties',
-            ],
+//            [
+//                'title' => 'cash_types',
+//                'url' => 'cash_types',
+//                'permission' => 'cash_types',
+//            ],
 
 
         ]
+
     ],
     [
         'title' => 'users',
@@ -202,9 +198,19 @@ $config['backend'] = [
         'permission' => '',
         'sub' => [
             [
+                'title' => 'orders',
+                'url' => 'orders',
+                'permission' => 'orders',
+            ],
+            [
                 'title' => 'device_orders',
                 'url' => 'device_orders',
                 'permission' => 'device_orders',
+            ],
+            [
+                'title' => 'service_orders',
+                'url' => 'service_orders',
+                'permission' => 'service_orders',
             ],
             [
                 'title' => 'prepaid_card_orders',
@@ -226,12 +232,6 @@ $config['backend'] = [
                 'url' => 'pending_orders',
                 'permission' => 'pending_orders',
             ],
-
-            [
-                'title' => 'service_orders',
-                'url' => 'service_orders',
-                'permission' => 'service_orders',
-            ],
             [
                 'title' => 'transactions',
                 'url' => 'transactions',
@@ -240,6 +240,19 @@ $config['backend'] = [
 
         ]
     ],
+//    [
+//        'title' => 'customer_support',
+//        'url' => '',
+//        'icon' => 'linecons-cog',
+//        'permission' => '',
+//        'sub' => [
+//            [
+//                'title' => 'tickets',
+//                'url' => 'tickets',
+//                'permission' => 'tickets',
+//            ],
+//        ]
+//    ],
     [
         'title' => 'reports',
         'url' => 'reports',

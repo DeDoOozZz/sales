@@ -55,7 +55,7 @@ class Brightery_Controller extends CI_Controller
     protected function permission($module = null, $action = null)
     {
         return ;
-        if (!session('user_id'))
+        if (! $this->user->user_id)
             redirect('admin/login');
         if (!$permission)
             return;

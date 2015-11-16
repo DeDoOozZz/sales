@@ -20,6 +20,7 @@ $lang['global_you_dont_have_permission'] = 'You don\'t have permission to prefor
 $lang['global_yes'] = 'Yes';
 $lang['global_no'] = 'No';
 $lang['global_cancel'] = 'Cancel';
+$lang['global_close'] = 'Close';
 $lang['global_system_message'] = 'System Message';
 $lang['global_delete_confirmation_message'] = 'Are you sure need to delete this record ?';
 $lang['global_connection_error'] = 'Connection error, Trying to get response from the server withen 30 seconds.';
@@ -32,6 +33,7 @@ $lang['menu_branches'] = "Branches";
 $lang['menu_sales'] = "Sales";
 $lang['menu_logout'] = "Logout";
 $lang['menu_definitions'] = "Definitions";
+$lang['menu_customer_support'] = "Customer Support";
 
 
 // MODULES LANGUAGES
@@ -212,9 +214,8 @@ $lang['invoices_due'] = "Due";
 $lang['invoices_paid'] = "Paid";
 $lang['invoices_rest'] = "Rest";
 $lang['invoices_branch_id'] = "Branch";
-$lang['invoices_created_at'] = "Created at";
+$lang['invoices_created_at'] = "Date";
 $lang['invoices_invoice_status_id'] = "Invoice status";
-$lang['invoices_mysql_created_at'] = "Mysql created_at";
 
 // Messages
 $lang['menu_messages'] = "Messages";
@@ -266,6 +267,11 @@ $lang['prepaid_cards_serial'] = "Serial";
 $lang['prepaid_cards_expire_date'] = "Expire date";
 $lang['prepaid_cards_created_at'] = "Created at";
 $lang['prepaid_cards_prepaid_card_order_id'] = "Prepaid card order";
+$lang['prepaid_cards_user_id'] = "User (data entry)";
+$lang['prepaid_cards_status'] = "Status";
+$lang['prepaid_cards_sold'] = "Sold";
+$lang['prepaid_cards_in_stack'] = "in Stack";
+$lang['prepaid_cards_details'] = "Details";
 
 // Products
 $lang['menu_products'] = "Products";

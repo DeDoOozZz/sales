@@ -4,9 +4,6 @@ class Credit_card_types extends Crud
 {
     public $_table = 'credit_card_types';
     public $_primary_key = 'credit_card_type_id';
-    public $_index_fields = [
-        'name',
-    ];
 
     public function __construct()
     {

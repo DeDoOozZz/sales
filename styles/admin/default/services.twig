@@ -25,111 +25,24 @@
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="service_provider_id">{{ lang('services_service_provider_id') }}</label>
+                    <label class="col-sm-1 control-label" for="barcode">{{ lang('services_barcode') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('service_provider_id', set_value('service_provider_id', item.service_provider_id), 'class="form-control" id="service_provider_id"') }}
+                    <div class="col-sm-4">
+                        {{ form_input('barcode', set_value('barcode', item.barcode), 'class="form-control" id="barcode"') }}
                     </div>
-                </div>
-                <div class="form-group-separator"></div>
 
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="sim_type_id">{{ lang('services_sim_type_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('sim_type_id', set_value('sim_type_id', item.sim_type_id), 'class="form-control" id="sim_type_id"') }}
+                    <div class="col-sm-2">
+                        <div class="barcode">
+                            {% if item.barcode %}
+                                <img src="{{ admin_url('devices/barcode/' ~ item.barcode) }}"/>
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
-                <div class="form-group-separator"></div>
 
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="register">{{ lang('services_register') }}</label>
+                    <label class="col-sm-1 control-label" for="points">{{ lang('services_points') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('register', set_value('register', item.register), 'class="form-control" id="register"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="register_code">{{ lang('services_register_code') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('register_code', set_value('register_code', item.register_code), 'class="form-control" id="register_code"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="required">{{ lang('services_required') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('required', set_value('required', item.required), 'class="form-control" id="required"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="commision">{{ lang('services_commision') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('commision', set_value('commision', item.commision), 'class="form-control" id="commision"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="price">{{ lang('services_price') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('price', set_value('price', item.price), 'class="form-control" id="price"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="net_profit">{{ lang('services_net_profit') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('net_profit', set_value('net_profit', item.net_profit), 'class="form-control" id="net_profit"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="discount">{{ lang('services_discount') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('discount', set_value('discount', item.discount), 'class="form-control" id="discount"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="desc">{{ lang('services_desc') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('desc', set_value('desc', item.desc), 'class="form-control" id="desc"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="points">{{ lang('services_points') }}</label>
-
-                    <div class="col-sm-10">
+                    <div class="col-sm-4">
                         {{ form_input('points', set_value('points', item.points), 'class="form-control" id="points"') }}
                     </div>
                 </div>
@@ -137,49 +50,91 @@
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="stock_1">{{ lang('services_stock_1') }}</label>
+                    <label class="col-sm-1 control-label" for="sim_type_id">{{ lang('services_sim_type_id') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('stock_1', set_value('stock_1', item.stock_1), 'class="form-control" id="stock_1"') }}
+                    <div class="col-sm-5">
+                        {{ form_input('sim_type_id', set_value('sim_type_id', item.sim_type_id), 'class="form-control" id="sim_type_id"') }}
+                    </div>
+
+                    <label class="col-sm-1 control-label"
+                           for="service_provider_id">{{ lang('services_service_provider_id') }}</label>
+
+                    <div class="col-sm-5">
+                        {{ form_input('service_provider_id', set_value('service_provider_id', item.service_provider_id), 'class="form-control" id="service_provider_id"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="stock_2">{{ lang('services_stock_2') }}</label>
+                    <label class="col-sm-1 control-label" for="register">{{ lang('services_register') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('stock_2', set_value('stock_2', item.stock_2), 'class="form-control" id="stock_2"') }}
+                    <div class="col-sm-3">
+                        {{ form_dropdown('register', ddboolean(), set_value('register', item.register), 'class="form-control" id="register"') }}
+                    </div>
+
+                    <label class="col-sm-1 control-label"
+                           for="register_code">{{ lang('services_register_code') }}</label>
+
+                    <div class="col-sm-3">
+                        {{ form_input('register_code', set_value('register_code', item.register_code), 'class="form-control" id="register_code"') }}
+                    </div>
+
+
+                    <label class="col-sm-1 control-label" for="required">{{ lang('services_required') }}</label>
+
+                    <div class="col-sm-3">
+                        {{ form_dropdown('required', ddboolean(), set_value('required', item.required), 'class="form-control" id="required"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="stock_3">{{ lang('services_stock_3') }}</label>
+                    <label class="col-sm-1 control-label" for="commision">{{ lang('services_commision') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('stock_3', set_value('stock_3', item.stock_3), 'class="form-control" id="stock_3"') }}
+                    <div class="col-sm-2">
+                        {{ form_input('commision', set_value('commision', item.commision), 'class="form-control" id="commision"') }}
+                    </div>
+
+
+                    <label class="col-sm-1 control-label" for="price">{{ lang('services_price') }}</label>
+
+                    <div class="col-sm-2">
+                        {{ form_input('price', set_value('price', item.price), 'class="form-control" id="price"') }}
+                    </div>
+
+
+                    <label class="col-sm-1 control-label" for="net_profit">{{ lang('services_net_profit') }}</label>
+
+                    <div class="col-sm-2">
+                        {{ form_input('net_profit', set_value('net_profit', item.net_profit), 'class="form-control" id="net_profit"') }}
+                    </div>
+
+
+                    <label class="col-sm-1 control-label" for="discount">{{ lang('services_discount') }}</label>
+
+                    <div class="col-sm-2">
+                        {{ form_input('discount', set_value('discount', item.discount), 'class="form-control" id="discount"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="barcode">{{ lang('services_barcode') }}</label>
+                    <label class="col-sm-1 control-label" for="desc">{{ lang('services_desc') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('barcode', set_value('barcode', item.barcode), 'class="form-control" id="barcode"') }}
+                    <div class="col-sm-11">
+                        {{ form_textarea('desc', set_value('desc', item.desc), 'class="form-control" id="desc"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"></label>
+                    <label class="col-sm-10 control-label"></label>
 
-                    <div class="col-sm-10">
+                    <div class="col-sm-2">
                         <input type="submit" class="btn btn-secondary " name="submit"
                                value="{{ lang('global_submit') }}">
                         <a href="{{ admin_url(that._table ~ '/index') }} "
@@ -190,4 +145,15 @@
             </form>
         </div>
     </div>
+
+    <script>
+        $('#barcode').attr('type', 'number');
+        $('#barcode').on('change', function () {
+            $('.barcode').fadeOut('slow', function () {
+                $('.barcode').html('<img src="{{ admin_url('devices/barcode') }}/' + $('#barcode').val() + '" />');
+                $('.barcode').fadeIn('slow');
+
+            });
+        });
+    </script>
 {% endblock %}

@@ -21,88 +21,76 @@
                     {{ validation_errors() }}
                 </div>
             {% endif %}
-            <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="prepaid_card_id">{{ lang('prepaid_cards_prepaid_card_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('prepaid_card_id', set_value('prepaid_card_id', item.prepaid_card_id), 'class="form-control" id="prepaid_card_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
+            <form role="form" class="form-horizontal validate" role="form" method="post" enctype="multipart/form-data">
 
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label"
                            for="prepaid_card_type_id">{{ lang('prepaid_cards_prepaid_card_type_id') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('prepaid_card_type_id', set_value('prepaid_card_type_id', item.prepaid_card_type_id), 'class="form-control" id="prepaid_card_type_id"') }}
+                    <div class="col-sm-5">
+                        {{ form_dropdown('prepaid_card_type_id', prepaid_card_types, set_value('prepaid_card_type_id', item.prepaid_card_type_id), 'class="form-control" id="prepaid_card_type_id" data-validate="required"') }}
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-icon btn-success" onclick="add_row(); return false;">
+                            <i class="fa-plus-square"></i>
+                        </button>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="type_logo">
+                            <div class="col-sm-12">
+                                <div class="image user-image pull-left"></div>
+                                <div class="logo user-image pull-left"></div>
+                                <div class="name pull-left"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group-separator"></div>
+
+
+                <div class="form-group cards">
+                    <div class="col-sm-12">
+                        <label class="col-sm-1 control-label" for="number">{{ lang('prepaid_cards_number') }}</label>
+
+                        <div class="col-sm-3">
+                            {{ form_input('number[]', set_value('number[]', item.number), 'class="form-control" id="number" data-validate="required"') }}
+                        </div>
+
+                        <label class="col-sm-1 control-label" for="serial">{{ lang('prepaid_cards_serial') }}</label>
+
+                        <div class="col-sm-3">
+                            {{ form_input('serial[]', set_value('serial[]', item.serial), 'class="form-control serial" id="serial"') }}
+                        </div>
+
+                        <label class="col-sm-1 control-label"
+                               for="expire_date">{{ lang('prepaid_cards_expire_date') }}</label>
+
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                {{ form_input('expire_date[]', set_value('expire_date[]'), 'class="form-control datepicker" id="expire_date"') }}
+                                <div class="input-group-addon">
+                                    <a href="#"><i class="linecons-calendar"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cols-sm-1">
+                            <button class="btn btn-icon btn-warning" onclick="apply_date(); return false;">
+                                <i class="fa-check-circle"></i>
+                            </button>
+                            <button class="btn btn-icon btn-red" onclick="apply_serial(); return false;">
+                                <i class="fa-list-ol"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="number">{{ lang('prepaid_cards_number') }}</label>
+                    <label class="col-sm-10 control-label"></label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('number', set_value('number', item.number), 'class="form-control" id="number"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="serial">{{ lang('prepaid_cards_serial') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('serial', set_value('serial', item.serial), 'class="form-control" id="serial"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="expire_date">{{ lang('prepaid_cards_expire_date') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('expire_date', set_value('expire_date', item.expire_date), 'class="form-control" id="expire_date"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="created_at">{{ lang('prepaid_cards_created_at') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('created_at', set_value('created_at', item.created_at), 'class="form-control" id="created_at"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="prepaid_card_order_id">{{ lang('prepaid_cards_prepaid_card_order_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('prepaid_card_order_id', set_value('prepaid_card_order_id', item.prepaid_card_order_id), 'class="form-control" id="prepaid_card_order_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"></label>
-
-                    <div class="col-sm-10">
+                    <div class="col-sm-2">
                         <input type="submit" class="btn btn-secondary " name="submit"
                                value="{{ lang('global_submit') }}">
                         <a href="{{ admin_url(that._table ~ '/index') }} "
@@ -113,4 +101,168 @@
             </form>
         </div>
     </div>
+
+
+    <!-- Imported scripts on this page -->
+    <script src="{{ constant('STYLE_JS') }}/jquery-validate/jquery.validate.min.js"></script>
+
+    <script>
+        $('#prepaid_card_type_id').on('change', function () {
+            getTypeLogo();
+        });
+
+        function getTypeLogo() {
+            $.getJSON('{{ admin_url('prepaid_cards/get_prepaid_card_type_logo') }}/' + $('#prepaid_card_type_id').val(), function (item) {
+                $('.image').html('<img src="' + item.image + '" class="img-circle"  />');
+                $('.logo').html('<img src="' + item.logo + '" class="img-circle"  />');
+                $('.name').html(item.name);
+            });
+        }
+        function delete_row(self) {
+            $(self).parent().parent().remove();
+        }
+        function add_row() {
+           var line = function(){ /* <div class="col-sm-12">
+             <label class="col-sm-1 control-label" for="number">{{ lang('prepaid_cards_number') }}</label>
+
+         <div class="col-sm-3">
+        {{ form_input('number[]', set_value('number[]', item.number), 'class="form-control" id="number" data-validate="required"') }}
+         </div>
+
+         <label class="col-sm-1 control-label" for="serial">{{ lang('prepaid_cards_serial') }}</label>
+
+         <div class="col-sm-3">
+        {{ form_input('serial[]', set_value('serial[]', item.serial), 'class="form-control serial" id="serial"') }}
+         </div>
+
+         <label class="col-sm-1 control-label"
+         for="expire_date">{{ lang('prepaid_cards_expire_date') }}</label>
+
+         <div class="col-sm-2">
+         <div class="input-group">
+        {{ form_input('expire_date[]', set_value('expire_date[]'), 'class="form-control datepicker" id="expire_date"') }}
+         <div class="input-group-addon">
+         <a href="#"><i class="linecons-calendar"></i></a>
+         </div>
+         </div>
+         </div>
+         <div class="cols-sm-1">
+         <button class="btn btn-icon btn-red" onclick="delete_row(this)">
+         <i class="fa-remove"></i>
+         </button>
+         </div>
+         </div>
+         */}.toString().slice(15, -3);
+            $('.cards').append(line);
+            validate ();
+            $('.datepicker').datepicker({format: 'yyyy-mm-dd'});
+            return false;
+        }
+
+        $('.datepicker').datepicker({format: 'yyyy-mm-dd'});
+
+        function apply_date() {
+            $('.cards div').find('.datepicker').val($('.cards div:first').find('.datepicker').val());
+        }
+        function apply_serial() {
+            var serial = $('.cards div:first').find('.serial').val();
+            $('.serial').each(function(indx) {
+                if(indx >= 1) {
+                    serial++;
+                    $(this).val(serial);
+                }
+            });
+        }
+
+
+
+
+
+
+
+
+        function validate () {
+            if ($.isFunction($.fn.validate)) {
+                $("form.validate").each(function(i, el) {
+                    var $this = $(el),
+                            opts = {
+                                rules: {},
+                                messages: {},
+                                errorElement: 'span',
+                                errorClass: 'validate-has-error',
+                                highlight: function(element) {
+                                    $(element).closest('.form-group').addClass('validate-has-error');
+                                },
+                                unhighlight: function(element) {
+                                    $(element).closest('.form-group').removeClass('validate-has-error');
+                                },
+                                errorPlacement: function(error, element) {
+                                    if (element.closest('.has-switch').length) {
+                                        error.insertAfter(element.closest('.has-switch'));
+                                    } else if (element.parent('.checkbox, .radio').length || element.parent('.input-group').length) {
+                                        error.insertAfter(element.parent());
+                                    } else {
+                                        error.insertAfter(element);
+                                    }
+                                }
+                            },
+                            $fields = $this.find('[data-validate]');
+
+
+                    $fields.each(function(j, el2) {
+                        var $field = $(el2),
+                                name = $field.attr('name'),
+                                validate = attrDefault($field, 'validate', '').toString(),
+                                _validate = validate.split(',');
+
+                        for (var k in _validate) {
+                            var rule = _validate[k],
+                                    params,
+                                    message;
+
+                            if (typeof opts['rules'][name] == 'undefined') {
+                                opts['rules'][name] = {};
+                                opts['messages'][name] = {};
+                            }
+
+                            if ($.inArray(rule, ['required', 'url', 'email', 'number', 'date', 'creditcard']) != -1) {
+                                opts['rules'][name][rule] = true;
+
+                                message = $field.data('message-' + rule);
+
+                                if (message) {
+                                    opts['messages'][name][rule] = message;
+                                }
+                            }
+                            // Parameter Value (#1 parameter)
+                            else if (params = rule.match(/(\w+)\[(.*?)\]/i)) {
+                                if ($.inArray(params[1], ['min', 'max', 'minlength', 'maxlength', 'equalTo']) != -1) {
+                                    opts['rules'][name][params[1]] = params[2];
+
+
+                                    message = $field.data('message-' + params[1]);
+
+                                    if (message) {
+                                        opts['messages'][name][params[1]] = message;
+                                    }
+                                }
+                            }
+                        }
+                    });
+
+                    $this.validate(opts);
+                });
+            }
+        }
+    </script>
+    <style>
+        .type_logo img {
+            width: 60px;
+            padding-right: 5px;
+        }
+
+        .name {
+            line-height: 60px;
+        }
+    </style>
 {% endblock %}

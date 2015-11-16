@@ -25,17 +25,6 @@
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="service_provider_id">{{ lang('service_providers_service_provider_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('service_provider_id', set_value('service_provider_id', item.service_provider_id), 'class="form-control" id="service_provider_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
                     <label class="col-sm-2 control-label" for="name_ar">{{ lang('service_providers_name_ar') }}</label>
 
                     <div class="col-sm-10">
@@ -54,32 +43,40 @@
                 </div>
                 <div class="form-group-separator"></div>
 
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="logo">{{ lang('service_providers_logo') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('logo', set_value('logo', item.logo), 'class="form-control" id="logo"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
                 <div class="form-group">
                     <label class="col-sm-2 control-label"
                            for="country_id">{{ lang('service_providers_country_id') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('country_id', set_value('country_id', item.country_id), 'class="form-control" id="country_id"') }}
+                        {{ form_dropdown('country_id', countries, set_value('country_id', item.country_id), 'class="form-control" id="country_id"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"></label>
+                    <label class="col-sm-2 control-label" for="logo">{{ lang('service_providers_logo') }}</label>
 
-                    <div class="col-sm-10">
+                    <div class="col-sm-6">
+                        {{ form_upload('logo', set_value('logo', item.logo), 'class="form-control" id="logo"') }}
+                    </div>
+
+                    <div class="col-sm-3">
+                        {% if item.logo %}
+                            <div class="user-image hidden-xs hidden-sm">
+                                <img src="{{ that.cdn.image('service_providers', item.logo) }}" class="img-circle" alt="">
+                            </div>
+                        {% endif %}
+                    </div>
+
+                </div>
+                <div class="form-group-separator"></div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-10 control-label"></label>
+
+                    <div class="col-sm-2">
                         <input type="submit" class="btn btn-secondary " name="submit"
                                value="{{ lang('global_submit') }}">
                         <a href="{{ admin_url(that._table ~ '/index') }} "

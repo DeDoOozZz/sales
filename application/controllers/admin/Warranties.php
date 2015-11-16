@@ -4,9 +4,7 @@ class Warranties extends Crud
 {
     public $_table = 'warranties';
     public $_primary_key = 'warranty_id';
-    public $_index_fields = [
-        'name',
-    ];
+
 
     public function __construct()
     {

@@ -279,13 +279,19 @@ ALTER TABLE `users`
   CHANGE `id_expire_date` `id_expire_date` DATE NOT NULL,
   CHANGE `passport_expiredate` `passport_expiredate` DATE NOT NULL;
 
-
 ALTER TABLE `users`
   CHANGE `id_expire_date` `id_expiredate` DATE NOT NULL;
 
-
-
 ALTER TABLE `sms_templates`
   DROP COLUMN `timestamp`;
+
+ALTER TABLE services DROP stock_1;
+ALTER TABLE services DROP stock_2;
+ALTER TABLE services DROP stock_3;
+
+ALTER TABLE prepaid_cards ADD user_id int NULL;
+
+ALTER TABLE prepaid_card_orders DROP card_type_id;
+ALTER TABLE prepaid_card_orders DROP prepaid_card_id;
 
 

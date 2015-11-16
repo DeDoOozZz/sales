@@ -25,7 +25,7 @@ class Menu
                 $this->str .= '<a href="' . site_url(ADMIN . '/' . $menu['url']) . '">';
 
             if (isset($menu['icon']))
-                $this->str .= '<i class="' . $menu['icon'] . '"></i>';
+                $this->str .= '<i class="' . $menu['icon'] . '"></i> ';
 
             $this->str .= '<span class="title">' . lang('menu_' . $menu['title']) . '</span>';
 

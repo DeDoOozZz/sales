@@ -8,1676 +8,1579 @@
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <database-model serializer="dbm" rdbms="MYSQL" format-version="2.2">
       <schema id="1" name="sales"/>
-      <table id="2" parent="1" name="admin_usergroup_zones"/>
-      <table id="3" parent="1" name="admin_usergroups"/>
-      <table id="4" parent="1" name="admins"/>
-      <table id="5" parent="1" name="branches"/>
-      <table id="6" parent="1" name="card_types"/>
-      <table id="7" parent="1" name="cash_types"/>
-      <table id="8" parent="1" name="categories"/>
-      <table id="9" parent="1" name="clients"/>
-      <table id="10" parent="1" name="countries"/>
-      <table id="11" parent="1" name="credit_card_types"/>
-      <table id="12" parent="1" name="credit_cards"/>
-      <table id="13" parent="1" name="departments"/>
-      <table id="14" parent="1" name="device_orders"/>
-      <table id="15" parent="1" name="device_status"/>
-      <table id="16" parent="1" name="device_types"/>
-      <table id="17" parent="1" name="devices"/>
-      <table id="18" parent="1" name="emails"/>
-      <table id="19" parent="1" name="fee_types"/>
-      <table id="20" parent="1" name="fees"/>
-      <table id="21" parent="1" name="format"/>
-      <table id="22" parent="1" name="invoice_status"/>
-      <table id="23" parent="1" name="invoice_types"/>
-      <table id="24" parent="1" name="invoices"/>
-      <table id="25" parent="1" name="languages"/>
-      <table id="26" parent="1" name="marks"/>
-      <table id="27" parent="1" name="message_types"/>
-      <table id="28" parent="1" name="messages"/>
-      <table id="29" parent="1" name="pending_order_products"/>
-      <table id="30" parent="1" name="pending_orders"/>
-      <table id="31" parent="1" name="prepaid_card_orders"/>
-      <table id="32" parent="1" name="prepaid_cards"/>
-      <table id="33" parent="1" name="product_inventory"/>
-      <table id="34" parent="1" name="products"/>
-      <table id="35" parent="1" name="reports"/>
-      <table id="36" parent="1" name="scratch_cards"/>
-      <table id="37" parent="1" name="service_inventory"/>
-      <table id="38" parent="1" name="service_orders"/>
-      <table id="39" parent="1" name="service_providers"/>
-      <table id="40" parent="1" name="services"/>
-      <table id="41" parent="1" name="sessions"/>
-      <table id="42" parent="1" name="settings"/>
-      <table id="43" parent="1" name="sim_types"/>
-      <table id="44" parent="1" name="sms_templates"/>
-      <table id="45" parent="1" name="sold_products"/>
-      <table id="46" parent="1" name="status"/>
-      <table id="47" parent="1" name="ticket_status"/>
-      <table id="48" parent="1" name="tickets"/>
-      <table id="49" parent="1" name="transactions"/>
-      <table id="50" parent="1" name="usergroup_zones"/>
-      <table id="51" parent="1" name="usergroups"/>
-      <table id="52" parent="1" name="users"/>
-      <table id="53" parent="1" name="users_commission"/>
-      <table id="54" parent="1" name="users_salary"/>
-      <table id="55" parent="1" name="warranties"/>
-      <table id="56" parent="1" name="zones"/>
-      <column id="57" parent="2" name="id">
+      <table id="2" parent="1" name="branches"/>
+      <table id="3" parent="1" name="card_types"/>
+      <table id="4" parent="1" name="cash_types"/>
+      <table id="5" parent="1" name="categories"/>
+      <table id="6" parent="1" name="clients"/>
+      <table id="7" parent="1" name="countries"/>
+      <table id="8" parent="1" name="credit_card_types"/>
+      <table id="9" parent="1" name="credit_cards"/>
+      <table id="10" parent="1" name="departments"/>
+      <table id="11" parent="1" name="device_orders"/>
+      <table id="12" parent="1" name="device_status"/>
+      <table id="13" parent="1" name="device_types"/>
+      <table id="14" parent="1" name="devices"/>
+      <table id="15" parent="1" name="emails"/>
+      <table id="16" parent="1" name="fee_types"/>
+      <table id="17" parent="1" name="fees"/>
+      <table id="18" parent="1" name="invoice_status"/>
+      <table id="19" parent="1" name="invoice_types"/>
+      <table id="20" parent="1" name="invoices"/>
+      <table id="21" parent="1" name="languages"/>
+      <table id="22" parent="1" name="marks"/>
+      <table id="23" parent="1" name="message_types"/>
+      <table id="24" parent="1" name="messages"/>
+      <table id="25" parent="1" name="pending_order_products"/>
+      <table id="26" parent="1" name="pending_orders"/>
+      <table id="27" parent="1" name="prepaid_card_orders"/>
+      <table id="28" parent="1" name="prepaid_cards"/>
+      <table id="29" parent="1" name="product_inventory"/>
+      <table id="30" parent="1" name="products"/>
+      <table id="31" parent="1" name="reports"/>
+      <table id="32" parent="1" name="service_inventory"/>
+      <table id="33" parent="1" name="service_orders"/>
+      <table id="34" parent="1" name="service_providers"/>
+      <table id="35" parent="1" name="services"/>
+      <table id="36" parent="1" name="sessions"/>
+      <table id="37" parent="1" name="settings"/>
+      <table id="38" parent="1" name="sim_types"/>
+      <table id="39" parent="1" name="sms_templates"/>
+      <table id="40" parent="1" name="ticket_status"/>
+      <table id="41" parent="1" name="tickets"/>
+      <table id="42" parent="1" name="transactions"/>
+      <table id="43" parent="1" name="usergroup_zones"/>
+      <table id="44" parent="1" name="usergroups"/>
+      <table id="45" parent="1" name="users"/>
+      <table id="46" parent="1" name="users_commission"/>
+      <table id="47" parent="1" name="users_salary"/>
+      <table id="48" parent="1" name="warranties"/>
+      <table id="49" parent="1" name="zones"/>
+      <table id="50" parent="1" name="format_orders"/>
+      <table id="51" parent="1" name="prepaid_card_types"/>
+      <table id="52" parent="1" name="sale_products"/>
+      <table id="53" parent="1" name="user_status"/>
+      <column id="54" parent="2" name="branch_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="58" parent="2" name="usergroup_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="59" parent="2" name="zone">
-        <mandatory>1</mandatory>
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="60" parent="2" name="firm_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="61" parent="2" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="62" parent="3" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="63" parent="3" name="name">
-        <mandatory>1</mandatory>
+      <column id="55" parent="2" name="name">
         <data-type>varchar(100)</data-type>
       </column>
-      <key id="64" parent="3" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="65" parent="4" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="66" parent="4" name="username">
-        <mandatory>1</mandatory>
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="67" parent="4" name="password">
-        <mandatory>1</mandatory>
-        <data-type>varchar(300)</data-type>
-      </column>
-      <column id="68" parent="4" name="email">
-        <data-type>varchar(300)</data-type>
-      </column>
-      <column id="69" parent="4" name="admin_usergroup_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="70" parent="4" name="timestamp">
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="71" parent="4" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="72" parent="5" name="branch_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="73" parent="5" name="name">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="74" parent="5" name="place">
+      <column id="56" parent="2" name="place">
         <data-type>text</data-type>
       </column>
-      <column id="75" parent="5" name="notes">
+      <column id="57" parent="2" name="notes">
         <data-type>text</data-type>
       </column>
-      <column id="76" parent="5" name="phone">
+      <column id="58" parent="2" name="phone">
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="77" parent="5" name="sales_invoice_type_id">
+      <column id="59" parent="2" name="sales_invoice_type_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <column id="78" parent="5" name="format_invoice_type_id">
+      <column id="60" parent="2" name="format_invoice_type_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <column id="79" parent="5" name="services_invoice_type_id">
+      <column id="61" parent="2" name="services_invoice_type_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <column id="80" parent="5" name="transactions">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="81" parent="5" name="logo">
-        <data-type>varchar(255)</data-type>
-      </column>
-      <column id="82" parent="5" name="header">
-        <data-type>text</data-type>
-      </column>
-      <column id="83" parent="5" name="footer">
-        <data-type>text</data-type>
-      </column>
-      <column id="84" parent="5" name="timestamp">
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="85" parent="5" name="PRIMARY">
-        <columns>branch_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="86" parent="6" name="card_type_id">
-        <mandatory>1</mandatory>
-        <data-type>int(10)</data-type>
-      </column>
-      <column id="87" parent="6" name="name_ar">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="88" parent="6" name="name_en">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <key id="89" parent="6" name="PRIMARY">
-        <columns>card_type_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="90" parent="7" name="cash_type_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="91" parent="7" name="name_ar">
-        <data-type>varchar(50)</data-type>
-      </column>
-      <column id="92" parent="7" name="name_en">
-        <data-type>varchar(50)</data-type>
-      </column>
-      <key id="93" parent="7" name="PRIMARY">
-        <columns>cash_type_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="94" parent="8" name="category_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="95" parent="8" name="parent_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="96" parent="8" name="name_en">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="97" parent="8" name="name_ar">
-        <mandatory>1</mandatory>
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="98" parent="8" name="desc_en">
-        <data-type>text</data-type>
-      </column>
-      <column id="99" parent="8" name="desc_ar">
-        <data-type>text</data-type>
-      </column>
-      <column id="100" parent="8" name="display_order">
-        <mandatory>1</mandatory>
-        <data-type>smallint(6)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="101" parent="8" name="status">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="102" parent="8" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(10)</data-type>
-      </column>
-      <key id="103" parent="8" name="PRIMARY">
-        <columns>category_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="104" parent="9" name="client_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="105" parent="9" name="name">
-        <data-type>text</data-type>
-      </column>
-      <column id="106" parent="9" name="phone">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="107" parent="9" name="mobile">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="108" parent="9" name="email">
-        <data-type>varchar(300)</data-type>
-      </column>
-      <column id="109" parent="9" name="points">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="110" parent="9" name="branch_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="111" parent="9" name="timestamp">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="112" parent="9" name="status_id">
-        <data-type>int(1)</data-type>
-      </column>
-      <column id="113" parent="9" name="admin_notes">
-        <data-type>text</data-type>
-      </column>
-      <column id="114" parent="9" name="password">
-        <data-type>varchar(32)</data-type>
-      </column>
-      <column id="115" parent="9" name="lastlogin_date">
-        <data-type>datetime</data-type>
-      </column>
-      <column id="116" parent="9" name="lastlogin_host">
-        <data-type>text</data-type>
-      </column>
-      <column id="117" parent="9" name="lastlogin_ip">
-        <data-type>varchar(16)</data-type>
-      </column>
-      <column id="118" parent="9" name="credit">
-        <data-type>double</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <key id="119" parent="9" name="PRIMARY">
-        <columns>client_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="120" parent="10" name="country_id">
-        <mandatory>1</mandatory>
-        <data-type>int(10)</data-type>
-      </column>
-      <column id="121" parent="10" name="nat_code">
-        <mandatory>1</mandatory>
-        <data-type>varchar(3)</data-type>
-      </column>
-      <column id="122" parent="10" name="country_code">
-        <mandatory>1</mandatory>
-        <data-type>varchar(2)</data-type>
-      </column>
-      <column id="123" parent="10" name="name_ar">
-        <mandatory>1</mandatory>
-        <data-type>varchar(50)</data-type>
-      </column>
-      <column id="124" parent="10" name="name_en">
-        <mandatory>1</mandatory>
-        <data-type>varchar(50)</data-type>
-      </column>
-      <key id="125" parent="10" name="PRIMARY">
-        <columns>country_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="126" parent="11" name="credit_card_type_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="127" parent="11" name="name_ar">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="128" parent="11" name="name_en">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <key id="129" parent="11" name="PRIMARY">
-        <columns>credit_card_type_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="130" parent="12" name="credit_card_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="131" parent="12" name="client_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="132" parent="12" name="number">
-        <data-type>int(15)</data-type>
-      </column>
-      <column id="133" parent="12" name="expire_month">
-        <data-type>int(2)</data-type>
-      </column>
-      <column id="134" parent="12" name="expire_year">
-        <data-type>int(4)</data-type>
-      </column>
-      <column id="135" parent="12" name="cvv">
-        <data-type>int(4)</data-type>
-      </column>
-      <column id="136" parent="12" name="credit_card_type_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="137" parent="12" name="timestamp">
-        <data-type>datetime</data-type>
-      </column>
-      <key id="138" parent="12" name="PRIMARY">
-        <columns>credit_card_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="139" parent="13" name="department_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="140" parent="13" name="name_en">
-        <data-type>varchar(50)</data-type>
-      </column>
-      <column id="141" parent="13" name="name_ar">
-        <data-type>varchar(50)</data-type>
-      </column>
-      <column id="142" parent="13" name="desc">
-        <data-type>text</data-type>
-      </column>
-      <key id="143" parent="13" name="PRIMARY">
-        <columns>department_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="144" parent="14" name="device_order_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="145" parent="14" name="serial">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="146" parent="14" name="barcode">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="147" parent="14" name="mobile">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="148" parent="14" name="social_id">
-        <data-type>text</data-type>
-      </column>
-      <column id="149" parent="14" name="invoice_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="150" parent="14" name="client_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="151" parent="14" name="branch_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="152" parent="14" name="status">
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="153" parent="14" name="timestamp">
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="154" parent="14" name="PRIMARY">
-        <columns>device_order_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="155" parent="15" name="device_status_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="156" parent="15" name="name_ar">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="157" parent="15" name="name_en">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <key id="158" parent="15" name="PRIMARY">
-        <columns>device_status_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="159" parent="16" name="device_type_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="160" parent="16" name="name_ar">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="161" parent="16" name="name_en">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <key id="162" parent="16" name="PRIMARY">
-        <columns>device_type_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="163" parent="17" name="device_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="164" parent="17" name="device_type_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="165" parent="17" name="name_en">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="166" parent="17" name="name_ar">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="167" parent="17" name="device_status_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="168" parent="17" name="free_sim">
-        <data-type>int(1)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="169" parent="17" name="warranty_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="170" parent="17" name="warranty_days">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="171" parent="17" name="partner">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="172" parent="17" name="cost">
-        <data-type>double</data-type>
-      </column>
-      <column id="173" parent="17" name="commision">
-        <data-type>double</data-type>
-      </column>
-      <column id="174" parent="17" name="profit">
-        <data-type>double</data-type>
-      </column>
-      <column id="175" parent="17" name="discount">
-        <data-type>double</data-type>
-      </column>
-      <column id="176" parent="17" name="desc">
-        <data-type>text</data-type>
-      </column>
-      <column id="177" parent="17" name="points">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="178" parent="17" name="barcode">
-        <data-type>varchar(30)</data-type>
-      </column>
-      <key id="179" parent="17" name="PRIMARY">
-        <columns>device_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="180" parent="18" name="email_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="181" parent="18" name="name_en">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="182" parent="18" name="name_ar">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="183" parent="18" name="subject_en">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="184" parent="18" name="subject_ar">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="185" parent="18" name="content_ar">
-        <data-type>text</data-type>
-      </column>
-      <column id="186" parent="18" name="content_en">
-        <data-type>text</data-type>
-      </column>
-      <key id="187" parent="18" name="PRIMARY">
-        <columns>email_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="188" parent="19" name="fee_type_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="189" parent="19" name="name_en">
-        <data-type>varchar(150)</data-type>
-      </column>
-      <column id="190" parent="19" name="name_ar">
-        <mandatory>1</mandatory>
-        <data-type>varchar(150)</data-type>
-      </column>
-      <column id="191" parent="19" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="192" parent="19" name="PRIMARY">
-        <columns>fee_type_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="193" parent="20" name="fee_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="194" parent="20" name="branch_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="195" parent="20" name="fee_type_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="196" parent="20" name="amount">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-      </column>
-      <column id="197" parent="20" name="month">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="198" parent="20" name="year">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="199" parent="20" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="200" parent="20" name="PRIMARY">
-        <columns>fee_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="201" parent="21" name="format_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="202" parent="21" name="save_data">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="203" parent="21" name="original_software">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="204" parent="21" name="mobile">
-        <mandatory>1</mandatory>
-        <data-type>varchar(50)</data-type>
-      </column>
-      <column id="205" parent="21" name="mark_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="206" parent="21" name="password">
-        <mandatory>1</mandatory>
-        <data-type>varchar(300)</data-type>
-      </column>
-      <column id="207" parent="21" name="notes">
-        <mandatory>1</mandatory>
-        <data-type>text</data-type>
-      </column>
-      <column id="208" parent="21" name="status">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="209" parent="21" name="f_step">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="210" parent="21" name="s_step">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="211" parent="21" name="invoice_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="212" parent="21" name="format_price">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-      </column>
-      <column id="213" parent="21" name="format_commission_first">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-      </column>
-      <column id="214" parent="21" name="format_commission_second">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-      </column>
-      <column id="215" parent="21" name="firm_id">
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="216" parent="21" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="217" parent="21" name="PRIMARY">
-        <columns>format_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="218" parent="22" name="invoice_status_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="219" parent="22" name="name_ar">
-        <data-type>varchar(50)</data-type>
-      </column>
-      <column id="220" parent="22" name="name_en">
-        <data-type>varchar(50)</data-type>
-      </column>
-      <key id="221" parent="22" name="PRIMARY">
-        <columns>invoice_status_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="222" parent="23" name="invoice_type_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="223" parent="23" name="name_ar">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="224" parent="23" name="name_en">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <key id="225" parent="23" name="PRIMARY">
-        <columns>invoice_type_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="226" parent="24" name="invoice_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="227" parent="24" name="code">
-        <mandatory>1</mandatory>
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="228" parent="24" name="user_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="229" parent="24" name="client_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="230" parent="24" name="cash_type_id">
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;1&apos;</default-expression>
-      </column>
-      <column id="231" parent="24" name="due">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-      </column>
-      <column id="232" parent="24" name="paid">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-      </column>
-      <column id="233" parent="24" name="rest">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-      </column>
-      <column id="234" parent="24" name="branch_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="235" parent="24" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="236" parent="24" name="invoice_status_id">
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;1&apos;</default-expression>
-      </column>
-      <column id="237" parent="24" name="mysql_timestamp">
-        <mandatory>1</mandatory>
-        <data-type>timestamp</data-type>
-        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
-      </column>
-      <key id="238" parent="24" name="PRIMARY">
-        <columns>invoice_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="239" parent="25" name="language_id">
-        <mandatory>1</mandatory>
-        <data-type>varchar(50)</data-type>
-      </column>
-      <column id="240" parent="25" name="name">
-        <mandatory>1</mandatory>
-        <data-type>varchar(50)</data-type>
-      </column>
-      <key id="241" parent="25" name="PRIMARY">
-        <columns>language_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="242" parent="26" name="mark_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="243" parent="26" name="name_en">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="244" parent="26" name="name_ar">
-        <mandatory>1</mandatory>
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="245" parent="26" name="image">
-        <data-type>text</data-type>
-      </column>
-      <column id="246" parent="26" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="247" parent="26" name="PRIMARY">
-        <columns>mark_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="248" parent="27" name="message_type_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="249" parent="27" name="name_ar">
-        <data-type>varchar(50)</data-type>
-      </column>
-      <column id="250" parent="27" name="name_en">
-        <data-type>varchar(50)</data-type>
-      </column>
-      <key id="251" parent="27" name="PRIMARY">
-        <columns>message_type_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="252" parent="28" name="message_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="253" parent="28" name="message_type_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="254" parent="28" name="client_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="255" parent="28" name="name_en">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="256" parent="28" name="name_ar">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="257" parent="28" name="content_en">
-        <data-type>text</data-type>
-      </column>
-      <column id="258" parent="28" name="content_ar">
-        <data-type>text</data-type>
-      </column>
-      <column id="259" parent="28" name="datetime">
-        <data-type>datetime</data-type>
-      </column>
-      <key id="260" parent="28" name="PRIMARY">
-        <columns>message_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="261" parent="29" name="ipending_order_product_d">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="262" parent="29" name="pending_order_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="263" parent="29" name="product_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="264" parent="29" name="qty">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;1&apos;</default-expression>
-      </column>
-      <key id="265" parent="29" name="PRIMARY">
-        <columns>ipending_order_product_d</columns>
-        <primary>1</primary>
-      </key>
-      <column id="266" parent="30" name="pending_order_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="267" parent="30" name="name">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="268" parent="30" name="user_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="269" parent="30" name="client_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="270" parent="30" name="branch_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="271" parent="30" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="272" parent="30" name="mysql_timestamp">
-        <mandatory>1</mandatory>
-        <data-type>timestamp</data-type>
-        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
-      </column>
-      <key id="273" parent="30" name="PRIMARY">
-        <columns>pending_order_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="274" parent="31" name="prepaid_card_order_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="275" parent="31" name="card_type_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="276" parent="31" name="prepaid_card_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="277" parent="31" name="total_cards">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="278" parent="31" name="date">
-        <data-type>datetime</data-type>
-      </column>
-      <column id="279" parent="31" name="invoice_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="280" parent="31" name="PRIMARY">
-        <columns>prepaid_card_order_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="281" parent="32" name="prepaid_card_id">
-        <mandatory>1</mandatory>
-        <data-type>int(10)</data-type>
-      </column>
-      <column id="282" parent="32" name="service_provider_id">
-        <data-type>int(10)</data-type>
-      </column>
-      <column id="283" parent="32" name="country_id">
-        <data-type>int(10)</data-type>
-      </column>
-      <column id="284" parent="32" name="card_type_id">
-        <data-type>int(10)</data-type>
-      </column>
-      <column id="285" parent="32" name="image">
-        <data-type>text</data-type>
-      </column>
-      <column id="286" parent="32" name="name_ar">
-        <data-type>varchar(300)</data-type>
-      </column>
-      <column id="287" parent="32" name="name_en">
-        <data-type>varchar(300)</data-type>
-      </column>
-      <column id="288" parent="32" name="cost">
-        <data-type>double</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="289" parent="32" name="profit">
-        <data-type>double</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="290" parent="32" name="discount">
-        <data-type>double</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="291" parent="32" name="employee_commission">
-        <data-type>double</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="292" parent="32" name="desc_ar">
-        <data-type>text</data-type>
-      </column>
-      <column id="293" parent="32" name="desc_en">
-        <data-type>text</data-type>
-      </column>
-      <column id="294" parent="32" name="notes">
-        <data-type>text</data-type>
-      </column>
-      <key id="295" parent="32" name="PRIMARY">
-        <columns>prepaid_card_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="296" parent="33" name="product_inventory_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="297" parent="33" name="product_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="298" parent="33" name="branch_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="299" parent="33" name="operation">
-        <data-type>enum(&apos;+&apos;, &apos;-&apos;)</data-type>
-      </column>
-      <column id="300" parent="33" name="qty">
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="301" parent="33" name="PRIMARY">
-        <columns>product_inventory_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="302" parent="34" name="product_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="303" parent="34" name="barcode">
-        <mandatory>1</mandatory>
-        <data-type>bigint(200)</data-type>
-      </column>
-      <column id="304" parent="34" name="name_ar">
-        <mandatory>1</mandatory>
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="305" parent="34" name="name_en">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="306" parent="34" name="category_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="307" parent="34" name="mark_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="308" parent="34" name="commission">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="309" parent="34" name="cost">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-      </column>
-      <column id="310" parent="34" name="profit">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-      </column>
-      <column id="311" parent="34" name="discount">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="312" parent="34" name="featured">
-        <data-type>tinyint(4)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="313" parent="34" name="image">
-        <data-type>text</data-type>
-      </column>
-      <column id="314" parent="34" name="amount">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-      </column>
-      <column id="315" parent="34" name="desc_en">
-        <data-type>text</data-type>
-      </column>
-      <column id="316" parent="34" name="desc_ar">
-        <mandatory>1</mandatory>
-        <data-type>text</data-type>
-      </column>
-      <column id="317" parent="34" name="points">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="318" parent="34" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="319" parent="34" name="stock_3">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="320" parent="34" name="stock_2">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <index id="321" parent="34" name="barcode">
-        <columns>barcode</columns>
-        <unique>1</unique>
-      </index>
-      <key id="322" parent="34" name="barcode">
-        <columns>barcode</columns>
-        <underlying-index>barcode</underlying-index>
-      </key>
-      <key id="323" parent="34" name="PRIMARY">
-        <columns>product_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="324" parent="35" name="report_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="325" parent="35" name="user_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="326" parent="35" name="membership">
-        <data-type>varchar(20)</data-type>
-      </column>
-      <column id="327" parent="35" name="mission">
-        <data-type>text</data-type>
-      </column>
-      <column id="328" parent="35" name="branch_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="329" parent="35" name="ip">
-        <data-type>varchar(16)</data-type>
-      </column>
-      <column id="330" parent="35" name="timestamp">
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="331" parent="35" name="PRIMARY">
-        <columns>report_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="332" parent="36" name="scratch_card_id">
-        <mandatory>1</mandatory>
-        <data-type>int(10)</data-type>
-      </column>
-      <column id="333" parent="36" name="prepaid_card_id">
-        <data-type>int(10)</data-type>
-      </column>
-      <column id="334" parent="36" name="number">
-        <data-type>varchar(20)</data-type>
-      </column>
-      <column id="335" parent="36" name="serial">
-        <data-type>varchar(30)</data-type>
-      </column>
-      <column id="336" parent="36" name="expire_date">
-        <data-type>date</data-type>
-      </column>
-      <column id="337" parent="36" name="created_at">
-        <data-type>datetime</data-type>
-      </column>
-      <column id="338" parent="36" name="prepaid_card_order_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="339" parent="36" name="PRIMARY">
-        <columns>scratch_card_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="340" parent="37" name="service_inventory_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="341" parent="37" name="service_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="342" parent="37" name="branch_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="343" parent="37" name="operation">
-        <data-type>enum(&apos;+&apos;, &apos;-&apos;)</data-type>
-      </column>
-      <column id="344" parent="37" name="qty">
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="345" parent="37" name="PRIMARY">
-        <columns>service_inventory_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="346" parent="38" name="service_order_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="347" parent="38" name="serial">
-        <mandatory>1</mandatory>
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="348" parent="38" name="barcode">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="349" parent="38" name="mobile">
-        <mandatory>1</mandatory>
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="350" parent="38" name="social_id">
-        <data-type>text</data-type>
-      </column>
-      <column id="351" parent="38" name="invoice_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="352" parent="38" name="client_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="353" parent="38" name="branch_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="354" parent="38" name="status">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="355" parent="38" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="356" parent="38" name="created_at">
-        <data-type>datetime</data-type>
-      </column>
-      <key id="357" parent="38" name="PRIMARY">
-        <columns>service_order_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="358" parent="39" name="service_provider_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="359" parent="39" name="name_ar">
-        <data-type>varchar(150)</data-type>
-      </column>
-      <column id="360" parent="39" name="name_en">
-        <data-type>varchar(150)</data-type>
-      </column>
-      <column id="361" parent="39" name="logo">
-        <data-type>text</data-type>
-      </column>
-      <column id="362" parent="39" name="country_id">
-        <data-type>int(10)</data-type>
-      </column>
-      <key id="363" parent="39" name="PRIMARY">
-        <columns>service_provider_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="364" parent="40" name="service_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="365" parent="40" name="service_provider_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="366" parent="40" name="sim_type_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="367" parent="40" name="register">
-        <data-type>tinyint(4)</data-type>
-      </column>
-      <column id="368" parent="40" name="register_code">
-        <data-type>varchar(50)</data-type>
-      </column>
-      <column id="369" parent="40" name="required">
-        <data-type>tinyint(4)</data-type>
-      </column>
-      <column id="370" parent="40" name="commision">
-        <data-type>double</data-type>
-      </column>
-      <column id="371" parent="40" name="price">
-        <data-type>double</data-type>
-      </column>
-      <column id="372" parent="40" name="net_profit">
-        <data-type>double</data-type>
-      </column>
-      <column id="373" parent="40" name="discount">
-        <data-type>double</data-type>
-      </column>
-      <column id="374" parent="40" name="desc">
-        <data-type>text</data-type>
-      </column>
-      <column id="375" parent="40" name="points">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="376" parent="40" name="stock_1">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="377" parent="40" name="stock_2">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="378" parent="40" name="stock_3">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="379" parent="40" name="barcode">
-        <data-type>varchar(50)</data-type>
-      </column>
-      <index id="380" parent="40" name="barcode">
-        <columns>barcode</columns>
-        <unique>1</unique>
-      </index>
-      <key id="381" parent="40" name="barcode">
-        <columns>barcode</columns>
-        <underlying-index>barcode</underlying-index>
-      </key>
-      <key id="382" parent="40" name="PRIMARY">
-        <columns>service_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="383" parent="41" name="session_id">
-        <mandatory>1</mandatory>
-        <data-type>varchar(40)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="384" parent="41" name="ip_address">
-        <mandatory>1</mandatory>
-        <data-type>varchar(45)</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="385" parent="41" name="user_agent">
-        <mandatory>1</mandatory>
-        <data-type>varchar(120)</data-type>
-      </column>
-      <column id="386" parent="41" name="last_activity">
-        <mandatory>1</mandatory>
-        <data-type>int(10) unsigned</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="387" parent="41" name="user_data">
-        <mandatory>1</mandatory>
-        <data-type>text</data-type>
-      </column>
-      <key id="388" parent="41" name="PRIMARY">
-        <columns>session_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="389" parent="42" name="key">
-        <mandatory>1</mandatory>
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="390" parent="42" name="value">
-        <data-type>text</data-type>
-      </column>
-      <key id="391" parent="42" name="PRIMARY">
-        <columns>key</columns>
-        <primary>1</primary>
-      </key>
-      <column id="392" parent="43" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="393" parent="43" name="title">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <key id="394" parent="43" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="395" parent="44" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="396" parent="44" name="title">
-        <mandatory>1</mandatory>
-        <data-type>varchar(250)</data-type>
-      </column>
-      <column id="397" parent="44" name="content">
-        <mandatory>1</mandatory>
-        <data-type>text</data-type>
-      </column>
-      <column id="398" parent="44" name="status">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="399" parent="44" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="400" parent="44" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="401" parent="45" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="402" parent="45" name="invoice_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="403" parent="45" name="firm_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="404" parent="45" name="user_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="405" parent="45" name="product_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="406" parent="45" name="qty">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-        <default-expression>&apos;1&apos;</default-expression>
-      </column>
-      <column id="407" parent="45" name="discount">
-        <data-type>double</data-type>
-      </column>
-      <column id="408" parent="45" name="price">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-      </column>
-      <column id="409" parent="45" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="410" parent="45" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="411" parent="46" name="status_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="412" parent="46" name="name_ar">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="413" parent="46" name="name_en">
-        <data-type>varchar(100)</data-type>
-      </column>
-      <key id="414" parent="46" name="PRIMARY">
-        <columns>status_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="415" parent="47" name="ticket_status_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="416" parent="47" name="name_ar">
-        <data-type>varchar(50)</data-type>
-      </column>
-      <column id="417" parent="47" name="name_en">
-        <data-type>varchar(50)</data-type>
-      </column>
-      <key id="418" parent="47" name="PRIMARY">
-        <columns>ticket_status_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="419" parent="48" name="ticket_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="420" parent="48" name="title">
-        <data-type>varchar(120)</data-type>
-      </column>
-      <column id="421" parent="48" name="department_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="422" parent="48" name="ticket_status_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="423" parent="48" name="client_id">
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="424" parent="48" name="content">
-        <data-type>text</data-type>
-      </column>
-      <column id="425" parent="48" name="datetime">
-        <data-type>datetime</data-type>
-      </column>
-      <key id="426" parent="48" name="PRIMARY">
-        <columns>ticket_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="427" parent="49" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="428" parent="49" name="invoice_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="429" parent="49" name="status">
-        <comment>1 = &apos;sucess&apos;, 2 = &apos;faild&apos;</comment>
-        <mandatory>1</mandatory>
-        <data-type>tinyint(4)</data-type>
-      </column>
-      <column id="430" parent="49" name="number">
-        <mandatory>1</mandatory>
-        <data-type>varchar(50)</data-type>
-      </column>
-      <key id="431" parent="49" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="432" parent="50" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="433" parent="50" name="usergroup_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="434" parent="50" name="zone">
-        <mandatory>1</mandatory>
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="435" parent="50" name="firm_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="436" parent="50" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="437" parent="51" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="438" parent="51" name="name">
-        <mandatory>1</mandatory>
-        <data-type>varchar(100)</data-type>
-      </column>
-      <key id="439" parent="51" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="440" parent="52" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="441" parent="52" name="firm_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="442" parent="52" name="usergroup_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="443" parent="52" name="language">
-        <data-type>varchar(20)</data-type>
-        <default-expression>&apos;english&apos;</default-expression>
-      </column>
-      <column id="444" parent="52" name="name">
-        <mandatory>1</mandatory>
-        <data-type>text</data-type>
-      </column>
-      <column id="445" parent="52" name="full_name">
-        <mandatory>1</mandatory>
-        <data-type>varchar(500)</data-type>
-      </column>
-      <column id="446" parent="52" name="email">
-        <mandatory>1</mandatory>
-        <data-type>varchar(250)</data-type>
-      </column>
-      <column id="447" parent="52" name="phone">
-        <data-type>varchar(20)</data-type>
-      </column>
-      <column id="448" parent="52" name="mobile">
-        <mandatory>1</mandatory>
-        <data-type>varchar(20)</data-type>
-      </column>
-      <column id="449" parent="52" name="password">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="450" parent="52" name="address">
-        <mandatory>1</mandatory>
-        <data-type>text</data-type>
-      </column>
-      <column id="451" parent="52" name="notes">
-        <data-type>text</data-type>
-      </column>
-      <column id="452" parent="52" name="salary">
-        <data-type>double</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="453" parent="52" name="commision">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="454" parent="52" name="id_no">
-        <mandatory>1</mandatory>
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="455" parent="52" name="id_expiredate">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="456" parent="52" name="passport_no">
-        <mandatory>1</mandatory>
-        <data-type>varchar(100)</data-type>
-      </column>
-      <column id="457" parent="52" name="passport_expiredate">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="458" parent="52" name="ip">
-        <data-type>varchar(250)</data-type>
-      </column>
-      <column id="459" parent="52" name="status">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="460" parent="52" name="ban_time">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="461" parent="52" name="image">
-        <data-type>text</data-type>
-      </column>
-      <column id="462" parent="52" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(10)</data-type>
-      </column>
-      <key id="463" parent="52" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="464" parent="53" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="465" parent="53" name="op">
-        <mandatory>1</mandatory>
-        <data-type>enum(&apos;+&apos;, &apos;-&apos;)</data-type>
-        <default-expression>&apos;+&apos;</default-expression>
-      </column>
-      <column id="466" parent="53" name="amount">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-      </column>
-      <column id="467" parent="53" name="purpose">
-        <data-type>varchar(30)</data-type>
-      </column>
-      <column id="468" parent="53" name="time">
-        <mandatory>1</mandatory>
-        <data-type>timestamp</data-type>
-        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
-      </column>
-      <column id="469" parent="53" name="user_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="470" parent="53" name="firm_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="471" parent="53" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="472" parent="53" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="473" parent="54" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="474" parent="54" name="user_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="475" parent="54" name="salary">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-      </column>
-      <column id="476" parent="54" name="comission">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="477" parent="54" name="deducted">
-        <mandatory>1</mandatory>
-        <data-type>double</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="478" parent="54" name="month">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="479" parent="54" name="year">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="480" parent="54" name="timestamp">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <key id="481" parent="54" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="482" parent="55" name="warranty_id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="483" parent="55" name="name_ar">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="484" parent="55" name="name_en">
-        <data-type>varchar(200)</data-type>
-      </column>
-      <key id="485" parent="55" name="PRIMARY">
-        <columns>warranty_id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="486" parent="56" name="id">
-        <mandatory>1</mandatory>
-        <data-type>int(11)</data-type>
-      </column>
-      <column id="487" parent="56" name="name_ar">
-        <mandatory>1</mandatory>
-        <data-type>varchar(500)</data-type>
-      </column>
-      <column id="488" parent="56" name="name_la">
-        <mandatory>1</mandatory>
-        <data-type>varchar(500)</data-type>
-      </column>
-      <column id="489" parent="56" name="var">
-        <mandatory>1</mandatory>
-        <data-type>varchar(200)</data-type>
-      </column>
-      <column id="490" parent="56" name="desc_ar">
-        <mandatory>1</mandatory>
-        <data-type>text</data-type>
-      </column>
-      <column id="491" parent="56" name="desc_la">
-        <mandatory>1</mandatory>
-        <data-type>text</data-type>
-      </column>
-      <column id="492" parent="56" name="admin">
+      <column id="62" parent="2" name="accept_cc">
         <mandatory>1</mandatory>
         <data-type>tinyint(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="493" parent="56" name="timestamp">
+      <column id="63" parent="2" name="logo">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="64" parent="2" name="header">
+        <data-type>text</data-type>
+      </column>
+      <column id="65" parent="2" name="footer">
+        <data-type>text</data-type>
+      </column>
+      <column id="66" parent="2" name="created_at">
+        <data-type>datetime</data-type>
+      </column>
+      <key id="67" parent="2" name="PRIMARY">
+        <columns>branch_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="68" parent="3" name="card_type_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="69" parent="3" name="name_ar">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="70" parent="3" name="name_en">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <key id="71" parent="3" name="PRIMARY">
+        <columns>card_type_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="72" parent="4" name="cash_type_id">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <index id="494" parent="56" name="var">
+      <column id="73" parent="4" name="name_ar">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="74" parent="4" name="name_en">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="75" parent="4" name="PRIMARY">
+        <columns>cash_type_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="76" parent="5" name="category_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="77" parent="5" name="parent_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="78" parent="5" name="name_en">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="79" parent="5" name="name_ar">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="80" parent="5" name="desc_en">
+        <data-type>text</data-type>
+      </column>
+      <column id="81" parent="5" name="desc_ar">
+        <data-type>text</data-type>
+      </column>
+      <column id="82" parent="5" name="display_order">
+        <mandatory>1</mandatory>
+        <data-type>smallint(6)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="83" parent="5" name="status">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="84" parent="5" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <key id="85" parent="5" name="PRIMARY">
+        <columns>category_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="86" parent="6" name="client_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="87" parent="6" name="name">
+        <data-type>text</data-type>
+      </column>
+      <column id="88" parent="6" name="phone">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="89" parent="6" name="mobile">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="90" parent="6" name="email">
+        <data-type>varchar(300)</data-type>
+      </column>
+      <column id="91" parent="6" name="points">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="92" parent="6" name="branch_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="93" parent="6" name="timestamp">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="94" parent="6" name="status_id">
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="95" parent="6" name="admin_notes">
+        <data-type>text</data-type>
+      </column>
+      <column id="96" parent="6" name="password">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="97" parent="6" name="lastlogin_date">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="98" parent="6" name="lastlogin_host">
+        <data-type>text</data-type>
+      </column>
+      <column id="99" parent="6" name="lastlogin_ip">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="100" parent="6" name="credit">
+        <data-type>double</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="101" parent="6" name="PRIMARY">
+        <columns>client_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="102" parent="7" name="country_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="103" parent="7" name="nat_code">
+        <mandatory>1</mandatory>
+        <data-type>varchar(3)</data-type>
+      </column>
+      <column id="104" parent="7" name="country_code">
+        <mandatory>1</mandatory>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="105" parent="7" name="name_ar">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="106" parent="7" name="name_en">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="107" parent="7" name="PRIMARY">
+        <columns>country_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="108" parent="8" name="credit_card_type_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="109" parent="8" name="name_ar">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="110" parent="8" name="name_en">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="111" parent="8" name="PRIMARY">
+        <columns>credit_card_type_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="112" parent="9" name="credit_card_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="113" parent="9" name="client_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="114" parent="9" name="number">
+        <data-type>int(15)</data-type>
+      </column>
+      <column id="115" parent="9" name="expire_month">
+        <data-type>int(2)</data-type>
+      </column>
+      <column id="116" parent="9" name="expire_year">
+        <data-type>int(4)</data-type>
+      </column>
+      <column id="117" parent="9" name="cvv">
+        <data-type>int(4)</data-type>
+      </column>
+      <column id="118" parent="9" name="credit_card_type_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="119" parent="9" name="created_at">
+        <data-type>datetime</data-type>
+      </column>
+      <key id="120" parent="9" name="PRIMARY">
+        <columns>credit_card_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="121" parent="10" name="department_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="122" parent="10" name="name_en">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="123" parent="10" name="name_ar">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="124" parent="10" name="desc">
+        <data-type>text</data-type>
+      </column>
+      <key id="125" parent="10" name="PRIMARY">
+        <columns>department_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="126" parent="11" name="device_order_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="127" parent="11" name="serial">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="128" parent="11" name="barcode">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="129" parent="11" name="mobile">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="130" parent="11" name="social_id">
+        <data-type>text</data-type>
+      </column>
+      <column id="131" parent="11" name="invoice_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="132" parent="11" name="client_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="133" parent="11" name="branch_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="134" parent="11" name="status">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="135" parent="11" name="created_at">
+        <data-type>datetime</data-type>
+      </column>
+      <key id="136" parent="11" name="PRIMARY">
+        <columns>device_order_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="137" parent="12" name="device_status_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="138" parent="12" name="name_ar">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="139" parent="12" name="name_en">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <key id="140" parent="12" name="PRIMARY">
+        <columns>device_status_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="141" parent="13" name="device_type_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="142" parent="13" name="name_ar">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="143" parent="13" name="name_en">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <key id="144" parent="13" name="PRIMARY">
+        <columns>device_type_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="145" parent="14" name="device_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="146" parent="14" name="device_type_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="147" parent="14" name="name_en">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="148" parent="14" name="name_ar">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="149" parent="14" name="device_status_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="150" parent="14" name="free_sim">
+        <data-type>int(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="151" parent="14" name="warranty_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="152" parent="14" name="warranty_days">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="153" parent="14" name="partner">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="154" parent="14" name="cost">
+        <data-type>double</data-type>
+      </column>
+      <column id="155" parent="14" name="commision">
+        <data-type>double</data-type>
+      </column>
+      <column id="156" parent="14" name="profit">
+        <data-type>double</data-type>
+      </column>
+      <column id="157" parent="14" name="discount">
+        <data-type>double</data-type>
+      </column>
+      <column id="158" parent="14" name="desc">
+        <data-type>text</data-type>
+      </column>
+      <column id="159" parent="14" name="points">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="160" parent="14" name="barcode">
+        <data-type>varchar(30)</data-type>
+      </column>
+      <key id="161" parent="14" name="PRIMARY">
+        <columns>device_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="162" parent="15" name="email_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="163" parent="15" name="name_en">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="164" parent="15" name="name_ar">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="165" parent="15" name="subject_en">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="166" parent="15" name="subject_ar">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="167" parent="15" name="content_ar">
+        <data-type>text</data-type>
+      </column>
+      <column id="168" parent="15" name="content_en">
+        <data-type>text</data-type>
+      </column>
+      <key id="169" parent="15" name="PRIMARY">
+        <columns>email_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="170" parent="16" name="fee_type_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="171" parent="16" name="name_en">
+        <data-type>varchar(150)</data-type>
+      </column>
+      <column id="172" parent="16" name="name_ar">
+        <mandatory>1</mandatory>
+        <data-type>varchar(150)</data-type>
+      </column>
+      <key id="173" parent="16" name="PRIMARY">
+        <columns>fee_type_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="174" parent="17" name="fee_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="175" parent="17" name="branch_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="176" parent="17" name="fee_type_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="177" parent="17" name="amount">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="178" parent="17" name="month">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(2)</data-type>
+      </column>
+      <column id="179" parent="17" name="year">
+        <mandatory>1</mandatory>
+        <data-type>year(4)</data-type>
+      </column>
+      <column id="180" parent="17" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <key id="181" parent="17" name="PRIMARY">
+        <columns>fee_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="182" parent="18" name="invoice_status_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="183" parent="18" name="name_ar">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="184" parent="18" name="name_en">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="185" parent="18" name="PRIMARY">
+        <columns>invoice_status_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="186" parent="19" name="invoice_type_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="187" parent="19" name="name_ar">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="188" parent="19" name="name_en">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="189" parent="19" name="PRIMARY">
+        <columns>invoice_type_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="190" parent="20" name="invoice_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="191" parent="20" name="code">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="192" parent="20" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="193" parent="20" name="client_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="194" parent="20" name="cash_type_id">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <column id="195" parent="20" name="due">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="196" parent="20" name="paid">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="197" parent="20" name="rest">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="198" parent="20" name="branch_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="199" parent="20" name="invoice_status_id">
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <column id="200" parent="20" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <key id="201" parent="20" name="PRIMARY">
+        <columns>invoice_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="202" parent="21" name="language_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="203" parent="21" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="204" parent="21" name="PRIMARY">
+        <columns>language_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="205" parent="22" name="mark_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="206" parent="22" name="name_en">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="207" parent="22" name="name_ar">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="208" parent="22" name="image">
+        <data-type>text</data-type>
+      </column>
+      <key id="209" parent="22" name="PRIMARY">
+        <columns>mark_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="210" parent="23" name="message_type_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="211" parent="23" name="name_ar">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="212" parent="23" name="name_en">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="213" parent="23" name="PRIMARY">
+        <columns>message_type_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="214" parent="24" name="message_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="215" parent="24" name="message_type_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="216" parent="24" name="client_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="217" parent="24" name="name_en">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="218" parent="24" name="name_ar">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="219" parent="24" name="content_en">
+        <data-type>text</data-type>
+      </column>
+      <column id="220" parent="24" name="content_ar">
+        <data-type>text</data-type>
+      </column>
+      <column id="221" parent="24" name="created_at">
+        <data-type>datetime</data-type>
+      </column>
+      <key id="222" parent="24" name="PRIMARY">
+        <columns>message_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="223" parent="25" name="ipending_order_product_d">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="224" parent="25" name="pending_order_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="225" parent="25" name="product_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="226" parent="25" name="qty">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <key id="227" parent="25" name="PRIMARY">
+        <columns>ipending_order_product_d</columns>
+        <primary>1</primary>
+      </key>
+      <column id="228" parent="26" name="pending_order_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="229" parent="26" name="name">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="230" parent="26" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="231" parent="26" name="client_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="232" parent="26" name="branch_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="233" parent="26" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <key id="234" parent="26" name="PRIMARY">
+        <columns>pending_order_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="235" parent="27" name="prepaid_card_order_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="236" parent="27" name="total_cards">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="237" parent="27" name="date">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="238" parent="27" name="invoice_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="239" parent="27" name="PRIMARY">
+        <columns>prepaid_card_order_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="240" parent="28" name="prepaid_card_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="241" parent="28" name="prepaid_card_type_id">
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="242" parent="28" name="number">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="243" parent="28" name="serial">
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="244" parent="28" name="expire_date">
+        <data-type>date</data-type>
+      </column>
+      <column id="245" parent="28" name="created_at">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="246" parent="28" name="prepaid_card_order_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="247" parent="28" name="user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="248" parent="28" name="PRIMARY">
+        <columns>prepaid_card_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="249" parent="29" name="product_inventory_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="250" parent="29" name="product_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="251" parent="29" name="branch_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="252" parent="29" name="operation">
+        <data-type>enum(&apos;+&apos;, &apos;-&apos;)</data-type>
+      </column>
+      <column id="253" parent="29" name="qty">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="254" parent="29" name="PRIMARY">
+        <columns>product_inventory_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="255" parent="30" name="product_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="256" parent="30" name="barcode">
+        <mandatory>1</mandatory>
+        <data-type>bigint(200)</data-type>
+      </column>
+      <column id="257" parent="30" name="name_ar">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="258" parent="30" name="name_en">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="259" parent="30" name="category_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="260" parent="30" name="mark_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="261" parent="30" name="commission">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="262" parent="30" name="cost">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="263" parent="30" name="profit">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="264" parent="30" name="discount">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="265" parent="30" name="featured">
+        <data-type>tinyint(4)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="266" parent="30" name="image">
+        <data-type>text</data-type>
+      </column>
+      <column id="267" parent="30" name="amount">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="268" parent="30" name="desc_en">
+        <data-type>text</data-type>
+      </column>
+      <column id="269" parent="30" name="desc_ar">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="270" parent="30" name="points">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <index id="271" parent="30" name="barcode">
+        <columns>barcode</columns>
+        <unique>1</unique>
+      </index>
+      <key id="272" parent="30" name="barcode">
+        <columns>barcode</columns>
+        <underlying-index>barcode</underlying-index>
+      </key>
+      <key id="273" parent="30" name="PRIMARY">
+        <columns>product_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="274" parent="31" name="report_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="275" parent="31" name="user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="276" parent="31" name="mission">
+        <data-type>text</data-type>
+      </column>
+      <column id="277" parent="31" name="branch_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="278" parent="31" name="ip">
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="279" parent="31" name="created_at">
+        <data-type>datetime</data-type>
+      </column>
+      <key id="280" parent="31" name="PRIMARY">
+        <columns>report_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="281" parent="32" name="service_inventory_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="282" parent="32" name="service_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="283" parent="32" name="branch_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="284" parent="32" name="operation">
+        <data-type>enum(&apos;+&apos;, &apos;-&apos;)</data-type>
+      </column>
+      <column id="285" parent="32" name="qty">
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="286" parent="32" name="PRIMARY">
+        <columns>service_inventory_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="287" parent="33" name="service_order_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="288" parent="33" name="serial">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="289" parent="33" name="barcode">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="290" parent="33" name="mobile">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="291" parent="33" name="social_id">
+        <data-type>text</data-type>
+      </column>
+      <column id="292" parent="33" name="invoice_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="293" parent="33" name="client_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="294" parent="33" name="branch_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="295" parent="33" name="status">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="296" parent="33" name="timestamp">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="297" parent="33" name="created_at">
+        <data-type>datetime</data-type>
+      </column>
+      <key id="298" parent="33" name="PRIMARY">
+        <columns>service_order_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="299" parent="34" name="service_provider_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="300" parent="34" name="name_ar">
+        <data-type>varchar(150)</data-type>
+      </column>
+      <column id="301" parent="34" name="name_en">
+        <data-type>varchar(150)</data-type>
+      </column>
+      <column id="302" parent="34" name="logo">
+        <data-type>text</data-type>
+      </column>
+      <column id="303" parent="34" name="country_id">
+        <data-type>int(10)</data-type>
+      </column>
+      <key id="304" parent="34" name="PRIMARY">
+        <columns>service_provider_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="305" parent="35" name="service_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="306" parent="35" name="service_provider_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="307" parent="35" name="sim_type_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="308" parent="35" name="register">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="309" parent="35" name="register_code">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="310" parent="35" name="required">
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="311" parent="35" name="commision">
+        <data-type>double</data-type>
+      </column>
+      <column id="312" parent="35" name="price">
+        <data-type>double</data-type>
+      </column>
+      <column id="313" parent="35" name="net_profit">
+        <data-type>double</data-type>
+      </column>
+      <column id="314" parent="35" name="discount">
+        <data-type>double</data-type>
+      </column>
+      <column id="315" parent="35" name="desc">
+        <data-type>text</data-type>
+      </column>
+      <column id="316" parent="35" name="points">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="317" parent="35" name="barcode">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <index id="318" parent="35" name="barcode">
+        <columns>barcode</columns>
+        <unique>1</unique>
+      </index>
+      <key id="319" parent="35" name="barcode">
+        <columns>barcode</columns>
+        <underlying-index>barcode</underlying-index>
+      </key>
+      <key id="320" parent="35" name="PRIMARY">
+        <columns>service_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="321" parent="36" name="session_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="322" parent="36" name="ip_address">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="323" parent="36" name="user_agent">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="324" parent="36" name="last_activity">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="325" parent="36" name="user_data">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <key id="326" parent="36" name="PRIMARY">
+        <columns>session_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="327" parent="37" name="key">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="328" parent="37" name="value">
+        <data-type>text</data-type>
+      </column>
+      <key id="329" parent="37" name="PRIMARY">
+        <columns>key</columns>
+        <primary>1</primary>
+      </key>
+      <column id="330" parent="38" name="sim_type_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="331" parent="38" name="name_ar">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="332" parent="38" name="name_en">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="333" parent="38" name="PRIMARY">
+        <columns>sim_type_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="334" parent="39" name="sms_template_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="335" parent="39" name="name_ar">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="336" parent="39" name="name_en">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="337" parent="39" name="content_ar">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="338" parent="39" name="content_en">
+        <data-type>text</data-type>
+      </column>
+      <column id="339" parent="39" name="status">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="340" parent="39" name="created_at">
+        <data-type>datetime</data-type>
+      </column>
+      <key id="341" parent="39" name="PRIMARY">
+        <columns>sms_template_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="342" parent="40" name="ticket_status_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="343" parent="40" name="name_ar">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="344" parent="40" name="name_en">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="345" parent="40" name="PRIMARY">
+        <columns>ticket_status_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="346" parent="41" name="ticket_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="347" parent="41" name="title">
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="348" parent="41" name="department_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="349" parent="41" name="ticket_status_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="350" parent="41" name="client_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="351" parent="41" name="content">
+        <data-type>text</data-type>
+      </column>
+      <column id="352" parent="41" name="datetime">
+        <data-type>datetime</data-type>
+      </column>
+      <key id="353" parent="41" name="PRIMARY">
+        <columns>ticket_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="354" parent="42" name="transaction_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="355" parent="42" name="invoice_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="356" parent="42" name="status">
+        <comment>1 = &apos;sucess&apos;, 2 = &apos;faild&apos;</comment>
+        <mandatory>1</mandatory>
+        <data-type>tinyint(4)</data-type>
+      </column>
+      <column id="357" parent="42" name="number">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="358" parent="42" name="PRIMARY">
+        <columns>transaction_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="359" parent="43" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="360" parent="43" name="usergroup_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="361" parent="43" name="zone">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="362" parent="43" name="firm_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="363" parent="43" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="364" parent="44" name="usergroup_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="365" parent="44" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="366" parent="44" name="PRIMARY">
+        <columns>usergroup_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="367" parent="45" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="368" parent="45" name="branch_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="369" parent="45" name="usergroup_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="370" parent="45" name="language">
+        <data-type>varchar(20)</data-type>
+        <default-expression>&apos;english&apos;</default-expression>
+      </column>
+      <column id="371" parent="45" name="username">
+        <mandatory>1</mandatory>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="372" parent="45" name="full_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(500)</data-type>
+      </column>
+      <column id="373" parent="45" name="email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(250)</data-type>
+      </column>
+      <column id="374" parent="45" name="phone">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="375" parent="45" name="mobile">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="376" parent="45" name="password">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="377" parent="45" name="address">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="378" parent="45" name="notes">
+        <data-type>text</data-type>
+      </column>
+      <column id="379" parent="45" name="salary">
+        <data-type>double</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="380" parent="45" name="commision">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="381" parent="45" name="id_no">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="382" parent="45" name="id_expiredate">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="383" parent="45" name="passport_no">
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="384" parent="45" name="passport_expiredate">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="385" parent="45" name="ip">
+        <data-type>varchar(250)</data-type>
+      </column>
+      <column id="386" parent="45" name="status">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="387" parent="45" name="ban_time">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="388" parent="45" name="image">
+        <data-type>text</data-type>
+      </column>
+      <column id="389" parent="45" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <key id="390" parent="45" name="PRIMARY">
+        <columns>user_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="391" parent="46" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="392" parent="46" name="op">
+        <mandatory>1</mandatory>
+        <data-type>enum(&apos;+&apos;, &apos;-&apos;)</data-type>
+        <default-expression>&apos;+&apos;</default-expression>
+      </column>
+      <column id="393" parent="46" name="amount">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="394" parent="46" name="purpose">
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="395" parent="46" name="time">
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="396" parent="46" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="397" parent="46" name="firm_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="398" parent="46" name="timestamp">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="399" parent="46" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="400" parent="47" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="401" parent="47" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="402" parent="47" name="salary">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="403" parent="47" name="comission">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="404" parent="47" name="deducted">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="405" parent="47" name="month">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="406" parent="47" name="year">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="407" parent="47" name="timestamp">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="408" parent="47" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="409" parent="48" name="warranty_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="410" parent="48" name="name_ar">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="411" parent="48" name="name_en">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <key id="412" parent="48" name="PRIMARY">
+        <columns>warranty_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="413" parent="49" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="414" parent="49" name="name_ar">
+        <mandatory>1</mandatory>
+        <data-type>varchar(500)</data-type>
+      </column>
+      <column id="415" parent="49" name="name_la">
+        <mandatory>1</mandatory>
+        <data-type>varchar(500)</data-type>
+      </column>
+      <column id="416" parent="49" name="var">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="417" parent="49" name="desc_ar">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="418" parent="49" name="desc_la">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="419" parent="49" name="admin">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="420" parent="49" name="timestamp">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="421" parent="49" name="var">
         <columns>var
 admin</columns>
         <unique>1</unique>
       </index>
-      <key id="495" parent="56" name="PRIMARY">
+      <key id="422" parent="49" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <key id="496" parent="56" name="var">
+      <key id="423" parent="49" name="var">
         <columns>var
 admin</columns>
         <underlying-index>var</underlying-index>
+      </key>
+      <column id="424" parent="50" name="format_order_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="425" parent="50" name="save_data">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="426" parent="50" name="original_software">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="427" parent="50" name="mobile">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="428" parent="50" name="mark_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="429" parent="50" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(300)</data-type>
+      </column>
+      <column id="430" parent="50" name="notes">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="431" parent="50" name="status">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="432" parent="50" name="f_step">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="433" parent="50" name="s_step">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="434" parent="50" name="invoice_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="435" parent="50" name="format_price">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="436" parent="50" name="format_commission_first">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="437" parent="50" name="format_commission_second">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="438" parent="50" name="branch_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="439" parent="50" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <key id="440" parent="50" name="PRIMARY">
+        <columns>format_order_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="441" parent="51" name="prepaid_card_type_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="442" parent="51" name="service_provider_id">
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="443" parent="51" name="country_id">
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="444" parent="51" name="card_type_id">
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="445" parent="51" name="image">
+        <data-type>text</data-type>
+      </column>
+      <column id="446" parent="51" name="name_ar">
+        <data-type>varchar(300)</data-type>
+      </column>
+      <column id="447" parent="51" name="name_en">
+        <data-type>varchar(300)</data-type>
+      </column>
+      <column id="448" parent="51" name="cost">
+        <data-type>double</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="449" parent="51" name="profit">
+        <data-type>double</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="450" parent="51" name="discount">
+        <data-type>double</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="451" parent="51" name="employee_commission">
+        <data-type>double</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="452" parent="51" name="desc_ar">
+        <data-type>text</data-type>
+      </column>
+      <column id="453" parent="51" name="desc_en">
+        <data-type>text</data-type>
+      </column>
+      <column id="454" parent="51" name="notes">
+        <data-type>text</data-type>
+      </column>
+      <key id="455" parent="51" name="PRIMARY">
+        <columns>prepaid_card_type_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="456" parent="52" name="sale_product_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="457" parent="52" name="invoice_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="458" parent="52" name="branch_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="459" parent="52" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="460" parent="52" name="product_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="461" parent="52" name="qty">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <column id="462" parent="52" name="discount">
+        <data-type>double</data-type>
+      </column>
+      <column id="463" parent="52" name="price">
+        <mandatory>1</mandatory>
+        <data-type>double</data-type>
+      </column>
+      <column id="464" parent="52" name="timestamp">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="465" parent="52" name="created_at">
+        <data-type>datetime</data-type>
+      </column>
+      <key id="466" parent="52" name="PRIMARY">
+        <columns>sale_product_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="467" parent="53" name="user_status_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="468" parent="53" name="name_ar">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="469" parent="53" name="name_en">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="470" parent="53" name="PRIMARY">
+        <columns>user_status_id</columns>
+        <primary>1</primary>
       </key>
     </database-model>
   </data-source>

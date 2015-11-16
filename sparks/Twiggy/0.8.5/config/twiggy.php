@@ -234,7 +234,8 @@ $config['twiggy']['register_functions'] = array
     'get_variable_attribute',
     'validation_errors',
     'name',
-    'ddboolean'
+    'ddboolean',
+    'substr'
 );
 
 

@@ -9,14 +9,21 @@ function config($val, $set = FALSE) {
         return $Muh->config->item($val);
 }
 
-
-function session($val, $set = FALSE) {
-    $Muh = &get_instance();
-    if ($set) {
-        $Muh->session->set_userdata($val, $set);
-    }
+function destroy_session() {
+    foreach($_COOKIE as $k => $v)
+        setcookie($k,'', time()-999999, '/');
+}
+function session($key, $value = FALSE) {
+    if(! $value)
+        return isset($_COOKIE[$key]) ? $_COOKIE[$key] : null;
     else
-        return $Muh->session->userdata($val);
+        setcookie($key, $value, time()+999999, '/');
+//    $Muh = &get_instance();
+//    if ($set) {
+//        $Muh->session->set_userdata($val, $set);
+//    }
+//    else
+//        return $Muh->session->userdata($val);
 }
 
 function permission($rule = FALSE) {

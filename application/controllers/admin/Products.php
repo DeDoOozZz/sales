@@ -59,7 +59,7 @@ class Products extends Crud
         $this->form_validation->set_rules('mark_id', lang('products_mark_id'), "trim|required");
         $this->form_validation->set_rules('commission', lang('products_commission'), "trim|required");
         $this->form_validation->set_rules('cost', lang('products_cost'), "trim|required");
-        $this->form_validation->set_rules('profit', lang('products_profit'), "trim|required");
+        $this->form_validation->set_rules('price', lang('products_price'), "trim|required");
         $this->form_validation->set_rules('discount', lang('products_discount'), "trim|required");
         $this->form_validation->set_rules('featured', lang('products_featured'), "trim|required");
         $this->form_validation->set_rules('image', lang('products_image'), "callback_file[logo," . $required . "]");
@@ -81,7 +81,7 @@ class Products extends Crud
             'mark_id' => $this->input->post('mark_id'),
             'commission' => $this->input->post('commission'),
             'cost' => $this->input->post('cost'),
-            'profit' => $this->input->post('profit'),
+            'price' => $this->input->post('price'),
             'discount' => $this->input->post('discount'),
             'featured' => $this->input->post('featured'),
             'image' => $this->input->post('image'),

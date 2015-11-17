@@ -2,74 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ad8ca96-893a-4164-94bd-c11a43954ce3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/marks/default.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/prepaid_card_types/default.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/service_providers/default.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/libraries/User.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/marks/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/prepaid_card_types/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/service_providers/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cdn/users/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/admin/default/prepaid_card_order_details.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/admin/default/prepaid_cards_index.twig" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/styles/admin/default/assets/images/Thumbs.db" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/assets/images/logo.png" afterPath="$PROJECT_DIR$/styles/admin/default/assets/images/logo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/admin/Orders.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/admin/default/orders.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatabaseUpdates.sql" afterPath="$PROJECT_DIR$/DatabaseUpdates.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/autoload.php" afterPath="$PROJECT_DIR$/application/config/autoload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/menu.php" afterPath="$PROJECT_DIR$/application/config/menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Credit_card_types.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Credit_card_types.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Devices.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Devices.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Logout.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Logout.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Prepaid_card_types.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Prepaid_card_types.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Prepaid_cards.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Prepaid_cards.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Reports.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Reports.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Service_providers.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Service_providers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Products.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Products.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Services.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Services.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Sim_types.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Sim_types.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Tickets.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Tickets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Warranties.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Warranties.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/core/Brightery_Controller.php" afterPath="$PROJECT_DIR$/application/core/Brightery_Controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/helpers/config_helper.php" afterPath="$PROJECT_DIR$/application/helpers/config_helper.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/language/english/admin_lang.php" afterPath="$PROJECT_DIR$/application/language/english/admin_lang.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/libraries/Menu.php" afterPath="$PROJECT_DIR$/application/libraries/Menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sparks/Twiggy/0.8.5/config/twiggy.php" afterPath="$PROJECT_DIR$/sparks/Twiggy/0.8.5/config/twiggy.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/_layouts/index.twig" afterPath="$PROJECT_DIR$/styles/admin/default/_layouts/index.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/assets/css/beoro.css" afterPath="$PROJECT_DIR$/styles/admin/default/assets/css/beoro.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/assets/js/beoro_common.js" afterPath="$PROJECT_DIR$/styles/admin/default/assets/js/beoro_common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/branches.twig" afterPath="$PROJECT_DIR$/styles/admin/default/branches.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/card_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/card_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/cash_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/cash_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/categories.twig" afterPath="$PROJECT_DIR$/styles/admin/default/categories.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/credit_card_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/credit_card_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/departments.twig" afterPath="$PROJECT_DIR$/styles/admin/default/departments.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/device_orders.twig" afterPath="$PROJECT_DIR$/styles/admin/default/device_orders.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/device_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/device_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/fee_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/fee_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/fees.twig" afterPath="$PROJECT_DIR$/styles/admin/default/fees.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/files/manage.php" afterPath="$PROJECT_DIR$/styles/admin/default/files/manage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/format_orders.twig" afterPath="$PROJECT_DIR$/styles/admin/default/format_orders.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/invoice_status.twig" afterPath="$PROJECT_DIR$/styles/admin/default/invoice_status.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/invoice_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/invoice_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/invoices.twig" afterPath="$PROJECT_DIR$/styles/admin/default/invoices.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/login/login.twig" afterPath="$PROJECT_DIR$/styles/admin/default/login/login.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/marks.twig" afterPath="$PROJECT_DIR$/styles/admin/default/marks.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/messages.twig" afterPath="$PROJECT_DIR$/styles/admin/default/messages.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/pending_orders.twig" afterPath="$PROJECT_DIR$/styles/admin/default/pending_orders.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/prepaid_card_orders.twig" afterPath="$PROJECT_DIR$/styles/admin/default/prepaid_card_orders.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/assets/js/xenon-widgets.js" afterPath="$PROJECT_DIR$/styles/admin/default/assets/js/xenon-widgets.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/devices.twig" afterPath="$PROJECT_DIR$/styles/admin/default/devices.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/prepaid_card_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/prepaid_card_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/prepaid_cards.twig" afterPath="$PROJECT_DIR$/styles/admin/default/prepaid_cards.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/products.twig" afterPath="$PROJECT_DIR$/styles/admin/default/products.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/reports.twig" afterPath="$PROJECT_DIR$/styles/admin/default/reports.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/service_orders.twig" afterPath="$PROJECT_DIR$/styles/admin/default/service_orders.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/service_providers.twig" afterPath="$PROJECT_DIR$/styles/admin/default/service_providers.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/services.twig" afterPath="$PROJECT_DIR$/styles/admin/default/services.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/sim_types.twig" afterPath="$PROJECT_DIR$/styles/admin/default/sim_types.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/sms_templates.twig" afterPath="$PROJECT_DIR$/styles/admin/default/sms_templates.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/tickets.twig" afterPath="$PROJECT_DIR$/styles/admin/default/tickets.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/transactions.twig" afterPath="$PROJECT_DIR$/styles/admin/default/transactions.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/usergroups.twig" afterPath="$PROJECT_DIR$/styles/admin/default/usergroups.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/warranties.twig" afterPath="$PROJECT_DIR$/styles/admin/default/warranties.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/admin/default/users_index.twig" afterPath="$PROJECT_DIR$/styles/admin/default/users_index.twig" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -106,73 +55,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin_lang.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin_lang.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/language/english/admin_lang.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.840678">
+              <caret line="466" column="34" selection-start-line="466" selection-start-column="34" selection-end-line="466" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sales.prepaid_cards" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/641ab654/76e38000-0f36-4b94-a71c-7dda9003d890/sales.prepaid_cards">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sales.prepaid_card_orders" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/641ab654/76e38000-0f36-4b94-a71c-7dda9003d890/sales.prepaid_card_orders">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Reports.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Reports.php">
+      <file leaf-file-name="orders.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/styles/admin/default/orders.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.653847">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Brightery_Controller.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/core/Brightery_Controller.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8846154">
-              <caret line="124" column="25" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="25" />
+            <state vertical-scroll-proportion="-8.615385">
+              <caret line="172" column="56" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="56" />
               <folding>
-                <marker date="1447633016943" expanded="true" signature="2165:2282" placeholder="..." />
+                <element signature="e#8101#8224#0#HTML" expanded="true" />
+                <element signature="e#8259#8737#0#HTML" expanded="true" />
+                <element signature="e#8260#8290#0#HTML" expanded="false" />
+                <element signature="e#8776#8788#0#HTML" expanded="true" />
+                <element signature="e#8830#8842#0#HTML" expanded="true" />
+                <element signature="e#8879#9096#0#HTML" expanded="true" />
+                <element signature="e#8986#9084#0#HTML" expanded="true" />
+                <element signature="e#9128#9140#0#HTML" expanded="true" />
+                <element signature="e#9180#9239#0#HTML" expanded="true" />
+                <element signature="e#9278#9290#0#HTML" expanded="true" />
+                <element signature="e#9345#9415#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/config/menu.php">
+      <file leaf-file-name="Orders.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Orders.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8355932">
-              <caret line="209" column="13" selection-start-line="209" selection-start-column="13" selection-end-line="209" selection-end-column="13" />
+            <state vertical-scroll-proportion="-20.26923">
+              <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -186,15 +105,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/controllers/admin/Service_providers.php" />
-        <option value="$PROJECT_DIR$/styles/admin/default/marks.twig" />
-        <option value="$PROJECT_DIR$/styles/admin/default/service_providers.twig" />
-        <option value="$PROJECT_DIR$/styles/admin/default/branches.twig" />
-        <option value="$PROJECT_DIR$/styles/admin/default/files/manage.php" />
-        <option value="$PROJECT_DIR$/styles/admin/default/warranties.twig" />
-        <option value="$PROJECT_DIR$/styles/admin/default/usergroups.twig" />
-        <option value="$PROJECT_DIR$/styles/admin/default/transactions.twig" />
-        <option value="$PROJECT_DIR$/styles/admin/default/tickets.twig" />
         <option value="$PROJECT_DIR$/styles/admin/default/sim_types.twig" />
         <option value="$PROJECT_DIR$/styles/admin/default/service_orders.twig" />
         <option value="$PROJECT_DIR$/styles/admin/default/reports.twig" />
@@ -214,29 +124,38 @@
         <option value="$PROJECT_DIR$/styles/admin/default/messages.twig" />
         <option value="$PROJECT_DIR$/styles/admin/default/pending_orders.twig" />
         <option value="$PROJECT_DIR$/styles/admin/default/prepaid_card_orders.twig" />
-        <option value="$PROJECT_DIR$/application/controllers/admin/Services.php" />
-        <option value="$PROJECT_DIR$/styles/admin/default/products.twig" />
-        <option value="$PROJECT_DIR$/styles/admin/default/services.twig" />
         <option value="$PROJECT_DIR$/application/libraries/Cdn.php" />
         <option value="$PROJECT_DIR$/styles/admin/default/_layouts/index.twig" />
-        <option value="$PROJECT_DIR$/application/controllers/admin/Prepaid_card_types.php" />
-        <option value="$PROJECT_DIR$/styles/admin/default/prepaid_card_types.twig" />
         <option value="$PROJECT_DIR$/application/controllers/admin/Credit_card_types.php" />
         <option value="$PROJECT_DIR$/styles/admin/default/sms_templates.twig" />
-        <option value="$PROJECT_DIR$/styles/admin/default/prepaid_cards.twig" />
         <option value="$PROJECT_DIR$/application/libraries/User.php" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/application/core/Brightery_Controller.php" />
         <option value="$PROJECT_DIR$/sparks/Twiggy/0.8.5/config/twiggy.php" />
-        <option value="$PROJECT_DIR$/DatabaseUpdates.sql" />
         <option value="$PROJECT_DIR$/application/libraries/Menu.php" />
         <option value="$PROJECT_DIR$/styles/admin/default/perpaid_card_order_details.twig" />
         <option value="$PROJECT_DIR$/styles/admin/default/prepaid_cards_index.twig" />
         <option value="$PROJECT_DIR$/application/controllers/admin/Prepaid_cards.php" />
         <option value="$PROJECT_DIR$/styles/admin/default/prepaid_card_order_details.twig" />
-        <option value="$PROJECT_DIR$/application/language/english/admin_lang.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin/Reports.php" />
         <option value="$PROJECT_DIR$/application/config/menu.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Logout.php" />
+        <option value="$PROJECT_DIR$/application/helpers/config_helper.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Devices.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Prepaid_card_types.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Products.php" />
+        <option value="$PROJECT_DIR$/styles/admin/default/prepaid_card_types.twig" />
+        <option value="$PROJECT_DIR$/styles/admin/default/devices.twig" />
+        <option value="$PROJECT_DIR$/styles/admin/default/products.twig" />
+        <option value="$PROJECT_DIR$/DatabaseUpdates.sql" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Services.php" />
+        <option value="$PROJECT_DIR$/styles/admin/default/services.twig" />
+        <option value="$PROJECT_DIR$/styles/admin/default/prepaid_cards.twig" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Orders.php" />
+        <option value="$PROJECT_DIR$/styles/admin/default/users_index.twig" />
+        <option value="$PROJECT_DIR$/styles/admin/default/orders.twig" />
+        <option value="$PROJECT_DIR$/styles/admin/default/assets/js/xenon-widgets.js" />
+        <option value="$PROJECT_DIR$/application/language/english/admin_lang.php" />
       </list>
     </option>
   </component>
@@ -280,7 +199,26 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Default">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Tests" />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -387,7 +325,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -414,80 +352,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="_layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sparks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Twiggy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="0.8.5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sparks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Twiggy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="0.8.5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sparks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Twiggy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="0.8.5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -613,48 +477,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches">
+        <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="DB Consoles" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyRootNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="76e38000-0f36-4b94-a71c-7dda9003d890" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="Data&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;Menu&#9;null&#9;null&#10;login&#9;null&#9;null&#10;sms_&#9;FILE&#9;file://C:/Muhammad/www/sales/styles/admin/default/sms_templates.twig&#10;_lang&#9;FILE&#9;file://C:/Muhammad/www/sales/application/language/english/admin_lang.php&#10;admin&#9;FILE&#9;file://C:/Muhammad/www/sales/application/language/english/admin_lang.php&#10;sales.&#9;FILE&#9;dbDummy://dbtable:/641ab654/76e38000-0f36-4b94-a71c-7dda9003d890/sales.settings&#10;Da&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;admin_la&#9;FILE&#9;file://C:/Muhammad/www/sales/application/language/arabic/admin_lang.php" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/gdrive" />
+    <property name="SearchEverywhereHistoryKey" value="Da&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;Data&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;Menu&#9;null&#9;null&#10;login&#9;null&#9;null&#10;sms_&#9;FILE&#9;file://C:/Muhammad/www/sales/styles/admin/default/sms_templates.twig&#10;_lang&#9;FILE&#9;file://C:/Muhammad/www/sales/application/language/english/admin_lang.php&#10;admin&#9;FILE&#9;file://C:/Muhammad/www/sales/application/language/english/admin_lang.php&#10;sales.&#9;FILE&#9;dbDummy://dbtable:/641ab654/76e38000-0f36-4b94-a71c-7dda9003d890/sales.settings&#10;admin_la&#9;FILE&#9;file://C:/Muhammad/www/sales/application/language/arabic/admin_lang.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../brighterycms" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Muhammad\www\sales\styles\admin\default\assets\images" />
-      <recent name="C:\Muhammad\www\sales\styles\admin\default" />
-      <recent name="C:\Muhammad\www\sales\cdn" />
-      <recent name="C:\Muhammad\www\sales\cdn\users" />
-      <recent name="C:\Muhammad\www\sales\cdn\service_providers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Muhammad\www\sales\styles\admin\default\assets\images" />
       <recent name="C:\Muhammad\www\sales\styles\admin\default\assets\css" />
       <recent name="C:\Muhammad\www\sales\styles\admin\default\assets\js" />
       <recent name="C:\Muhammad\www\sales\cdn\users" />
       <recent name="C:\Muhammad\www\sales\styles\admin\default" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Muhammad\www\sales\styles\admin\default" />
+      <recent name="C:\Muhammad\www\sales\application\controllers\admin" />
+      <recent name="C:\Muhammad\www\sales\styles\admin\default\assets\images" />
+      <recent name="C:\Muhammad\www\sales\cdn" />
+      <recent name="C:\Muhammad\www\sales\cdn\users" />
     </key>
   </component>
   <component name="RunManager">
@@ -714,33 +577,39 @@
       <option name="project" value="LOCAL" />
       <updated>1447545444247</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="sales updates">
+      <created>1447689582401</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1447689582401</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27086383" sideWeight="0.47981367" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1749634" sideWeight="0.52283466" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27086383" sideWeight="0.52018636" order="3" side_tool="true" content_ui="tabs" x="572" y="47" width="222" height="644" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17651403" sideWeight="0.47716534" order="3" side_tool="true" content_ui="tabs" x="572" y="47" width="222" height="644" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39440992" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913387" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -765,142 +634,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/invoices.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.576923">
-          <caret line="151" column="40" selection-start-line="151" selection-start-column="40" selection-end-line="151" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/messages.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.576923">
-          <caret line="110" column="40" selection-start-line="110" selection-start-column="40" selection-end-line="110" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/prepaid_card_orders.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.576923">
-          <caret line="94" column="40" selection-start-line="94" selection-start-column="40" selection-end-line="94" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/reports.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.576923">
-          <caret line="99" column="40" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/service_orders.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.576923">
-          <caret line="142" column="40" selection-start-line="142" selection-start-column="40" selection-end-line="142" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/sim_types.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.576923">
-          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/tickets.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.576923">
-          <caret line="101" column="40" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/transactions.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.576923">
-          <caret line="70" column="40" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/usergroups.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.576923">
-          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/warranties.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.576923">
-          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/service_providers.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9288136">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/device_types.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.98644066">
-          <caret line="49" column="40" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/fee_types.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9">
-          <caret line="49" column="40" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/pending_orders.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.2830508">
-          <caret line="101" column="40" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/641ab654/76e38000-0f36-4b94-a71c-7dda9003d890/sales.services">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/services.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0661017">
-          <caret line="86" column="64" selection-start-line="86" selection-start-column="64" selection-end-line="86" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cdn/prepaid_card_types/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/helpers/url_helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08813559">
-          <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/styles/admin/default/marks.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49661016">
           <caret line="60" column="26" selection-start-line="54" selection-start-column="20" selection-end-line="60" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -922,22 +660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Prepaid_card_types.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2220339">
-          <caret line="50" column="28" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/prepaid_card_types.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16440678">
-          <caret line="79" column="16" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -945,20 +667,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.3033898">
           <caret line="63" column="41" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/users_index.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18983051">
-          <caret line="138" column="100" selection-start-line="138" selection-start-column="80" selection-end-line="138" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/prepaid_cards.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.38305086">
-          <caret line="187" column="36" selection-start-line="187" selection-start-column="36" selection-end-line="187" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -997,7 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17288135">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1005,15 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.230769">
           <caret line="8" column="6" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Services.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537">
-          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="20" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1038,13 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/admin/default/products.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.725424">
-          <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin/Login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05762712">
@@ -1063,13 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.769231">
           <caret line="237" column="11" selection-start-line="237" selection-start-column="11" selection-end-line="237" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DatabaseUpdates.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94227505">
-          <caret line="297" column="0" selection-start-line="297" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1094,19 +779,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Prepaid_cards.php">
+    <entry file="file://$PROJECT_DIR$/application/config/menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6830509">
-          <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
-          <folding />
+        <state vertical-scroll-proportion="0.74067795">
+          <caret line="197" column="23" selection-start-line="197" selection-start-column="23" selection-end-line="197" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/language/english/admin_lang.php">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/76e38000-0f36-4b94-a71c-7dda9003d890/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/core/Brightery_Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4118644">
+          <caret line="124" column="25" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="25" />
+          <folding>
+            <marker date="1447633016943" expanded="true" signature="2165:2282" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Reports.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7779661">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.301695">
+          <caret line="184" column="9" selection-start-line="184" selection-start-column="9" selection-end-line="184" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/libraries/Session/Session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34745762">
+          <caret line="608" column="21" selection-start-line="608" selection-start-column="21" selection-end-line="608" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/helpers/cookie_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.094915256">
+          <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/helpers/config_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5762712">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Logout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46101695">
+          <caret line="16" column="11" selection-start-line="7" selection-start-column="34" selection-end-line="16" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../brighterycms/source/brightery/core/Input.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41864407">
+          <caret line="119" column="16" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1119,7 +861,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1132,32 +873,166 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Devices.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="47" column="70" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Prepaid_card_types.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.769231">
+          <caret line="38" column="81" selection-start-line="38" selection-start-column="81" selection-end-line="38" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/admin/default/devices.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8076923">
+          <caret line="128" column="68" selection-start-line="128" selection-start-column="68" selection-end-line="128" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/admin/default/prepaid_card_types.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.1153846">
+          <caret line="89" column="68" selection-start-line="89" selection-start-column="68" selection-end-line="89" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Database.sql">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Products.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.769231">
+          <caret line="61" column="71" selection-start-line="61" selection-start-column="71" selection-end-line="61" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DatabaseUpdates.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.333333">
+          <caret line="302" column="12" selection-start-line="302" selection-start-column="12" selection-end-line="302" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Services.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.769231">
+          <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/admin/default/services.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.076923">
+          <caret line="110" column="106" selection-start-line="110" selection-start-column="106" selection-end-line="110" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Prepaid_cards.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.692308">
+          <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/admin/default/prepaid_cards.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46815833">
+          <caret line="76" column="40" selection-start-line="76" selection-start-column="40" selection-end-line="76" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Reports.php">
+    <entry file="file://E:/Projects/Brightery/requirements of DrManager/xenon_1.3/xenon-files/html/ui-panels.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.653847">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state vertical-scroll-proportion="-5.509091">
+          <caret line="1341" column="22" selection-start-line="1314" selection-start-column="16" selection-end-line="1341" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Projects/Brightery/requirements of DrManager/xenon_1.3/xenon-files/html/ui-tabs-accordions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42572463">
+          <caret line="1567" column="18" selection-start-line="1503" selection-start-column="12" selection-end-line="1567" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/admin/default/products.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40963855">
+          <caret line="114" column="126" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="128" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/Brightery_Controller.php">
+    <entry file="file://E:/Projects/Brightery/requirements of DrManager/xenon_1.3/xenon-files/html/ui-other-elements.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="124" column="25" selection-start-line="124" selection-start-column="25" selection-end-line="124" selection-end-column="25" />
+        <state vertical-scroll-proportion="-5.509091">
+          <caret line="1340" column="62" selection-start-line="1340" selection-start-column="62" selection-end-line="1340" selection-end-column="257" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/admin/default/users_index.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8537005">
+          <caret line="196" column="20" selection-start-line="196" selection-start-column="20" selection-end-line="196" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Orders.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.26923">
+          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/admin/default/assets/js/xenon-widgets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.83441556">
+          <caret line="170" column="19" selection-start-line="170" selection-start-column="19" selection-end-line="170" selection-end-column="19" />
           <folding>
-            <marker date="1447633016943" expanded="true" signature="2165:2282" placeholder="..." />
+            <element signature="e#92#3697#0" expanded="true" />
+            <element signature="e#347#3693#0" expanded="true" />
+            <element signature="e#2605#3688#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/menu.php">
+    <entry file="file://$PROJECT_DIR$/styles/admin/default/orders.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8355932">
-          <caret line="209" column="13" selection-start-line="209" selection-start-column="13" selection-end-line="209" selection-end-column="13" />
+        <state vertical-scroll-proportion="-8.615385">
+          <caret line="172" column="56" selection-start-line="172" selection-start-column="29" selection-end-line="172" selection-end-column="56" />
+          <folding>
+            <element signature="e#8101#8224#0#HTML" expanded="true" />
+            <element signature="e#8259#8737#0#HTML" expanded="true" />
+            <element signature="e#8260#8290#0#HTML" expanded="false" />
+            <element signature="e#8776#8788#0#HTML" expanded="true" />
+            <element signature="e#8830#8842#0#HTML" expanded="true" />
+            <element signature="e#8879#9096#0#HTML" expanded="true" />
+            <element signature="e#8986#9084#0#HTML" expanded="true" />
+            <element signature="e#9128#9140#0#HTML" expanded="true" />
+            <element signature="e#9180#9239#0#HTML" expanded="true" />
+            <element signature="e#9278#9290#0#HTML" expanded="true" />
+            <element signature="e#9345#9415#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/english/admin_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.840678">
+          <caret line="466" column="34" selection-start-line="466" selection-start-column="34" selection-end-line="466" selection-end-column="34" />
           <folding />
         </state>
       </provider>

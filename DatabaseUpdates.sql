@@ -295,3 +295,11 @@ ALTER TABLE prepaid_card_orders DROP card_type_id;
 ALTER TABLE prepaid_card_orders DROP prepaid_card_id;
 
 
+ALTER TABLE prepaid_card_types CHANGE profit price DOUBLE DEFAULT '0';
+
+ALTER TABLE products CHANGE profit price DOUBLE NOT NULL;
+ALTER TABLE devices CHANGE profit price DOUBLE;
+
+ALTER TABLE services CHANGE net_profit cost DOUBLE;
+
+

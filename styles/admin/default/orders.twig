@@ -1,0 +1,240 @@
+{% extends _layout %}
+{% block content %}
+
+    <div class="page-title">
+        <div class="title-env">
+            <h1 class="title">{{ lang('menu_orders') }}</h1>
+
+            <p class="description"></p>
+        </div>
+        <div class="breadcrumb-env"></div>
+    </div>
+    <form role="form" class="form-horizontal" id="barcode_form" method="post">
+
+        <!-- Admin Table-->
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <div class="alert alert-danger error" style="display: none"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" for="barcode">{{ lang('products_barcode') }}</label>
+
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            {{ form_input('barcode', set_value('barcode', item.barcode), 'class="form-control" id="barcode" autocomplete="off"') }}
+                            <div class="input-group-addon">
+                                <a href="javascript:barcode_process();"><i class="fa-barcode"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <button class="btn btn-icon btn-red  popover-primary" data-toggle="popover" data-trigger="hover"
+                                data-placement="top" data-content="It's so simple to create a tooltop for my website!"
+                                data-original-title="Twitter Bootstrap Popover" onclick="reset(); return false;">
+                            <i class="fa-remove"></i>
+                        </button>
+                        <button class="btn btn-icon btn-warning" onclick="create_pending_order(); return false;">
+                            <i class="fa-list-ol"></i>
+                        </button>
+                    </div>
+
+
+                    <div class="col-sm-4">
+                        {{ form_dropdown('client_id', clients, set_value('client_id'), 'class="form-control select2" id="client_id"') }}
+                    </div>
+
+                    <div class="col-sm-1">
+                        <button class="btn btn-icon btn-success" onclick="new_client(); return false;">
+                            <i class="fa-plus"></i>
+                        </button>
+                    </div>
+
+                </div>
+                {#<div class="form-group-separator"></div>#}
+
+
+                <div class="form-group">
+                    <table class="table table-bordered table-striped" id="datatable">
+                        <thead>
+                        <tr>
+                            <th style="width: 50px;">{{ lang('orders_qty') }}</th>
+                            <th>{{ lang('orders_product') }}</th>
+                            <th>{{ lang('orders_barcode') }}</th>
+                            <th>{{ lang('orders_original_unit_price') }}</th>
+                            <th>{{ lang('orders_discount') }}</th>
+                            <th>{{ lang('orders_unit_price') }}</th>
+                            <th>{{ lang('orders_total_price') }}</th>
+                            <th>{{ lang('global_operations') }}</th>
+                        </tr>
+                        </thead>
+                        <tbody class="middle-align append">
+                        <tr>
+                            <td>{{ form_input('qty[]', set_value('qty[]'), 'class="form-control qty" style="width: 50px;" onchange="update_price(this)"') }}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button class="btn btn-icon btn-red" onclick="remove_product(this); return false;">
+                                    <i class="fa-remove"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row">
+
+
+            <div class="col-md-6">
+                <button class="btn btn-secondary btn-icon btn-icon-standalone btn-lg" style="font-size: 20px;">
+                    <i class="fa-print"></i>
+                    <span>{{ lang('orders_pay') }}</span>
+                </button>
+            </div>
+            <div class="col-md-6">
+                {#<div class=" panel panel-inverted">#}
+
+                <div class="row">
+                    <div class="col-md-12 mailbox-env">
+                        <h4 class="col-sm-12 control-label" style="position: absolute; right: 15px; top: -8px;"
+                            for="">{{ lang('orders_payment') }}</h4>
+
+                        <div class="tabs-vertical-env">
+
+                            <ul class="nav tabs-vertical ">
+                                <li class="active"><a href="#v-cash" data-toggle="tab">{{ lang('orders_cash') }}</a>
+                                </li>
+                                <li><a href="#v-network" data-toggle="tab">{{ lang('orders_network') }}</a></li>
+                            </ul>
+
+                            <div class="tab-content mail-compose">
+                                <div class="tab-pane active" id="v-cash">
+                                    <div class="form-group">
+                                        <label for="to">{{ lang('orders_total_price') }}:</label>
+                                        {{ form_input('orders_total_price', null, 'class="form-control" id="orders_total_price" disabled="disabled" tabindex="1"') }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="to">{{ lang('orders_paid') }}:</label>
+                                        {{ form_input('paid', set_value('paid'), 'class="form-control" id="paid" tabindex="1" autocomplete="off"') }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="to">{{ lang('orders_rest') }}:</label>
+                                        {{ form_input('rest', null, 'class="form-control" id="rest" disabled="disabled" tabindex="1"') }}
+                                    </div>
+
+                                    {#<div class="col-sm-4">#}
+                                    {#</div>#}
+                                </div>
+                                <div class="tab-pane" id="v-network">
+
+                                    <div class="col-sm-6">
+
+                                        <div class="xe-widget xe-counter-block" data-count=".num" data-from="0"
+                                             data-to="99.9" data-suffix="%" data-duration="2">
+                                            rrr
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6">
+
+                                        <div class="xe-widget xe-progress-counter xe-progress-counter-pink"
+                                             data-count=".num" data-from="0" data-to="99.9" data-suffix="%"
+                                             data-duration="2">
+                                            rrr
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        {#</div>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="clear: both"></div>
+    </form>
+    <script>
+        window.onbeforeunload = function() {
+            return "{{ lang('orders_leaving_page_warning') }}";
+        };
+        $('#barcode').focus();
+        $('#barcode').on('keypress', function (e) {
+            console.log(e);
+            if (e.keyCode == 13) {
+                barcode_process();
+            }
+        });
+
+        var append = function(){/*
+         <tr>
+         <td>{{ form_input('qty[]', set_value('qty[]'), 'class="form-control qty" style="width: 50px;" onchange="update_price(this)"') }}</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td>
+         <button class="btn btn-icon btn-red" onclick="remove_product(this); return false;">
+         <i class="fa-remove"></i>
+         </button>
+         </td>
+         </tr>
+         */}.toString();
+
+        function reset() {
+
+        }
+
+        function create_pending_order() {
+
+        }
+
+        function barcode_process() {
+            $.getJSON('{{ admin_url('orders/barcode_process') }}/' + $('#barcode').val(), function (res) {
+
+                $('.append').append(append);
+                console.log(append);
+            });
+        }
+
+        function new_client() {
+
+        }
+
+        function remove_product(that) {
+            $(that).parent().parent().remove();
+        }
+
+        function checkProductImage() {
+
+        }
+
+        $('#barcode_form').on('submit', function (e) {
+            e.preventDefault();
+
+            return false;
+        });
+    </script>
+    <style>
+        .error {
+            display: none;
+
+        }
+    </style>
+{% endblock %}

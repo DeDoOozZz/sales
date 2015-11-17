@@ -40,7 +40,7 @@ class Services extends Crud
         $this->form_validation->set_rules('required', lang('services_required'), "trim|required");
         $this->form_validation->set_rules('commision', lang('services_commision'), "trim|required");
         $this->form_validation->set_rules('price', lang('services_price'), "trim|required");
-        $this->form_validation->set_rules('net_profit', lang('services_net_profit'), "trim|required");
+        $this->form_validation->set_rules('cost', lang('services_cost'), "trim|required");
         $this->form_validation->set_rules('discount', lang('services_discount'), "trim|required");
         $this->form_validation->set_rules('desc', lang('services_desc'), "trim|required");
         $this->form_validation->set_rules('points', lang('services_points'), "trim|required");
@@ -59,7 +59,7 @@ class Services extends Crud
             'required' => $this->input->post('required'),
             'commision' => $this->input->post('commision'),
             'price' => $this->input->post('price'),
-            'net_profit' => $this->input->post('net_profit'),
+            'cost' => $this->input->post('cost'),
             'discount' => $this->input->post('discount'),
             'desc' => $this->input->post('desc'),
             'points' => $this->input->post('points'),

@@ -36,7 +36,7 @@ class Prepaid_card_types extends Crud
         $this->form_validation->set_rules('name_ar', lang('prepaid_card_types_name_ar'), "trim|required");
         $this->form_validation->set_rules('name_en', lang('prepaid_card_types_name_en'), "trim|required");
         $this->form_validation->set_rules('cost', lang('prepaid_card_types_cost'), "trim|required");
-        $this->form_validation->set_rules('profit', lang('prepaid_card_types_profit'), "trim|required");
+        $this->form_validation->set_rules('price', lang('prepaid_card_types_price'), "trim|required");
         $this->form_validation->set_rules('discount', lang('prepaid_card_types_discount'), "trim|required");
         $this->form_validation->set_rules('employee_commission', lang('prepaid_card_types_employee_commission'), "trim|required");
         $this->form_validation->set_rules('desc_ar', lang('prepaid_card_types_desc_ar'), "trim|required");
@@ -48,12 +48,12 @@ class Prepaid_card_types extends Crud
     {
         $vars = [
             'service_provider_id' => $this->input->post('service_provider_id'),
-            'country_id' => $this->input->post('country_id'),
+//            'country_id' => $this->input->post('country_id'),
             'card_type_id' => $this->input->post('card_type_id'),
             'name_ar' => $this->input->post('name_ar'),
             'name_en' => $this->input->post('name_en'),
             'cost' => $this->input->post('cost'),
-            'profit' => $this->input->post('profit'),
+            'price' => $this->input->post('price'),
             'discount' => $this->input->post('discount'),
             'employee_commission' => $this->input->post('employee_commission'),
             'desc_ar' => $this->input->post('desc_ar'),

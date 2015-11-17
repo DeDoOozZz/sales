@@ -45,7 +45,7 @@ class Devices extends Crud
         $this->form_validation->set_rules('partner', lang('devices_partner'), "trim|required");
         $this->form_validation->set_rules('cost', lang('devices_cost'), "trim|required");
         $this->form_validation->set_rules('commision', lang('devices_commision'), "trim|required");
-        $this->form_validation->set_rules('profit', lang('devices_profit'), "trim|required");
+        $this->form_validation->set_rules('price', lang('devices_price'), "trim|required");
         $this->form_validation->set_rules('discount', lang('devices_discount'), "trim|required");
         $this->form_validation->set_rules('desc', lang('devices_desc'), "trim|required");
         $this->form_validation->set_rules('points', lang('devices_points'), "trim|required");
@@ -68,7 +68,7 @@ class Devices extends Crud
             'partner' => $this->input->post('partner'),
             'cost' => $this->input->post('cost'),
             'commision' => $this->input->post('commision'),
-            'profit' => $this->input->post('profit'),
+            'price' => $this->input->post('price'),
             'discount' => $this->input->post('discount'),
             'desc' => $this->input->post('desc'),
             'points' => $this->input->post('points'),

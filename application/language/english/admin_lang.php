@@ -25,6 +25,7 @@ $lang['global_system_message'] = 'System Message';
 $lang['global_delete_confirmation_message'] = 'Are you sure need to delete this record ?';
 $lang['global_connection_error'] = 'Connection error, Trying to get response from the server withen 30 seconds.';
 $lang['global_error'] = 'Error';
+$lang['global_print'] = 'Print';
 //لايوجد استجابة من السرفر،  سوف يتم معاودة الإتصال بعد 30 ثانية
 
 
@@ -203,19 +204,6 @@ $lang['marks_name_ar'] = "Arabic Name";
 $lang['marks_image'] = "Image";
 $lang['marks_created_at'] = "Created at";
 
-// Invoices
-$lang['menu_invoices'] = "Invoices";
-$lang['invoices_invoice_id'] = "Invoice #";
-$lang['invoices_code'] = "Code";
-$lang['invoices_user_id'] = "User";
-$lang['invoices_client_id'] = "Client";
-$lang['invoices_cash_type_id'] = "Cash type";
-$lang['invoices_due'] = "Due";
-$lang['invoices_paid'] = "Paid";
-$lang['invoices_rest'] = "Rest";
-$lang['invoices_branch_id'] = "Branch";
-$lang['invoices_created_at'] = "Date";
-$lang['invoices_invoice_status_id'] = "Invoice status";
 
 // Messages
 $lang['menu_messages'] = "Messages";
@@ -234,6 +222,8 @@ $lang['pending_orders_user_id'] = "User";
 $lang['pending_orders_client_id'] = "Client";
 $lang['pending_orders_branch_id'] = "Branch";
 $lang['pending_orders_created_at'] = "Created at";
+$lang['pending_orders_save'] = "Save";
+$lang['pending_orders_load'] = "Load";
 
 // Prepaid Card Orders
 $lang['menu_prepaid_card_orders'] = "Prepaid card orders";
@@ -364,13 +354,6 @@ $lang['tickets_client_id'] = "Client";
 $lang['tickets_content'] = "Content";
 $lang['tickets_datetime'] = "Datetime";
 
-// Transactions
-$lang['menu_transactions'] = "Transactions";
-$lang['transactions_transaction_id'] = "Transaction";
-$lang['transactions_invoice_id'] = "Invoice";
-$lang['transactions_status'] = "Status";
-$lang['transactions_number'] = "Number";
-
 // Usergroups
 $lang['menu_usergroups'] = "Usergroups";
 $lang['usergroups_id'] = "Id";
@@ -458,10 +441,54 @@ $lang['orders_barcode'] = 'Barcode';
 $lang['orders_original_unit_price'] = 'Original Price';
 $lang['orders_discount'] = 'Discount';
 $lang['orders_unit_price'] = 'Unit Price';
-$lang['orders_total_price'] = 'Total Price';
+$lang['orders_total_price'] = 'Total';
 $lang['orders_cash'] = 'Cash';
 $lang['orders_network'] = 'Network';
 $lang['orders_pay'] = 'Pay';
 $lang['orders_paid'] = 'Paid';
 $lang['orders_rest'] = 'Rest';
+$lang['orders_reset'] = 'Reset';
 $lang['orders_leaving_page_warning'] = 'Data will be lost if you leave the page, are you sure?';
+$lang['orders_add'] = 'Add';
+$lang['orders_accepted_transaction'] = 'Accepted Transaction';
+$lang['orders_refused_transaction'] = 'Refused Transaction';
+$lang['orders_remove_all_products_and_starting_over'] = 'Remove all products and starting over.';
+$lang['orders_place_this_order_at_your_pending_list'] = 'Place this order at your pending list.';
+$lang['orders_pending_list'] = 'Pending list.';
+$lang['orders_invalid_barcode'] = 'Invalid barcode';
+$lang['orders_insufficient_payment'] = 'Insufficient payment';
+$lang['orders_invalid_quantity'] = 'Invalid quantity';
+$lang['orders_product_is_not_available'] = 'The product %s has %d items available only.';
+$lang['orders_check_payment'] = 'Invalid payment or less than due.';
+$lang['orders_there_is_no_products'] = 'There\'s no products.';
+
+
+
+// Invoices
+$lang['menu_invoices'] = "Invoices";
+$lang['invoices_invoice_id'] = "Invoice #";
+$lang['invoices_code'] = "Code";
+$lang['invoices_user_id'] = "User";
+$lang['invoices_client_id'] = "Client";
+$lang['invoices_cash_type_id'] = "Cash type";
+$lang['invoices_due'] = "Due";
+$lang['invoices_paid'] = "Paid";
+$lang['invoices_rest'] = "Rest";
+$lang['invoices_branch_id'] = "Branch";
+$lang['invoices_created_at'] = "Date";
+$lang['invoices_invoice_status_id'] = "Invoice status";
+
+
+$lang['menu_invoices'] = "Invoices";
+$lang['invoices_invoice_id'] = "Invoice";
+$lang['invoices_code'] = "Bill #";
+$lang['invoices_user_id'] = "Cashier";
+$lang['invoices_client_id'] = "Customer #";
+$lang['invoices_due'] = "Total due";
+$lang['invoices_paid'] = "Paid";
+$lang['invoices_rest'] = "Rest";
+$lang['invoices_branch_id'] = "Branch";
+$lang['invoices_invoice_status_id'] = "Status";
+$lang['invoices_created_at'] = "Date";
+$lang['invoices_date'] = "Date";
+$lang['invoices_time'] = "Time";

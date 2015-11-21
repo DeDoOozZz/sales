@@ -1,0 +1,46 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>body{font-size: 12px} @media print{ #invoice{visibility: hidden !important;} .x5j_invoice, .x5j_invoice *{ display: block !important; visibility: visible;} .x5j_invoice{position: fixed; top: 0;left:0;}}</style>
+<div style="width:300px;" class="x5j_invoice">
+    <div style="padding:10px;">
+<pre>
+<div style="width:300px;">{{ config('invoice_header') }}</div>
+---------------------------------------
+{{ lang('invoices_created_at') }}: {{ item.created_at }}
+{{ lang('invoices_invoice_id') }}: {{ item.invoice_id }}  {{ lang('invoices_code') }}: {{ item.code }}
+{{ lang('invoices_user_id') }}: {{ item.user }}
+{{ lang('invoices_branch_id') }}: {{ item.branch }}  {{ lang('invoices_client_id') }}: {{ item.client }}
+---------------------------------------
+{% if order %}
+Desc        Price  Qty     Amt
+---------------------------------------
+{% for oi in order %}
+{{ oi.product }}        {{ oi.price }}      {{ oi.qty }}    {{ io.qty * io.price }}
+{% endfor %}
+{% endif %}
+{% if device %}
+Desc        Price  Discount     Amt
+---------------------------------------
+{{ device.product }}        {{ device.price  }}      {{ device.discount }}    {{ device.price - device.discount }}
+{% endif %}
+{% if service %}
+Desc        Price  Discount     Amt
+---------------------------------------
+{{ service.product }}        {{ service.price  }}      {{ service.discount }}    {{ service.price - service.discount }}
+{% endif %}
+{% if maintenance %}
+Desc        Price
+---------------------------------------
+{{ lang('invoice_maintenance') }}        {{ maintenance.format_price  }}
+{% endif %}
+
+---------------------------------------
+{{ lang('invoices_due') }}: {{ item.due }}
+{{ lang('invoices_paid') }}: {{ item.paid }}
+{{ lang('invoices_rest') }}: {{ item.paid - item.due }}
+---------------------------------------
+<div style="width:300px;">{{ config('invoice_footer') }}</div>
+</pre>
+    </div>
+</div>

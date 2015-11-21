@@ -269,7 +269,7 @@ ALTER TABLE `users`
   CHANGE `name` `username` VARCHAR(120) NOT NULL;
 ALTER TABLE `usergroups`
   CHANGE `id` `usergroup_id` INT(11) NOT NULL AUTO_INCREMENT;
-RENAME TABLE  `status` TO `sales`.`user_status`;
+RENAME TABLE  `status` TO `user_status`;
 
 /**************************************************************/
 /* NEW UPDATES */
@@ -302,4 +302,96 @@ ALTER TABLE devices CHANGE profit price DOUBLE;
 
 ALTER TABLE services CHANGE net_profit cost DOUBLE;
 
+ALTER TABLE `products` CHANGE `profit` `price` DOUBLE NOT NULL;
+
+ALTER TABLE `sale_products`
+  DROP COLUMN `timestamp`;
+
+ALTER TABLE `services`
+  CHANGE `net_profit` `cost` DOUBLE NULL;
+
+ALTER TABLE `prepaid_card_types`
+  CHANGE `profit` `price` DOUBLE DEFAULT 0  NULL;
+
+  ALTER TABLE `devices`
+  CHANGE `profit` `price` DOUBLE NULL;
+
+ALTER TABLE `clients`
+  DROP COLUMN `lastlogin_host`,
+  CHANGE `name` `name` VARCHAR(200) CHARSET utf8 COLLATE utf8_general_ci NULL,
+  CHANGE `password` `password` VARCHAR(32) CHARSET utf8 COLLATE utf8_general_ci NULL  AFTER `email`,
+  CHANGE `status_id` `user_status_id` INT(1) DEFAULT 1  NULL,
+  CHANGE `lastlogin_date` `latest_activity` DATETIME NULL,
+  CHANGE `lastlogin_ip` `ip` VARCHAR(16) CHARSET utf8 COLLATE utf8_general_ci NULL,
+  CHANGE `points` `points` INT(11) DEFAULT 0  NULL  AFTER `ip`,
+  CHANGE `admin_notes` `admin_notes` TEXT CHARSET utf8 COLLATE utf8_general_ci NULL  AFTER `credit`,
+  CHANGE `timestamp` `created_at` DATETIME NULL  AFTER `admin_notes`;
+
+
+ALTER TABLE `sale_products`
+  DROP COLUMN `branch_id`,
+  DROP COLUMN `user_id`,
+  DROP COLUMN `discount`,
+  CHANGE `sale_product_id` `order_product_id` INT(11) NOT NULL AUTO_INCREMENT,
+  CHANGE `invoice_id` `order_id` INT(11) NOT NULL;
+
+RENAME TABLE `sale_products` TO `order_products`;
+
+CREATE TABLE `orders`(
+  `order_id` INT NOT NULL AUTO_INCREMENT,
+  `branch_id` INT,
+  `user_id` INT,
+  `client_id` INT,
+  `total` DOUBLE,
+  `cash` DOUBLE,
+  `created_at` DATETIME,
+  PRIMARY KEY (`order_id`)
+);
+
+ALTER TABLE `orders`
+  DROP COLUMN `total`,
+  CHANGE `cash` `paid` DOUBLE NULL;
+
+ALTER TABLE `invoices`
+  DROP COLUMN `rest`;
+
+ALTER TABLE `invoices`
+  DROP COLUMN `cash_type_id`;
+
+ALTER TABLE `order_products`
+  DROP COLUMN `created_at`;
+
+
+ALTER TABLE `users_commission`
+  DROP COLUMN `timestamp`,
+  CHANGE `id` `user_commission_id` INT(11) NOT NULL AUTO_INCREMENT,
+  CHANGE `time` `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP   NOT NULL,
+  CHANGE `firm_id` `branch_id` INT(11) NOT NULL;
+
+RENAME TABLE `users_commission` TO `user_commissions`;
+
+ALTER TABLE `orders`
+  ADD COLUMN `invoice_id` INT NULL AFTER `client_id`;
+
+
+ALTER TABLE `user_commissions`
+  DROP COLUMN `branch_id`,
+  CHANGE `created_at` `created_at` DATETIME NOT NULL  AFTER `user_id`;
+
+  ALTER TABLE `transactions`
+  CHANGE `transaction_id` `offline_transaction_id` INT(11) NOT NULL AUTO_INCREMENT,
+  CHANGE `invoice_id` `order_id` INT(11) NOT NULL,
+  CHANGE `status` `status` ENUM('accepted','refused') NOT NULL;
+
+RENAME TABLE `transactions` TO `offline_transactions`;
+
+
+ALTER TABLE `device_orders`
+  CHANGE `barcode` `device_id` INT NULL;
+
+ALTER TABLE `service_orders`
+  DROP COLUMN `timestamp`;
+
+ALTER TABLE `service_orders`
+  CHANGE `barcode` `service_id` INT NULL;
 

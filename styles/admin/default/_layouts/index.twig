@@ -50,10 +50,21 @@
             font-size: 12px;
         }
     </style>
-
+    <script>
+        loading = {
+            show: function() {
+                $('.page-loading-overlay').removeClass('loaded');
+            },
+            hide: function() {
+                $('.page-loading-overlay').addClass('loaded');
+            }
+        };
+    </script>
 </head>
 <body class="page-body">
-
+<div class="page-loading-overlay">
+    <div class="loader-2"></div>
+</div>
 
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">

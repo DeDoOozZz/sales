@@ -1,74 +1,65 @@
 <?php
 
-class Invoices extends Crud
+class Invoices extends Brightery_Controller
 {
     public $_table = 'invoices';
     public $_primary_key = 'invoice_id';
-    public $_index_fields = [
-        'invoice_id',
-    ];
 
     public function __construct()
     {
         parent::__construct();
-        $this->_index_fields[] = name();
     }
 
-    public function indexFixes()
+    public function popup($invoice_id = false, $type = 'small')
     {
-        $this->{$this->model}->custom_select = '*';
-//        $this->{$this->model}->joins = array(
-//            'business_types' => array('business_types.business_type_id = companies.business_type_id', 'inner')
-//        );
-        $this->{$this->model}->order_by[name()] = 'ASC';
+        if (!$invoice_id)
+            show_404();
 
-    }
+        $data['item'] = $this->db->select("invoices.*, users.full_name as user, clients.name as client, branches.name as branch, invoice_status." . name() . ' as status')
+            ->where('invoices.invoice_id', $invoice_id)
+            ->join('users', 'users.user_id = invoices.user_id', 'left')
+            ->join('clients', 'clients.client_id = invoices.client_id', 'left')
+            ->join('branches', 'branches.branch_id = invoices.branch_id', 'left')
+            ->join('invoice_status', 'invoice_status.invoice_status_id = invoices.invoice_status_id', 'left')
+            ->get('invoices')
+            ->row();
 
-    protected function onValidationEvent($op, $id = false)
-    {
-        $this->data['invoice_types'] = dd2menu('invoice_types', ['invoice_type_id' => name()]);
+        $data['order'] = $this->db->select('order_products.*, products.' . name() . ' as product')
+            ->where('orders.invoice_id', $invoice_id)
+            ->join('order_products', 'order_products.order_id = orders.order_id')
+            ->join('products', 'products.product_id = order_products.product_id')
+            ->get('orders')
+            ->result();
 
-        $config['upload_path'] = './cdn/' . $this->_table;
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $this->load->library('upload', $config);
-        $required = ($op == 'add') ? '1' : '1';
+        $data['device'] = $this->db->select('device_orders.*, devices.' . name() . ' as name, devices.price, devices.discount')
+            ->where('invoice_id', $invoice_id)
+            ->join('devices', 'devices.device_id = device_orders.device_id')
+            ->get('device_orders')
+            ->row();
 
-        $this->form_validation->set_rules('code', lang('invoices_code'), "trim|required");
-        $this->form_validation->set_rules('user_id', lang('invoices_user_id'), "trim|required");
-        $this->form_validation->set_rules('client_id', lang('invoices_client_id'), "trim|required");
-        $this->form_validation->set_rules('cash_type_id', lang('invoices_cash_type_id'), "trim|required");
-        $this->form_validation->set_rules('due', lang('invoices_due'), "trim|required");
-        $this->form_validation->set_rules('paid', lang('invoices_paid'), "trim|required");
-        $this->form_validation->set_rules('rest', lang('invoices_rest'), "trim|required");
-        $this->form_validation->set_rules('branch_id', lang('invoices_branch_id'), "trim|required");
-        $this->form_validation->set_rules('timestamp', lang('invoices_timestamp'), "trim|required");
-        $this->form_validation->set_rules('invoice_status_id', lang('invoices_invoice_status_id'), "trim|required");
-        $this->form_validation->set_rules('created_at', lang('invoices_mysql_timestamp'), "trim|required");
+        $data['service'] = $this->db->select('service_orders.*, services.desc as name, services.price, services.discount')
+            ->where('invoice_id', $invoice_id)
+            ->join('services', 'services.service_id = service_orders.service_id')
+            ->get('service_orders')
+            ->row();
 
-        $this->form_validation->set_rules('logo', lang('branches_logo'), "callback_file[logo," . $required . "]");
+        $data['maintenance'] = $this->db->select('*')
+            ->where('invoice_id', $invoice_id)
+            ->get('format_orders')
+            ->row();
 
-    }
+        $data['prepaid_card'] = $this->db->select('*')
+            ->where('invoice_id', $invoice_id)
+            ->join('prepaid_cards', 'prepaid_cards.prepaid_card_order_id = prepaid_card_orders.prepaid_card_order_id')
+            ->get('prepaid_card_orders')
+            ->result();
 
-    protected function onSuccessEvent($op, $id = false)
-    {
-        $vars = [
-            'code' => $this->input->post('code'),
-            'user_id' => $this->input->post('user_id'),
-            'client_id' => $this->input->post('client_id'),
-            'cash_type_id' => $this->input->post('cash_type_id'),
-            'due' => $this->input->post('due'),
-            'paid' => $this->input->post('paid'),
-            'rest' => $this->input->post('rest'),
-            'branch_id' => $this->input->post('branch_id'),
-            'timestamp' => $this->input->post('timestamp'),
-            'invoice_status_id' => $this->input->post('invoice_status_id'),
+        $types = [
+            'small' => 'invoices_small',
+            'a4' => 'invoices_a4',
+            'matrix' => 'invoices_matrix',
         ];
-        if ($op == 'add')
-            $vars['created_at'] = now();
 
-        foreach ($vars as $vark => $varv)
-            $this->{$this->model}->{$vark} = $varv;
-        $this->{$this->model}->save();
-
+        $this->twiggy->set($data)->template($types[$type])->display();
     }
 }

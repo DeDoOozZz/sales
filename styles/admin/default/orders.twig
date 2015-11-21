@@ -1,7 +1,7 @@
 {% extends _layout %}
 {% block content %}
 
-    <div class="page-title">
+    <div class="page-title hidden-print">
         <div class="title-env">
             <h1 class="title">{{ lang('menu_orders') }}</h1>
 
@@ -9,8 +9,8 @@
         </div>
         <div class="breadcrumb-env"></div>
     </div>
-    <form role="form" class="form-horizontal" id="barcode_form" method="post">
 
+    <form role="form" class="form-horizontal hidden-print" id="order_form" method="post">
         <!-- Admin Table-->
         <div class="panel panel-default">
             <div class="panel-body">
@@ -22,20 +22,28 @@
 
                     <div class="col-sm-4">
                         <div class="input-group">
-                            {{ form_input('barcode', set_value('barcode', item.barcode), 'class="form-control" id="barcode" autocomplete="off"') }}
+                            {{ form_input('barcode', set_value('barcode', item.barcode), 'class="form-control" id="barcode" autocomplete="off" onkeypress="cart.barcodeKeyPress(event)"') }}
                             <div class="input-group-addon">
-                                <a href="javascript:barcode_process();"><i class="fa-barcode"></i></a>
+                                <a href="javascript:cart.barcodeProcess();"><i class="fa-barcode"></i></a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-sm-2">
-                        <button class="btn btn-icon btn-red  popover-primary" data-toggle="popover" data-trigger="hover"
-                                data-placement="top" data-content="It's so simple to create a tooltop for my website!"
-                                data-original-title="Twitter Bootstrap Popover" onclick="reset(); return false;">
-                            <i class="fa-remove"></i>
+                        <button type="button" class="btn btn-icon btn-red  popover-primary" data-toggle="popover"
+                                data-trigger="hover"
+                                data-placement="top"
+                                data-content="{{ lang('orders_remove_all_products_and_starting_over') }}"
+                                data-original-title="{{ lang('orders_reset') }}">
+                            <i class="fa-remove" onclick="cart.startOver()"></i>
                         </button>
-                        <button class="btn btn-icon btn-warning" onclick="create_pending_order(); return false;">
+                        <button type="button" class="btn btn-icon btn-warning popover-primary create_pending_order"
+                                data-toggle="popover"
+                                data-trigger="hover"
+                                data-placement="top"
+                                data-content="{{ lang('orders_place_this_order_at_your_pending_list') }}"
+                                data-original-title="{{ lang('orders_pending_list') }}"
+                                onclick="cart.pendingOrders()">
                             <i class="fa-list-ol"></i>
                         </button>
                     </div>
@@ -46,7 +54,8 @@
                     </div>
 
                     <div class="col-sm-1">
-                        <button class="btn btn-icon btn-success" onclick="new_client(); return false;">
+                        <button type="button" class="btn btn-icon btn-success"
+                                onclick="cart.newClient(); return false;">
                             <i class="fa-plus"></i>
                         </button>
                     </div>
@@ -59,7 +68,7 @@
                     <table class="table table-bordered table-striped" id="datatable">
                         <thead>
                         <tr>
-                            <th style="width: 50px;">{{ lang('orders_qty') }}</th>
+                            <th style="width: 100px;text-align: justify">{{ lang('orders_qty') }}</th>
                             <th>{{ lang('orders_product') }}</th>
                             <th>{{ lang('orders_barcode') }}</th>
                             <th>{{ lang('orders_original_unit_price') }}</th>
@@ -70,37 +79,23 @@
                         </tr>
                         </thead>
                         <tbody class="middle-align append">
-                        <tr>
-                            <td>{{ form_input('qty[]', set_value('qty[]'), 'class="form-control qty" style="width: 50px;" onchange="update_price(this)"') }}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn btn-icon btn-red" onclick="remove_product(this); return false;">
-                                    <i class="fa-remove"></i>
-                                </button>
-                            </td>
-                        </tr>
 
                         </tbody>
                     </table>
                 </div>
-
-
             </div>
         </div>
+
         <div class="row">
 
-
             <div class="col-md-6">
-                <button class="btn btn-secondary btn-icon btn-icon-standalone btn-lg" style="font-size: 20px;">
+                <button type="button" class="btn btn-secondary btn-icon btn-icon-standalone btn-lg order"
+                        style="font-size: 20px;" onclick="cart.order(this)">
                     <i class="fa-print"></i>
                     <span>{{ lang('orders_pay') }}</span>
                 </button>
             </div>
+
             <div class="col-md-6">
                 {#<div class=" panel panel-inverted">#}
 
@@ -126,7 +121,7 @@
 
                                     <div class="form-group">
                                         <label for="to">{{ lang('orders_paid') }}:</label>
-                                        {{ form_input('paid', set_value('paid'), 'class="form-control" id="paid" tabindex="1" autocomplete="off"') }}
+                                        {{ form_input('paid', set_value('paid'), 'class="form-control" id="paid" tabindex="1" onchange="cart.updateRest(this)" onkeypress="cart.paidKeyPress()" autocomplete="off"') }}
                                     </div>
 
                                     <div class="form-group">
@@ -138,23 +133,24 @@
                                     {#</div>#}
                                 </div>
                                 <div class="tab-pane" id="v-network">
+                                    <div class="col-sm-6 accTransContainer">
 
-                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-success btn-icon"
+                                                onclick="cart.addAcceptedTransaction()">
+                                            <i class="fa-plus"></i>
+                                            <span>{{ lang('orders_accepted_transaction') }}</span>
+                                        </button>
 
-                                        <div class="xe-widget xe-counter-block" data-count=".num" data-from="0"
-                                             data-to="99.9" data-suffix="%" data-duration="2">
-                                            rrr
-                                        </div>
-
+                                        {{ form_input('accepted_transactions[]', set_value('accepted_transactions[]'), 'class="form-control accepted_transactions" tabindex="1" autocomplete="off"') }}
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-6 refTransContainer">
+                                        <button type="button" class="btn btn-pink btn-icon"
+                                                onclick="cart.addRefusedTransaction()">
+                                            <i class="fa-plus"></i>
+                                            <span>{{ lang('orders_refused_transaction') }}</span>
+                                        </button>
 
-                                        <div class="xe-widget xe-progress-counter xe-progress-counter-pink"
-                                             data-count=".num" data-from="0" data-to="99.9" data-suffix="%"
-                                             data-duration="2">
-                                            rrr
-                                        </div>
-
+                                        {{ form_input('refused_transactions[]', set_value('refused_transactions[]'), 'class="form-control refused_transactions" tabindex="1" autocomplete="off"') }}
                                     </div>
                                 </div>
                             </div>
@@ -165,76 +161,360 @@
                     </div>
                 </div>
             </div>
+
         </div>
         <div style="clear: both"></div>
+
+        <!-- Pending Orders -->
+        <div class="modal fade" id="pendingOrders">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">{{ lang('menu_pending_orders') }}</h4>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label" for="pending_order_name"
+                                   style="white-space: nowrap;">{{ lang('pending_orders_save') }}</label>
+
+                            <div class="col-sm-5">
+                                <div class="input-group">
+                                    <input name="pending_order_name" id="pending_order_name" class="form-control"/>
+
+                                    <div class="input-group-addon">
+                                        <a href="javascript:cart.saveToPendingList()"><i class="fa-save"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <label class="col-sm-1 control-label" for="load"
+                                   style="white-space: nowrap;">{{ lang('pending_orders_load') }}</label>
+
+                            <div class="col-sm-5">
+                                <div class="input-group">
+                                    <select name="pending_order_id" id="load" class="form-control"></select>
+
+                                    <div class="input-group-addon">
+                                        <a href="javascript:cart.loadPendingList()"><i class="fa-database"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white"
+                                data-dismiss="modal">{{ lang('global_close') }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </form>
     <script>
-        window.onbeforeunload = function() {
-            return "{{ lang('orders_leaving_page_warning') }}";
+        var cart = {
+            barcodeList: [],
+            startOver: function () {
+                errorHandler.reset();
+                cart.barcodeList = [];
+                $('.append').html('');
+                $('#orders_total_price').val('');
+                $('#paid').val('');
+                $('#rest').val('');
+                $('#client_id').val('');
+                $('.select2').trigger('update');
+                $('.order').removeAttr('disabled');
+            },
+            pendingOrders: function () {
+                $('#pendingOrders').modal('show', {backdrop: 'fade'});
+                document.getElementById('load').innerHTML = '';
+                $.getJSON('{{ admin_url('pending_orders/index') }}', function (response) {
+                    var select = document.getElementById('load');
+                    $(response.orders).
+                    each(function (idx, val) {
+                        option = document.createElement('option');
+                        option.innerHTML = val.name;
+                        option.value = val.id;
+                        select.appendChild(option);
+                    });
+                });
+            },
+            addRefusedTransaction: function () {
+                $('.refTransContainer').append(refused_transaction);
+            },
+            addAcceptedTransaction: function () {
+                $('.accTransContainer').append(accepted_transaction);
+            },
+            updatePrice: function (that) {
+                errorHandler.reset();
+                qty = $(that).val();
+                if (qty < 1 || isNaN(qty) || (qty % 1 !== 0))
+                    errorHandler.set("{{ lang('orders_invalid_quantity') }}");
+                $.getJSON('{{ admin_url('orders/check_availability') }}', {product_id: $(that).next().val(), qty: qty}, function(res){
+                    if(res.errors){
+                        errorHandler.set(res.errors);
+                    }
+                });
+                unit_price = $(that).parent().parent().find('.unit_price').html();
+                $(that).parent().parent().find('.product_total').html(qty * unit_price);
+                cart.updateTotalPrice();
+            },
+            updateTotalPrice: function () {
+                var total = 0;
+                $('.append .product_total').each(function (x) {
+                    total += parseFloat($(this).html());
+                });
+                $('#orders_total_price').val(total);
+            },
+            removeProduct: function (that) {
+                $(that).parent().parent().remove();
+                cart.updateTotalPrice();
+            },
+            newClient: function () {
+                $('#clients').modal('show', {backdrop: 'fade'});
+            },
+            barcodeKeyPress: function (e) {
+//                console.log(e);
+                if (e.charCode == 13) {
+                    cart.barcodeProcess();
+                }
+                return false;
+            },
+            barcodeProcess: function () {
+                loading.show();
+                errorHandler.reset();
+                code = $('#barcode').val();
+                $('#barcode').val('');
+                if (inArray(code, cart.barcodeList)) {
+                    qty_field = $($('.append tr')[cart.barcodeList.indexOf(code)]).find('.qty');
+                    qty = qty_field.val();
+                    qty++;
+                    qty_field.val(qty);
+                    cart.updatePrice(qty_field);
+                    loading.hide();
+                } else {
+                    $.getJSON('{{ admin_url('orders/barcode_process') }}/' + code, function (res) {
+                        if (res.error) {
+                            errorHandler.set(res.error);
+                            loading.hide();
+                            return;
+                        }
+                        $('.append').append(append.replace(/{([a-zA-Z_]+)}/g, function (v, e) {
+                            return res[e];
+                        }));
+                        cart.barcodeList.push(code);
+                        qty_field = $($('.append tr')[cart.barcodeList.indexOf(code)]).find('.qty');
+                        qty_field.attr('type', 'numeric');
+                        qty_field.focus().select();
+                        loading.hide();
+                    });
+                }
+            },
+            updateRest: function (that) {
+                errorHandler.reset();
+                if ((parseFloat($(that).val()) < parseFloat($('#orders_total_price').val())) && !$('.accepted_transactions').val()) {
+                    errorHandler.set("{{ lang('orders_insufficient_payment') }}");
+                    return;
+                }
+                $('#rest').val($(that).val() - $('#orders_total_price').val());
+
+            },
+            paidKeyPress: function (e) {
+                if (e.charCode == 13) {
+                    $('.order').click();
+                }
+                return false;
+            },
+            checkProductImage: function (that) {
+                console.log("checkProductImage");
+            },
+            qtyKeyPress: function (that, e) {
+                if (e.charCode == 13) {
+                    if (!$(that).val())
+                        $(that).val(1);
+                    cart.updatePrice(that);
+                    $('#barcode').focus();
+                }
+                return false;
+            },
+            order: function (that) {
+                loading.show();
+                errorHandler.reset();
+                $(that).attr('disabled', 'disabled');
+                $.post('{{ admin_url('orders/order') }}', $('#order_form').serialize(), function (response) {
+                    response = $.parseJSON(response);
+                    if (response.errors) {
+                        errorHandler.set(response.errors);
+                        $(that).removeAttr('disabled');
+                    }
+                    else {
+                        // TODO LOAD PRINTABLE INVOICE
+                        cart.loadInvoice(response.invoice_id);
+                    }
+                    loading.hide();
+                });
+            },
+            saveToPendingList: function () {
+                loading.show();
+                errorHandler.reset();
+                $.post('{{ admin_url('pending_orders/save') }}', $('#order_form').serialize(), function (res) {
+                    loading.hide();
+                    res = $.parseJSON(res);
+                    if (res.errors)
+                        errorHandler.set(res.errors);
+                    if (res.success) {
+                        $('#pendingOrders').modal('hide');
+                        cart.startOver();
+                    }
+                });
+            },
+            loadPendingList: function () {
+                loading.show();
+                $.getJSON('{{ admin_url('pending_orders/load_order_details') }}/' + $('#load').val(), function (res) {
+                    loading.hide();
+                    $('#pendingOrders').modal('hide');
+                    cart.startOver();
+                    $(res.products).each(function(i, x){
+                        $('.append').append(append.replace(/{([a-zA-Z_]+)}/g, function (v, e) {
+                            return x[e];
+                        }));
+                        cart.barcodeList.push(x.barcode);
+                        qty_field = $($('.append tr')[cart.barcodeList.indexOf(x)]).find('.qty');
+                        qty_field.attr('type', 'numeric');
+                    });
+                });
+            },
+            loadInvoice: function(invoice_id) {
+                loading.show();
+                $.get('{{ admin_url('invoices/popup') }}/' + invoice_id, function (res) {
+                    loading.hide();
+                    cart.startOver();
+                    $('#invoice').modal('show', {backdrop: 'fade'});
+                    $('#invoice .modal-body').html(res);
+                    {#<!--$('#invoice .modal-body iframe').attr('src', '{{ admin_url('invoices/popup') }}/' + invoice_id);-->#}
+                });
+            }
+        };
+        var errorHandler = {
+            set: function ($message) {
+                $('.error').html($message).show();
+                $(document).scrollTop(0);
+            },
+            reset: function () {
+                $('.error').html('').hide();
+            }
+        };
+        window.onbeforeunload = function () {
+            if (cart.barcodeList.length)
+                return "{{ lang('orders_leaving_page_warning') }}";
         };
         $('#barcode').focus();
-        $('#barcode').on('keypress', function (e) {
-            console.log(e);
-            if (e.keyCode == 13) {
-                barcode_process();
-            }
-        });
-
-        var append = function(){/*
-         <tr>
-         <td>{{ form_input('qty[]', set_value('qty[]'), 'class="form-control qty" style="width: 50px;" onchange="update_price(this)"') }}</td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td>
-         <button class="btn btn-icon btn-red" onclick="remove_product(this); return false;">
-         <i class="fa-remove"></i>
-         </button>
-         </td>
-         </tr>
-         */}.toString();
-
-        function reset() {
-
-        }
-
-        function create_pending_order() {
-
-        }
-
-        function barcode_process() {
-            $.getJSON('{{ admin_url('orders/barcode_process') }}/' + $('#barcode').val(), function (res) {
-
-                $('.append').append(append);
-                console.log(append);
-            });
-        }
-
-        function new_client() {
-
-        }
-
-        function remove_product(that) {
-            $(that).parent().parent().remove();
-        }
-
-        function checkProductImage() {
-
-        }
-
-        $('#barcode_form').on('submit', function (e) {
+        $('#order_form').on('submit', function (e) {
             e.preventDefault();
-
             return false;
         });
-    </script>
-    <style>
-        .error {
-            display: none;
-
+        function inArray(needle, haystack) {
+            var length = haystack.length;
+            for (var i = 0; i < length; i++) {
+                if (haystack[i] == needle) return true;
+            }
+            return false;
         }
-    </style>
+        var append = function () {/*
+         <tr>
+         <td>
+            {{ form_input('qty[]', 1, 'class="form-control qty" style="width: 50px;"  onchange="cart.updatePrice(this);" onkeypress="cart.qtyKeyPress(this,event)"') }}
+             <input type="hidden" name="product_id[]" value="{product_id}" />
+             </td>
+             <td><span onclick="cart.checkProductImage(this)"></span> {product}</td>
+             <td>{barcode}</td>
+             <td>{original_price}</td>
+             <td>{discount}</td>
+             <td class="unit_price">{unit_price}</td>
+             <td class="product_total">{unit_price}</td>
+             <td>
+             <button type="button" class="btn btn-icon btn-red" onclick="cart.removeProduct(this); return false;">
+             <i class="fa-remove"></i>
+             </button>
+             </td>
+             </tr>
+             */}.toString();
+        var accepted_transaction = function () {/*
+            {{ form_input('accepted_transactions[]', set_value('accepted_transactions[]'), 'class="form-control accepted_transactions" tabindex="1" autocomplete="off"') }}
+             */}.toString().slice(15, -3);
+        var refused_transaction = function () {/*
+            {{ form_input('accepted_transactions[]', set_value('accepted_transactions[]'), 'class="form-control accepted_transactions" tabindex="1" autocomplete="off"') }}
+             */}.toString().slice(15, -4);
+    </script>
+
+
+    <!-- Clients -->
+    <div class="modal fade hidden-print" id="clients">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">{{ lang('menu_clients') }}</h4>
+                </div>
+
+                <div class="modal-body">
+
+                    {#<div class="form-group">#}
+                        {#<label class="col-sm-1 control-label" for="pending_order_name"#}
+                               {#style="white-space: nowrap;">{{ lang('clients_name') }}</label>#}
+
+                        {#<div class="col-sm-5">#}
+                            {#<div class="input-group">#}
+                                {#<input name="pending_order_name" id="pending_order_name" class="form-control"/>#}
+
+                                {#<div class="input-group-addon">#}
+                                    {#<a href="javascript:cart.saveToPendingList()"><i class="fa-save"></i></a>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+
+
+                    {#</div>#}
+                    <div style="clear: both"></div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white"
+                            data-dismiss="modal">{{ lang('global_close') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invoice -->
+    <div class="modal fade" id="invoice">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">{{ lang('menu_invoices') }}</h4>
+                </div>
+
+                <div class="modal-body">
+                {#<iframe style="width: 350px; height: 300px; scroll: horizontal; "></iframe>#}
+                    <div style="clear: both"></div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success"
+                            data-dismiss="modal" onclick="print()">{{ lang('global_print') }}</button>
+                    <button type="button" class="btn btn-white"
+                            data-dismiss="modal">{{ lang('global_close') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

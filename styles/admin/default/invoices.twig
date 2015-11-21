@@ -16,29 +16,23 @@
             <h3 class="panel-title">{{ lang('menu_' ~ that._table) }}</h3>
         </div>
         <div class="panel-body">
-            {% if (validation_errors()) %}
-                <div class="alert alert-danger">
-                    {{ validation_errors() }}
-                </div>
-            {% endif %}
-            <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
 
+            <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="invoice_id">{{ lang('invoices_invoice_id') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('invoice_id', set_value('invoice_id', item.invoice_id), 'class="form-control" id="invoice_id"') }}
+                        {{ item.invoice_id }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="code">{{ lang('invoices_code') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('code', set_value('code', item.code), 'class="form-control" id="code"') }}
+                        {{ item.code }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
@@ -48,7 +42,7 @@
                     <label class="col-sm-2 control-label" for="user_id">{{ lang('invoices_user_id') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('user_id', set_value('user_id', item.user_id), 'class="form-control" id="user_id"') }}
+                        {{ item.user }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
@@ -58,17 +52,7 @@
                     <label class="col-sm-2 control-label" for="client_id">{{ lang('invoices_client_id') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('client_id', set_value('client_id', item.client_id), 'class="form-control" id="client_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="cash_type_id">{{ lang('invoices_cash_type_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('cash_type_id', set_value('cash_type_id', item.cash_type_id), 'class="form-control" id="cash_type_id"') }}
+                        {{ item.client }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
@@ -78,7 +62,7 @@
                     <label class="col-sm-2 control-label" for="due">{{ lang('invoices_due') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('due', set_value('due', item.due), 'class="form-control" id="due"') }}
+                        {{ item.due }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
@@ -88,17 +72,7 @@
                     <label class="col-sm-2 control-label" for="paid">{{ lang('invoices_paid') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('paid', set_value('paid', item.paid), 'class="form-control" id="paid"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="rest">{{ lang('invoices_rest') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('rest', set_value('rest', item.rest), 'class="form-control" id="rest"') }}
+                        {{ item.paid }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
@@ -108,52 +82,27 @@
                     <label class="col-sm-2 control-label" for="branch_id">{{ lang('invoices_branch_id') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('branch_id', set_value('branch_id', item.branch_id), 'class="form-control" id="branch_id"') }}
+                        {{ item.branch }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="timestamp">{{ lang('invoices_timestamp') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('timestamp', set_value('timestamp', item.timestamp), 'class="form-control" id="timestamp"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label"
                            for="invoice_status_id">{{ lang('invoices_invoice_status_id') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('invoice_status_id', set_value('invoice_status_id', item.invoice_status_id), 'class="form-control" id="invoice_status_id"') }}
+                        {{ item.status }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="mysql_timestamp">{{ lang('invoices_mysql_timestamp') }}</label>
+                    <label class="col-sm-2 control-label" for="created_at">{{ lang('invoices_created_at') }}</label>
 
                     <div class="col-sm-10">
-                        {{ form_input('mysql_timestamp', set_value('mysql_timestamp', item.mysql_timestamp), 'class="form-control" id="mysql_timestamp"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-10 control-label"></label>
-
-                    <div class="col-sm-2">
-                        <input type="submit" class="btn btn-secondary " name="submit"
-                               value="{{ lang('global_submit') }}">
-                        <a href="{{ admin_url(that._table ~ '/index') }} "
-                           class="btn btn-danger">{{ lang('global_cancel') }}</a>
+                        {{ item.created_at }}
                     </div>
                 </div>
 

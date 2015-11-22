@@ -11,7 +11,7 @@ class Prepaid_card_orders extends Crud
     public function __construct()
     {
         parent::__construct();
-        $this->_index_fields[] = name();
+//        $this->_index_fields[] = name();
     }
 
     public function indexFixes()
@@ -20,7 +20,7 @@ class Prepaid_card_orders extends Crud
 //        $this->{$this->model}->joins = array(
 //            'business_types' => array('business_types.business_type_id = companies.business_type_id', 'inner')
 //        );
-        $this->{$this->model}->order_by[name()] = 'ASC';
+//        $this->{$this->model}->order_by[name()] = 'ASC';
 
     }
 

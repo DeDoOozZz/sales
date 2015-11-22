@@ -19,7 +19,7 @@ class Order
         // GET ORDER TOTAL
         $total = $this->getOrderTotal($products);
         // CREATE INVOICE
-        $this->db->insert('invoices', [
+        $this->invoice_id = $this->createInvoice([
             'code' => $this->invoice_code(),
             'user_id' => $order['user_id'],
             'client_id' => $order['client_id'],
@@ -29,7 +29,7 @@ class Order
             'created_at' => now(),
             'invoice_status_id' => 1,
         ]);
-        $this->invoice_id = $this->db->insert_id();
+
         // CREATE ORDER
         $this->db->insert('orders', array_merge($order, ['invoice_id' => $this->invoice_id]));
         $this->order_id = $this->db->insert_id();
@@ -55,6 +55,40 @@ class Order
         $this->insertTransactions($transactions);
     }
 
+    /**
+     * CREATE DEVICE ORDER
+     */
+    public function deviceOrder($order) {
+
+        $total = $this->getDeviceTotal($order['device_id']);
+        // CREATE INVOICE
+        $this->invoice_id = $this->createInvoice([
+            'code' => $this->invoice_code(),
+            'user_id' => $order['user_id'],
+            'client_id' => $order['client_id'],
+            'due' => $total->price - $total->discount,
+            'paid' => $order['paid'],
+            'branch_id' => $order['branch_id'],
+            'created_at' => now(),
+            'invoice_status_id' => 1,
+        ]);
+
+        $order['invoice_id'] = $this->invoice_id;
+        $this->db->insert('device_orders', $order);
+
+
+    }
+    public function getDeviceTotal($device_id) {
+        return $this->db->where('device_id', $device_id)->get('devices')->row();
+    }
+    /**
+     * CREATE INVOICE
+     */
+    public function createInvoice($invoice) {
+        $this->db->insert('invoices', $invoice);
+        $this->invoice_id = $this->db->insert_id();
+        return $this->invoice_id;
+    }
     /**
      * REVERT ORDER PRODUCTS
      */

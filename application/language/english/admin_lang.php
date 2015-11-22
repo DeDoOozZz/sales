@@ -20,6 +20,8 @@ $lang['global_you_dont_have_permission'] = 'You don\'t have permission to prefor
 $lang['global_yes'] = 'Yes';
 $lang['global_no'] = 'No';
 $lang['global_cancel'] = 'Cancel';
+$lang['global_next'] = 'Next';
+$lang['global_previous'] = 'Previous';
 $lang['global_close'] = 'Close';
 $lang['global_system_message'] = 'System Message';
 $lang['global_delete_confirmation_message'] = 'Are you sure need to delete this record ?';
@@ -123,12 +125,14 @@ $lang['menu_device_orders'] = "Device orders";
 $lang['device_orders_serial'] = "Serial";
 $lang['device_orders_barcode'] = "Barcode";
 $lang['device_orders_mobile'] = "Mobile";
-$lang['device_orders_social_id'] = "Social";
+$lang['device_orders_social_id'] = "Social ID";
 $lang['device_orders_invoice_id'] = "Invoice";
 $lang['device_orders_client_id'] = "Client";
+$lang['device_orders_personal_info'] = "Personal Information";
 $lang['device_orders_branch_id'] = "Branch";
 $lang['device_orders_status'] = "Status";
 $lang['device_orders_created_at'] = "Created at";
+$lang['device_orders_payment'] = "Payment";
 
 // Device Types
 $lang['menu_device_types'] = "Device types";

@@ -20,7 +20,7 @@ class Service_orders extends Crud
 //        $this->{$this->model}->joins = array(
 //            'business_types' => array('business_types.business_type_id = companies.business_type_id', 'inner')
 //        );
-        $this->{$this->model}->order_by[name()] = 'ASC';
+//        $this->{$this->model}->order_by[name()] = 'ASC';
 
     }
 

@@ -23,18 +23,6 @@
             {% endif %}
             <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
 
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="prepaid_card_order_id">{{ lang('prepaid_card_orders_prepaid_card_order_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('prepaid_card_order_id', set_value('prepaid_card_order_id', item.prepaid_card_order_id), 'class="form-control" id="prepaid_card_order_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
                 <div class="form-group">
                     <label class="col-sm-2 control-label"
                            for="card_type_id">{{ lang('prepaid_card_orders_card_type_id') }}</label>
@@ -49,7 +37,6 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label"
                            for="prepaid_card_id">{{ lang('prepaid_card_orders_prepaid_card_id') }}</label>
-
                     <div class="col-sm-10">
                         {{ form_input('prepaid_card_id', set_value('prepaid_card_id', item.prepaid_card_id), 'class="form-control" id="prepaid_card_id"') }}
                     </div>
@@ -60,7 +47,6 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label"
                            for="total_cards">{{ lang('prepaid_card_orders_total_cards') }}</label>
-
                     <div class="col-sm-10">
                         {{ form_input('total_cards', set_value('total_cards', item.total_cards), 'class="form-control" id="total_cards"') }}
                     </div>
@@ -68,25 +54,9 @@
                 <div class="form-group-separator"></div>
 
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="date">{{ lang('prepaid_card_orders_date') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('date', set_value('date', item.date), 'class="form-control" id="date"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
 
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="invoice_id">{{ lang('prepaid_card_orders_invoice_id') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('invoice_id', set_value('invoice_id', item.invoice_id), 'class="form-control" id="invoice_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
 
 
                 <div class="form-group">

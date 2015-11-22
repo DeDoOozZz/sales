@@ -17,26 +17,26 @@ $config['backend'] = [
                 'url' => 'branches',
                 'permission' => 'branches',
             ],
-            [
-                'title' => 'messages',
-                'url' => 'messages',
-                'permission' => 'messages',
-            ],
-            [
-                'title' => 'departments',
-                'url' => 'departments',
-                'permission' => 'departments',
-            ],
+//            [
+//                'title' => 'messages',
+//                'url' => 'messages',
+//                'permission' => 'messages',
+//            ],
+//            [
+//                'title' => 'departments',
+//                'url' => 'departments',
+//                'permission' => 'departments',
+//            ],
             [
                 'title' => 'sms_templates',
                 'url' => 'sms_templates',
                 'permission' => 'sms_templates',
             ],
-            [
-                'title' => 'credit_card_types',
-                'url' => 'credit_card_types',
-                'permission' => 'credit_card_types',
-            ]
+//            [
+//                'title' => 'credit_card_types',
+//                'url' => 'credit_card_types',
+//                'permission' => 'credit_card_types',
+//            ]
         ]
     ],
     [
@@ -207,11 +207,11 @@ $config['backend'] = [
                 'url' => 'device_orders',
                 'permission' => 'device_orders',
             ],
-            [
-                'title' => 'service_orders',
-                'url' => 'service_orders',
-                'permission' => 'service_orders',
-            ],
+//            [
+//                'title' => 'service_orders',
+//                'url' => 'service_orders',
+//                'permission' => 'service_orders',
+//            ],
             [
                 'title' => 'prepaid_card_orders',
                 'url' => 'prepaid_card_orders',

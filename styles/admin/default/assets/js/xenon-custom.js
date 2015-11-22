@@ -631,7 +631,7 @@ var public_vars = public_vars || {};
 							opts['messages'][name] = {};
 						}
 
-						if($.inArray(rule, ['required', 'url', 'email', 'number', 'date', 'creditcard']) != -1)
+						if($.inArray(rule, ['required', 'url', 'email', 'number', 'date', 'creditcard', 'barcode']) != -1)
 						{
 							opts['rules'][name][rule] = true;
 

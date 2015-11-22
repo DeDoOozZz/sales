@@ -21,123 +21,228 @@
                     {{ validation_errors() }}
                 </div>
             {% endif %}
-            <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
 
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="device_order_id">{{ lang('device_orders_device_order_id') }}</label>
+            <form role="forl" method="post" id="rootwizard" class="form-wizard validate" enctype="multipart/form-data"
+                  novalidate>
+                <input type="hidden" name="device_id" value="" class="device_id" />
 
-                    <div class="col-sm-10">
-                        {{ form_input('device_order_id', set_value('device_order_id', item.device_order_id), 'class="form-control" id="device_order_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
+                <ul class="tabs">
+                    <li class="active">
+                        <a href="#fwv-1" data-toggle="tab">
+                            {{ lang('device_orders_barcode') }}
+                            <span>1</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#fwv-2" data-toggle="tab">
+                            {{ lang('device_orders_serial') }}
+                            <span>2</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#fwv-3" data-toggle="tab">
+                            {{ lang('device_orders_client_id') }}
+                            <span>3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#fwv-4" data-toggle="tab">
+                            {{ lang('device_orders_personal_info') }}
+                            <span>4</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#fwv-5" data-toggle="tab">
+                            {{ lang('device_orders_payment') }}
+                            <span>5</span>
+                        </a>
+                    </li>
+                </ul>
 
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="serial">{{ lang('device_orders_serial') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('serial', set_value('serial', item.serial), 'class="form-control" id="serial"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="barcode">{{ lang('device_orders_barcode') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('barcode', set_value('barcode', item.barcode), 'class="form-control" id="barcode"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="mobile">{{ lang('device_orders_mobile') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('mobile', set_value('mobile', item.mobile), 'class="form-control" id="mobile"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="social_id">{{ lang('device_orders_social_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('social_id', set_value('social_id', item.social_id), 'class="form-control" id="social_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="invoice_id">{{ lang('device_orders_invoice_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('invoice_id', set_value('invoice_id', item.invoice_id), 'class="form-control" id="invoice_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="client_id">{{ lang('device_orders_client_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('client_id', set_value('client_id', item.client_id), 'class="form-control" id="client_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="branch_id">{{ lang('device_orders_branch_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('branch_id', set_value('branch_id', item.branch_id), 'class="form-control" id="branch_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="status">{{ lang('device_orders_status') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('status', set_value('status', item.status), 'class="form-control" id="status"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="timestamp">{{ lang('device_orders_timestamp') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('timestamp', set_value('timestamp', item.timestamp), 'class="form-control" id="timestamp"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-10 control-label"></label>
-
-                    <div class="col-sm-2">
-                        <input type="submit" class="btn btn-secondary " name="submit"
-                               value="{{ lang('global_submit') }}">
-                        <a href="{{ admin_url(that._table ~ '/index') }} "
-                           class="btn btn-danger">{{ lang('global_cancel') }}</a>
-                    </div>
+                <div class="progress-indicator">
+                    <span></span>
                 </div>
 
+                <div class="tab-content no-margin">
+                    <!-- Barcode -->
+                    <div class="tab-pane with-bg active" id="fwv-1">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label"
+                                           for="barcode">{{ lang('device_orders_barcode') }}</label>
+                                    {{ form_input('barcode', set_value('barcode', item.barcode), 'class="form-control" id="barcode" data-validate="required,barcode"') }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Serial -->
+                    <div class="tab-pane with-bg" id="fwv-2">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="street">{{ lang('device_orders_serial') }}</label>
+                                    {{ form_input('serial', set_value('serial', item.serial), 'class="form-control" id="serial" data-validate="required"') }}
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- Client -->
+                    <div class="tab-pane with-bg" id="fwv-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"
+                                           for="client_id">{{ lang('device_orders_client_id') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_dropdown('client_id', clients, set_value('client_id', item.client_id), 'class="form-control" id="client_id" data-validate="required"') }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"
+                                           for="mobile">{{ lang('device_orders_mobile') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_input('mobile', set_value('mobile', item.mobile), 'class="form-control" id="mobile" data-validate="required"') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Personal Info -->
+                    <div class="tab-pane with-bg" id="fwv-4">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"
+                                           for="social_id">{{ lang('device_orders_social_id') }}</label>
+
+                                    <div class="col-sm-10">
+                                        {{ form_upload('social_id', set_value('social_id', item.social_id), 'class="form-control" id="social_id" data-validate="required" accept="image/*"') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Payment -->
+                    <div class="tab-pane with-bg" id="fwv-5">
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="to">{{ lang('orders_total_price') }}:</label>
+                                {{ form_input('orders_total_price', null, 'class="form-control" id="orders_total_price" disabled="disabled" tabindex="1"') }}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="to">{{ lang('orders_paid') }}:</label>
+                                {{ form_input('paid', set_value('paid'), 'class="form-control" id="paid" tabindex="1" onchange="cart.updateRest(this)" onkeypress="cart.paidKeyPress()" autocomplete="off"') }}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="to">{{ lang('orders_rest') }}:</label>
+                                {{ form_input('rest', null, 'class="form-control" id="rest" disabled="disabled" tabindex="1"') }}
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-sm-9">
+                            </div>
+
+                            <div class="col-sm-3">
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">{{ lang('orders_pay') }}</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <ul class="pager wizard">
+                        <li class="previous">
+                            <a href="#"><i class="entypo-left-open"></i> {{ lang('global_previous') }}</a>
+                        </li>
+
+                        <li class="next">
+                            <a href="#">{{ lang('global_next') }} <i class="entypo-right-open"></i></a>
+                        </li>
+                    </ul>
+
+                </div>
             </form>
+
         </div>
     </div>
+
+
+
+    <script src="{{ constant('STYLE_JS') }}/jquery-validate/jquery.validate.min.js"></script>
+    <script src="{{ constant('STYLE_JS') }}/inputmask/jquery.inputmask.bundle.js"></script>
+    <script src="{{ constant('STYLE_JS') }}/formwizard/jquery.bootstrap.wizard.min.js"></script>
+    <script src="{{ constant('STYLE_JS') }}/datepicker/bootstrap-datepicker.js"></script>
+    <script src="{{ constant('STYLE_JS') }}/multiselect/js/jquery.multi-select.js"></script>
+    <script src="{{ constant('STYLE_JS') }}/jquery-ui/jquery-ui.min.js"></script>
+    <script src="{{ constant('STYLE_JS') }}/selectboxit/jquery.selectBoxIt.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $('#client_id').change(function () {
+                $.get('{{ admin_url('device_orders/get_client_phone') }}', {client_id: $('#client_id').val()}, function (res) {
+                    console.log(res);
+                    $('#mobile').val(res.toString());
+                });
+            });
+            $('#barcode').change(function () {
+                $.getJSON('{{ admin_url('device_orders/get_device') }}', {barcode: $('#barcode').val()}, function (res) {
+                    $('#mobile').val(res);
+                    $('#orders_total_price').val(res.price - res.discount);
+                    $('.device_id').val(res.device_id);
+                });
+            });
+
+            $('#paid').change(function () {
+                $('#rest').val($('#paid').val() - $('#orders_total_price').val());
+            });
+
+            $('input').attr('autocomplete', 'off');
+            $('#rootwizard').submit(function (e) {
+                e.preventDefault();
+                $('.next').click();
+                return false;
+            });
+
+        });
+
+        val = {result: false};
+        $.validator.addMethod("barcode", function (v) {
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '{{ admin_url('device_orders/get_device') }}',
+                data: {barcode: v},
+                success: function (res) {
+                    if (res.price == true)
+                        val.result = false;
+                    else
+                        val.result = true;
+                },
+                async: false
+            });
+            return val.result;
+        }, "{{ lang('orders_invalid_barcode') }}");
+
+
+    </script>
 {% endblock %}

@@ -14,6 +14,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">{{ lang('menu_' ~ that._table) }}</h3>
+            <p class="description">dddddd</p>
         </div>
         <div class="panel-body">
             {% if (validation_errors()) %}
@@ -25,149 +26,76 @@
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="save_data">{{ lang('format_orders_save_data') }}</label>
+                    <label class="col-sm-1 control-label" for="save_data">{{ lang('format_orders_save_data') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('save_data', set_value('save_data', item.save_data), 'class="form-control" id="save_data"') }}
+                    <div class="col-sm-3">
+                        {{ form_dropdown('save_data', ddboolean(), set_value('save_data', item.save_data), 'class="form-control" id="save_data"') }}
                     </div>
-                </div>
-                <div class="form-group-separator"></div>
 
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
+                    <label class="col-sm-1 control-label"
                            for="original_software">{{ lang('format_orders_original_software') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('original_software', set_value('original_software', item.original_software), 'class="form-control" id="original_software"') }}
+                    <div class="col-sm-3">
+                        {{ form_dropdown('original_software', ddboolean(), set_value('original_software', item.original_software), 'class="form-control" id="original_software"') }}
                     </div>
+
+                    <label class="col-sm-1 control-label" for="client_id">{{ lang('format_orders_client_id') }}</label>
+
+                    <div class="col-sm-3">
+                        {{ form_dropdown('client_id', clients, set_value('client_id', item.client_id), 'class="form-control" id="client_id"') }}
+                    </div>
+
                 </div>
                 <div class="form-group-separator"></div>
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="mobile">{{ lang('format_orders_mobile') }}</label>
 
-                    <div class="col-sm-10">
+                    <label class="col-sm-1 control-label" for="mobile">{{ lang('format_orders_mobile') }}</label>
+
+                    <div class="col-sm-5">
                         {{ form_input('mobile', set_value('mobile', item.mobile), 'class="form-control" id="mobile"') }}
                     </div>
-                </div>
-                <div class="form-group-separator"></div>
 
+                    <label class="col-sm-1 control-label" for="password">{{ lang('format_orders_password') }}</label>
 
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="mark_id">{{ lang('format_orders_mark_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('mark_id', set_value('mark_id', item.mark_id), 'class="form-control" id="mark_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="password">{{ lang('format_orders_password') }}</label>
-
-                    <div class="col-sm-10">
+                    <div class="col-sm-5">
                         {{ form_input('password', set_value('password', item.password), 'class="form-control" id="password"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
 
-
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="notes">{{ lang('format_orders_notes') }}</label>
+                    <label class="col-sm-1 control-label" for="notes">{{ lang('format_orders_notes') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('notes', set_value('notes', item.notes), 'class="form-control" id="notes"') }}
+                    <div class="col-sm-11">
+                        {{ form_textarea('notes', set_value('notes', item.notes), 'class="form-control" id="notes"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="status">{{ lang('format_orders_status') }}</label>
 
-                    <div class="col-sm-10">
-                        {{ form_input('status', set_value('status', item.status), 'class="form-control" id="status"') }}
+                    <label class="col-sm-1 control-label" for="mobile">{{ lang('orders_total_price') }}</label>
+
+                    <div class="col-sm-3">
+                        {{ form_input('orders_total_price', config('format_price'), 'class="form-control" id="orders_total_price" disabled="disabled" tabindex="1"') }}
+                    </div>
+
+                    <label class="col-sm-1 control-label" for="password">{{ lang('orders_paid') }}</label>
+
+                    <div class="col-sm-3">
+                        {{ form_input('paid', set_value('paid'), 'class="form-control" id="paid" tabindex="1" onchange="cart.updateRest(this)" onkeypress="cart.paidKeyPress()" autocomplete="off"') }}
+                    </div>
+
+                    <label class="col-sm-1 control-label" for="password">{{ lang('orders_rest') }}</label>
+
+                    <div class="col-sm-3">
+                        {{ form_input('rest', null, 'class="form-control" id="rest" disabled="disabled" tabindex="1"') }}
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="f_step">{{ lang('format_orders_f_step') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('f_step', set_value('f_step', item.f_step), 'class="form-control" id="f_step"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="s_step">{{ lang('format_orders_s_step') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('s_step', set_value('s_step', item.s_step), 'class="form-control" id="s_step"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="invoice_id">{{ lang('format_orders_invoice_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('invoice_id', set_value('invoice_id', item.invoice_id), 'class="form-control" id="invoice_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="format_price">{{ lang('format_orders_format_price') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('format_price', set_value('format_price', item.format_price), 'class="form-control" id="format_price"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="format_commission_first">{{ lang('format_orders_format_commission_first') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('format_commission_first', set_value('format_commission_first', item.format_commission_first), 'class="form-control" id="format_commission_first"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                           for="format_commission_second">{{ lang('format_orders_format_commission_second') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('format_commission_second', set_value('format_commission_second', item.format_commission_second), 'class="form-control" id="format_commission_second"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="branch_id">{{ lang('format_orders_branch_id') }}</label>
-
-                    <div class="col-sm-10">
-                        {{ form_input('branch_id', set_value('branch_id', item.branch_id), 'class="form-control" id="branch_id"') }}
-                    </div>
-                </div>
-                <div class="form-group-separator"></div>
-
 
                 <div class="form-group">
                     <label class="col-sm-10 control-label"></label>
@@ -181,6 +109,17 @@
                 </div>
 
             </form>
+
         </div>
     </div>
+
+
+    <script>
+
+        $('#paid').change(function () {
+            $('#rest').val($('#paid').val() - $('#orders_total_price').val());
+        });
+
+
+    </script>
 {% endblock %}

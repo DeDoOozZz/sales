@@ -29,6 +29,17 @@ class Fees extends Crud
         $this->{$this->model}->order_by['year'] = 'ASC';
         $this->{$this->model}->order_by['month'] = 'ASC';
 
+        if($this->input->get('branch_id'))
+            $this->{$this->model}->where('branch_id', $this->input->get('branch_id'));
+
+        if($this->input->get('fee_type_id'))
+            $this->{$this->model}->where('fees.fee_type_id', $this->input->get('fee_type_id'));
+
+        if($this->input->get('month'))
+            $this->{$this->model}->where('month', $this->input->get('month'));
+
+        if($this->input->get('year'))
+            $this->{$this->model}->where('year', $this->input->get('year'));
 
     }
 

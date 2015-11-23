@@ -63,8 +63,8 @@ class Order
         $total = $this->getDeviceTotal($order['device_id']);
         // CREATE INVOICE
         $this->invoice_id = $this->createInvoice([
-            'code' => $this->invoice_code(),
-            'user_id' => $order['user_id'],
+            'code' => $this->order->invoice_code(),
+            'user_id' => $this->user->user_id,
             'client_id' => $order['client_id'],
             'due' => $total->price - $total->discount,
             'paid' => $order['paid'],
@@ -75,7 +75,6 @@ class Order
 
         $order['invoice_id'] = $this->invoice_id;
         $this->db->insert('device_orders', $order);
-
 
     }
     public function getDeviceTotal($device_id) {

@@ -395,3 +395,12 @@ ALTER TABLE `service_orders`
 ALTER TABLE `service_orders`
   CHANGE `barcode` `service_id` INT NULL;
 
+ALTER TABLE `format_orders`
+  DROP COLUMN `format_commission_first`,
+  DROP COLUMN `format_commission_second`,
+  CHANGE `mark_id` `client_id` INT(11) NOT NULL,
+  CHANGE `f_step` `f_step_user_id` INT(11) NOT NULL,
+  CHANGE `s_step` `s_step_user_id` INT(11) NOT NULL;
+
+ALTER TABLE `format_orders`
+  CHANGE `status` `status` ENUM('in_progress','fixed','delivered') NOT NULL;

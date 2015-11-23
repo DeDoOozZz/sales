@@ -22,6 +22,7 @@ class Login extends Brightery_Controller
             redirect(ADMIN . '/dashboard');
         }
     }
+
     // TODO: FOEGET MY PASSWORD AND TESTING
     public function forget_password()
     {
@@ -80,7 +81,7 @@ class Login extends Brightery_Controller
             $this->email->subject('Acerta password resetting');
             $this->email->message($message);
             $this->email->send();
-            redirect(ADMIN. '/login');
+            redirect(ADMIN . '/login');
         }
     }
 

@@ -4,9 +4,6 @@ class Devices extends Crud
 {
     public $_table = 'devices';
     public $_primary_key = 'device_id';
-    public $_index_fields = [
-//        'name',
-    ];
 
     public function __construct()
     {
@@ -17,9 +14,6 @@ class Devices extends Crud
     public function indexFixes()
     {
         $this->{$this->model}->custom_select = '*';
-//        $this->{$this->model}->joins = array(
-//            'business_types' => array('business_types.business_type_id = companies.business_type_id', 'inner')
-//        );
         $this->{$this->model}->order_by[name()] = 'ASC';
 
     }

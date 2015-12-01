@@ -18,6 +18,8 @@ class User
 
     function __get($attr)
     {
+        if(!isset($this->info->{$attr}))
+            return null;
         return $this->info->{$attr};
     }
 }

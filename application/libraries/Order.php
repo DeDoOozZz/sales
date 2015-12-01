@@ -107,7 +107,7 @@ class Order
         $productPrice = [];
         foreach ($products as $product_id => $qty) {
             $prod = $this->db->select("(price-discount) as amount, points, commission")->where('product_id', $product_id)->get('products')->row();
-            $totalDue += $prod->amount;
+            $totalDue += $prod->amount * $qty;
             $totalPoints += $prod->points;
             $totalCommissions += $prod->commission;
             $productPrice[$product_id] = $prod->amount;
@@ -225,7 +225,10 @@ class Order
      */
     public function invoice_code()
     {
-        return uniqid();
+        if($this->db->where('code', $code = rand(111111,99999999999))->get('invoices')->row())
+            return $this->invoice_code();
+
+        return $code;
     }
 
 }

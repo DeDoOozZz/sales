@@ -4,34 +4,24 @@ class Format_orders extends Brightery_Controller
 {
     public $_table = 'format_orders';
     public $_primary_key = 'format_order_id';
-//    public $_index_fields = [
-//        'name',
-//    ];
 
-    public function __construct()
+    public function index()
     {
-        parent::__construct();
-//        $this->_index_fields[] = name();
-    }
-
-    public function index() {
         $this->load->library('order');
         $this->load->library('form_validation');
         $this->data['clients'] = dd2menu('clients', ['client_id' => 'name']);
 
-        $this->form_validation->set_rules('save_data', lang('format_save_data'), "trim|required");
-        $this->form_validation->set_rules('original_software', lang('format_original_software'), "trim|required");
-        $this->form_validation->set_rules('mobile', lang('format_mobile'), "trim|required");
-        $this->form_validation->set_rules('client_id', lang('format_client_id'), "trim");
-        $this->form_validation->set_rules('password', lang('format_password'), "trim");
-        $this->form_validation->set_rules('notes', lang('format_notes'), "trim");
-        $this->form_validation->set_rules('paid', lang('orders_paid'), "trim|required");
+        $this->form_validation->set_rules('save_data', lang('format_orders_save_data'), "trim|required");
+        $this->form_validation->set_rules('original_software', lang('format_orders_original_software'), "trim|required");
+        $this->form_validation->set_rules('mobile', lang('format_orders_mobile'), "trim|required");
+        $this->form_validation->set_rules('client_id', lang('format_orders_client_id'), "trim");
+        $this->form_validation->set_rules('password', lang('format_orders_password'), "trim");
+        $this->form_validation->set_rules('notes', lang('format_orders_notes'), "trim");
+        $this->form_validation->set_rules('paid', lang('format_orders_paid'), "trim|required");
 
-        if($this->form_validation->run() == false) {
+        if ($this->form_validation->run() == false) {
             $this->twiggy->set($this->data)->template('format_orders')->display();
-        }
-        else
-        {
+        } else {
             $invoice_id = $this->order->createInvoice([
                 'code' => $this->invoice_code(),
                 'user_id' => $this->user->user_id,
@@ -64,13 +54,21 @@ class Format_orders extends Brightery_Controller
         }
     }
 
-    public function indexFixes()
+    public function step2()
     {
-        $this->{$this->model}->custom_select = '*';
-//        $this->{$this->model}->joins = array(
-//            'business_types' => array('business_types.business_type_id = companies.business_type_id', 'inner')
-//        );
-//        $this->{$this->model}->order_by[name()] = 'ASC';
+        $this->load->library('form_validation');
+//        $this->data['clients'] = dd2menu('clients', ['client_id' => 'name']);
+//        $this->form_validation->set_rules('save_data', lang('format_save_data'), "trim|required");
+//        if ($this->form_validation->run() == false) {
+            $this->twiggy->set($this->data)->template('format_orders')->display();
+//        } else {
+//
+//        }
+    }
+
+    public function step2_proccess($id = false) {
+        if ( ! $id)
+            show_404();
 
     }
 

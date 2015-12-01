@@ -24,11 +24,12 @@
                     <!-- Invoice Options Buttons -->
                     <div class="invoice-options hidden-print">
                         {#<a href="#" class="btn btn-block btn-gray btn-icon btn-icon-standalone btn-icon-standalone-right text-left">#}
-                            {#<i class="fa-envelope-o"></i>#}
-                            {#<span>Send</span>#}
+                        {#<i class="fa-envelope-o"></i>#}
+                        {#<span>Send</span>#}
                         {#</a>#}
 
-                        <a href="javascript:print()" class="btn btn-block btn-secondary btn-icon btn-icon-standalone btn-icon-standalone-right btn-single text-left">
+                        <a href="javascript:print()"
+                           class="btn btn-block btn-secondary btn-icon btn-icon-standalone btn-icon-standalone-right btn-single text-left">
                             <i class="fa-print"></i>
                             <span>{{ lang('global_print') }}</span>
                         </a>
@@ -38,13 +39,15 @@
                     <div class="invoice-logo">
 
                         <a href="#" class="logo">
-                            <img src="{{ constant('STYLE_IMAGES') }}/logo-white-bg.png" class="img-responsive" />
+                            <img src="{{ constant('STYLE_IMAGES') }}/logo-white-bg.png" class="img-responsive"/>
                         </a>
 
                         <ul class="list-unstyled">
                             <li class="upper">{{ lang('invoices_invoice_id') }} <strong>#{{ item.code }}</strong></li>
                             <li>{{ item.date }}</li>
                             <li>{{ lang('invoices_user_id') }} <strong>{{ item.user }}</strong></li>
+                            <li>{{ lang('invoices_created_at') }} <strong>{{ item.created_at }}</strong></li>
+
                             {#<li>Prishtin&euml;, Kosovo</li>#}
                         </ul>
 
@@ -60,25 +63,26 @@
                         <strong>{{ lang('invoices_client_id') }} {{ item.client }}</strong>
 
                         {#<ul class="list-unstyled">#}
-                            {#<li> </li>#}
-                            {#<li>Mr Nilson Otto </li>#}
-                            {#<li>FoodMaster Ltd</li>#}
+                        {#<li> </li>#}
+                        {#<li>Mr Nilson Otto </li>#}
+                        {#<li>FoodMaster Ltd</li>#}
                         {#</ul>#}
 
                         {#<ul class="list-unstyled">#}
-                            {#<li>1982 OOP </li>#}
-                            {#<li>Madrid, Spain </li>#}
-                            {#<li>+1 (151) 225-4183</li>#}
+                        {#<li>1982 OOP </li>#}
+                        {#<li>Madrid, Spain </li>#}
+                        {#<li>+1 (151) 225-4183</li>#}
                         {#</ul>#}
                     </div>
 
                     <div class="invoice-payment-info">
-                        <strong>Payment Details</strong>
+                        <strong>{{ lang('orders_transactions') }}</strong>
 
                         <ul class="list-unstyled">
-                            <li>V.A.T Reg #: <strong>542554(DEMO)78</strong></li>
-                            <li>Account Name: <strong>FoodMaster Ltd</strong> </li>
-                            <li>SWIFT code: <strong>45454DEMO545DEMO</strong></li>
+                            {% for offline_transaction in offline_transactions %}
+                                <li>{{ offline_transaction.number }}<strong>{{ offline_transaction.status }}</strong>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -88,55 +92,64 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr class="no-borders">
+                        <th class="text-center hidden-xs"><input type="checkbox" class="select_all"/></th>
                         <th class="text-center hidden-xs">#</th>
-                        <th width="60%" class="text-center">Product</th>
-                        <th class="text-center hidden-xs">Quantity</th>
-                        <th class="text-center">Price</th>
+                        <th width="60%" class="text-center">{{ lang('orders_product') }}</th>
+                        <th class="text-center">{{ lang('orders_qty') }}</th>
+                        <th class="text-center">{{ lang('invoices_price') }}</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    <tr>
-                        <td class="text-center hidden-xs">1</td>
-                        <td>On am we offices expense thought</td>
-                        <td class="text-center hidden-xs">1</td>
-                        <td class="text-right text-primary text-bold">$1,290</td>
-                    </tr>
+                    {% set i=1 %}
+                    {% for product in order %}
+                        <tr>
+                            <td class="text-center hidden-xs"><input type="checkbox" class="products"/></td>
+                            <td class="text-center hidden-xs">{{ ++i }}</td>
+                            <td>{{ product.product }}</td>
+                            <td class="text-center">{{ product.qty }}</td>
+                            <td class="text-right text-primary text-bold">{{ product.qty * product.price }}</td>
+                        </tr>
+                    {% endfor %}
 
-                    <tr>
-                        <td class="text-center hidden-xs">2</td>
-                        <td>Up do view time they shot</td>
-                        <td class="text-center hidden-xs">1</td>
-                        <td class="text-right text-primary text-bold">$400</td>
-                    </tr>
+                    {% if device %}
+                        <tr>
+                            <td class="text-center hidden-xs"><input type="checkbox" class="products"/></td>
+                            <td class="text-center hidden-xs">{{ ++i }}</td>
+                            <td>{{ device.product }}</td>
+                            <td class="text-center">1</td>
+                            <td class="text-right text-primary text-bold">{{ device.price - device.discount }}</td>
+                        </tr>
+                    {% endif %}
 
-                    <tr>
-                        <td class="text-center hidden-xs">3</td>
-                        <td>Way ham unwilling not breakfast</td>
-                        <td class="text-center hidden-xs">1</td>
-                        <td class="text-right text-primary text-bold">$550</td>
-                    </tr>
+                    {% if service %}
+                        <tr>
+                            <td class="text-center hidden-xs"><input type="checkbox" class="products"/></td>
+                            <td class="text-center hidden-xs">{{ ++i }}</td>
+                            <td>{{ service.product }}</td>
+                            <td class="text-center">1</td>
+                            <td class="text-right text-primary text-bold">{{ service.price - service.discount }}</td>
+                        </tr>
+                    {% endif %}
 
-                    <tr>
-                        <td class="text-center hidden-xs">4</td>
-                        <td>Songs to an blush woman be sorry</td>
-                        <td class="text-center hidden-xs">1</td>
-                        <td class="text-right text-primary text-bold">$4020</td>
-                    </tr>
-
-                    <tr>
-                        <td class="text-center hidden-xs">5</td>
-                        <td>Luckily offered article led lasting</td>
-                        <td class="text-center hidden-xs">1</td>
-                        <td class="text-right text-primary text-bold">$87</td>
-                    </tr>
-
-                    <tr>
-                        <td class="text-center hidden-xs">6</td>
-                        <td>Of as by belonging therefore suspicion</td>
-                        <td class="text-center hidden-xs">1</td>
-                        <td class="text-right text-primary text-bold">$140</td>
-                    </tr>
+                    {% if maintenance %}
+                        <tr>
+                            <td class="text-center hidden-xs"><input type="checkbox" class="products"/></td>
+                            <td class="text-center hidden-xs">{{ ++i }}</td>
+                            <td>{{ lang('invoice_maintenance') }}</td>
+                            <td class="text-center">1</td>
+                            <td class="text-right text-primary text-bold">{{ maintenance.format_price }}</td>
+                        </tr>
+                    {% endif %}
+                    {% for pc in prepaid_card %}
+                        <tr>
+                            <td class="text-center hidden-xs">x</td>
+                            <td class="text-center hidden-xs">{{ ++i }}</td>
+                            <td>Number: {{ pc.number }} <br />Serial: {{ pc.serial }}</td>
+                            <td class="text-center">1</td>
+                            <td class="text-right text-primary text-bold">-</td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
 
@@ -152,21 +165,21 @@
 									<strong>{{ item.paid }}</strong>
 								</span>
 
-                                <hr />
+                        <hr/>
 								<span>{{ lang('invoices_rest') }}:
 									<strong>{{ item.paid - item.due }}</strong>
 								</span>
                     </div>
 
-                    <div class="invoice-bill-info">
-                        <address>
-                            795 Park Ave, Suite 120<br />
-                            San Francisco, CA 94107<br />
-                            P: (234) 145-1810 <br />
-                            Full Name <br />
-                            <a href="#">first.last@email.com</a>
-                        </address>
-                    </div>
+                    {#<div class="invoice-bill-info">#}
+                    {#<address>#}
+                    {#795 Park Ave, Suite 120<br/>#}
+                    {#San Francisco, CA 94107<br/>#}
+                    {#P: (234) 145-1810 <br/>#}
+                    {#Full Name <br/>#}
+                    {#<a href="#">first.last@email.com</a>#}
+                    {#</address>#}
+                    {#</div>#}
 
                 </div>
 
@@ -190,12 +203,11 @@
 
 
 
-                    {{ lang('invoices_branch_id') }}
-                        {{ item.branch }}
-                    {{ lang('invoices_invoice_status_id') }}
-                        {{ item.status }}
-                   {{ lang('invoices_created_at') }}
-                        {{ item.created_at }}
+    {#{{ lang('invoices_branch_id') }}#}
+    {#{{ item.branch }}#}
+    {#{{ lang('invoices_invoice_status_id') }}#}
+    {#{{ item.status }}#}
+
 
 
 {% endblock %}

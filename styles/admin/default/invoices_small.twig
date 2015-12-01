@@ -22,12 +22,12 @@ Desc        Price  Qty     Amt
 {% if device %}
 Desc        Price  Discount     Amt
 ---------------------------------------
-{{ device.product }}        {{ device.price  }}      {{ device.discount }}    {{ device.price - device.discount }}
+{{ device.product }}        {{ device.price }}      {{ device.discount }}    {{ device.price - device.discount }}
 {% endif %}
 {% if service %}
 Desc        Price  Discount     Amt
 ---------------------------------------
-{{ service.product }}        {{ service.price  }}      {{ service.discount }}    {{ service.price - service.discount }}
+{{ service.product }}        {{ service.price }}      {{ service.discount }}    {{ service.price - service.discount }}
 {% endif %}
 {% if maintenance %}
 Desc        Price

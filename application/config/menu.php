@@ -221,17 +221,30 @@ $config['backend'] = [
                 'title' => 'format_orders',
                 'url' => 'format_orders',
                 'permission' => 'format_orders',
+                'sub' => [
+                    [
+                        'title' => 'format_orders',
+                        'url' => 'format_orders',
+                        'permission' => 'format_orders',
+                    ],
+                    [
+                        'title' => 'format_step2',
+                        'url' => 'format_orders/step2',
+                        'permission' => 'format_step2',
+                    ],
+
+                ]
             ],
             [
                 'title' => 'invoices',
                 'url' => 'invoices',
                 'permission' => 'invoices',
             ],
-            [
-                'title' => 'pending_orders',
-                'url' => 'pending_orders',
-                'permission' => 'pending_orders',
-            ],
+//            [
+//                'title' => 'pending_orders',
+//                'url' => 'pending_orders',
+//                'permission' => 'pending_orders',
+//            ],
             [
                 'title' => 'transactions',
                 'url' => 'transactions',

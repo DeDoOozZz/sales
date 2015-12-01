@@ -7,14 +7,18 @@
 
             <p class="description"></p>
         </div>
-        <div class="breadcrumb-env"></div>
+        <div class="breadcrumb-env">
+
+            <a href="{{ admin_url(that._table ~ '/step2') }}"
+               class="btn btn-danger">{{ lang('format_orders_archive') }}</a>
+        </div>
     </div>
 
     <!-- Admin Table-->
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">{{ lang('menu_' ~ that._table) }}</h3>
-            <p class="description">dddddd</p>
+
         </div>
         <div class="panel-body">
             {% if (validation_errors()) %}

@@ -1,0 +1,135 @@
+{% extends _layout %}
+{% block content %}
+
+    <div class="page-title">
+
+        <div class="title-env">
+            <h1 class="title">{{ lang('menu_' ~ that._table) }}</h1>
+
+            <p class="description"></p>
+        </div>
+
+        <div class="breadcrumb-env">
+
+            {#<ol class="breadcrumb bc-1" >#}
+            {#<li>#}
+            {#<a href="<?= site_url('admin/dashboard') ?>"><i class="fa-home"></i>Dashboard</a>#}
+            {#</li>#}
+            {#<li class="active">#}
+            {#<strong>Business Types</strong>#}
+            {#</li>#}
+            {#</ol>#}
+
+        </div>
+
+    </div>
+
+    <!-- Admin Table-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ lang('menu_' ~ that._table) }}</h3>
+
+            <div class="panel-options">
+                <a href="{{ admin_url(that._table ~ '/manage') }}" class="btn btn-secondary btn-sm"
+                   style="color:#fff">{{ lang('global_add_new_record') }}</a>
+                <a href="javascript:search()" class="btn  btn-sm btn-danger"
+                   style="color:#fff">{{ lang('global_search') }}</a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="search">
+                {% if (validation_errors()) %}
+                    <div class="alert alert-danger">
+                        {{ validation_errors() }}
+                    </div>
+                {% endif %}
+                <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label" for="code">{{ lang('invoices_code') }}</label>
+
+                        <div class="col-sm-11">
+                            {{ form_input('code', set_value('code'), 'class="form-control" id="code"') }}
+                        </div>
+                    </div>
+                    <div class="form-group-separator"></div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-11 control-label"></label>
+                        <div class="col-sm-1">
+                            <input type="submit" class="btn btn-warning " name="submit"
+                                   value="{{ lang('global_search') }}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            {% if items %}
+            <table class="table table-bordered table-striped" id="datatable">
+                <thead>
+                <tr>
+                    {% for _index_field in that._index_fields %}
+                        <th>{{ lang(that._table ~ '_' ~ _index_field) }}</th>
+                    {% endfor %}
+                    <th>{{ lang('global_operations') }}</th>
+                </tr>
+                </thead>
+
+                <tbody class="middle-align">
+                {% for item in items %}
+                    <tr>
+                        {% for _index_field in that._index_fields %}
+                            <td>{{ get_variable_attribute(item, _index_field) }}</td>
+                        {% endfor %}
+                        <td>
+                            <a href="{{ admin_url(that._table ~ '/manage/' ~ get_variable_attribute(item, that._primary_key)) }}"
+                               class="btn btn-orange btn-sm btn-icon icon-left">
+                                {{ lang('global_edit') }}
+                            </a>
+                            <a data-href="{{ admin_url(that._table ~ '/delete/' ~ get_variable_attribute(item, that._primary_key)) }}"
+                               class="btn btn-danger btn-sm btn-icon btn-delete"
+                               data-toggle="modal" data-target="#deleteMsg"
+                               style="color:#fff;">{{ lang('global_delete') }}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {{ pagination }}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{ lang('global_system_message') }}</h4>
+                </div>
+                <div class="modal-body">
+                    <span style="color:#777;">{{ lang('global_delete_confirmation_message') }}</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-grey btn-icon" data-dismiss="modal"
+                            style="color: grey;">{{ lang('global_cancel') }}</button>
+                    <a class="btn btn-danger btn-icon modal_delete_btn" href="">{{ lang('global_delete') }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('.btn-delete').click(function () {
+            $('.modal_delete_btn').attr('href', $(this).data('href'));
+
+//        return false;
+        });
+        function search() {
+            $('.search').toggle();
+        }
+    </script>
+
+{% endblock %}

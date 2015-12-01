@@ -28,6 +28,7 @@ $lang['global_delete_confirmation_message'] = 'Are you sure need to delete this 
 $lang['global_connection_error'] = 'Connection error, Trying to get response from the server withen 30 seconds.';
 $lang['global_error'] = 'Error';
 $lang['global_print'] = 'Print';
+$lang['global_check_invoice'] = 'Invalid Invoice Number, Please check it';
 //لايوجد استجابة من السرفر،  سوف يتم معاودة الإتصال بعد 30 ثانية
 
 
@@ -173,6 +174,7 @@ $lang['fees_created_at'] = "Created at";
 
 // Format
 $lang['menu_format_orders'] = "Maintenance Orders";
+$lang['menu_format_step2'] = "Pending Orders";
 $lang['format_orders_save_data'] = "Save data";
 $lang['format_orders_original_software'] = "Original software";
 $lang['format_orders_mobile'] = "Mobile";
@@ -188,6 +190,7 @@ $lang['format_orders_format_commission_first'] = "Format commission (First Step)
 $lang['format_orders_format_commission_second'] = "Format commission (Second Step)";
 $lang['format_orders_branch_id'] = "Branch";
 $lang['format_orders_created_at'] = "Created at";
+$lang['format_orders_archive'] = "Archive";
 
 
 // Invoice Status ??
@@ -470,24 +473,10 @@ $lang['orders_there_is_no_products'] = 'There\'s no products.';
 
 // Invoices
 $lang['menu_invoices'] = "Invoices";
-$lang['invoices_invoice_id'] = "Invoice #";
-$lang['invoices_code'] = "Code";
-$lang['invoices_user_id'] = "User";
-$lang['invoices_client_id'] = "Client";
-$lang['invoices_cash_type_id'] = "Cash type";
-$lang['invoices_due'] = "Due";
-$lang['invoices_paid'] = "Paid";
-$lang['invoices_rest'] = "Rest";
-$lang['invoices_branch_id'] = "Branch";
-$lang['invoices_created_at'] = "Date";
-$lang['invoices_invoice_status_id'] = "Invoice status";
-
-
-$lang['menu_invoices'] = "Invoices";
 $lang['invoices_invoice_id'] = "Invoice";
-$lang['invoices_code'] = "Bill #";
+$lang['invoices_code'] = "Invoice #";
 $lang['invoices_user_id'] = "Cashier";
-$lang['invoices_client_id'] = "Customer #";
+$lang['invoices_client_id'] = "Customer";
 $lang['invoices_due'] = "Total due";
 $lang['invoices_paid'] = "Paid";
 $lang['invoices_rest'] = "Rest";
@@ -496,3 +485,4 @@ $lang['invoices_invoice_status_id'] = "Status";
 $lang['invoices_created_at'] = "Date";
 $lang['invoices_date'] = "Date";
 $lang['invoices_time'] = "Time";
+$lang['invoices_price'] = "Price";

@@ -4,17 +4,58 @@ class Invoices extends Brightery_Controller
 {
     public $_table = 'invoices';
     public $_primary_key = 'invoice_id';
+    public $model = 'General_model';
+    public $data = [];
 
     public function __construct()
     {
         parent::__construct();
+        $this->load->model($this->model);
+        $this->{$this->model}->_table = $this->_table;
+        $this->{$this->model}->_primary_key = $this->_primary_key;
     }
 
-    public function popup($invoice_id = false, $type = 'small')
+    public function index()
     {
-        if (!$invoice_id)
-            show_404();
+        $this->permission($this->_table, 'index');
 
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('code', lang('invoices_code'), 'trim|required|callback_check');
+        if ($this->form_validation->run() == false) {
+            $this->twiggy->set($this->data)
+                ->template("invoices_index")
+                ->display();
+        } else {
+            redirect(ADMIN . "/invoices/view/" . $this->data['item']->invoice_id);
+        }
+    }
+//
+//    public function list()
+//    {
+//
+//        $this->permission($this->_table, 'index');
+//        $this->indexFixes();
+//
+//        $this->{$this->model}->limit = config('pagination_limit');
+//        $this->{$this->model}->offset = $offset;
+//
+//        $config['total_rows'] = $this->{$this->model}->get(TRUE);
+//        $config['suffix'] = '?' . http_build_query($_GET);
+//        $config['base_url'] = site_url(ADMIN . '/' . $this->_table . '/index');
+//        $config['per_page'] = config('pagination_limit');
+//
+//        $this->load->library('pagination', $config);
+//        $this->data['pagination'] = $this->pagination->create_links();
+//        $this->data['total'] = $config['total_rows'];
+//
+//        $this->data['items'] = $this->{$this->model}->get();
+//        $this->twiggy->set($this->data)
+//            ->template("invoices_index")
+//            ->display();
+//    }
+
+    private function invoiceData($invoice_id)
+    {
         $data['item'] = $this->db->select("invoices.*, users.full_name as user, clients.name as client, branches.name as branch, invoice_status." . name() . ' as status')
             ->where('invoices.invoice_id', $invoice_id)
             ->join('users', 'users.user_id = invoices.user_id', 'left')
@@ -54,6 +95,24 @@ class Invoices extends Brightery_Controller
             ->get('prepaid_card_orders')
             ->result();
 
+        $data['branch'] = $this->db->select('*')
+            ->where('branch_id', $data['item']->branch_id)
+            ->get('branches')
+            ->result();
+        if($data['order'][0])
+        $data['offline_transactions'] = $this->db->select('*')
+            ->where('order_id', $data['order'][0]->order_id)
+            ->get('offline_transactions')
+            ->result();
+
+        return $data;
+    }
+
+    public function popup($invoice_id = false, $type = 'small')
+    {
+        if (!$invoice_id)
+            show_404();
+        $data = $this->invoiceData($invoice_id);
         $types = [
             'small' => 'invoices_small',
             'a4' => 'invoices_a4',
@@ -61,5 +120,28 @@ class Invoices extends Brightery_Controller
         ];
 
         $this->twiggy->set($data)->template($types[$type])->display();
+    }
+
+    public function view($invoice_id = false, $type = 'a4')
+    {
+        if (!$invoice_id)
+            show_404();
+        $data = $this->invoiceData($invoice_id);
+        $types = [
+            'small' => 'invoices_small',
+            'a4' => 'invoices_a4',
+            'matrix' => 'invoices_matrix',
+        ];
+
+        $this->twiggy->set($data)->template($types[$type])->display();
+    }
+
+    public function check()
+    {
+        $this->form_validation->set_message('check', lang("global_check_invoice"));
+        $this->data['item'] = $this->db->where('code', $this->input->post('code'))->get('invoices')->row();
+        if (!$this->data['item'])
+            return false;
+        return true;
     }
 }

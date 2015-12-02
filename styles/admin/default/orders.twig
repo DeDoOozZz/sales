@@ -55,7 +55,8 @@
 
                     <div class="col-sm-1">
                         <button type="button" class="btn btn-icon btn-success"
-                                onclick="cart.newClient(); return false;">
+                                onclick="cart.newClient();
+                                        return false;">
                             <i class="fa-plus"></i>
                         </button>
                     </div>
@@ -67,16 +68,16 @@
                 <div class="form-group">
                     <table class="table table-bordered table-striped" id="datatable">
                         <thead>
-                        <tr>
-                            <th style="width: 100px;text-align: justify">{{ lang('orders_qty') }}</th>
-                            <th>{{ lang('orders_product') }}</th>
-                            <th>{{ lang('orders_barcode') }}</th>
-                            <th>{{ lang('orders_original_unit_price') }}</th>
-                            <th>{{ lang('orders_discount') }}</th>
-                            <th>{{ lang('orders_unit_price') }}</th>
-                            <th>{{ lang('orders_total_price') }}</th>
-                            <th>{{ lang('global_operations') }}</th>
-                        </tr>
+                            <tr>
+                                <th style="width: 100px;text-align: justify">{{ lang('orders_qty') }}</th>
+                                <th>{{ lang('orders_product') }}</th>
+                                <th>{{ lang('orders_barcode') }}</th>
+                                <th>{{ lang('orders_original_unit_price') }}</th>
+                                <th>{{ lang('orders_discount') }}</th>
+                                <th>{{ lang('orders_unit_price') }}</th>
+                                <th>{{ lang('orders_total_price') }}</th>
+                                <th>{{ lang('global_operations') }}</th>
+                            </tr>
                         </thead>
                         <tbody class="middle-align append">
 
@@ -236,12 +237,12 @@
                 $.getJSON('{{ admin_url('pending_orders/index') }}', function (response) {
                     var select = document.getElementById('load');
                     $(response.orders).
-                    each(function (idx, val) {
-                        option = document.createElement('option');
-                        option.innerHTML = val.name;
-                        option.value = val.id;
-                        select.appendChild(option);
-                    });
+                            each(function (idx, val) {
+                                option = document.createElement('option');
+                                option.innerHTML = val.name;
+                                option.value = val.id;
+                                select.appendChild(option);
+                            });
                 });
             },
             addRefusedTransaction: function () {
@@ -255,8 +256,8 @@
                 qty = $(that).val();
                 if (qty < 1 || isNaN(qty) || (qty % 1 !== 0))
                     errorHandler.set("{{ lang('orders_invalid_quantity') }}");
-                $.getJSON('{{ admin_url('orders/check_availability') }}', {product_id: $(that).next().val(), qty: qty}, function(res){
-                    if(res.errors){
+                $.getJSON('{{ admin_url('orders/check_availability') }}', {product_id: $(that).next().val(), qty: qty}, function (res) {
+                    if (res.errors) {
                         errorHandler.set(res.errors);
                     }
                 });
@@ -379,7 +380,7 @@
                     loading.hide();
                     $('#pendingOrders').modal('hide');
                     cart.startOver();
-                    $(res.products).each(function(i, x){
+                    $(res.products).each(function (i, x) {
                         $('.append').append(append.replace(/{([a-zA-Z_]+)}/g, function (v, e) {
                             return x[e];
                         }));
@@ -389,46 +390,47 @@
                     });
                 });
             },
-            loadInvoice: function(invoice_id) {
+            loadInvoice: function (invoice_id) {
                 loading.show();
                 $.get('{{ admin_url('invoices/popup') }}/' + invoice_id, function (res) {
                     loading.hide();
                     cart.startOver();
                     $('#invoice').modal('show', {backdrop: 'fade'});
                     $('#invoice .modal-body').html(res);
-                    {#<!--$('#invoice .modal-body iframe').attr('src', '{{ admin_url('invoices/popup') }}/' + invoice_id);-->#}
-                });
+        {#<!--$('#invoice .modal-body iframe').attr('src', '{{ admin_url('invoices/popup') }}/' + invoice_id);-->#}
+                    });
+                }
+            };
+            var errorHandler = {
+                set: function ($message) {
+                    $('.error').html($message).show();
+                    $(document).scrollTop(0);
+                },
+                reset: function () {
+                    $('.error').html('').hide();
+                }
+            };
+            window.onbeforeunload = function () {
+                if (cart.barcodeList.length)
+                    return "{{ lang('orders_leaving_page_warning') }}";
+            };
+            $('#barcode').focus();
+            $('#order_form').on('submit', function (e) {
+                e.preventDefault();
+                return false;
+            });
+            function inArray(needle, haystack) {
+                var length = haystack.length;
+                for (var i = 0; i < length; i++) {
+                    if (haystack[i] == needle)
+                        return true;
+                }
+                return false;
             }
-        };
-        var errorHandler = {
-            set: function ($message) {
-                $('.error').html($message).show();
-                $(document).scrollTop(0);
-            },
-            reset: function () {
-                $('.error').html('').hide();
-            }
-        };
-        window.onbeforeunload = function () {
-            if (cart.barcodeList.length)
-                return "{{ lang('orders_leaving_page_warning') }}";
-        };
-        $('#barcode').focus();
-        $('#order_form').on('submit', function (e) {
-            e.preventDefault();
-            return false;
-        });
-        function inArray(needle, haystack) {
-            var length = haystack.length;
-            for (var i = 0; i < length; i++) {
-                if (haystack[i] == needle) return true;
-            }
-            return false;
-        }
-        var append = function () {/*
-         <tr>
-         <td>
-            {{ form_input('qty[]', 1, 'class="form-control qty" style="width: 50px;"  onchange="cart.updatePrice(this);" onkeypress="cart.qtyKeyPress(this,event)"') }}
+            var append = function () {/*
+             <tr>
+             <td>
+             {{ form_input('qty[]', 1, 'class="form-control qty" style="width: 50px;"  onchange="cart.updatePrice(this);" onkeypress="cart.qtyKeyPress(this,event)"') }}
              <input type="hidden" name="product_id[]" value="{product_id}" />
              </td>
              <td><span onclick="cart.checkProductImage(this)"></span> {product}</td>
@@ -443,13 +445,16 @@
              </button>
              </td>
              </tr>
-             */}.toString();
-        var accepted_transaction = function () {/*
-            {{ form_input('accepted_transactions[]', set_value('accepted_transactions[]'), 'class="form-control accepted_transactions" tabindex="1" autocomplete="off"') }}
-             */}.toString().slice(15, -3);
-        var refused_transaction = function () {/*
-            {{ form_input('accepted_transactions[]', set_value('accepted_transactions[]'), 'class="form-control accepted_transactions" tabindex="1" autocomplete="off"') }}
-             */}.toString().slice(15, -4);
+             */
+            }.toString();
+            var accepted_transaction = function () {/*
+             {{ form_input('accepted_transactions[]', set_value('accepted_transactions[]'), 'class="form-control accepted_transactions" tabindex="1" autocomplete="off"') }}
+             */
+            }.toString().slice(15, -3);
+            var refused_transaction = function () {/*
+             {{ form_input('accepted_transactions[]', set_value('accepted_transactions[]'), 'class="form-control accepted_transactions" tabindex="1" autocomplete="off"') }}
+             */
+            }.toString().slice(15, -4);
     </script>
 
 
@@ -460,34 +465,44 @@
 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">{{ lang('menu_clients') }}</h4>
+                    <h4 class="modal-title">Add Client</h4>
                 </div>
+                <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+                    <div class="modal-body">
 
-                <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="email">Username</label>
 
-                    {#<div class="form-group">#}
-                        {#<label class="col-sm-1 control-label" for="pending_order_name"#}
-                               {#style="white-space: nowrap;">{{ lang('clients_name') }}</label>#}
+                            <div class="col-sm-10">
+                                {{ form_input('username', set_value('username', item.username), 'class="form-control" id="username"') }}
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
 
-                        {#<div class="col-sm-5">#}
-                            {#<div class="input-group">#}
-                                {#<input name="pending_order_name" id="pending_order_name" class="form-control"/>#}
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="email">Email</label>
 
-                                {#<div class="input-group-addon">#}
-                                    {#<a href="javascript:cart.saveToPendingList()"><i class="fa-save"></i></a>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
+                            <div class="col-sm-10">
+                                {{ form_input('email', set_value('email', item.email), 'class="form-control" id="email"') }}
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
 
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="password">Password</label>
 
-                    {#</div>#}
-                    <div style="clear: both"></div>
-                </div>
+                            <div class="col-sm-10">
+                                {{ form_input('password', set_value('password'), 'class="form-control" id="password"') }}
+                            </div>
+                        </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-white"
-                            data-dismiss="modal">{{ lang('global_close') }}</button>
-                </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-secondary " name="submit"
+                               value="{{ lang('global_submit') }}">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -503,7 +518,7 @@
                 </div>
 
                 <div class="modal-body">
-                {#<iframe style="width: 350px; height: 300px; scroll: horizontal; "></iframe>#}
+                    {#<iframe style="width: 350px; height: 300px; scroll: horizontal; "></iframe>#}
                     <div style="clear: both"></div>
                 </div>
 

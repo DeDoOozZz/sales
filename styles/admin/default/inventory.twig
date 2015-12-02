@@ -1,0 +1,43 @@
+{% extends _layout %}
+{% block content %}
+
+    <div class="page-title hidden-print">
+        <div class="title-env">
+            <h1 class="title">{{ lang('menu_orders') }}</h1>
+
+            <p class="description"></p>
+        </div>
+        <div class="breadcrumb-env"></div>
+    </div>
+
+    <form role="form" class="form-horizontal hidden-print" id="order_form" method="post">
+        <!-- Admin Table-->
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <div class="alert alert-danger error" style="display: none"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" for="barcode">{{ lang('products_barcode') }}</label>
+
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            {{ form_input('barcode', set_value('barcode', item.barcode), 'class="form-control" id="barcode" autocomplete="off" onkeypress="cart.barcodeKeyPress(event)"') }}
+                            <div class="input-group-addon">
+                                <a href="javascript:cart.barcodeProcess();"><i class="fa-barcode"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                 
+                </div>
+            
+            </div>
+        </div>
+
+    </form>
+  
+
+{% endblock %}

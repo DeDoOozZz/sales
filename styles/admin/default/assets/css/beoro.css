@@ -616,3 +616,16 @@ td.inv_clone_row i { cursor: pointer }
     top: 2px;
     left: 60px;
 }
+.for-card-price{
+    position: relative;;
+}
+.for-card-price span {
+    position: absolute;
+    top: 0px;
+    display: block;
+    text-align: center;
+    background-color: #f5f5f5;
+    left: 0;
+    right: -76px;
+    padding: 10px 0;
+}

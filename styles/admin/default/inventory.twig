@@ -18,26 +18,89 @@
                 <div class="alert alert-danger error" style="display: none"></div>
 
                 <div class="form-group">
-                    <label class="col-sm-1 control-label" for="barcode">{{ lang('products_barcode') }}</label>
-
-                    <div class="col-sm-4">
-                        <div class="input-group">
-                            {{ form_input('barcode', set_value('barcode', item.barcode), 'class="form-control" id="barcode" autocomplete="off" onkeypress="cart.barcodeKeyPress(event)"') }}
-                            <div class="input-group-addon">
-                                <a href="javascript:cart.barcodeProcess();"><i class="fa-barcode"></i></a>
-                            </div>
-                        </div>
+                    <label class="col-sm-2 control-label" for="barcode">Product Name</label>
+                    <div class="col-sm-3">
+                        <span class="form-control">Product name</span>
                     </div>
 
-                    
-
-                 
+                    <label class="col-sm-2 control-label" for="barcode">Tasnef</label>
+                    <div class="col-sm-3">
+                        <span class="form-control">Tasnef</span>
+                    </div>
+                    <label class="col-sm-1 control-label" for="barcode">Qty</label>
+                    <div class="col-sm-1 ">
+                        <input type="number" class="form-control">
+                    </div>
                 </div>
-            
+                <div class="form-group-separator"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="barcode">Inventory Reason</label>
+                    <div class="col-sm-4">
+                        <ul class="icheck-list">
+                            <li>
+                                <input class="icheck-11" type="radio" id="minimal-radio-1-11" name="minimal-radio-1">
+                                <label for="minimal-radio-1-11">Radio button 1</label>
+                            </li>
+                            <li>
+                                <input tabindex="8" class="icheck-11" type="radio" id="minimal-radio-2-11" name="minimal-radio-1" checked>
+                                <label for="minimal-radio-2-11">Radio button 2</label>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <label class="col-sm-2 control-label" for="barcode">Product Opend</label>
+                    <div class="col-sm-4">
+                        <ul class="icheck-list">
+                            <li>
+                                <input class="icheck-11" type="radio" id="minimal-radio-1-11" name="minimal-radio-2">
+                                <label for="minimal-radio-1-11">Radio button 1</label>
+                            </li>
+                            <li>
+                                <input tabindex="8" class="icheck-11" type="radio" id="minimal-radio-2-11" name="minimal-radio-2" checked>
+                                <label for="minimal-radio-2-11">Radio button 2</label>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="form-group-separator"></div>
+                <div class="form-group">
+                    <label class="col-sm-10 control-label"></label>
+
+                    <div class="col-sm-2">
+                        <input type="submit" class="btn btn-secondary " name="submit"
+                               value="{{ lang('global_submit') }}">
+                        <a href="{{ admin_url(that._table ~ '/index') }} "
+                           class="btn btn-danger">{{ lang('global_cancel') }}</a>
+                    </div>
+                </div>
+
             </div>
         </div>
 
     </form>
-  
+    <link rel="stylesheet" href="{{ constant("STYLE_JS") }}/icheck/skins/all.css">             
+    <script src="{{ constant("STYLE_JS") }}/icheck/icheck.min.js"></script>
 
+    <script type="text/javascript">
+        jQuery(document).ready(function ($)
+        {
+
+
+            // Styles
+            $('input.icheck-11').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-yellow'
+            });
+            $('input.icheck-12').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-yellow'
+            });
+
+
+              });
+    </script>
 {% endblock %}

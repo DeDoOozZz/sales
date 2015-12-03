@@ -625,7 +625,7 @@ td.inv_clone_row i { cursor: pointer }
     display: block;
     text-align: center;
     background-color: #f5f5f5;
-    left: 0;
-    right: -76px;
+    left: 15px;
+    right: 15px;
     padding: 10px 0;
 }

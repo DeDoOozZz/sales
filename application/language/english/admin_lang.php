@@ -27,6 +27,8 @@ $lang['global_system_message'] = 'System Message';
 $lang['global_delete_confirmation_message'] = 'Are you sure need to delete this record ?';
 $lang['global_connection_error'] = 'Connection error, Trying to get response from the server withen 30 seconds.';
 $lang['global_error'] = 'Error';
+$lang['order'] = 'Order';
+$lang['paid'] = 'Paid';
 $lang['global_print'] = 'Print';
 $lang['global_check_invoice'] = 'Invalid Invoice Number, Please check it';
 //لايوجد استجابة من السرفر،  سوف يتم معاودة الإتصال بعد 30 ثانية
@@ -233,10 +235,10 @@ $lang['pending_orders_save'] = "Save";
 $lang['pending_orders_load'] = "Load";
 
 // Prepaid Card Orders
-$lang['menu_prepaid_card_orders'] = "Prepaid card orders";
-$lang['prepaid_card_orders_card_type_id'] = "Card type";
-$lang['prepaid_card_orders_prepaid_card_id'] = "Prepaid card";
-$lang['prepaid_card_orders_total_cards'] = "Total cards";
+$lang['menu_prepaid_card_orders'] = "Prepaid Card Orders";
+$lang['prepaid_card_orders_card_type_id'] = "Card Type";
+$lang['prepaid_card_orders_prepaid_card_id'] = "Prepaid Card";
+$lang['prepaid_card_orders_total_cards'] = "Total Cards";
 $lang['prepaid_card_orders_date'] = "Date";
 $lang['prepaid_card_orders_invoice_id'] = "Invoice";
 

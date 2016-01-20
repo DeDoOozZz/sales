@@ -21,72 +21,63 @@
                     {{ validation_errors() }}
                 </div>
             {% endif %}
-            <form role="form" class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+            <form role="form" id='order' class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
 
                 <div class="form-group">
-                    <label class="col-sm-1 control-label"
-                           for="card_type_id">{{ lang('prepaid_card_orders_card_type_id') }}</label>
+                    <label class="col-sm-1 control-label" for="card_type_id">{{ lang('prepaid_card_orders_card_type_id') }}</label>
 
                     <div class="col-sm-4">
-                        {#                        {{ form_dropdown('prepaid_card_order_id', prepaid_card_types, set_value('prepaid_card_order_id', item.prepaid_card_order_id), 'class="form-control" id="prepaid_card_order_id"') }}#}
-                        <select class="form-control select2">
-                            <option>type</option>
+                        {{ form_dropdown('card_type_id', card_types, set_value('card_type_id'), 'class="form-control select2" id="card_type_id"') }}
+                    </div>
+
+                    <label class="col-sm-1 control-label" for="card_type_id">{{ lang('prepaid_card_orders_prepaid_card_id') }}</label>
+                    {#{{card_types.1}}#}
+                    <div class="col-sm-4">
+                        <select name="prepaid_card_id" id="prepaid_card_id" class="form-control select2">
+                            <option value=''>{{ lang('global_select_from_menu')}}</option>
                         </select>
                     </div>
                     <div class="col-sm-2" style="text-align: center;">
 
-                        <img style="height:36px;" src="https://upload.wikimedia.org/wikipedia/ar/5/51/Mobinil_logo.gif">
-
-                    </div>
-                    <label class="col-sm-1 control-label"
-                           for="card_type_id">{{ lang('prepaid_card_orders_prepaid_card_id') }}</label>
-
-                    <div class="col-sm-4">
-                        {#                        {{ form_dropdown('card_type_id', card_types, set_value('card_type_id', item.card_type_id), 'class="form-control" id="card_type_id"') }}#}
-                        <select class="form-control select2">
-                            <option>type</option>
-                        </select>
+                        <img id="image_type" style="height:36px;" src>
                     </div>
                 </div>
 
                 <div class="form-group-separator"></div>
 
                 <div class="form-group">
-                    <label class="col-sm-1 control-label"
-                           for="card_type_id">QTY</label>
+                    <label class="col-sm-1 control-label" for="card_type_id">QTY</label>
+
+                    <input id="card_price" type="hidden" value>
 
                     <div class="col-sm-3">
-                        {#                        {{ form_dropdown('card_type_id', card_types, set_value('card_type_id', item.card_type_id), 'class="form-control" id="card_type_id"') }}#}
-                        <input type="number" class="form-control">
+                        <input id="quantity" name="quantity" type="number" value="1" class="form-control" max min="1">
                     </div>
-                    <label class="col-sm-1 control-label"
-                           for="prepaid_card_id">remaining</label>
+                    <label class="col-sm-1 control-label" for="prepaid_card_id">remaining</label>
                     <div class="col-sm-3 for-card-price">
-                        {#                            {{ form_input('prepaid_card_id', set_value('prepaid_card_id', item.prepaid_card_id), 'class="form-control" id="prepaid_card_id"') }}#}
-                        <span style="color:#bb0000">100</span>
+                        <span id="remaining" style="color:#bb0000"></span>
                     </div>
-                    <label class="col-sm-1 control-label"
-                           for="prepaid_card_id">{{ lang('prepaid_card_orders_total_cards') }}</label>
+                    <label class="col-sm-1 control-label" for="prepaid_card_id">{{ lang('prepaid_card_orders_total_cards') }}</label>
                     <div class="col-sm-3 for-card-price">
-                        {#                            {{ form_input('prepaid_card_id', set_value('prepaid_card_id', item.prepaid_card_id), 'class="form-control" id="prepaid_card_id"') }}#}
-                        <span>5000</span>
+                        <span id="total-cards"></span>
+                        <input type="hidden" id="total_price" name="total_price" value >
                     </div>
                 </div>
+
                 <div class="form-group-separator"></div>
 
                 <div class="form-group">
-                    <label class="col-sm-1 control-label"
-                           for="card_type_id">paid</label>
+                    <label class="col-sm-1 col-sm-offset-8 control-label" for="card_type_id">paid</label>
 
                     <div class="col-sm-3">
-                        {#                        {{ form_dropdown('card_type_id', card_types, set_value('card_type_id', item.card_type_id), 'class="form-control" id="card_type_id"') }}#}
-                        <input type="text" class="form-control">
+                        <input id="paid_price" name="paid" type="text" class="form-control">
                     </div>
-                    <label class="col-sm-1 control-label"
-                           for="prepaid_card_id">Reset</label>
+                </div>
+                <div class="form-group-separator"></div>
+                <div class="form-group">
+                    <label class="col-sm-1 col-sm-offset-8 control-label" for="prepaid_card_id">Rest</label>
                     <div class="col-sm-3 for-card-price">
-                        {#                            {{ form_input('prepaid_card_id', set_value('prepaid_card_id', item.prepaid_card_id), 'class="form-control" id="prepaid_card_id"') }}#}
-                        <span>5000</span>
+                        <span id="rest_price"></span>
                     </div>
                 </div>
                 <div class="form-group-separator"></div>
@@ -94,15 +85,55 @@
                     <label class="col-sm-10 control-label"></label>
 
                     <div class="col-sm-2">
-                        <input type="submit" class="btn btn-secondary " name="submit"
-                               value="{{ lang('global_submit') }}">
-                        <a href="{{ admin_url(that._table ~ '/index') }} "
-                           class="btn btn-danger">{{ lang('global_cancel') }}</a>
+                        <input type="submit" class="btn btn-secondary " name="submit" value="{{lang('order')}}">
                     </div>
                 </div>
-
-
             </form>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $("#card_type_id").change(function () {
+                $("#prepaid_card_id").html('');
+                var id = this.value;
+                var show;
+                $.ajax({url: '{{ admin_url('prepaid_card_orders/prepaid_cards') }}' + '/' + id, datatype: 'json', success: function (result) {
+                        var obj = jQuery.parseJSON(result);
+                        $.each(obj, function (key, value) {
+                            show += '<option id="' + key + '" value="' + key + '" >' + value + '</option>'
+                        });
+                        $("#prepaid_card_id").html(show);
+                    }});
+            });
+            $("#prepaid_card_id").change(function () {
+                var id = this.value;
+                $.ajax({url: '{{ admin_url('prepaid_card_orders/get_image') }}' + '/' + id, success: function (result) {
+                        $("#image_type").attr("src", result);
+                    }});
+                var prepaid_card_type_id = $("#prepaid_card_id").val();
+        {#                    var QTY = this.value;#}
+                    $.ajax({url: '{{ admin_url('prepaid_card_orders/get_remain') }}' + '/' + prepaid_card_type_id, success: function (result) {
+                            $("#remaining").html(result);
+                            $("#quantity").attr("max", result);
+                        }});
+                    $.ajax({url: '{{ admin_url('prepaid_card_orders/get_price') }}' + '/' + prepaid_card_type_id, success: function (result) {
+                            $("#card_price").val(result);
+                        }});
+                });
+                $("#quantity").change(function () {
+                    var QTY = this.value;
+                    var price = $("#card_price").val();
+                    var result = price * QTY;
+                    $("#total-cards").html(result);
+                    $("#total_price").val(result);
+
+                });
+                $("#paid_price").change(function () {
+                    var price = $("#total-cards").html();
+                    var paid = $("#paid_price").val();
+                    var result = paid - price;
+                    $("#rest_price").html(result);
+                });
+            });
+    </script>
 {% endblock %}

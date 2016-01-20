@@ -1,6 +1,6 @@
 <?php
 
-function dd2menu($table, $field = array(), $set_condition = FALSE, $direct = FALSE, $order = false)
+function dd2menu($table, $field = array(), $set_condition = FALSE, $direct = TRUE, $order = false)
 {
     $MUHAMMAD = &get_instance();
     $data['items'] = array();

@@ -98,7 +98,6 @@ class Prepaid_card_orders extends Brightery_Controller {
         $cards = array('prepaid_card_type_id' => $prepaid_card_type_id,
             'prepaid_card_order_id' => $insert_id);
         $this->db->where('prepaid_card_order_id')->update('prepaid_card_orders', $cards)->limit($QTY);
-        exit();
     }
 
 }
